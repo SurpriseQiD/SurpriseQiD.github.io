@@ -1,9 +1,9 @@
 ---
 # Display name
-title: 董齐
+title: Qi Dong
 
 # Name pronunciation (optional)
-name_pronunciation: Qi Dong
+name_pronunciation:
 
 # Full name (for SEO)
 first_name: Qi
