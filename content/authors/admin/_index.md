@@ -55,8 +55,8 @@ interests:
 education:
   - area: Ph.D. Student, Management Science and Engineering
     institution: University of Science and Technology of China 
-    date_start: 2023-09
-    date_end: 2020-12-31
+    date_start: 2023-09-01
+    date_end: 2027-06-30
     summary: |
       Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
     button:
@@ -64,8 +64,8 @@ education:
       url: 'https://example.com'
   - area: Master, Management Science and Engineering
     institution: University of Science and Technology of China
-    date_start: 2020-09
-    date_end: 2023-06
+    date_start: 2020-09-01
+    date_end: 2023-06-30
     summary: |
       GPA: 3.8/4.0
 
