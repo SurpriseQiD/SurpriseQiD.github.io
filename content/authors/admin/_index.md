@@ -3,7 +3,7 @@
 title: 董齐
 
 # Name pronunciation (optional)
-name_pronunciation: Dong Qi
+name_pronunciation: Qi Dong
 
 # Full name (for SEO)
 first_name: Qi
@@ -20,7 +20,7 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Chief Scientist
+role: Ph.D. Student
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
