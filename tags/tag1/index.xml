@@ -2,17 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tag1 on Qi Dong</title>
-    <link>http://localhost:1313/tags/tag1/</link>
+    <link>https://surpriseqid.github.io/tags/tag1/</link>
     <description>Recent content in Tag1 on Qi Dong</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/tag1/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://surpriseqid.github.io/tags/tag1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>An Example Post</title>
-      <link>http://localhost:1313/post/myfirstblog/</link>
+      <link>https://surpriseqid.github.io/post/myfirstblog/</link>
       <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/myfirstblog/</guid>
+      <guid>https://surpriseqid.github.io/post/myfirstblog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>An Example Post</title>
+      <link>https://surpriseqid.github.io/post/newnewnew/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://surpriseqid.github.io/post/newnewnew/</guid>
       <description></description>
     </item>
   </channel>
