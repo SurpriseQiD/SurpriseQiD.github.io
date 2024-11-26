@@ -153,10 +153,9 @@
   </url><url>
     <loc>https://surpriseqid.github.io/notes/</loc>
   </url><url>
-    <loc>https://surpriseqid.github.io/search/placeholder/</loc>
-  </url><url>
     <loc>https://surpriseqid.github.io/archive/</loc>
   </url><url>
     <loc>https://surpriseqid.github.io/search/</loc>
+    <priority>0.1</priority>
   </url>
 </urlset>
