@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Huabing Blog</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://SurpriseQiD.github.io/categories/</link>
     <description>Recent content in Categories on Huabing Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 28 Apr 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://SurpriseQiD.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tech</title>
-      <link>http://localhost:1313/categories/tech/</link>
+      <link>https://SurpriseQiD.github.io/categories/tech/</link>
       <pubDate>Mon, 28 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/tech/</guid>
+      <guid>https://SurpriseQiD.github.io/categories/tech/</guid>
       <description></description>
     </item>
     <item>
       <title>Tips</title>
-      <link>http://localhost:1313/categories/tips/</link>
+      <link>https://SurpriseQiD.github.io/categories/tips/</link>
       <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/tips/</guid>
+      <guid>https://SurpriseQiD.github.io/categories/tips/</guid>
       <description></description>
     </item>
     <item>
       <title>Life</title>
-      <link>http://localhost:1313/categories/life/</link>
+      <link>https://SurpriseQiD.github.io/categories/life/</link>
       <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/life/</guid>
+      <guid>https://SurpriseQiD.github.io/categories/life/</guid>
       <description></description>
     </item>
   </channel>
