@@ -531,6 +531,25 @@
 
 
 
+<span id="total-views" class="site-counter">
+  <i class="fa fa-eye"></i>
+  <span class="leancloud-total-views"></span>
+</span>
+
+<script>
+  
+  function showTotalViews() {
+    var SiteCounter = AV.Object.extend("SiteCounter");
+    var query = new AV.Query(SiteCounter);
+    query.first().then(function (counter) {
+      var totalViews = counter ? counter.get("totalViews") : 0;
+      document.querySelector('.leancloud-total-views').textContent = totalViews;
+    });
+  }
+  showTotalViews(); 
+</script>
+
+
 
 <script type="text/javascript">
     function generateCatalog(selector) {
