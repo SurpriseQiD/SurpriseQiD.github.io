@@ -10,14 +10,14 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg">
-    <meta property="twitter:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg" />
+    <meta property="og:image" content="/img/research-banner.jpg">
+    <meta property="twitter:image" content="/img/research-banner.jpg" />
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="研究专栏" />
+    <meta property="og:title" content="研究专栏" />
+    <meta property="twitter:title" content="研究专栏" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="董齐, DongQi, 学术博客, 知识管理, 管理科学与工程, Game Theory, Decision Science, Operations Management, Influencer Marketing, Human-AI Interaction">
     <link rel="shortcut icon" href="/img/favicon.png">
 
-    <title>404 Page not found | 齐观 | 董齐的博客</title>
+    <title>研究专栏 | 齐观 | 董齐的博客</title>
 
-    <link rel="canonical" href="/404.html">
+    <link rel="canonical" href="/research/">
 
     
     
@@ -186,22 +186,209 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/404-bg.jpg')">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-				<div class="site-heading" id="tag-heading">
-					<h1>404</h1>
-					<span class="subheading">你来到了没有知识的荒原:</span>
-				</div>
-			</div>
-		</div>
-	</div>
-</header>
+<article>
+    <div class="container">
+        <div class="row">
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+         	
+<div class="research-intro">
+  <p>本专栏系统呈现课题组在<strong>系统优化</strong>与<strong>决策科学</strong>领域的最新研究成果，涵盖理论探索、方法创新与实践应用三个维度。研究特色在于：</p>
+<ul>
+<li>🧩 多学科交叉融合（博弈论+运筹学+AI）</li>
+<li>⚡ 强调算法可解释性与商业落地性</li>
+<li>🌐 注重社会价值与经济价值的平衡</li>
+</ul>  
+</div>
+<h3 id="核心方法论体系">核心方法论体系</h3>
+
+<div class="methodology-matrix">
+  <table>
+    
+    
+      
+    
+      
+    
+       
+      <tr>
+        
+        
+          <td></td>
+        
+          <td><hr>
+</td>
+        
+          <td><hr>
+</td>
+        
+          <td><hr>
+</td>
+        
+          <td></td>
+        
+      </tr>
+      
+    
+       
+      <tr>
+        
+        
+          <td></td>
+        
+          <td>随机规划</td>
+        
+          <td>不确定环境决策</td>
+        
+          <td>Gurobi, CPLEX</td>
+        
+          <td></td>
+        
+      </tr>
+      
+    
+       
+      <tr>
+        
+        
+          <td></td>
+        
+          <td>多智能体仿真</td>
+        
+          <td>复杂系统演化</td>
+        
+          <td>AnyLogic, NetLogo</td>
+        
+          <td></td>
+        
+      </tr>
+      
+    
+       
+      <tr>
+        
+        
+          <td></td>
+        
+          <td>因果推理</td>
+        
+          <td>策略效果评估</td>
+        
+          <td>DoWhy, EconML</td>
+        
+          <td></td>
+        
+      </tr>
+      
+    
+      
+    
+  </table>
+</div>
+<h3 id="最新研究动态">最新研究动态</h3>
+
+<section class="latest-projects">
+  <h2 class="section-title">最新研究项目</h2>
+  
+  <div class="project-list">
+    <p>{{ range where .Site.RegularPages &ldquo;Section&rdquo; &ldquo;research&rdquo; | first 3 }}</p>
+<ul>
+<li><strong>[{{ .Title }}]({{ .RelPermalink }})</strong><br>
+📅 {{ .Date.Format &ldquo;2006-01&rdquo; }} | {{ .Params.status }}<br>
+{{ .Summary | truncate 150 }}
+{{ end }}</li>
+</ul>  
+
+    
+    
+    
+    
+  </div>
+
+  <style>
+  .latest-projects {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .project-card {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .project-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  </style>
+</section>
+<p><a href="/doc/research-portfolio.pdf">下载完整研究手册</a>{.button .primary}</p>
+
+                
+
+
+
+
+<link href="https://xxx.xxx.com/dist/Artalk.css" rel="stylesheet" />
+<script src="https://xxx.xxx.com/dist/Artalk.js"></script>
+
+
+<div id="Comments"></div>
 
 <script>
-	document.body.classList.add('page-fullscreen');
+    Artalk.init({
+        el: '#Comments',
+        pageKey: 'https:\/\/SurpriseQiD.github.io\/research\/',
+        pageTitle: '研究专栏',
+        server: 'https:\/\/xxx.xxx.com',
+        site: 'xxx blog',
+    })
 </script>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
+                        istio
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
 
 
 
@@ -251,7 +438,7 @@
             
            
                    <li>
-                       <a href='' rel="alternate" type="application/rss+xml" title="QiView" >
+                       <a href='/research/index.xml' rel="alternate" type="application/rss+xml" title="QiView" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
