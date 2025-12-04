@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>QiView</title>
+    <title>研究 on QiView</title>
     <link>https://SurpriseQiD.github.io/research/</link>
-    <description>Recent content on QiView</description>
+    <description>Recent content in 研究 on QiView</description>
     <generator>Hugo</generator>
     <language>en-us</language>
+    <lastBuildDate></lastBuildDate>
     <atom:link href="https://SurpriseQiD.github.io/research/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
