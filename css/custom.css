@@ -36,3 +36,33 @@
 .post-list .post-item { padding: 6px 0; }
 .post-list .post-item h3 { font-size: 1rem; margin-bottom: 4px; }
 .post-list .post-item .post-summary { font-size: 0.9rem; color: #57666b; }
+
+/* Thumbnail support for post cards */
+.post-card { display: flex; gap: 12px; align-items: flex-start; }
+.post-card-thumb { width: 120px; flex: 0 0 120px; }
+.post-card-thumb img { width: 100%; height: 80px; object-fit: cover; border-radius: 6px; border: 1px solid #eef3f6; }
+.post-card-main { flex: 1 1 auto; }
+
+/* Controls styling */
+.post-controls select { padding: 4px 8px; border-radius: 6px; border: 1px solid #dfe9ec; }
+
+@media (max-width: 768px) {
+  .post-card { flex-direction: column; }
+  .post-card-thumb { width: 100%; }
+  .post-card-thumb img { height: 160px; }
+}
+
+/* Compact styles for secondary items */
+.post-card.small .post-card-title { font-size: 0.98rem; }
+.post-card .post-card-meta.compact { font-size: 0.82rem; color: #7a8a8f; }
+.post-card-summary.compact { font-size: 0.9rem; line-height: 1.3; max-height: 2.6em; }
+.post-card.collapsed { opacity: 0.98; max-height: 0; overflow: hidden; margin: 0; padding: 0; border: none; transform: scaleY(0); transform-origin: top; transition: transform .18s ease, max-height .18s ease; }
+.post-card.collapsed .post-card-main { display:none; }
+.post-card.collapsed .post-card-thumb { display:none; }
+
+.show-more { background: transparent; border: 1px solid #2a6f97; color: #2a6f97; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+.show-more:hover { background:#2a6f97; color:#fff; }
+
+/* Subject filter style */
+.post-controls select { padding: 6px 8px; border-radius: 6px; border: 1px solid #dfe9ec; }
+
