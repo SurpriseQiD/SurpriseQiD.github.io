@@ -29,8 +29,8 @@
 .post-card:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(18,50,58,0.08); }
 .post-card-title { margin: 0 0 6px 0; font-size: 1.28rem; font-weight: 600; letter-spacing: -0.2px; }
 .post-card-title a { color: #1b3b4a; text-decoration: none; }
-.post-card-meta { font-size: 0.82rem; color: #6b7c85; margin-bottom: 4px; }
-.post-card-summary { color: #465b63; margin: 6px 0 0 0; font-size: 0.92rem; line-height: 1.32; max-height: 2.8em; overflow: hidden; }
+.post-card-meta { font-size: 0.82rem; color: #6b7c85; margin-bottom: 0; }
+.post-card-summary { color: #465b63; margin: 2px 0 0 0; font-size: 0.92rem; line-height: 1.2; max-height: 2.6em; overflow: hidden; }
 
 /* support small modifier on the title element itself (template may add .small) */
 .post-card-title.small { font-size: 0.98rem; font-weight: 600; }
