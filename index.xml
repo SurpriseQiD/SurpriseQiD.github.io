@@ -23,6 +23,34 @@
       <description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;博弈论是研究多个理性决策者（玩家）在相互影响下如何选择策略并产生结果的理论框架。它被广泛应用于经济学、计算机科学、机制设计、网络安全与多智能体系统等领域。本文以通俗且精炼的方式介绍博弈论的基本概念、若干经典模型以及一个简单示例，便于初学者快速上手并形成系统的学习路径。&lt;/p&gt;</description>
     </item>
     <item>
+      <title>强化学习中的策略评估：从蒙特卡洛到时序差分</title>
+      <link>https://SurpriseQiD.github.io/post/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/post/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0/</guid>
+      <description>&lt;p&gt;本文介绍蒙特卡洛方法、时序差分（TD）与基于函数逼近的策略评估技术，并说明实践中的调参要点。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>渗透测试常用方法综述</title>
+      <link>https://SurpriseQiD.github.io/post/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/post/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/</guid>
+      <description>&lt;p&gt;本文概述渗透测试的主要步骤、自动化工具与手工方法，并强调法律与合规边界。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>漏洞响应与数字取证简介</title>
+      <link>https://SurpriseQiD.github.io/post/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%BC%8F%E6%B4%9E%E5%93%8D%E5%BA%94%E4%B8%8E%E5%8F%96%E8%AF%81/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/post/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%BC%8F%E6%B4%9E%E5%93%8D%E5%BA%94%E4%B8%8E%E5%8F%96%E8%AF%81/</guid>
+      <description>&lt;p&gt;本文给出发生安全事件后的快速响应建议、证据保全与日志分析基础，适用于中小型服务的应急流程设计。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自监督表示学习概述</title>
+      <link>https://SurpriseQiD.github.io/post/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E7%9B%91%E7%9D%A3%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/post/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E7%9B%91%E7%9D%A3%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/</guid>
+      <description>&lt;p&gt;本文概述自监督表示学习的动机、常见任务与代表性方法（对比学习、预测式方法、掩码建模），并给出实现要点与参考文献。&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Post 尝试</title>
       <link>https://SurpriseQiD.github.io/post/post-changetest-2025-05-13/</link>
       <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
@@ -49,13 +77,6 @@
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
       <guid>https://SurpriseQiD.github.io/post/introducing-the-istio-v1alpha3-routing-api/</guid>
       <description>&lt;p&gt;到目前为止，Istio提供了一个简单的API来进行流量管理，该API包括了四种资源：RouteRule，DestinationPolicy，EgressRule和Ingress（直接使用了Kubernets的Ingress资源）。借助此API，用户可以轻松管理Istio服务网格中的流量。该API允许用户将请求路由到特定版本的服务，为弹性测试注入延迟和失败，添加超时和断路器等等，所有这些功能都不必更改应用程序本身的代码。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Clean White Theme for Hugo</title>
-      <link>https://SurpriseQiD.github.io/post/readme/</link>
-      <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>https://SurpriseQiD.github.io/post/readme/</guid>
-      <description>&lt;h1 id=&#34;clean-white-theme-for-hugo&#34;&gt;Clean White Theme for Hugo&lt;/h1&gt;&#xA;&lt;p&gt;CleanWhite is a clean, elegant, but fully functional blog theme for Hugo. Here is a live &lt;a href=&#34;https://zhaohuabing.com&#34;&gt;demo site&lt;/a&gt; using this theme.&lt;/p&gt;&#xA;&lt;p&gt;It is based on &lt;a href=&#34;https://github.com/Huxpro/huxpro.github.io&#34;&gt;huxblog Jekyll Theme&lt;/a&gt;&#xA;and &lt;a href=&#34;https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll&#34;&gt;Clean Blog Jekyll Theme&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;These two upstream projects have done awesome jobs to create a blog theme, what I&amp;rsquo;m doing here is porting it to Hugo, of which I like the simplicity and the much faster compiling speed. Some other features which I think could be useful, such as site search with algolia and proxy for Disqus access in China, have also been built in the CleanWhite theme. Other fancy features of upstream projects are not supported by this Hugo theme, I&amp;rsquo;d like to make it as simple as possible and only focus on blog purpose, at least for now.&#xA;While I created this theme, I followed the Hugo theme best practice and tried to make every part of the template as a replaceable partial html, so it could be much easier for you to make your customization based on it.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
