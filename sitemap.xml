@@ -2,22 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://SurpriseQiD.github.io/categories/</loc>
-    <lastmod>2025-12-04T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://SurpriseQiD.github.io/post/</loc>
     <lastmod>2025-12-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://SurpriseQiD.github.io/tags/</loc>
-    <lastmod>2025-12-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://SurpriseQiD.github.io/tags/%E5%85%A5%E9%97%A8/</loc>
-    <lastmod>2025-12-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://SurpriseQiD.github.io/categories/%E5%8D%9A%E5%BC%88%E8%AE%BA/</loc>
-    <lastmod>2025-12-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://SurpriseQiD.github.io/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/</loc>
+    <loc>https://SurpriseQiD.github.io/knowledge/game-theory/</loc>
     <lastmod>2025-12-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://SurpriseQiD.github.io/knowledge/game-theory/2025-12-04-%E5%8D%9A%E5%BC%88%E8%AE%BA%E5%85%A5%E9%97%A8/</loc>
@@ -29,37 +17,22 @@
     <loc>https://SurpriseQiD.github.io/</loc>
     <lastmod>2025-12-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://SurpriseQiD.github.io/categories/%E7%9F%A5%E8%AF%86%E5%BA%93/</loc>
+    <loc>https://SurpriseQiD.github.io/bio/</loc>
     <lastmod>2025-12-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://SurpriseQiD.github.io/knowledge/</loc>
     <lastmod>2025-12-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://SurpriseQiD.github.io/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/</loc>
-    <lastmod>2025-12-04T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://SurpriseQiD.github.io/research/</loc>
     <lastmod>2025-12-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://SurpriseQiD.github.io/bio/</loc>
-    <lastmod>2025-05-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://SurpriseQiD.github.io/tags/istio/</loc>
-    <lastmod>2025-05-13T00:00:00+00:00</lastmod>
+    <loc>https://SurpriseQiD.github.io/resources/</loc>
+    <lastmod>2025-12-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://SurpriseQiD.github.io/post/post-changetest-2025-05-13/</loc>
     <lastmod>2025-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://SurpriseQiD.github.io/categories/tech/</loc>
-    <lastmod>2025-05-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://SurpriseQiD.github.io/post/myfirstblog/</loc>
-    <lastmod>2025-04-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://SurpriseQiD.github.io/tags/tag1/</loc>
-    <lastmod>2025-04-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://SurpriseQiD.github.io/tags/tag2/</loc>
     <lastmod>2025-04-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://SurpriseQiD.github.io/paper-notes/</loc>
@@ -83,5 +56,7 @@
     <loc>https://SurpriseQiD.github.io/archive/</loc>
   </url><url>
     <loc>https://SurpriseQiD.github.io/search/</loc>
+  </url><url>
+    <loc>https://SurpriseQiD.github.io/subjects/</loc>
   </url>
 </urlset>
