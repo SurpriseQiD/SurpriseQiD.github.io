@@ -10,9 +10,9 @@
     <atom:link href="https://SurpriseQiD.github.io/tags/tag2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Blog</title>
-      <link>https://SurpriseQiD.github.io/post/2025-04-28-myfirstblog/</link>
+      <link>https://SurpriseQiD.github.io/post/myfirstblog/</link>
       <pubDate>Mon, 28 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://SurpriseQiD.github.io/post/2025-04-28-myfirstblog/</guid>
+      <guid>https://SurpriseQiD.github.io/post/myfirstblog/</guid>
       <description>&lt;p&gt;My First Blog&lt;/p&gt;&#xA;&lt;p&gt;Hello World！&lt;/p&gt;</description>
     </item>
   </channel>
