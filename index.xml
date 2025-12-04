@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>About Me on QiView</title>
+    <title>奇观（QView） on QiView</title>
     <link>https://SurpriseQiD.github.io/</link>
-    <description>Recent content in About Me on QiView</description>
+    <description>Recent content in 奇观（QView） on QiView</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 13 May 2025 00:00:00 +0000</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>https://SurpriseQiD.github.io/2025/05/13/firstpost/</link>
       <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
       <guid>https://SurpriseQiD.github.io/2025/05/13/firstpost/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;大家好！ 这是我第一次尝试post配置修改：&lt;/p&gt;&lt;/blockquote&gt;</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;大家好！ 这是我第一次尝试post配置修改：&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>My First Blog</title>

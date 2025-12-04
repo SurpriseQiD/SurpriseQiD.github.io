@@ -10,20 +10,20 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="/static/img/favicon.png">
-    <meta property="twitter:image" content="/static/img/favicon.png" />
+    <meta property="og:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg">
+    <meta property="twitter:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg" />
     
 
     
-    <meta name="title" content="Post 尝试" />
-    <meta property="og:title" content="Post 尝试" />
-    <meta property="twitter:title" content="Post 尝试" />
+    <meta name="title" content="知识库" />
+    <meta property="og:title" content="知识库" />
+    <meta property="twitter:title" content="知识库" />
     
 
     
-    <meta name="description" content="这是我第一次尝试post配置修改">
-    <meta property="og:description" content="这是我第一次尝试post配置修改" />
-    <meta property="twitter:description" content="这是我第一次尝试post配置修改" />
+    <meta name="description" content="系统化的基础理论与方法知识库，覆盖博弈论、机器学习、深度学习与大型语言模型等主题。">
+    <meta property="og:description" content="系统化的基础理论与方法知识库，覆盖博弈论、机器学习、深度学习与大型语言模型等主题。" />
+    <meta property="twitter:description" content="系统化的基础理论与方法知识库，覆盖博弈论、机器学习、深度学习与大型语言模型等主题。" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="董齐, DongQi, 学术博客, 知识管理, 管理科学与工程, Game Theory, Decision Science, Operations Management, Influencer Marketing, Human-AI Interaction">
     <link rel="shortcut icon" href="/img/favicon.png">
 
-    <title>Post 尝试 | 齐观 | 董齐的博客</title>
+    <title>知识库 | 齐观 | 董齐的博客</title>
 
-    <link rel="canonical" href="/2025/05/13/firstpost/">
+    <link rel="canonical" href="/knowledge/">
 
     
     
@@ -170,103 +170,27 @@
         <div class="row">
             
             <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container">
-            
-                <blockquote>
-<p>大家好！ 这是我第一次尝试post配置修改：</p>
-</blockquote>
-<h2 id="networking">Networking</h2>
-<h3 id="改进的流量管理模型">改进的流量管理模型</h3>
-<p>0.8版本采用了新的流量管理配置模型<a href="https://istio.io/blog/2018/v1alpha3-routing/">v1alpha3 Route API</a>。新版本的模型添加了一些新的特性，并改善了之前版本模型中的可用性问题。主要的改动包括：</p>
-<h4 id="gateway">Gateway</h4>
-<p>新版本中不再使用K8s中的Ingress，转而采用Gateway来统一配置Service Mesh中的各个HTTP/TCP负载均衡器。Gateway可以是处理入口流量的Ingress Gateway，负责Service Mesh内部各个服务间通信的Sidecar Proxy，也可以是负责出口流量的Egress Gateway。</p>
-<p>Mesh中涉及到的三类Gateway: <br>
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-  <img src="/static/img/favicon.png" alt="Gateway">
-
-</p>
-<p>该变化的原因是K8s中的Ingress对象功能过于简单，不能满足Istio灵活的路由规则需求。在0.8版本中，L4-L6的配置和L7的配置被分别处理，Gateway中只配置L4-L6的功能，例如暴露的端口，TLS设置。然后用户可以采用VirtualService来配置标准的Istio规则，并和Gateway进行绑定。</p>
-<h4 id="virtualservice">VirtualService</h4>
-<p>采用VirtualService代替了alpha2模型中的RouteRule。采用VirtualService有两个优势：</p>
-<p><strong>可以把一个服务相关的规则放在一起管理</strong></p>
-<p>例如下面的路由规则，发向reviews的请求流量缺省destination为v1，如果user为jason则路由到v2。在v1模型中需要采用两条规则来实现，采用VirtualService后放到一个规则下就可以实现。</p>
-<pre tabindex="0"><code>apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: reviews
-spec:
-  hosts:
-    - reviews
-  http:
-  - match:
-    - headers:
-        cookie:
-          regex: &#34;^(.*?;)?(user=jason)(;.*)?$&#34;
-    route:
-    - destination:
-        host: reviews
-        subset: v2
-  - route:
-    - destination:
-        host: reviews
-        subset: v1
-</code></pre><p><strong>可以对外暴露一个并不存在的“虚拟服务”，然后将该“虚拟服务”映射到Istio中的Service上</strong></p>
-<p>下面规则中的bookinfo.com是对外暴露的“虚拟服务”，bookinfo.com/reviews被映射到了reviews服务，bookinfo.com/ratings被映射到了ratings服务。通过采用VirtualService，极大地增强了Istio路由规则的灵活性，有利于Legacy系统和Istio的集成。</p>
-<pre tabindex="0"><code>apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: bookinfo
-spec:
-  hosts:
-    - bookinfo.com
-  http:
-  - match:
-    - uri:
-        prefix: /reviews
-    route:
-    - destination:
-        host: reviews
-  - match:
-    - uri:
-        prefix: /ratings
-    route:
-    - destination:
-        host: ratings
-  ...
-</code></pre><h3 id="envoy-v2">Envoy V2</h3>
-<p>控制面和数据面标准接口支持Envoy</p>
-<h3 id="用gateway代替-ingressengress">用Gateway代替 Ingress/Engress</h3>
-<p>前面已经介绍到，新的版本中不再支持将Kubernetes的Ingress和Istio路由规则一起使用。Istio 0.8支持平台无关的 Ingress/Egress Gateway,可以在Kubernetes，Cloud Foundry中和Istio路由规则无缝集成。</p>
-<h3 id="对入站端口进行限制">对入站端口进行限制</h3>
-<p>0.8版本只允许访问Pod内已声明端口的入站流量。</p>
-<h2 id="security">Security</h2>
-<h3 id="安全组件citadel">安全组件Citadel</h3>
-<p>将Istio的安全组件Istio-Auth/Istio-CA正式命名为Citadel（堡垒）。</p>
-<h3 id="跨集群支持">跨集群支持</h3>
-<p>部署在多个Cluster中的Citadel可以共享同一Root Certificate，以支持不同Cluster内的服务可以跨Cluster进行认证。</p>
-<h3 id="认证策略">认证策略</h3>
-<p>认证策略既支持Service-to-Service认证，也支持对终端用户进行认证。</p>
-<h2 id="遥测">遥测</h2>
-<p>Mixer和Pilot将上报自身的遥测数据，其上报的流程和Mesh中的普通服务相同。</p>
-<h2 id="安装">安装</h2>
-<p>按需安装部分组件：支持只安装所需的组件，如果只需要使用Istio的路由规则，可以选择只安装Pilot，而不安装Mixer和Citadel。</p>
-<h2 id="mixer">Mixer</h2>
-<p>CloudWatch：增加了一个CloudWatch插件，可以向AWS CloudWatch上报度量数据。</p>
-<h2 id="已知故障">已知故障：</h2>
+         	<p>知识库旨在为读者提供系统化的基础理论、关键概念与常用方法的整理，便于学习与快速回顾。下列为初始主题与简要说明：</p>
 <ul>
-<li>如果Gateway绑定的VirtualService指向的是headless service，则该规则不能正常工作。</li>
-<li>0.8版本和Kubernetes1.10.2存在兼容问题，目前建议采用1.9版本。</li>
-<li>convert-networking-config工具存在故障，一个其它的namespace可能会被修改为istio-system namespace。可以在允许转换工具后手动修改文件来避免。</li>
+<li>博弈论：包含静态博弈、动态博弈、贝叶斯博弈、重复博弈与机制设计等基础概念与经典证明要点。</li>
+<li>机器学习：包括监督学习、无监督学习、特征工程、模型选择与评估指标，以及常用算法概述（回归、决策树、SVM、集成方法）。</li>
+<li>深度学习：神经网络基础、反向传播、常见网络结构（CNN、RNN、Transformer）、优化方法与正则化技巧。</li>
+<li>大型语言模型（LLM）：自注意力机制、预训练与微调策略、评估方法与安全/偏见问题简介。</li>
+<li>数学基础：概率论、线性代数、凸优化、信息论与统计推断的要点回顾。</li>
+<li>优化方法：凸/非凸优化、数值优化技巧、梯度方法与二阶方法比较。</li>
 </ul>
-<h2 id="总结">总结</h2>
-<p>0.8版本带来的最大变化是流量配置模型的重构，重构后的模型整合了外部Gateway和内部Sidecar Proxy的路由配置。同时VirtualService的引入使路由规则的配置更为集中和灵活。</p>
-            
-             
-            
+<p>条目规范（建议）：</p>
+<ul>
+<li>每个主题页面应包含概念定义、关键公式、常见应用场景与若干参考读物或教程链接。</li>
+<li>优先提供简洁的示例代码或伪代码以便快速上手。</li>
+</ul>
+<p>如果你希望，我可以逐一为上述主题生成章节草案（例如先完成“博弈论”章节的结构与首篇条目）。请指定优先级或直接允许我按上文顺序推进。</p>
+
+                
 
 
 
@@ -280,110 +204,47 @@ spec:
 <script>
     Artalk.init({
         el: '#Comments',
-        pageKey: 'https:\/\/SurpriseQiD.github.io\/2025\/05\/13\/firstpost\/',
-        pageTitle: 'Post 尝试',
+        pageKey: 'https:\/\/SurpriseQiD.github.io\/knowledge\/',
+        pageTitle: '知识库',
         server: 'https:\/\/xxx.xxx.com',
         site: 'xxx blog',
     })
 </script>
 
 
-            
-            </div>
-            
-            
 
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-	
-    <section class="visible-md visible-lg">
-	
-        <div class="short-about">
-            
-            <a href="/about">
-               <img src="/img/avatar-dongqi.jpg" alt="avatar" style="cursor: pointer" />
-            </a>
-            
-            
-                <p>Ph.D. Candidate at University of Science and Technology of China</p>
-            
-           
-           <ul class="list-inline">
-               
-               <li>
-                   <a href="mailto:dongq@mail.ustc.edu.cn">
-                      <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                      </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://github.com/SurpriseQiD">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               
-               
-            
-            
-               
-               
-               
-               
-                </ul>
             </div>
-    </section>
-	
-    
-    
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
             
-            
-               
-                    <a href="/tags/istio" title="istio">
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/istio" title="istio">
                         istio
-                    </a>
-               
-            
-               
-            
-               
-            
-        </div>
-    </section>
-    
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
 
-    
-    
-    
-</div>
-
+                
+                
+            </div>
         </div>
     </div>
 </article>
@@ -437,7 +298,7 @@ spec:
             
            
                    <li>
-                       <a href='' rel="alternate" type="application/rss+xml" title="QiView" >
+                       <a href='/knowledge/index.xml' rel="alternate" type="application/rss+xml" title="QiView" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
