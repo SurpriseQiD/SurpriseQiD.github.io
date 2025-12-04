@@ -44,6 +44,20 @@
       <description>&lt;p&gt;本文给出发生安全事件后的快速响应建议、证据保全与日志分析基础，适用于中小型服务的应急流程设计。&lt;/p&gt;</description>
     </item>
     <item>
+      <title>简短实验：多智能体学习的收敛观察</title>
+      <link>https://SurpriseQiD.github.io/research/2025-12-04-%E6%9C%BA%E5%99%A8%E5%81%87%E8%AE%BE-%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/research/2025-12-04-%E6%9C%BA%E5%99%A8%E5%81%87%E8%AE%BE-%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/</guid>
+      <description>&lt;p&gt;本文记录了在简单网格环境中多智能体交互的实验设置、参数与若干观察结果，着重讨论收敛行为与噪声的影响。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>纳什均衡速记</title>
+      <link>https://SurpriseQiD.github.io/research/2025-12-04-%E5%8D%9A%E5%BC%88%E8%AE%BA-%E7%BA%B3%E4%BB%80%E5%9D%87%E8%A1%A1%E9%80%9F%E8%AE%B0/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/research/2025-12-04-%E5%8D%9A%E5%BC%88%E8%AE%BA-%E7%BA%B3%E4%BB%80%E5%9D%87%E8%A1%A1%E9%80%9F%E8%AE%B0/</guid>
+      <description>&lt;p&gt;本文总结纳什均衡的核心概念、典型证明思路与计算方法（包括混合策略的求解要点），并给出小型例题与解法提示。&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>自监督表示学习概述</title>
       <link>https://SurpriseQiD.github.io/post/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E7%9B%91%E7%9D%A3%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/</link>
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>

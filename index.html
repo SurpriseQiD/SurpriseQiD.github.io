@@ -112,6 +112,8 @@
                     
                         <li><a href="/">Homepage</a></li>
                     
+                        <li><a href="/research/">Researches</a></li>
+                    
                         <li><a href="/post/">Posts</a></li>
                     
                         <li><a href="/resources/">资源链接</a></li>
@@ -163,37 +165,199 @@
 
 
 
-  <main class="homepage" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);">
-    <div class="profile-card" style="background: #fff; border-radius: 20px; box-shadow: 0 4px 32px rgba(0,0,0,0.10); padding: 3rem 2.5rem; max-width: 520px; width: 100%; text-align: center; animation: fadeIn 1.2s;">
-      <img src="/img/avatar-dongqi.jpg" alt="Qi Dong" style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.10); border: 4px solid #e0e7ef;">
-      <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.6rem; letter-spacing: 1px;">Dr. Qi Dong</h1>
-      <div style="font-size: 1.2rem; color: #444; margin-bottom: 1.3rem; font-weight: 500;">Ph.D. Candidate<br>University of Science and Technology of China</div>
-      <div style="font-size: 1.08rem; margin-bottom: 1.3rem; color: #555;">
-        <strong>Research Interests:</strong>
-        <ul style="list-style: disc; margin: 0.5rem 0 0 1.2rem; text-align: left;">
-          <li>Game Theory</li>
-          <li>Decision Science</li>
-          <li>Operations Management</li>
-          <li>Human-AI Interaction</li>
-        </ul>
+<section class="hero-hero" style="background: linear-gradient(180deg, #f7fbfc 0%, #ffffff 60%); padding: 48px 0;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1 style="font-size:2.2rem; margin-bottom:12px; color:#0f2b33;">奇观（QView）</h1>
+        <p style="font-size:1.05rem; color:#2d4850; max-width:720px;">学术化的计算与决策科学知识库：系统化教程、可复现研究笔记与工具实践指南。我们把零散的研究笔记组织成可引用的学术资源。</p>
+        <p style="margin-top:18px;"><a class="btn btn-primary" href="/post/">查看文章（Posts）</a> <a class="btn btn-outline" href="/knowledge/" style="margin-left:8px;">知识库（Knowledge）</a></p>
       </div>
-      <div style="margin-bottom: 1.3rem; color: #333; font-size: 1.08rem;">
-        <em>"Pursuing excellence in research and innovation for a better future."</em>
+      <div class="col-md-4" style="display:flex; align-items:center; justify-content:center;">
+        <div style="width:220px; height:140px; background:#fff; border-radius:8px; box-shadow:0 8px 24px rgba(15,43,51,0.06); padding:12px;">
+          <h4 style="margin:0 0 8px 0; color:#12323a;">精选文章</h4>
+          <ul style="padding-left:16px; margin:6px 0; color:#3e5960;">
+            <li><a href="/post/2025-12-04-机器学习-自监督表示学习概述/">自监督表示学习概述</a></li>
+            <li><a href="/post/2025-12-04-网络安全-渗透测试常用方法综述/">渗透测试常用方法综述</a></li>
+            <li><a href="/post/2025-12-04-机器学习-强化学习中的策略评估/">强化学习中的策略评估</a></li>
+          </ul>
+        </div>
       </div>
-      <div style="margin-bottom: 1.3rem;">
-        <a href="mailto:dongq@mail.ustc.edu.cn" style="display: inline-block; margin: 0 0.3rem; padding: 0.5rem 1.2rem; background: #007bff; color: #fff; border-radius: 6px; text-decoration: none; font-size: 1rem; font-weight: 500; transition: background 0.2s;">Email</a>
-        <a href="https://scholar.google.com/citations?user=dEDX5coAAAAJ&hl=zh-CN&oi=sra" target="_blank" style="display: inline-block; margin: 0 0.3rem; padding: 0.5rem 1.2rem; background: #4285F4; color: #fff; border-radius: 6px; text-decoration: none; font-size: 1rem; font-weight: 500; transition: background 0.2s;">Google Scholar</a>
-        <a href="https://www.researchgate.net/profile/Qi-Dong-20" target="_blank" style="display: inline-block; margin: 0 0.3rem; padding: 0.5rem 1.2rem; background: #00CCBB; color: #fff; border-radius: 6px; text-decoration: none; font-size: 1rem; font-weight: 500; transition: background 0.2s;">ResearchGate</a>
-      </div>
-      <div style="color: #888; font-size: 1rem; margin-top: 1.2rem;">Welcome to my academic homepage!</div>
     </div>
-    <style>
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(40px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-    </style>
-  </main>
+  </div>
+</section>
+
+<div class="container" style="margin-top:20px;">
+  <div class="row">
+    <div class="col-md-8">
+      <!-- Hero-style homepage: focus on site mission and curated entries -->
+<h1 id="奇观qview">奇观（QView）</h1>
+<p>欢迎来到奇观（QView）。本博客致力于以学术化、结构化的方式整理计算与决策科学领域的知识：包含系统化教程、实验复现笔记与工具实践指南。目标是把零散知识沉淀为可复现、可引用的学术资源。</p>
+<h2 id="我们的方向">我们的方向</h2>
+<ul>
+<li>机器学习与强化学习：基础理论、表示学习与算法实现要点。</li>
+<li>博弈论与机制设计：建模、均衡分析与算法视角的讨论。</li>
+<li>系统与安全：实践中的攻击防御、应急响应与工程可复现性。</li>
+</ul>
+<h2 id="站点结构快速导航">站点结构（快速导航）</h2>
+<ul>
+<li>首页：精选与快速导航</li>
+<li>文章（Posts）：按学科分组的技术文章与教程</li>
+<li>知识库（Knowledge）：系统化教程与速查手册</li>
+<li>资源（Resources）：论文、工具与数据集索引</li>
+</ul>
+<h2 id="精选推荐">精选推荐</h2>
+<!-- 简单的列表卡片样式占位，页面渲染时可替换为 partial 或短代码 -->
+<ul>
+<li>机器学习 — 《自监督表示学习概述》</li>
+<li>网络安全 — 《渗透测试常用方法综述》</li>
+<li>机器学习 — 《强化学习中的策略评估：从蒙特卡洛到时序差分》</li>
+<li>网络安全 — 《漏洞响应与数字取证简介》</li>
+</ul>
+<h2 id="引用与复现">引用与复现</h2>
+<p>本站鼓励学术引用。含代码或数据的条目会尽量提供可复现指引与版本说明；若需引用请标注页面与发布日期。</p>
+<hr>
+<p>如果你希望，我可以接着为首页增加：</p>
+<ul>
+<li>卡片式“精选文章”区（按 subject 聚合并显示封面/摘要）。</li>
+<li>一个“最新更新”时间轴显示最近 N 篇文章与资源更新。</li>
+</ul>
+
+    </div>
+    
+
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+
+    
+    <section>
+        <hr>
+        <h5>站点目录</h5>
+        <ul class="list-unstyled">
+            
+            
+                <li><a href="/">Homepage</a></li>
+            
+                <li><a href="/research/">Researches</a></li>
+            
+                <li><a href="/post/">Posts</a></li>
+            
+                <li><a href="/resources/">资源链接</a></li>
+            
+
+            
+            
+                
+                <li class="">
+                    <a href="/post/">Posts</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/knowledge/">知识库</a>
+                    
+                        <ul class="list-unstyled" style="margin-left:10px;">
+                            
+                                <li><a href="/knowledge/game-theory/">博弈论</a></li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/research/">研究</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/resources/">资源链接</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/paper-notes/">Paper-Notes</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/search/">Searches</a>
+                    
+                </li>
+            
+        </ul>
+    </section>
+
+    
+    
+    <section class="visible-md visible-lg">
+        <div class="short-about">
+            
+            <a href="/about">
+               <img src="/img/avatar-dongqi.jpg" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Ph.D. Candidate at University of Science and Technology of China</p>
+            
+           
+           <ul class="list-inline">
+               
+               <li>
+                   <a href="mailto:dongq@mail.ustc.edu.cn">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                      </span>
+                   </a>
+               </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/SurpriseQiD">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+           </ul>
+        </div>
+    </section>
+    
+
+    
+    
+
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+            
+            
+        </div>
+    </section>
+    
+
+    
+
+</div>
+
+  </div>
+</div>
 
 
 

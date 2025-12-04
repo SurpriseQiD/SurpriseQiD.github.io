@@ -20,3 +20,19 @@
   margin-top: 8px;
   color: #2a6f97;
 }
+
+/* Posts card style */
+.subject-group { margin-top: 28px; margin-bottom: 18px; }
+.subject-title { font-size: 1.5rem; color: #12323a; border-left: 4px solid #2a6f97; padding-left: 10px; margin-bottom: 12px; }
+.subject-posts { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.post-card { background: #fff; border: 1px solid #eef3f6; border-radius: 8px; padding: 12px; box-shadow: 0 1px 4px rgba(18,50,58,0.04); transition: transform .12s ease, box-shadow .12s ease; }
+.post-card:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(18,50,58,0.08); }
+.post-card-title { margin: 0 0 6px 0; font-size: 1.05rem; }
+.post-card-title a { color: #1b3b4a; text-decoration: none; }
+.post-card-meta { font-size: 0.85rem; color: #6b7c85; margin-bottom: 8px; }
+.post-card-summary { color: #465b63; margin: 0; font-size: 0.95rem; line-height: 1.45; max-height: 3.6em; overflow: hidden; }
+
+/* Compact display for secondary items */
+.post-list .post-item { padding: 6px 0; }
+.post-list .post-item h3 { font-size: 1rem; margin-bottom: 4px; }
+.post-list .post-item .post-summary { font-size: 0.9rem; color: #57666b; }
