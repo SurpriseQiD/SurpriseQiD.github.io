@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="博弈论入门：理性决策与策略互动" />
+    <meta property="og:title" content="博弈论入门：理性决策与策略互动" />
+    <meta property="twitter:title" content="博弈论入门：理性决策与策略互动" />
     
 
     
-    <meta name="description" content="见微知著，齐观天下">
-    <meta property="og:description" content="见微知著，齐观天下" />
-    <meta property="twitter:description" content="见微知著，齐观天下" />
+    <meta name="description" content="面向初学者的博弈论导读：基本概念、典型模型与简单例子，含写博客与本地预览流程说明。">
+    <meta property="og:description" content="面向初学者的博弈论导读：基本概念、典型模型与简单例子，含写博客与本地预览流程说明。" />
+    <meta property="twitter:description" content="面向初学者的博弈论导读：基本概念、典型模型与简单例子，含写博客与本地预览流程说明。" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="Game Theory, Decision Science, Operations Management, Influencer Marketing, Human-AI Interaction">
     <link rel="shortcut icon" href="/img/favicon.png">
 
-    <title>Tags | QView</title>
+    <title>博弈论入门：理性决策与策略互动 | QView</title>
 
-    <link rel="canonical" href="/tags/">
+    <link rel="canonical" href="/post/game-theory-intro/">
 
     
     
@@ -170,12 +170,76 @@
         <div class="row">
             
             <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container">
+            
+                <h2 id="概述">概述</h2>
+<p>博弈论是研究多个理性决策者（玩家）在相互影响下如何选择策略并产生结果的理论框架。它被广泛应用于经济学、计算机科学、机制设计、网络安全与多智能体系统等领域。本文以通俗且精炼的方式介绍博弈论的基本概念、若干经典模型以及一个简单示例，便于初学者快速上手并形成系统的学习路径。</p>
+<h2 id="基本概念">基本概念</h2>
+<ul>
+<li>玩家（Players）：参与决策的主体，可以是个体、公司或算法。</li>
+<li>策略（Strategy）：玩家可选择的行动或规则，可能是纯策略或混合策略。</li>
+<li>收益/效用（Payoff/Utility）：每位玩家在特定策略组合下获得的价值或回报。</li>
+<li>信息结构：博弈中玩家对其他玩家信息的了解程度（完全信息/不完全信息、完美信息/不完美信息）。</li>
+</ul>
+<p>理解这些概念后，常见的博弈类型包括静态博弈（同时决策）、动态博弈（顺序决策）、贝叶斯博弈（包含不确定类型信息）与重复博弈（同一博弈重复多次）。</p>
+<h2 id="典型模型与要点">典型模型与要点</h2>
+<ul>
+<li>协同与非协同博弈：是否允许玩家达成或强制执行协议。</li>
+<li>占优策略（Dominant Strategy）：不论对手选择什么，该策略总是最优。</li>
+<li>纳什均衡（Nash Equilibrium）：在该策略组合中，任何单个玩家都无法通过单方面改变策略而获得更高收益。</li>
+</ul>
+<p>经典示例：囚徒困境（Prisoner’s Dilemma）。两个嫌疑人被分别审讯，每人有“招供（D）”或“沉默（C）”两种策略。收益矩阵（示意）如下（左为玩家 A，右为玩家 B）：</p>
+<table>
+  <thead>
+      <tr>
+          <th>A \ B</th>
+          <th style="text-align: right">C (沉默)</th>
+          <th style="text-align: right">D (招供)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>C (沉默)</td>
+          <td style="text-align: right">-1, -1</td>
+          <td style="text-align: right">-3, 0</td>
+      </tr>
+      <tr>
+          <td>D (招供)</td>
+          <td style="text-align: right">0, -3</td>
+          <td style="text-align: right">-2, -2</td>
+      </tr>
+  </tbody>
+</table>
+<p>在该矩阵中，招供（D）是占优策略；因此（D,D）是纳什均衡，但（C,C）对两人总和更优，体现了个人理性与社会最优之间的冲突。</p>
+<h2 id="简单例子寻找纳什均衡的思路">简单例子：寻找纳什均衡的思路</h2>
+<ol>
+<li>列出每个玩家的可选策略集合。</li>
+<li>写出收益矩阵或扩展式博弈树。</li>
+<li>对每个玩家检查在对手给定策略下自己的最优反应；若所有玩家均为最优反应组合，则为纳什均衡。</li>
+</ol>
+<p>对于更复杂或信息不对称的博弈，可使用贝叶斯均衡、子博弈完美纳什均衡（SPNE）等概念。</p>
+<h2 id="应用与延伸阅读">应用与延伸阅读</h2>
+<ul>
+<li>机制设计：从目标出发设计规则，使得在均衡下达到期望结果（拍卖、投票机构等）。</li>
+<li>进化博弈论：将策略看作动态演化过程，研究策略的稳健性。</li>
+<li>与机器学习的交叉：对抗样本、博弈训练（如GAN）、多智能体强化学习等场景都与博弈论思想密切相关。</li>
+</ul>
+<p>推荐入门参考：</p>
+<ul>
+<li>Mas-Colell, Whinston, and Green — Microeconomic Theory（机制设计/博弈论相关章节）</li>
+<li>Osborne — An Introduction to Game Theory</li>
+<li>Roughgarden — Twenty Lectures on Algorithmic Game Theory（算法博弈论）</li>
+</ul>
+<hr>
+<p>（本文同时保留于 <code>content/knowledge/game-theory/</code>，作为知识库条目；若需删除知识库副本或建立章节索引，我可以继续整理。）</p>
 
-         	
-                
+            
+             
+            
 
 
 
@@ -189,65 +253,128 @@
 <script>
     Artalk.init({
         el: '#Comments',
-        pageKey: 'https:\/\/SurpriseQiD.github.io\/tags\/',
-        pageTitle: 'Tags',
+        pageKey: 'https:\/\/SurpriseQiD.github.io\/post\/game-theory-intro\/',
+        pageTitle: '博弈论入门：理性决策与策略互动',
         server: 'https:\/\/xxx.xxx.com',
         site: 'xxx blog',
     })
 </script>
 
 
-
+            
             </div>
             
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
+            
 
-                
-                
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        
-                        
-                        
-                        <a href="/tags/istio" title="istio">
-                        istio
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/%E5%85%A5%E9%97%A8" title="入门">
-                        入门
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA" title="博弈论">
-                        博弈论
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93" title="知识库">
-                        知识库
-                        </a>
-                        
-                        
-                    </div>
-                </section>
-                
-
-                
-                
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+	
+    <section class="visible-md visible-lg">
+	
+        <div class="short-about">
+            
+            <a href="/about">
+               <img src="/img/avatar-dongqi.jpg" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Ph.D. Candidate at University of Science and Technology of China</p>
+            
+           
+           <ul class="list-inline">
+               
+               <li>
+                   <a href="mailto:dongq@mail.ustc.edu.cn">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                      </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/SurpriseQiD">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               
+               
+            
+            
+               
+               
+               
+               
+                </ul>
             </div>
+    </section>
+	
+    
+    
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+            
+            
+               
+                    <a href="/tags/istio" title="istio">
+                        istio
+                    </a>
+               
+            
+               
+            
+               
+            
+               
+                    <a href="/tags/%E5%85%A5%E9%97%A8" title="入门">
+                        入门
+                    </a>
+               
+            
+               
+                    <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA" title="博弈论">
+                        博弈论
+                    </a>
+               
+            
+               
+                    <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93" title="知识库">
+                        知识库
+                    </a>
+               
+            
+        </div>
+    </section>
+    
+
+    
+    
+    
+</div>
+
         </div>
     </div>
 </article>
@@ -301,7 +428,7 @@
             
            
                    <li>
-                       <a href='/tags/index.xml' rel="alternate" type="application/rss+xml" title="QiView" >
+                       <a href='' rel="alternate" type="application/rss+xml" title="QiView" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
