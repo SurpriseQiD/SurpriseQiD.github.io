@@ -962,29 +962,82 @@ nav .nav li a {
     border: 2px dashed #dee2e6;
 }
 
-/* 导航菜单字体大小调整 */
-.navbar-custom .nav li a {
-    font-size: 20px;
+/* ========================================== */
+/* 修复菜单栏字体大小 - 恢复原主题大小 */
+/* ========================================== */
+
+/* 重置所有导航菜单字体大小 */
+.navbar-custom .navbar-nav > li > a,
+.navbar-custom .nav > li > a {
+    font-size: 16px !important;  /* 恢复原主题默认大小 */
     font-weight: 500;
-    padding: 10px 15px;
+    padding: 15px 20px;
+    letter-spacing: 0.5px;
 }
 
-.navbar-custom .nav li a:hover {
-    color: #2a6f97;
+/* 确保悬停和激活状态也一致 */
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .nav > li > a:hover,
+.navbar-custom .navbar-nav > .active > a,
+.navbar-custom .nav > .active > a {
+    font-size: 16px !important;
+    color: #2a6f97 !important;
+    background-color: transparent !important;
 }
 
+/* 移除可能存在的图标样式 */
+.navbar-custom .navbar-nav > li > a i,
+.navbar-custom .nav > li > a i {
+    display: none !important; /* 隐藏图标 */
+}
+
+/* 修复下拉菜单字体 */
+.navbar-custom .dropdown-menu > li > a {
+    font-size: 14px !important;
+    padding: 10px 15px !important;
+}
+
+/* 品牌Logo旁边的文字 */
 .navbar-custom .navbar-brand {
-    font-size: 1.3rem;
+    font-size: 20px !important;
     font-weight: 600;
+    padding: 15px 20px;
 }
 
+/* 响应式调整 */
 @media (max-width: 991px) {
-    .navbar-custom .nav li a {
-        padding: 8px 15px;
-        border-bottom: 1px solid #eee;
+    .navbar-custom .navbar-nav > li > a,
+    .navbar-custom .nav > li > a {
+        font-size: 16px !important;
+        padding: 12px 15px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     
-    .navbar-custom .nav li:last-child a {
-        border-bottom: none;
+    .navbar-custom .navbar-toggle {
+        margin: 15px;
     }
+    
+    .navbar-custom .navbar-collapse {
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+}
+
+/* 确保导航栏高度正常 */
+.navbar-custom {
+    min-height: 60px;
+}
+
+.navbar-custom .navbar-nav {
+    margin: 0;
+}
+
+/* 如果原主题使用了不同的类名，添加这些备用样式 */
+.navbar-nav li a,
+.nav li a {
+    font-size: 16px !important;
+}
+
+.navbar-default .navbar-nav > li > a,
+.navbar-inverse .navbar-nav > li > a {
+    font-size: 16px !important;
 }
