@@ -75,3 +75,130 @@
 /* Subject filter style */
 .post-controls select { padding: 6px 8px; border-radius: 6px; border: 1px solid #dfe9ec; }
 
+/* Research Section 特定样式 */
+.subject-group {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 30px;
+}
+
+.subject-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #007acc;
+}
+
+.research-type {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.research-status {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.research-tags {
+    margin-top: 10px;
+}
+
+.research-tags .tag {
+    display: inline-block;
+    background-color: #f5f5f5;
+    color: #666;
+    padding: 2px 8px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    font-size: 0.85rem;
+}
+
+.research-header {
+    margin-bottom: 30px;
+}
+
+.research-meta {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.research-meta .separator {
+    margin: 0 8px;
+}
+
+.research-abstract {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-left: 4px solid #007acc;
+    margin: 20px 0;
+}
+
+.research-abstract h3 {
+    margin-top: 0;
+    color: #007acc;
+}
+
+.research-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.research-content h2, .research-content h3 {
+    margin-top: 30px;
+    color: #333;
+}
+
+.research-downloads, .research-citation {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.research-navigation {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.research-navigation .prev,
+.research-navigation .next {
+    width: 48%;
+}
+
+.research-navigation a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+.research-navigation a:hover {
+    text-decoration: underline;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .research-navigation {
+        flex-direction: column;
+    }
+    
+    .research-navigation .prev,
+    .research-navigation .next {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .subject-title {
+        font-size: 1.5rem;
+    }
+}

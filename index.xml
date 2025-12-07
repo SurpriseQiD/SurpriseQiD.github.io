@@ -65,6 +65,13 @@
       <description></description>
     </item>
     <item>
+      <title>博弈论在定价策略中的应用</title>
+      <link>https://SurpriseQiD.github.io/research/sample-research-1/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/research/sample-research-1/</guid>
+      <description>&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;&#xA;&lt;p&gt;博弈论作为分析决策者互动的重要工具，在定价策略研究中具有广泛应用&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;模型构建&#34;&gt;模型构建&lt;/h2&gt;&#xA;&lt;p&gt;我们考虑一个双寡头市场模型&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;主要结论&#34;&gt;主要结论&lt;/h2&gt;&#xA;&lt;p&gt;研究发现，在特定条件下&amp;hellip;&#xA;EOF&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>这里是一个标题</title>
       <link>https://SurpriseQiD.github.io/2018/06/04/introducing-the-istio-v1alpha3-routing-api/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
@@ -77,13 +84,6 @@
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
       <guid>https://SurpriseQiD.github.io/post/introducing-the-istio-v1alpha3-routing-api/</guid>
       <description>&lt;p&gt;测试简介&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>这里是一个标题</title>
-      <link>https://SurpriseQiD.github.io/2018/06/04/introducing-the-istio-v1alpha3-routing-api/</link>
-      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://SurpriseQiD.github.io/2018/06/04/introducing-the-istio-v1alpha3-routing-api/</guid>
-      <description>&lt;p&gt;到目前为止，Istio提供了一个简单的API来进行流量管理，该API包括了四种资源：RouteRule，DestinationPolicy，EgressRule和Ingress（直接使用了Kubernets的Ingress资源）。借助此API，用户可以轻松管理Istio服务网格中的流量。该API允许用户将请求路由到特定版本的服务，为弹性测试注入延迟和失败，添加超时和断路器等等，所有这些功能都不必更改应用程序本身的代码。&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>

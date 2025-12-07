@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>纳什均衡 on QiView</title>
+    <link>https://SurpriseQiD.github.io/tags/%E7%BA%B3%E4%BB%80%E5%9D%87%E8%A1%A1/</link>
+    <description>Recent content in 纳什均衡 on QiView</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://SurpriseQiD.github.io/tags/%E7%BA%B3%E4%BB%80%E5%9D%87%E8%A1%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>博弈论在定价策略中的应用</title>
+      <link>https://SurpriseQiD.github.io/research/sample-research-1/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/research/sample-research-1/</guid>
+      <description>&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;&#xA;&lt;p&gt;博弈论作为分析决策者互动的重要工具，在定价策略研究中具有广泛应用&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;模型构建&#34;&gt;模型构建&lt;/h2&gt;&#xA;&lt;p&gt;我们考虑一个双寡头市场模型&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;主要结论&#34;&gt;主要结论&lt;/h2&gt;&#xA;&lt;p&gt;研究发现，在特定条件下&amp;hellip;&#xA;EOF&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
