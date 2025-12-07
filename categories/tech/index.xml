@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tech on QiView Knowledge Hub</title>
+    <link>https://SurpriseQiD.github.io/categories/tech/</link>
+    <description>Recent content in Tech on QiView Knowledge Hub</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://SurpriseQiD.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Post 尝试</title>
+      <link>https://SurpriseQiD.github.io/post/post-changetest-2025-05-13/</link>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/post/post-changetest-2025-05-13/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;大家好！ 这是我第一次尝试post配置修改：&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>My First Blog</title>
+      <link>https://SurpriseQiD.github.io/post/myfirstblog/</link>
+      <pubDate>Mon, 28 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/post/myfirstblog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>这里是一个标题</title>
+      <link>https://SurpriseQiD.github.io/post/introducing-the-istio-v1alpha3-routing-api/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/post/introducing-the-istio-v1alpha3-routing-api/</guid>
+      <description>&lt;p&gt;测试简介&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

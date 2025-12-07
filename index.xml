@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>QiView</title>
+    <title>QiView Knowledge Hub</title>
     <link>https://SurpriseQiD.github.io/</link>
-    <description>Recent content on QiView</description>
+    <description>Recent content on QiView Knowledge Hub</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 04 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://SurpriseQiD.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>博弈论入门：理性决策与策略互动</title>
-      <link>https://SurpriseQiD.github.io/knowledge/game-theory/2025-12-04-%E5%8D%9A%E5%BC%88%E8%AE%BA%E5%85%A5%E9%97%A8/</link>
-      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://SurpriseQiD.github.io/knowledge/game-theory/2025-12-04-%E5%8D%9A%E5%BC%88%E8%AE%BA%E5%85%A5%E9%97%A8/</guid>
-      <description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;博弈论是研究多个理性决策者（玩家）在相互影响下如何选择策略并产生结果的理论框架。它被广泛应用于经济学、计算机科学、机制设计、网络安全与多智能体系统等领域。本文以通俗且精炼的方式介绍博弈论的基本概念、若干经典模型以及一个简单示例，便于初学者快速上手并形成系统的学习路径。&lt;/p&gt;</description>
-    </item>
     <item>
       <title>博弈论入门：理性决策与策略互动</title>
       <link>https://SurpriseQiD.github.io/post/game-theory-intro/</link>
@@ -23,31 +16,38 @@
       <description></description>
     </item>
     <item>
-      <title>强化学习中的策略评估：从蒙特卡洛到时序差分</title>
-      <link>https://SurpriseQiD.github.io/post/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0/</link>
+      <title>博弈论入门：理性决策与策略互动</title>
+      <link>https://SurpriseQiD.github.io/knowledge/game-theory/2025-12-04-%E5%8D%9A%E5%BC%88%E8%AE%BA%E5%85%A5%E9%97%A8/</link>
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://SurpriseQiD.github.io/post/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0/</guid>
+      <guid>https://SurpriseQiD.github.io/knowledge/game-theory/2025-12-04-%E5%8D%9A%E5%BC%88%E8%AE%BA%E5%85%A5%E9%97%A8/</guid>
+      <description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;&#xA;&lt;p&gt;博弈论是研究多个理性决策者（玩家）在相互影响下如何选择策略并产生结果的理论框架。它被广泛应用于经济学、计算机科学、机制设计、网络安全与多智能体系统等领域。本文以通俗且精炼的方式介绍博弈论的基本概念、若干经典模型以及一个简单示例，便于初学者快速上手并形成系统的学习路径。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>强化学习中的策略评估：从蒙特卡洛到时序差分</title>
+      <link>https://SurpriseQiD.github.io/blog/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/blog/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0/</guid>
       <description>&lt;p&gt;本文介绍蒙特卡洛方法、时序差分（TD）与基于函数逼近的策略评估技术，并说明实践中的调参要点。&lt;/p&gt;</description>
     </item>
     <item>
       <title>渗透测试常用方法综述</title>
-      <link>https://SurpriseQiD.github.io/post/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/</link>
+      <link>https://SurpriseQiD.github.io/blog/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/</link>
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://SurpriseQiD.github.io/post/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/</guid>
+      <guid>https://SurpriseQiD.github.io/blog/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/</guid>
       <description>&lt;p&gt;本文概述渗透测试的主要步骤、自动化工具与手工方法，并强调法律与合规边界。&lt;/p&gt;</description>
     </item>
     <item>
       <title>漏洞响应与数字取证简介</title>
-      <link>https://SurpriseQiD.github.io/post/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%BC%8F%E6%B4%9E%E5%93%8D%E5%BA%94%E4%B8%8E%E5%8F%96%E8%AF%81/</link>
+      <link>https://SurpriseQiD.github.io/blog/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%BC%8F%E6%B4%9E%E5%93%8D%E5%BA%94%E4%B8%8E%E5%8F%96%E8%AF%81/</link>
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://SurpriseQiD.github.io/post/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%BC%8F%E6%B4%9E%E5%93%8D%E5%BA%94%E4%B8%8E%E5%8F%96%E8%AF%81/</guid>
+      <guid>https://SurpriseQiD.github.io/blog/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%BC%8F%E6%B4%9E%E5%93%8D%E5%BA%94%E4%B8%8E%E5%8F%96%E8%AF%81/</guid>
       <description>&lt;p&gt;本文给出发生安全事件后的快速响应建议、证据保全与日志分析基础，适用于中小型服务的应急流程设计。&lt;/p&gt;</description>
     </item>
     <item>
       <title>自监督表示学习概述</title>
-      <link>https://SurpriseQiD.github.io/post/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E7%9B%91%E7%9D%A3%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/</link>
+      <link>https://SurpriseQiD.github.io/blog/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E7%9B%91%E7%9D%A3%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/</link>
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://SurpriseQiD.github.io/post/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E7%9B%91%E7%9D%A3%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/</guid>
+      <guid>https://SurpriseQiD.github.io/blog/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E7%9B%91%E7%9D%A3%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/</guid>
       <description>&lt;p&gt;本文概述自监督表示学习的动机、常见任务与代表性方法（对比学习、预测式方法、掩码建模），并给出实现要点与参考文献。&lt;/p&gt;</description>
     </item>
     <item>
@@ -80,13 +80,6 @@
     </item>
     <item>
       <title>这里是一个标题</title>
-      <link>https://SurpriseQiD.github.io/2018/06/04/introducing-the-istio-v1alpha3-routing-api/</link>
-      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://SurpriseQiD.github.io/2018/06/04/introducing-the-istio-v1alpha3-routing-api/</guid>
-      <description>&lt;p&gt;到目前为止，Istio提供了一个简单的API来进行流量管理，该API包括了四种资源：RouteRule，DestinationPolicy，EgressRule和Ingress（直接使用了Kubernets的Ingress资源）。借助此API，用户可以轻松管理Istio服务网格中的流量。该API允许用户将请求路由到特定版本的服务，为弹性测试注入延迟和失败，添加超时和断路器等等，所有这些功能都不必更改应用程序本身的代码。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>这里是一个标题</title>
       <link>https://SurpriseQiD.github.io/post/introducing-the-istio-v1alpha3-routing-api/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
       <guid>https://SurpriseQiD.github.io/post/introducing-the-istio-v1alpha3-routing-api/</guid>
@@ -98,13 +91,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://SurpriseQiD.github.io/about/</guid>
       <description>&lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Huabing Zhao&lt;/em&gt;&lt;/strong&gt; is a software architect, an Istio Member and an ONAP PTL. He has a solid experience in the information and telecommunication technology industry for more than 17 years.&lt;/p&gt;&#xA;&lt;p&gt;Throughout his career, he has built a number of large-scale, cross-country software systems, most of them are still running in production.&lt;/p&gt;&#xA;&lt;p&gt;He loves open source and has been contributing to various open source projects, he is a member of Istio,  previous PTL of ONAP, the author of the Hugo clean-white theme and the open source project Aeraki Mesh.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://SurpriseQiD.github.io/notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://SurpriseQiD.github.io/notes/</guid>
-      <description>&lt;h2 id=&#34;go-语言学习笔记&#34;&gt;&lt;a href=&#34;https://zhaohuabing.com/learning-golang&#34;&gt;Go 语言学习笔记&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;h2 id=&#34;envoy-学习笔记&#34;&gt;&lt;a href=&#34;https://zhaohuabing.com/learning-envoy&#34;&gt;Envoy 学习笔记&lt;/a&gt;&lt;/h2&gt;</description>
     </item>
     <item>
       <title></title>

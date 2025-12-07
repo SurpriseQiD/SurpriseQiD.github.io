@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on QiView Knowledge Hub</title>
+    <link>https://SurpriseQiD.github.io/blog/</link>
+    <description>Recent content in Posts on QiView Knowledge Hub</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://SurpriseQiD.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>博弈论入门：理性决策与策略互动</title>
+      <link>https://SurpriseQiD.github.io/post/game-theory-intro/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/post/game-theory-intro/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>强化学习中的策略评估：从蒙特卡洛到时序差分</title>
+      <link>https://SurpriseQiD.github.io/blog/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/blog/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0/</guid>
+      <description>&lt;p&gt;本文介绍蒙特卡洛方法、时序差分（TD）与基于函数逼近的策略评估技术，并说明实践中的调参要点。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>渗透测试常用方法综述</title>
+      <link>https://SurpriseQiD.github.io/blog/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/blog/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/</guid>
+      <description>&lt;p&gt;本文概述渗透测试的主要步骤、自动化工具与手工方法，并强调法律与合规边界。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>漏洞响应与数字取证简介</title>
+      <link>https://SurpriseQiD.github.io/blog/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%BC%8F%E6%B4%9E%E5%93%8D%E5%BA%94%E4%B8%8E%E5%8F%96%E8%AF%81/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/blog/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%BC%8F%E6%B4%9E%E5%93%8D%E5%BA%94%E4%B8%8E%E5%8F%96%E8%AF%81/</guid>
+      <description>&lt;p&gt;本文给出发生安全事件后的快速响应建议、证据保全与日志分析基础，适用于中小型服务的应急流程设计。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自监督表示学习概述</title>
+      <link>https://SurpriseQiD.github.io/blog/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E7%9B%91%E7%9D%A3%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/blog/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E7%9B%91%E7%9D%A3%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/</guid>
+      <description>&lt;p&gt;本文概述自监督表示学习的动机、常见任务与代表性方法（对比学习、预测式方法、掩码建模），并给出实现要点与参考文献。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Post 尝试</title>
+      <link>https://SurpriseQiD.github.io/post/post-changetest-2025-05-13/</link>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/post/post-changetest-2025-05-13/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;大家好！ 这是我第一次尝试post配置修改：&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>My First Blog</title>
+      <link>https://SurpriseQiD.github.io/post/myfirstblog/</link>
+      <pubDate>Mon, 28 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/post/myfirstblog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>这里是一个标题</title>
+      <link>https://SurpriseQiD.github.io/post/introducing-the-istio-v1alpha3-routing-api/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/post/introducing-the-istio-v1alpha3-routing-api/</guid>
+      <description>&lt;p&gt;测试简介&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
