@@ -79,6 +79,13 @@
       <description>&lt;p&gt;测试简介&lt;/p&gt;</description>
     </item>
     <item>
+      <title>这里是一个标题</title>
+      <link>https://SurpriseQiD.github.io/2018/06/04/introducing-the-istio-v1alpha3-routing-api/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/2018/06/04/introducing-the-istio-v1alpha3-routing-api/</guid>
+      <description>&lt;p&gt;到目前为止，Istio提供了一个简单的API来进行流量管理，该API包括了四种资源：RouteRule，DestinationPolicy，EgressRule和Ingress（直接使用了Kubernets的Ingress资源）。借助此API，用户可以轻松管理Istio服务网格中的流量。该API允许用户将请求路由到特定版本的服务，为弹性测试注入延迟和失败，添加超时和断路器等等，所有这些功能都不必更改应用程序本身的代码。&lt;/p&gt;</description>
+    </item>
+    <item>
       <title></title>
       <link>https://SurpriseQiD.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
