@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="QiView">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg">
+    <meta property="twitter:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg" />
+    
+
+    
+    <meta name="title" content="" />
+    <meta property="og:title" content="" />
+    <meta property="twitter:title" content="" />
+    
+
+    
+    <meta name="description" content="QiView — an academic knowledge hub for computation and decision sciences.">
+    <meta property="og:description" content="QiView — an academic knowledge hub for computation and decision sciences." />
+    <meta property="twitter:description" content="QiView — an academic knowledge hub for computation and decision sciences." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Game Theory, Decision Science, Operations Management, Human-AI Interaction">
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+    <title>QiView</title>
+
+    <link rel="canonical" href="/knowledge/concepts/llm-foundations/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CX84QDN0SR"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CX84QDN0SR');
+        }
+      </script>
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">QiView</a>
+        </div>
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                        <li><a href="/">🏠 首页</a></li>
+                    
+                        <li><a href="/knowledge/">📚 知识库</a></li>
+                    
+                        <li><a href="/learning/">📖 学习记录</a></li>
+                    
+                        <li><a href="/research/">🔬 研究进展</a></li>
+                    
+                        <li><a href="/resources/">🔗 资源聚合</a></li>
+                    
+                        <li><a href="/blog/">✍️ 博客文章</a></li>
+                    
+                        <li><a href="/about/">👤 关于我</a></li>
+                    
+                    <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            $navbar.className = " ";
+            setTimeout(function(){
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+<header class="intro-header" style="background-image: url('/img/home-bg-painting.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>QiView </h1>
+                    
+		    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+            
+            <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container">
+            
+                <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;大型语言模型：原理、架构与应用&#34;
+</span></span><span style="display:flex;"><span>date: 2025-12-05
+</span></span><span style="display:flex;"><span>draft: false
+</span></span><span style="display:flex;"><span>knowledge_type: &#34;概念解析&#34;
+</span></span><span style="display:flex;"><span>subject: &#34;大语言模型&#34;
+</span></span><span style="display:flex;"><span>tags: [&#34;LLM&#34;, &#34;Transformer&#34;, &#34;GPT&#34;, &#34;BERT&#34;, &#34;自然语言处理&#34;]
+</span></span><span style="display:flex;"><span>level: &#34;高级&#34;
+</span></span><span style="display:flex;"><span>author: &#34;Qi Dong&#34;
+</span></span><span style="display:flex;"><span>summary: &#34;大型语言模型的核心原理、Transformer架构详解及其在现代NLP中的应用&#34;
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold"># 大型语言模型：原理、架构与应用
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span>大型语言模型（LLMs）彻底改变了自然语言处理的范式，从BERT、GPT到最新的多模态模型，它们正在重塑人工智能的边界。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">## 1. 核心架构：Transformer
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 1.1 自注意力机制
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>Transformer的核心是自注意力机制，它允许模型在处理序列时关注所有位置的信息。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>**缩放点积注意力**：
+</span></span><span style="display:flex;"><span>$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>其中：
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> $Q$：查询矩阵
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> $K$：键矩阵  
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> $V$：值矩阵
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> $d_k$：键向量的维度
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 1.2 多头注意力
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>$$\text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, ..., \text{head}_h)W^O$$
+</span></span><span style="display:flex;"><span>其中 $\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 1.3 位置编码
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>由于Transformer没有循环结构，需要位置编码来注入序列顺序信息：
+</span></span><span style="display:flex;"><span>$$PE_{(pos, 2i)} = \sin(pos/10000^{2i/d_{\text{model}}})$$
+</span></span><span style="display:flex;"><span>$$PE_{(pos, 2i+1)} = \cos(pos/10000^{2i/d_{\text{model}}})$$
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">## 2. 主要模型架构
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 2.1 编码器-解码器架构（原始Transformer）
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">-</span> **编码器**：处理输入序列
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **解码器**：生成输出序列
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **应用**：机器翻译、文本摘要
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 2.2 仅编码器架构（BERT系列）
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">-</span> **双向上下文理解**
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **预训练任务**：掩码语言模型（MLM）、下一句预测（NSP）
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **应用**：文本分类、命名实体识别、问答系统
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 2.3 仅解码器架构（GPT系列）
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">-</span> **自回归生成**
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **因果注意力掩码**
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **应用**：文本生成、对话系统、代码生成
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 2.4 编码器-解码器架构（T5、BART）
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">-</span> **统一文本到文本框架**
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **应用**：所有NLP任务统一为文本生成
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">## 3. 预训练策略
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 3.1 自监督学习目标
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">#### 掩码语言模型（MLM）
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>随机掩码输入中的部分token，让模型预测被掩码的token。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">#### 因果语言模型（CLM）
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>给定前文，预测下一个token（自回归）。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">#### 排列语言模型（XLNet）
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>考虑所有可能的排列顺序，克服BERT的独立性假设。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">#### 对比学习（SimCSE）
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>让相似句子的表示更接近，不相似句子的表示更远。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 3.2 训练数据
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">-</span> **规模**：数百GB到数TB的文本数据
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **来源**：网页、书籍、学术论文、代码等
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **预处理**：去重、过滤、质量评估
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 3.3 训练优化
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">-</span> **混合精度训练**：减少显存使用
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **梯度累积**：模拟更大批次
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **模型并行**：处理超大模型
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **检查点机制**：从故障中恢复
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">## 4. 微调技术
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 4.1 全参数微调
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>更新模型所有权重参数。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 4.2 参数高效微调（PEFT）
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold">#### LoRA（低秩适应）
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>$$\Delta W = BA$$
+</span></span><span style="display:flex;"><span>其中 $B \in \mathbb{R}^{d \times r}$, $A \in \mathbb{R}^{r \times k}$, $r \ll \min(d,k)$
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">#### Adapter
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>在Transformer块中插入小型前馈网络。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">#### Prefix Tuning
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>在输入前添加可学习的提示向量。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 4.3 指令微调
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>使用指令-响应对数据训练，使模型能够遵循人类指令。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 4.4 人类反馈强化学习（RLHF）
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">1.</span> **监督微调**：使用人类标注的示范数据
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">2.</span> **奖励模型训练**：学习人类偏好
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">3.</span> **强化学习优化**：PPO算法优化策略
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">## 5. 评估方法
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 5.1 内在评估
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">-</span> **困惑度**：衡量语言模型质量
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **嵌入空间分析**：词向量质量
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 5.2 外在评估
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">-</span> **GLUE基准**：通用语言理解评估
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **SuperGLUE**：更难的NLP任务
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **MMLU**：大规模多任务语言理解
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 5.3 生成质量评估
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">-</span> **BLEU**：机器翻译评估
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **ROUGE**：文本摘要评估
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **METEOR**：考虑同义词的评估
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 5.4 人工评估
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">-</span> **有用性**：回答是否有助于解决问题
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **真实性**：信息是否准确
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> **无害性**：是否包含有害内容
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">## 6. 应用领域
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 6.1 自然语言理解
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">-</span> 文本分类
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 情感分析
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 命名实体识别
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 关系抽取
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 6.2 自然语言生成
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">-</span> 文本摘要
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 对话系统
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 故事生成
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 代码生成
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 6.3 多模态应用
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">-</span> 图像描述生成
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 视觉问答
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 文档理解
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 6.4 推理与问题求解
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span><span style="color:#ff79c6">-</span> 数学推理
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 逻辑推理
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 常识推理
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">## 7. 实际挑战与解决方案
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 7.1 幻觉问题
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>**表现**：生成看似合理但实际错误的信息
+</span></span><span style="display:flex;"><span>**解决方案**：
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 检索增强生成（RAG）
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 事实核查机制
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 置信度校准
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 7.2 长上下文处理
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>**挑战**：Transformer的二次计算复杂度
+</span></span><span style="display:flex;"><span>**解决方案**：
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 稀疏注意力机制
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 层次化注意力
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 循环记忆机制
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 7.3 偏见与公平性
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>**问题**：训练数据中的社会偏见
+</span></span><span style="display:flex;"><span>**缓解策略**：
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 数据去偏
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 对抗训练
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 公平性约束
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 7.4 计算资源需求
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>**挑战**：训练和推理成本高昂
+</span></span><span style="display:flex;"><span>**优化方法**：
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 模型压缩
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 知识蒸馏
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 量化与剪枝
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">## 8. Python实践：使用Hugging Face Transformers
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span>```python
+</span></span><span style="display:flex;"><span>from transformers import AutoTokenizer, AutoModelForCausalLM
+</span></span><span style="display:flex;"><span>import torch
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold"># 加载模型和分词器
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>model_name = &#34;gpt2&#34;  # 可以选择其他模型
+</span></span><span style="display:flex;"><span>tokenizer = AutoTokenizer.from_pretrained(model_name)
+</span></span><span style="display:flex;"><span>model = AutoModelForCausalLM.from_pretrained(model_name)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold"># 设置pad_token
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>if tokenizer.pad_token is None:
+</span></span><span style="display:flex;"><span>    tokenizer.pad_token = tokenizer.eos_token
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def generate_text(prompt, max_length=100, temperature=0.7, top_p=0.9):
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;文本生成函数&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>    inputs = tokenizer(prompt, return_tensors=&#34;pt&#34;)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    # 生成参数
+</span></span><span style="display:flex;"><span>    generation_config = {
+</span></span><span style="display:flex;"><span>        &#34;max_length&#34;: max_length,
+</span></span><span style="display:flex;"><span>        &#34;temperature&#34;: temperature,
+</span></span><span style="display:flex;"><span>        &#34;top_p&#34;: top_p,
+</span></span><span style="display:flex;"><span>        &#34;do_sample&#34;: True,
+</span></span><span style="display:flex;"><span>        &#34;num_return_sequences&#34;: 1,
+</span></span><span style="display:flex;"><span>        &#34;pad_token_id&#34;: tokenizer.pad_token_id,
+</span></span><span style="display:flex;"><span>        &#34;eos_token_id&#34;: tokenizer.eos_token_id,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    # 生成文本
+</span></span><span style="display:flex;"><span>    with torch.no_grad():
+</span></span><span style="display:flex;"><span>        outputs = model.generate(**inputs, **generation_config)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
+</span></span><span style="display:flex;"><span>    return generated_text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold"># 示例使用
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>prompt = &#34;人工智能的未来发展将&#34;
+</span></span><span style="display:flex;"><span>result = generate_text(prompt, max_length=50)
+</span></span><span style="display:flex;"><span>print(&#34;生成的文本:&#34;)
+</span></span><span style="display:flex;"><span>print(result)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def calculate_perplexity(text):
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;计算困惑度&#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>    inputs = tokenizer(text, return_tensors=&#34;pt&#34;, truncation=True, max_length=512)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    with torch.no_grad():
+</span></span><span style="display:flex;"><span>        outputs = model(**inputs, labels=inputs[&#34;input_ids&#34;])
+</span></span><span style="display:flex;"><span>        loss = outputs.loss
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    perplexity = torch.exp(loss)
+</span></span><span style="display:flex;"><span>    return perplexity.item()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold"># 计算示例文本的困惑度
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>sample_text = &#34;这是一个测试句子。&#34;
+</span></span><span style="display:flex;"><span>ppl = calculate_perplexity(sample_text)
+</span></span><span style="display:flex;"><span>print(f&#34;困惑度: {ppl:.2f}&#34;)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">9.</span> 最新进展
+</span></span></code></pre></div>
+            
+             
+            
+
+
+
+
+<link href="https://xxx.xxx.com/dist/Artalk.css" rel="stylesheet" />
+<script src="https://xxx.xxx.com/dist/Artalk.js"></script>
+
+
+<div id="Comments"></div>
+
+<script>
+    Artalk.init({
+        el: '#Comments',
+        pageKey: 'https:\/\/SurpriseQiD.github.io\/knowledge\/concepts\/llm-foundations\/',
+        pageTitle: '',
+        server: 'https:\/\/xxx.xxx.com',
+        site: 'xxx blog',
+    })
+</script>
+
+
+            
+            </div>
+            
+            
+
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+
+    
+    <section>
+        <hr>
+        <h5>站点目录</h5>
+        <ul class="list-unstyled">
+            
+            
+                <li><a href="/">🏠 首页</a></li>
+            
+                <li><a href="/knowledge/">📚 知识库</a></li>
+            
+                <li><a href="/learning/">📖 学习记录</a></li>
+            
+                <li><a href="/research/">🔬 研究进展</a></li>
+            
+                <li><a href="/resources/">🔗 资源聚合</a></li>
+            
+                <li><a href="/blog/">✍️ 博客文章</a></li>
+            
+                <li><a href="/about/">👤 关于我</a></li>
+            
+
+            
+            
+                
+                <li class="">
+                    <a href="/research/">Research</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/learning/">学习记录</a>
+                    
+                </li>
+            
+                
+                <li class="active">
+                    <a href="/knowledge/">知识库</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/blog/">Posts</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/resources/">资源链接</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/search/">Searches</a>
+                    
+                </li>
+            
+        </ul>
+    </section>
+
+    
+    
+    <section class="visible-md visible-lg">
+        <div class="short-about">
+            
+            <a href="/about">
+               <img src="/img/avatar-patrickStar.jpg" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Ph.D. Candidate at University of Science and Technology of China</p>
+            
+           
+           <ul class="list-inline">
+               
+               <li>
+                   <a href="mailto:dongq@mail.ustc.edu.cn">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                      </span>
+                   </a>
+               </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/SurpriseQiD">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+           </ul>
+        </div>
+    </section>
+    
+
+    
+    
+
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+            
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+        </div>
+    </section>
+    
+
+    
+
+</div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="mailto:dongq@mail.ustc.edu.cn">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/SurpriseQiD">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="QiView" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; QiView 2025
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+       bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else{
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+<script>
+    
+    var _baId = '21326675';
+
+    
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<span id="total-views" class="site-counter">
+  <i class="fa fa-eye"></i>
+  <span class="leancloud-total-views"></span>
+</span>
+
+<script>
+  
+  function showTotalViews() {
+    var SiteCounter = AV.Object.extend("SiteCounter");
+    var query = new AV.Query(SiteCounter);
+    query.first().then(function (counter) {
+      var totalViews = counter ? counter.get("totalViews") : 0;
+      document.querySelector('.leancloud-total-views').textContent = totalViews;
+    });
+  }
+  showTotalViews(); 
+</script>
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow" title="' + t + '">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+    
+</body>
+</html>

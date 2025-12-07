@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="QiView">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg">
+    <meta property="twitter:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg" />
+    
+
+    
+    <meta name="title" content="网络分析：图论与社会网络分析基础" />
+    <meta property="og:title" content="网络分析：图论与社会网络分析基础" />
+    <meta property="twitter:title" content="网络分析：图论与社会网络分析基础" />
+    
+
+    
+    <meta name="description" content="QiView — an academic knowledge hub for computation and decision sciences.">
+    <meta property="og:description" content="QiView — an academic knowledge hub for computation and decision sciences." />
+    <meta property="twitter:description" content="QiView — an academic knowledge hub for computation and decision sciences." />
+    
+
+    
+    <meta property="twitter:card" content="网络分析的核心概念、常用指标与分析方法，涵盖图论基础与社会网络分析" />
+    
+    
+
+    <meta name="keyword"  content="Game Theory, Decision Science, Operations Management, Human-AI Interaction">
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+    <title>网络分析：图论与社会网络分析基础 | QiView</title>
+
+    <link rel="canonical" href="/knowledge/concepts/network-analysis/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CX84QDN0SR"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CX84QDN0SR');
+        }
+      </script>
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">QiView</a>
+        </div>
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                        <li><a href="/">🏠 首页</a></li>
+                    
+                        <li><a href="/knowledge/">📚 知识库</a></li>
+                    
+                        <li><a href="/learning/">📖 学习记录</a></li>
+                    
+                        <li><a href="/research/">🔬 研究进展</a></li>
+                    
+                        <li><a href="/resources/">🔗 资源聚合</a></li>
+                    
+                        <li><a href="/blog/">✍️ 博客文章</a></li>
+                    
+                        <li><a href="/about/">👤 关于我</a></li>
+                    
+                    <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            $navbar.className = " ";
+            setTimeout(function(){
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+<header class="intro-header" style="background-image: url('/img/home-bg-painting.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>QiView </h1>
+                    
+		    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+            
+            <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container">
+            
+                <h1 id="网络分析图论与社会网络分析基础">网络分析：图论与社会网络分析基础</h1>
+<p>网络分析是研究复杂系统结构的重要工具，广泛应用于社交网络、生物网络、信息网络等领域。</p>
+<h2 id="1-基本概念">1. 基本概念</h2>
+<h3 id="11-图的定义">1.1 图的定义</h3>
+<p>一个图 $G = (V, E)$ 由顶点集 $V$ 和边集 $E$ 组成。</p>
+<p><strong>图的类型</strong>：</p>
+<ul>
+<li>无向图 vs 有向图</li>
+<li>加权图 vs 无权图</li>
+<li>简单图 vs 多重图</li>
+</ul>
+<h3 id="12-图的表示方法">1.2 图的表示方法</h3>
+<h4 id="邻接矩阵">邻接矩阵</h4>
+<p>对于有 $n$ 个顶点的图，邻接矩阵 $A$ 是一个 $n \times n$ 矩阵，其中：
+$$
+A_{ij} =
+\begin{cases}
+1 &amp; \text{如果顶点 i 和 j 之间有边} \
+0 &amp; \text{否则}
+\end{cases}
+$$</p>
+<h4 id="邻接表">邻接表</h4>
+<p>更节省空间的表示方法，特别适合稀疏图。</p>
+<h2 id="2-网络的基本性质">2. 网络的基本性质</h2>
+<h3 id="21-度分布">2.1 度分布</h3>
+<p>顶点度 $k$ 的概率分布 $P(k)$，对于许多真实网络服从幂律分布：
+$$P(k) \sim k^{-\gamma}$$</p>
+<h3 id="22-聚类系数">2.2 聚类系数</h3>
+<p>衡量节点的邻居之间相互连接的程度：
+$$C_i = \frac{2L_i}{k_i(k_i-1)}$$
+其中 $L_i$ 是节点 $i$ 的邻居之间的边数。</p>
+<h3 id="23-路径与距离">2.3 路径与距离</h3>
+<ul>
+<li><strong>最短路径长度</strong>：两个节点之间的最小边数</li>
+<li><strong>平均路径长度</strong>：所有节点对之间最短路径的平均值</li>
+<li><strong>直径</strong>：最长最短路径的长度</li>
+</ul>
+<h3 id="24-中心性指标">2.4 中心性指标</h3>
+<ol>
+<li><strong>度中心性</strong>：$C_D(i) = \frac{k_i}{n-1}$</li>
+<li><strong>接近中心性</strong>：$C_C(i) = \frac{n-1}{\sum_{j \neq i} d(i,j)}$</li>
+<li><strong>介数中心性</strong>：$C_B(i) = \sum_{s \neq i \neq t} \frac{\sigma_{st}(i)}{\sigma_{st}}$</li>
+<li><strong>特征向量中心性</strong>：$Ax = \lambda x$</li>
+</ol>
+<h2 id="3-网络类型与模型">3. 网络类型与模型</h2>
+<h3 id="31-规则网络">3.1 规则网络</h3>
+<ul>
+<li>完全图</li>
+<li>环状图</li>
+<li>网格图</li>
+</ul>
+<h3 id="32-随机网络erdős-rényi模型">3.2 随机网络（Erdős-Rényi模型）</h3>
+<p>每条边以概率 $p$ 独立存在：</p>
+<ul>
+<li>平均度：$\langle k \rangle = p(n-1)$</li>
+<li>度分布：二项分布（大n时近似泊松分布）</li>
+</ul>
+<h3 id="33-小世界网络watts-strogatz模型">3.3 小世界网络（Watts-Strogatz模型）</h3>
+<p>结合了高聚类系数和短平均路径长度：</p>
+<ol>
+<li>从环状规则网络开始</li>
+<li>以概率 $p$ 重连每条边</li>
+</ol>
+<h3 id="34-无标度网络barabási-albert模型">3.4 无标度网络（Barabási-Albert模型）</h3>
+<p>通过优先连接机制生成：</p>
+<ol>
+<li>增长：网络逐渐增加新节点</li>
+<li>优先连接：新节点连接已有节点的概率与节点度成正比</li>
+</ol>
+<h2 id="4-社区检测">4. 社区检测</h2>
+<h3 id="41-模块度">4.1 模块度</h3>
+<p>衡量社区划分质量的指标：
+$$Q = \frac{1}{2m} \sum_{ij} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i, c_j)$$
+其中 $m$ 是总边数，$c_i$ 是节点 $i$ 的社区。</p>
+<h3 id="42-常用算法">4.2 常用算法</h3>
+<ol>
+<li><strong>Girvan-Newman算法</strong>：基于边介数</li>
+<li><strong>Louvain算法</strong>：基于模块度优化</li>
+<li><strong>标签传播算法</strong>：基于局部信息</li>
+<li><strong>谱聚类方法</strong>：基于图拉普拉斯矩阵</li>
+</ol>
+<h2 id="5-python实现networkx基础">5. Python实现：NetworkX基础</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> networkx <span style="color:#ff79c6">as</span> nx
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> collections <span style="color:#ff79c6">import</span> Counter
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 创建图</span>
+</span></span><span style="display:flex;"><span>G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>Graph()  <span style="color:#6272a4"># 无向图</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># G = nx.DiGraph()  # 有向图</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 添加节点和边</span>
+</span></span><span style="display:flex;"><span>G<span style="color:#ff79c6">.</span>add_nodes_from([<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>])
+</span></span><span style="display:flex;"><span>G<span style="color:#ff79c6">.</span>add_edges_from([(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>), (<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">3</span>), (<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>), (<span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">4</span>), (<span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>)])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 基本属性</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;节点数: </span><span style="color:#f1fa8c">{</span>G<span style="color:#ff79c6">.</span>number_of_nodes()<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;边数: </span><span style="color:#f1fa8c">{</span>G<span style="color:#ff79c6">.</span>number_of_edges()<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;节点度: </span><span style="color:#f1fa8c">{</span><span style="color:#8be9fd;font-style:italic">dict</span>(G<span style="color:#ff79c6">.</span>degree())<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 可视化</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>figure(figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">8</span>, <span style="color:#bd93f9">6</span>))
+</span></span><span style="display:flex;"><span>pos <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>spring_layout(G, seed<span style="color:#ff79c6">=</span><span style="color:#bd93f9">42</span>)
+</span></span><span style="display:flex;"><span>nx<span style="color:#ff79c6">.</span>draw(G, pos, with_labels<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>, node_color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;lightblue&#39;</span>, 
+</span></span><span style="display:flex;"><span>        node_size<span style="color:#ff79c6">=</span><span style="color:#bd93f9">500</span>, font_size<span style="color:#ff79c6">=</span><span style="color:#bd93f9">12</span>, font_weight<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;bold&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#34;简单网络图&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>show()
+</span></span></code></pre></div>
+            
+             
+            
+
+
+
+
+<link href="https://xxx.xxx.com/dist/Artalk.css" rel="stylesheet" />
+<script src="https://xxx.xxx.com/dist/Artalk.js"></script>
+
+
+<div id="Comments"></div>
+
+<script>
+    Artalk.init({
+        el: '#Comments',
+        pageKey: 'https:\/\/SurpriseQiD.github.io\/knowledge\/concepts\/network-analysis\/',
+        pageTitle: '网络分析：图论与社会网络分析基础',
+        server: 'https:\/\/xxx.xxx.com',
+        site: 'xxx blog',
+    })
+</script>
+
+
+            
+            </div>
+            
+            
+
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+
+    
+    <section>
+        <hr>
+        <h5>站点目录</h5>
+        <ul class="list-unstyled">
+            
+            
+                <li><a href="/">🏠 首页</a></li>
+            
+                <li><a href="/knowledge/">📚 知识库</a></li>
+            
+                <li><a href="/learning/">📖 学习记录</a></li>
+            
+                <li><a href="/research/">🔬 研究进展</a></li>
+            
+                <li><a href="/resources/">🔗 资源聚合</a></li>
+            
+                <li><a href="/blog/">✍️ 博客文章</a></li>
+            
+                <li><a href="/about/">👤 关于我</a></li>
+            
+
+            
+            
+                
+                <li class="">
+                    <a href="/research/">Research</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/learning/">学习记录</a>
+                    
+                </li>
+            
+                
+                <li class="active">
+                    <a href="/knowledge/">知识库</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/blog/">Posts</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/resources/">资源链接</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/search/">Searches</a>
+                    
+                </li>
+            
+        </ul>
+    </section>
+
+    
+    
+    <section class="visible-md visible-lg">
+        <div class="short-about">
+            
+            <a href="/about">
+               <img src="/img/avatar-patrickStar.jpg" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Ph.D. Candidate at University of Science and Technology of China</p>
+            
+           
+           <ul class="list-inline">
+               
+               <li>
+                   <a href="mailto:dongq@mail.ustc.edu.cn">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                      </span>
+                   </a>
+               </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/SurpriseQiD">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+           </ul>
+        </div>
+    </section>
+    
+
+    
+    
+
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+            
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+        </div>
+    </section>
+    
+
+    
+
+</div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="mailto:dongq@mail.ustc.edu.cn">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/SurpriseQiD">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="QiView" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; QiView 2025
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+       bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else{
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+<script>
+    
+    var _baId = '21326675';
+
+    
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<span id="total-views" class="site-counter">
+  <i class="fa fa-eye"></i>
+  <span class="leancloud-total-views"></span>
+</span>
+
+<script>
+  
+  function showTotalViews() {
+    var SiteCounter = AV.Object.extend("SiteCounter");
+    var query = new AV.Query(SiteCounter);
+    query.first().then(function (counter) {
+      var totalViews = counter ? counter.get("totalViews") : 0;
+      document.querySelector('.leancloud-total-views').textContent = totalViews;
+    });
+  }
+  showTotalViews(); 
+</script>
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow" title="' + t + '">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+    
+</body>
+</html>

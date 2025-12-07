@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on QiView</title>
+    <link>https://SurpriseQiD.github.io/tags/python/</link>
+    <description>Recent content in Python on QiView</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://SurpriseQiD.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PyTorch深度学习开发完全指南</title>
+      <link>https://SurpriseQiD.github.io/knowledge/tools/pytorch-guide/</link>
+      <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/knowledge/tools/pytorch-guide/</guid>
+      <description>从基础到进阶的PyTorch深度学习开发指南，包含实用技巧和最佳实践</description>
+    </item>
+    <item>
+      <title>机器学习完整流程指南：从数据到部署</title>
+      <link>https://SurpriseQiD.github.io/knowledge/tutorials/ml-pipeline-guide/</link>
+      <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/knowledge/tutorials/ml-pipeline-guide/</guid>
+      <description>完整的机器学习项目实践指南，涵盖数据预处理、模型训练、评估和部署全流程</description>
+    </item>
+  </channel>
+</rss>

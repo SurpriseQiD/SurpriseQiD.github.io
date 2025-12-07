@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="QiView">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg">
+    <meta property="twitter:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg" />
+    
+
+    
+    <meta name="title" content="" />
+    <meta property="og:title" content="" />
+    <meta property="twitter:title" content="" />
+    
+
+    
+    <meta name="description" content="QiView — an academic knowledge hub for computation and decision sciences.">
+    <meta property="og:description" content="QiView — an academic knowledge hub for computation and decision sciences." />
+    <meta property="twitter:description" content="QiView — an academic knowledge hub for computation and decision sciences." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Game Theory, Decision Science, Operations Management, Human-AI Interaction">
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+    <title>QiView</title>
+
+    <link rel="canonical" href="/knowledge/tutorials/game-theory-basics/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CX84QDN0SR"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CX84QDN0SR');
+        }
+      </script>
+
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">QiView</a>
+        </div>
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                        <li><a href="/">🏠 首页</a></li>
+                    
+                        <li><a href="/knowledge/">📚 知识库</a></li>
+                    
+                        <li><a href="/learning/">📖 学习记录</a></li>
+                    
+                        <li><a href="/research/">🔬 研究进展</a></li>
+                    
+                        <li><a href="/resources/">🔗 资源聚合</a></li>
+                    
+                        <li><a href="/blog/">✍️ 博客文章</a></li>
+                    
+                        <li><a href="/about/">👤 关于我</a></li>
+                    
+                    <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            $navbar.className = " ";
+            setTimeout(function(){
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+<header class="intro-header" style="background-image: url('/img/home-bg-painting.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>QiView </h1>
+                    
+		    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+            
+            <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container">
+            
+                <h3 id="22-博弈论核心概念-contentknowledgeconceptsnash-equilibriummd">2.2 博弈论核心概念 (<code>content/knowledge/concepts/nash-equilibrium.md</code>)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;纳什均衡：定义、计算与应用&#34;
+</span></span><span style="display:flex;"><span>date: 2025-12-05
+</span></span><span style="display:flex;"><span>draft: false
+</span></span><span style="display:flex;"><span>knowledge_type: &#34;概念解析&#34;
+</span></span><span style="display:flex;"><span>subject: &#34;博弈论&#34;
+</span></span><span style="display:flex;"><span>tags: [&#34;纳什均衡&#34;, &#34;博弈论&#34;, &#34;数学概念&#34;, &#34;经济学&#34;]
+</span></span><span style="display:flex;"><span>level: &#34;中级&#34;
+</span></span><span style="display:flex;"><span>author: &#34;Qi Dong&#34;
+</span></span><span style="display:flex;"><span>summary: &#34;深入解析纳什均衡的概念、计算方法及其在经济学和社会科学中的应用&#34;
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold"># 纳什均衡：定义、计算与应用
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span>纳什均衡是博弈论中最重要的概念之一，由约翰·纳什在1950年提出，并因此获得1994年诺贝尔经济学奖。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">## 正式定义
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span>在n人博弈中，策略组合 $s^* = (s_1^*, s_2^*, ..., s_n^*)$ 是一个纳什均衡，如果对于每一个参与者 $i$，满足：
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$$u_i(s_i^*, s_{-i}^*) \geq u_i(s_i, s_{-i}^*), \quad \forall s_i \in S_i$$
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>其中：
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> $u_i$ 是参与者 $i$ 的收益函数
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> $s_{-i}^*$ 表示其他所有参与者的均衡策略
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> $S_i$ 是参与者 $i$ 的策略空间
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">## 关键特性
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 1. 自执行性（Self-Enforcing）
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>一旦达到纳什均衡，没有参与者有单方面偏离的动机。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 2. 存在性定理
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>纳什定理（1950）：任何有限博弈（参与者有限，策略有限）至少存在一个纳什均衡（可能是混合策略均衡）。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 3. 可能的多重性
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>一个博弈可能有：
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 零个纳什均衡（无限博弈可能没有）
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 一个纯策略纳什均衡
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 多个纳什均衡
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 混合策略纳什均衡
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">## 计算方法
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 1. 优势法
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>通过迭代消除严格劣势策略简化博弈。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 2. 最优反应分析
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>寻找每个参与者对其他参与者策略的最优反应。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 3. 代数方法
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>对于两人有限博弈，可以使用线性规划或代数方法。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 4. Python实现示例
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
+</span></span><span style="display:flex;"><span>```python
+</span></span><span style="display:flex;"><span>import numpy as np
+</span></span><span style="display:flex;"><span>import itertools
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def find_pure_nash_equilibria(payoff_matrix_A, payoff_matrix_B):
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>    寻找两人博弈的纯策略纳什均衡
+</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;
+</span></span><span style="display:flex;"><span>    n_strategies_A, n_strategies_B = payoff_matrix_A.shape
+</span></span><span style="display:flex;"><span>    equilibria = []
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    for i in range(n_strategies_A):
+</span></span><span style="display:flex;"><span>        for j in range(n_strategies_B):
+</span></span><span style="display:flex;"><span>            # 检查是否是纳什均衡
+</span></span><span style="display:flex;"><span>            is_equilibrium = True
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            # 检查参与者A是否有偏离动机
+</span></span><span style="display:flex;"><span>            for k in range(n_strategies_A):
+</span></span><span style="display:flex;"><span>                if payoff_matrix_A[k, j] &gt; payoff_matrix_A[i, j]:
+</span></span><span style="display:flex;"><span>                    is_equilibrium = False
+</span></span><span style="display:flex;"><span>                    break
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            if not is_equilibrium:
+</span></span><span style="display:flex;"><span>                continue
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>            # 检查参与者B是否有偏离动机
+</span></span><span style="display:flex;"><span>            for l in range(n_strategies_B):
+</span></span><span style="display:flex;"><span>                if payoff_matrix_B[i, l] &gt; payoff_matrix_B[i, j]:
+</span></span><span style="display:flex;"><span>                    is_equilibrium = False
+</span></span><span style="display:flex;"><span>                    break
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            if is_equilibrium:
+</span></span><span style="display:flex;"><span>                equilibria.append((i, j))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    return equilibria
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold"># 示例：性别之战博弈
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>A = np.array([[2, 0], [0, 1]])  # 参与者A的收益
+</span></span><span style="display:flex;"><span>B = np.array([[1, 0], [0, 2]])  # 参与者B的收益
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>equilibria = find_pure_nash_equilibria(A, B)
+</span></span><span style="display:flex;"><span>print(&#34;纯策略纳什均衡:&#34;, equilibria)
+</span></span></code></pre></div>
+            
+             
+            
+
+
+
+
+<link href="https://xxx.xxx.com/dist/Artalk.css" rel="stylesheet" />
+<script src="https://xxx.xxx.com/dist/Artalk.js"></script>
+
+
+<div id="Comments"></div>
+
+<script>
+    Artalk.init({
+        el: '#Comments',
+        pageKey: 'https:\/\/SurpriseQiD.github.io\/knowledge\/tutorials\/game-theory-basics\/',
+        pageTitle: '',
+        server: 'https:\/\/xxx.xxx.com',
+        site: 'xxx blog',
+    })
+</script>
+
+
+            
+            </div>
+            
+            
+
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+
+    
+    <section>
+        <hr>
+        <h5>站点目录</h5>
+        <ul class="list-unstyled">
+            
+            
+                <li><a href="/">🏠 首页</a></li>
+            
+                <li><a href="/knowledge/">📚 知识库</a></li>
+            
+                <li><a href="/learning/">📖 学习记录</a></li>
+            
+                <li><a href="/research/">🔬 研究进展</a></li>
+            
+                <li><a href="/resources/">🔗 资源聚合</a></li>
+            
+                <li><a href="/blog/">✍️ 博客文章</a></li>
+            
+                <li><a href="/about/">👤 关于我</a></li>
+            
+
+            
+            
+                
+                <li class="">
+                    <a href="/research/">Research</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/learning/">学习记录</a>
+                    
+                </li>
+            
+                
+                <li class="active">
+                    <a href="/knowledge/">知识库</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/blog/">Posts</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/resources/">资源链接</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/search/">Searches</a>
+                    
+                </li>
+            
+        </ul>
+    </section>
+
+    
+    
+    <section class="visible-md visible-lg">
+        <div class="short-about">
+            
+            <a href="/about">
+               <img src="/img/avatar-patrickStar.jpg" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Ph.D. Candidate at University of Science and Technology of China</p>
+            
+           
+           <ul class="list-inline">
+               
+               <li>
+                   <a href="mailto:dongq@mail.ustc.edu.cn">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                      </span>
+                   </a>
+               </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/SurpriseQiD">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+           </ul>
+        </div>
+    </section>
+    
+
+    
+    
+
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+            
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+        </div>
+    </section>
+    
+
+    
+
+</div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="mailto:dongq@mail.ustc.edu.cn">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/SurpriseQiD">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="QiView" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; QiView 2025
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+       bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else{
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+<script>
+    
+    var _baId = '21326675';
+
+    
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<span id="total-views" class="site-counter">
+  <i class="fa fa-eye"></i>
+  <span class="leancloud-total-views"></span>
+</span>
+
+<script>
+  
+  function showTotalViews() {
+    var SiteCounter = AV.Object.extend("SiteCounter");
+    var query = new AV.Query(SiteCounter);
+    query.first().then(function (counter) {
+      var totalViews = counter ? counter.get("totalViews") : 0;
+      document.querySelector('.leancloud-total-views').textContent = totalViews;
+    });
+  }
+  showTotalViews(); 
+</script>
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow" title="' + t + '">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+    
+</body>
+</html>
