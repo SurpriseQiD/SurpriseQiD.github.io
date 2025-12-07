@@ -50,63 +50,84 @@
     padding: 0 5px;
 }
 
-/* 社交图标容器 - 基于原主题样式优化 */
+
+
+/* ========================================== */
+/* 修复社交图标水平排列问题 */
+/* ========================================== */
+
+/* 社交图标容器 - 水平排列，不加标题 */
 .author-social {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* 允许换行 */
-    gap: 8px; /* 图标间距 */
-    margin-top: 15px;
+    align-items: center;
+    flex-wrap: nowrap; /* 不换行 */
+    gap: 15px; /* 增加间距 */
+    margin: 20px auto 10px;
+    padding: 0;
+    list-style: none;
+}
+
+/* 移除li的列表样式 */
+.author-social li {
+    display: inline-block;
+    margin: 0;
     padding: 0;
 }
 
-.author-social li {
-    list-style: none;
-    margin: 0;
-}
-
-/* 社交图标链接 - 参考原主题的图标样式 */
+/* 社交图标链接 */
 .author-social a {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;  /* 减小图标尺寸 */
-    height: 32px; /* 减小图标尺寸 */
+    width: 40px;  /* 增大图标尺寸 */
+    height: 40px; /* 增大图标尺寸 */
     border-radius: 50%;
-    background: #f8f9fa;
-    color: #2a6f97;
+    background: linear-gradient(135deg, #2a6f97 0%, #1b4b63 100%);
+    color: white;
     text-decoration: none;
-    font-size: 0.9rem; /* 调整字体大小 */
+    font-size: 1.1rem;
     transition: all 0.3s ease;
-    border: 1px solid #eaeaea;
+    border: none;
 }
 
 .author-social a:hover {
-    background: #2a6f97;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(42, 111, 151, 0.2);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 15px rgba(42, 111, 151, 0.3);
 }
 
 /* 特定社交图标的颜色调整 */
-.author-social a[href*="github"]:hover {
-    background: #333;
+.author-social a[href*="github"] {
+    background: linear-gradient(135deg, #333 0%, #24292e 100%);
 }
 
-.author-social a[href*="researchgate"]:hover {
-    background: #00d0af;
+.author-social a[href*="researchgate"] {
+    background: linear-gradient(135deg, #00d0af 0%, #00b394 100%);
 }
 
-.author-social a[href*="google"]:hover {
-    background: #4285f4;
+.author-social a[href*="google"] {
+    background: linear-gradient(135deg, #4285f4 0%, #0d47a1 100%);
 }
 
-.author-social a[href*="orcid"]:hover {
-    background: #a6ce39;
+.author-social a[href*="orcid"] {
+    background: linear-gradient(135deg, #a6ce39 0%, #8bc34a 100%);
 }
 
-.author-social a[href*="mailto"]:hover {
-    background: #d44638;
+.author-social a[href*="mailto"] {
+    background: linear-gradient(135deg, #d44638 0%, #c62828 100%);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .author-social {
+        gap: 10px;
+    }
+    
+    .author-social a {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
 }
 
 /* 修复文字单列显示问题 */
@@ -172,78 +193,155 @@
     padding-left: 5px;
 }
 
-/* 确保响应式设计 */
-@media (max-width: 768px) {
-    .author-avatar {
-        max-width: 70px;
-        height: 70px;
-        width: 70px;
-    }
-    
-    .author-social a {
-        width: 30px;
-        height: 30px;
-        font-size: 0.8rem;
-    }
-    
-    .author-social {
-        gap: 6px;
-    }
-}
-
-@media (max-width: 576px) {
-    .author-avatar {
-        max-width: 60px;
-        height: 60px;
-        width: 60px;
-    }
-    
-    .author-social a {
-        width: 28px;
-        height: 28px;
-    }
-}
 
 /* ========================================== */
-/* 菜单栏字体大小调整 */
+/* 增大菜单栏字体和首页字体 */
 /* ========================================== */
 
+/* 导航栏整体样式 */
+.navbar-custom {
+    min-height: 70px;
+    background: #fff !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* 菜单项字体增大 */
 .navbar-custom .navbar-nav > li > a {
-    font-size: 16px;  /* 调整为你需要的大小，默认模板通常为16px */
-    font-weight: 500;
-    letter-spacing: 0.3px;
-}
-
-.navbar-custom .dropdown-menu > li > a {
-    font-size: 14px;
-}
-
-.navbar-custom .navbar-nav > li > a:hover {
-    color: #2a6f97;  /* 与主题颜色一致 */
-    text-decoration: none;
-}
-
-.navbar-custom .navbar-nav > li.active > a {
-    color: #2a6f97;
+    font-size: 18px !important;  /* 增大字体 */
     font-weight: 600;
-    border-bottom: 2px solid #2a6f97;
-    background-color: transparent;
+    padding: 20px 25px !important;
+    color: #333 !important;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
 }
 
-@media (max-width: 768px) {
+/* 悬停效果 */
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+    color: #2a6f97 !important;
+    background-color: rgba(42, 111, 151, 0.05) !important;
+}
+
+/* 激活状态 */
+.navbar-custom .navbar-nav > .active > a,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus {
+    color: #2a6f97 !important;
+    background-color: transparent !important;
+    border-bottom: 3px solid #2a6f97;
+}
+
+/* 品牌名称字体增大 */
+.navbar-custom .navbar-brand {
+    font-size: 24px !important;
+    font-weight: 700;
+    padding: 20px 25px !important;
+    color: #2a6f97 !important;
+    letter-spacing: 0.5px;
+}
+
+/* 下拉菜单字体 */
+.navbar-custom .dropdown-menu > li > a {
+    font-size: 16px !important;
+    padding: 12px 20px !important;
+    font-weight: 500;
+}
+
+/* 响应式调整 */
+@media (max-width: 991px) {
     .navbar-custom .navbar-nav > li > a {
-        font-size: 15px;
-        padding: 10px 15px;
+        font-size: 17px !important;
+        padding: 15px 20px !important;
+        text-align: center;
+    }
+    
+    .navbar-custom .navbar-brand {
+        font-size: 22px !important;
+        padding: 15px 20px !important;
     }
     
     .navbar-custom .navbar-toggle {
-        margin-top: 15px;
-        margin-bottom: 15px;
+        margin: 18px 15px;
     }
 }
 
-nav .nav li a {
-    font-size: 16px !important;
+/* ========================================== */
+/* 首页字体增大 */
+/* ========================================== */
+
+/* 首页主标题 */
+.home .page-title,
+.home h1 {
+    font-size: 2.8rem !important;  /* 增大标题 */
+    font-weight: 700;
+    color: #1b3b4a;
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+/* 首页副标题 */
+.home h2,
+.home .section-title {
+    font-size: 2.2rem !important;
+    font-weight: 600;
+    color: #2a6f97;
+    margin: 40px 0 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #2a6f97;
+}
+
+/* 首页三级标题 */
+.home h3 {
+    font-size: 1.8rem !important;
+    font-weight: 600;
+    color: #333;
+    margin: 30px 0 20px;
+}
+
+/* 首页段落文字 */
+.home p,
+.home .lead {
+    font-size: 1.15rem !important;  /* 增大正文 */
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* 首页卡片标题 */
+.home .card-title,
+.home .feature-title {
+    font-size: 1.5rem !important;
+    font-weight: 600;
+    color: #1b3b4a;
+    margin-bottom: 15px;
+}
+
+/* 首页卡片内容 */
+.home .card-text,
+.home .feature-description {
+    font-size: 1.1rem !important;
+    line-height: 1.7;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .home .page-title,
+    .home h1 {
+        font-size: 2.2rem !important;
+    }
+    
+    .home h2,
+    .home .section-title {
+        font-size: 1.8rem !important;
+    }
+    
+    .home h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .home p {
+        font-size: 1.05rem !important;
+    }
 }
 
 /* ========================================== */
@@ -1040,4 +1138,165 @@ nav .nav li a {
 .navbar-default .navbar-nav > li > a,
 .navbar-inverse .navbar-nav > li > a {
     font-size: 16px !important;
+}
+
+
+
+/* ========================================== */
+/* 首页卡片布局优化 - 减少留白，变宽 */
+/* ========================================== */
+
+/* 首页容器优化 */
+.home .container {
+    max-width: 1400px !important;  /* 增大容器宽度 */
+    padding: 0 10px !important;    /* 减少两边留白 */
+}
+
+/* 行布局优化 */
+.home .row {
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+}
+
+/* 列布局优化 */
+.home .col-lg-4,
+.home .col-md-6,
+.home .col-sm-12 {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+/* 核心功能和特色卡片 */
+.home .card,
+.home .feature-card,
+.home .research-card {
+    width: 100% !important;
+    margin-bottom: 20px !important;
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08) !important;
+    transition: all 0.3s ease !important;
+    padding: 25px !important;
+    background: white !important;
+}
+
+.home .card:hover,
+.home .feature-card:hover,
+.home .research-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15) !important;
+}
+
+/* 确保卡片在同一行显示 */
+@media (min-width: 992px) {
+    .home .card,
+    .home .feature-card,
+    .home .research-card {
+        height: 100%; /* 确保卡片高度一致 */
+    }
+}
+
+/* 卡片内部布局优化 */
+.home .card-body {
+    padding: 0 !important;
+}
+
+.home .card-img-top {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.home .card-title {
+    font-size: 1.4rem !important;
+    margin-bottom: 15px;
+    color: #2a6f97;
+    font-weight: 600;
+}
+
+.home .card-text {
+    font-size: 1.05rem !important;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* 按钮样式优化 */
+.home .btn,
+.home .card-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #2a6f97 0%, #1b4b63 100%);
+    color: white !important;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.home .btn:hover,
+.home .card-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(42, 111, 151, 0.3);
+}
+
+/* 特定区域间距调整 */
+.home .features-section,
+.home .research-section {
+    padding: 40px 0 !important;
+}
+
+.home .section-header {
+    margin-bottom: 40px !important;
+}
+
+/* 网格布局优化 */
+.home .card-deck,
+.home .row-cols-lg-3,
+.home .row-cols-md-2 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin: 0 -8px !important;
+}
+
+.home .card-deck .card,
+.home .row-cols-lg-3 > *,
+.home .row-cols-md-2 > * {
+    flex: 1 0 auto !important;
+    margin: 0 8px 20px !important;
+}
+
+/* 移除不必要的边距 */
+.home .mb-5,
+.home .my-5,
+.home .mt-5 {
+    margin-bottom: 30px !important;
+    margin-top: 30px !important;
+}
+
+.home .py-5,
+.home .pt-5,
+.home .pb-5 {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+}
+
+@media (max-width: 768px) {
+    .home .container {
+        padding: 0 15px !important;
+    }
+    
+    .home .card,
+    .home .feature-card,
+    .home .research-card {
+        margin-bottom: 15px !important;
+        padding: 20px !important;
+    }
+    
+    .home .card-img-top {
+        height: 150px;
+    }
 }
