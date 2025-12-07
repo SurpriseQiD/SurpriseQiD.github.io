@@ -10,9 +10,9 @@
     <atom:link href="https://SurpriseQiD.github.io/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PyTorch深度学习开发完全指南</title>
-      <link>https://SurpriseQiD.github.io/knowledge/tools/pytorch-guide/</link>
+      <link>https://SurpriseQiD.github.io/knowledge/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pytorch-guide/</link>
       <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://SurpriseQiD.github.io/knowledge/tools/pytorch-guide/</guid>
+      <guid>https://SurpriseQiD.github.io/knowledge/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pytorch-guide/</guid>
       <description>从基础到进阶的PyTorch深度学习开发指南，包含实用技巧和最佳实践</description>
     </item>
   </channel>

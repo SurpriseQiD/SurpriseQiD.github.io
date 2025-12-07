@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="网络分析：图论与社会网络分析基础" />
+    <meta property="og:title" content="网络分析：图论与社会网络分析基础" />
+    <meta property="twitter:title" content="网络分析：图论与社会网络分析基础" />
     
 
     
@@ -27,16 +27,16 @@
     
 
     
-    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:card" content="网络分析的核心概念、常用指标与分析方法，涵盖图论基础与社会网络分析" />
     
     
 
     <meta name="keyword"  content="Game Theory, Decision Science, Operations Management, Human-AI Interaction">
     <link rel="shortcut icon" href="/img/favicon.png">
 
-    <title>QiView</title>
+    <title>网络分析：图论与社会网络分析基础 | QiView</title>
 
-    <link rel="canonical" href="/knowledge/tutorials/game-theory-basics/">
+    <link rel="canonical" href="/knowledge/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/network-analysis/">
 
     
     
@@ -182,104 +182,113 @@
             col-xs-12
             post-container">
             
-                <h3 id="22-博弈论核心概念-contentknowledgeconceptsnash-equilibriummd">2.2 博弈论核心概念 (<code>content/knowledge/concepts/nash-equilibrium.md</code>)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span>title: &#34;纳什均衡：定义、计算与应用&#34;
-</span></span><span style="display:flex;"><span>date: 2025-12-05
-</span></span><span style="display:flex;"><span>draft: false
-</span></span><span style="display:flex;"><span>knowledge_type: &#34;概念解析&#34;
-</span></span><span style="display:flex;"><span>subject: &#34;博弈论&#34;
-</span></span><span style="display:flex;"><span>tags: [&#34;纳什均衡&#34;, &#34;博弈论&#34;, &#34;数学概念&#34;, &#34;经济学&#34;]
-</span></span><span style="display:flex;"><span>level: &#34;中级&#34;
-</span></span><span style="display:flex;"><span>author: &#34;Qi Dong&#34;
-</span></span><span style="display:flex;"><span>summary: &#34;深入解析纳什均衡的概念、计算方法及其在经济学和社会科学中的应用&#34;
-</span></span><span style="display:flex;"><span>---
+                <h1 id="网络分析图论与社会网络分析基础">网络分析：图论与社会网络分析基础</h1>
+<p>网络分析是研究复杂系统结构的重要工具，广泛应用于社交网络、生物网络、信息网络等领域。</p>
+<h2 id="1-基本概念">1. 基本概念</h2>
+<h3 id="11-图的定义">1.1 图的定义</h3>
+<p>一个图 $G = (V, E)$ 由顶点集 $V$ 和边集 $E$ 组成。</p>
+<p><strong>图的类型</strong>：</p>
+<ul>
+<li>无向图 vs 有向图</li>
+<li>加权图 vs 无权图</li>
+<li>简单图 vs 多重图</li>
+</ul>
+<h3 id="12-图的表示方法">1.2 图的表示方法</h3>
+<h4 id="邻接矩阵">邻接矩阵</h4>
+<p>对于有 $n$ 个顶点的图，邻接矩阵 $A$ 是一个 $n \times n$ 矩阵，其中：
+$$
+A_{ij} =
+\begin{cases}
+1 &amp; \text{如果顶点 i 和 j 之间有边} \
+0 &amp; \text{否则}
+\end{cases}
+$$</p>
+<h4 id="邻接表">邻接表</h4>
+<p>更节省空间的表示方法，特别适合稀疏图。</p>
+<h2 id="2-网络的基本性质">2. 网络的基本性质</h2>
+<h3 id="21-度分布">2.1 度分布</h3>
+<p>顶点度 $k$ 的概率分布 $P(k)$，对于许多真实网络服从幂律分布：
+$$P(k) \sim k^{-\gamma}$$</p>
+<h3 id="22-聚类系数">2.2 聚类系数</h3>
+<p>衡量节点的邻居之间相互连接的程度：
+$$C_i = \frac{2L_i}{k_i(k_i-1)}$$
+其中 $L_i$ 是节点 $i$ 的邻居之间的边数。</p>
+<h3 id="23-路径与距离">2.3 路径与距离</h3>
+<ul>
+<li><strong>最短路径长度</strong>：两个节点之间的最小边数</li>
+<li><strong>平均路径长度</strong>：所有节点对之间最短路径的平均值</li>
+<li><strong>直径</strong>：最长最短路径的长度</li>
+</ul>
+<h3 id="24-中心性指标">2.4 中心性指标</h3>
+<ol>
+<li><strong>度中心性</strong>：$C_D(i) = \frac{k_i}{n-1}$</li>
+<li><strong>接近中心性</strong>：$C_C(i) = \frac{n-1}{\sum_{j \neq i} d(i,j)}$</li>
+<li><strong>介数中心性</strong>：$C_B(i) = \sum_{s \neq i \neq t} \frac{\sigma_{st}(i)}{\sigma_{st}}$</li>
+<li><strong>特征向量中心性</strong>：$Ax = \lambda x$</li>
+</ol>
+<h2 id="3-网络类型与模型">3. 网络类型与模型</h2>
+<h3 id="31-规则网络">3.1 规则网络</h3>
+<ul>
+<li>完全图</li>
+<li>环状图</li>
+<li>网格图</li>
+</ul>
+<h3 id="32-随机网络erdős-rényi模型">3.2 随机网络（Erdős-Rényi模型）</h3>
+<p>每条边以概率 $p$ 独立存在：</p>
+<ul>
+<li>平均度：$\langle k \rangle = p(n-1)$</li>
+<li>度分布：二项分布（大n时近似泊松分布）</li>
+</ul>
+<h3 id="33-小世界网络watts-strogatz模型">3.3 小世界网络（Watts-Strogatz模型）</h3>
+<p>结合了高聚类系数和短平均路径长度：</p>
+<ol>
+<li>从环状规则网络开始</li>
+<li>以概率 $p$ 重连每条边</li>
+</ol>
+<h3 id="34-无标度网络barabási-albert模型">3.4 无标度网络（Barabási-Albert模型）</h3>
+<p>通过优先连接机制生成：</p>
+<ol>
+<li>增长：网络逐渐增加新节点</li>
+<li>优先连接：新节点连接已有节点的概率与节点度成正比</li>
+</ol>
+<h2 id="4-社区检测">4. 社区检测</h2>
+<h3 id="41-模块度">4.1 模块度</h3>
+<p>衡量社区划分质量的指标：
+$$Q = \frac{1}{2m} \sum_{ij} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i, c_j)$$
+其中 $m$ 是总边数，$c_i$ 是节点 $i$ 的社区。</p>
+<h3 id="42-常用算法">4.2 常用算法</h3>
+<ol>
+<li><strong>Girvan-Newman算法</strong>：基于边介数</li>
+<li><strong>Louvain算法</strong>：基于模块度优化</li>
+<li><strong>标签传播算法</strong>：基于局部信息</li>
+<li><strong>谱聚类方法</strong>：基于图拉普拉斯矩阵</li>
+</ol>
+<h2 id="5-python实现networkx基础">5. Python实现：NetworkX基础</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> networkx <span style="color:#ff79c6">as</span> nx
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> collections <span style="color:#ff79c6">import</span> Counter
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold"># 纳什均衡：定义、计算与应用
-</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
-</span></span><span style="display:flex;"><span>纳什均衡是博弈论中最重要的概念之一，由约翰·纳什在1950年提出，并因此获得1994年诺贝尔经济学奖。
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 创建图</span>
+</span></span><span style="display:flex;"><span>G <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>Graph()  <span style="color:#6272a4"># 无向图</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># G = nx.DiGraph()  # 有向图</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">## 正式定义
-</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
-</span></span><span style="display:flex;"><span>在n人博弈中，策略组合 $s^* = (s_1^*, s_2^*, ..., s_n^*)$ 是一个纳什均衡，如果对于每一个参与者 $i$，满足：
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 添加节点和边</span>
+</span></span><span style="display:flex;"><span>G<span style="color:#ff79c6">.</span>add_nodes_from([<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>])
+</span></span><span style="display:flex;"><span>G<span style="color:#ff79c6">.</span>add_edges_from([(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>), (<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">3</span>), (<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>), (<span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">4</span>), (<span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>)])
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$$u_i(s_i^*, s_{-i}^*) \geq u_i(s_i, s_{-i}^*), \quad \forall s_i \in S_i$$
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 基本属性</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;节点数: </span><span style="color:#f1fa8c">{</span>G<span style="color:#ff79c6">.</span>number_of_nodes()<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;边数: </span><span style="color:#f1fa8c">{</span>G<span style="color:#ff79c6">.</span>number_of_edges()<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;节点度: </span><span style="color:#f1fa8c">{</span><span style="color:#8be9fd;font-style:italic">dict</span>(G<span style="color:#ff79c6">.</span>degree())<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>其中：
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> $u_i$ 是参与者 $i$ 的收益函数
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> $s_{-i}^*$ 表示其他所有参与者的均衡策略
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> $S_i$ 是参与者 $i$ 的策略空间
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">## 关键特性
-</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 1. 自执行性（Self-Enforcing）
-</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>一旦达到纳什均衡，没有参与者有单方面偏离的动机。
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 2. 存在性定理
-</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>纳什定理（1950）：任何有限博弈（参与者有限，策略有限）至少存在一个纳什均衡（可能是混合策略均衡）。
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 3. 可能的多重性
-</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>一个博弈可能有：
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 零个纳什均衡（无限博弈可能没有）
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 一个纯策略纳什均衡
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 多个纳什均衡
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">-</span> 混合策略纳什均衡
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">## 计算方法
-</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 1. 优势法
-</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>通过迭代消除严格劣势策略简化博弈。
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 2. 最优反应分析
-</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>寻找每个参与者对其他参与者策略的最优反应。
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 3. 代数方法
-</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>对于两人有限博弈，可以使用线性规划或代数方法。
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">### 4. Python实现示例
-</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>
-</span></span><span style="display:flex;"><span>```python
-</span></span><span style="display:flex;"><span>import numpy as np
-</span></span><span style="display:flex;"><span>import itertools
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>def find_pure_nash_equilibria(payoff_matrix_A, payoff_matrix_B):
-</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;
-</span></span><span style="display:flex;"><span>    寻找两人博弈的纯策略纳什均衡
-</span></span><span style="display:flex;"><span>    &#34;&#34;&#34;
-</span></span><span style="display:flex;"><span>    n_strategies_A, n_strategies_B = payoff_matrix_A.shape
-</span></span><span style="display:flex;"><span>    equilibria = []
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    for i in range(n_strategies_A):
-</span></span><span style="display:flex;"><span>        for j in range(n_strategies_B):
-</span></span><span style="display:flex;"><span>            # 检查是否是纳什均衡
-</span></span><span style="display:flex;"><span>            is_equilibrium = True
-</span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            # 检查参与者A是否有偏离动机
-</span></span><span style="display:flex;"><span>            for k in range(n_strategies_A):
-</span></span><span style="display:flex;"><span>                if payoff_matrix_A[k, j] &gt; payoff_matrix_A[i, j]:
-</span></span><span style="display:flex;"><span>                    is_equilibrium = False
-</span></span><span style="display:flex;"><span>                    break
-</span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            if not is_equilibrium:
-</span></span><span style="display:flex;"><span>                continue
-</span></span><span style="display:flex;"><span>                
-</span></span><span style="display:flex;"><span>            # 检查参与者B是否有偏离动机
-</span></span><span style="display:flex;"><span>            for l in range(n_strategies_B):
-</span></span><span style="display:flex;"><span>                if payoff_matrix_B[i, l] &gt; payoff_matrix_B[i, j]:
-</span></span><span style="display:flex;"><span>                    is_equilibrium = False
-</span></span><span style="display:flex;"><span>                    break
-</span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            if is_equilibrium:
-</span></span><span style="display:flex;"><span>                equilibria.append((i, j))
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    return equilibria
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold"># 示例：性别之战博弈
-</span></span></span><span style="display:flex;"><span><span style="font-weight:bold"></span>A = np.array([[2, 0], [0, 1]])  # 参与者A的收益
-</span></span><span style="display:flex;"><span>B = np.array([[1, 0], [0, 2]])  # 参与者B的收益
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>equilibria = find_pure_nash_equilibria(A, B)
-</span></span><span style="display:flex;"><span>print(&#34;纯策略纳什均衡:&#34;, equilibria)
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 可视化</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>figure(figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">8</span>, <span style="color:#bd93f9">6</span>))
+</span></span><span style="display:flex;"><span>pos <span style="color:#ff79c6">=</span> nx<span style="color:#ff79c6">.</span>spring_layout(G, seed<span style="color:#ff79c6">=</span><span style="color:#bd93f9">42</span>)
+</span></span><span style="display:flex;"><span>nx<span style="color:#ff79c6">.</span>draw(G, pos, with_labels<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>, node_color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;lightblue&#39;</span>, 
+</span></span><span style="display:flex;"><span>        node_size<span style="color:#ff79c6">=</span><span style="color:#bd93f9">500</span>, font_size<span style="color:#ff79c6">=</span><span style="color:#bd93f9">12</span>, font_weight<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;bold&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>title(<span style="color:#f1fa8c">&#34;简单网络图&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>show()
 </span></span></code></pre></div>
             
              
@@ -297,8 +306,8 @@
 <script>
     Artalk.init({
         el: '#Comments',
-        pageKey: 'https:\/\/SurpriseQiD.github.io\/knowledge\/tutorials\/game-theory-basics\/',
-        pageTitle: '',
+        pageKey: 'https:\/\/SurpriseQiD.github.io\/knowledge\/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B\/network-analysis\/',
+        pageTitle: '网络分析：图论与社会网络分析基础',
         server: 'https:\/\/xxx.xxx.com',
         site: 'xxx blog',
     })
@@ -345,7 +354,7 @@
             
                 
                 <li class="">
-                    <a href="/research/">Research</a>
+                    <a href="/blog/">博客文章</a>
                     
                 </li>
             
@@ -363,7 +372,7 @@
             
                 
                 <li class="">
-                    <a href="/blog/">Posts</a>
+                    <a href="/research/">研究进展</a>
                     
                 </li>
             
@@ -431,6 +440,8 @@
         <h5>FEATURED TAGS</h5>
         <div class="tags">
             
+            
+               
             
                
             

@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Posts" />
-    <meta property="og:title" content="Posts" />
-    <meta property="twitter:title" content="Posts" />
+    <meta name="title" content="博客文章" />
+    <meta property="og:title" content="博客文章" />
+    <meta property="twitter:title" content="博客文章" />
     
 
     
-    <meta name="description" content="博客文章目录。此页面显示所有 blog posts 的摘要列表。">
-    <meta property="og:description" content="博客文章目录。此页面显示所有 blog posts 的摘要列表。" />
-    <meta property="twitter:description" content="博客文章目录。此页面显示所有 blog posts 的摘要列表。" />
+    <meta name="description" content="QiView — an academic knowledge hub for computation and decision sciences.">
+    <meta property="og:description" content="QiView — an academic knowledge hub for computation and decision sciences." />
+    <meta property="twitter:description" content="QiView — an academic knowledge hub for computation and decision sciences." />
     
 
     
@@ -34,7 +34,7 @@
     <meta name="keyword"  content="Game Theory, Decision Science, Operations Management, Human-AI Interaction">
     <link rel="shortcut icon" href="/img/favicon.png">
 
-    <title>Posts | QiView</title>
+    <title>博客文章 | QiView</title>
 
     <link rel="canonical" href="/blog/">
 
@@ -171,137 +171,779 @@
 
 
 
-<article>
-    <div class="container">
-        <div class="row">
+
+ 
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12 post-container">
+            <h1 class="title is-2">博客文章</h1>
             
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-         	<p>以下为博客文章按时间排序的目录。点击条目可查看每篇文章的全文。</p>
-
-                
-
-
-
-
-<link href="https://xxx.xxx.com/dist/Artalk.css" rel="stylesheet" />
-<script src="https://xxx.xxx.com/dist/Artalk.js"></script>
-
-
-<div id="Comments"></div>
-
-<script>
-    Artalk.init({
-        el: '#Comments',
-        pageKey: 'https:\/\/SurpriseQiD.github.io\/blog\/',
-        pageTitle: 'Posts',
-        server: 'https:\/\/xxx.xxx.com',
-        site: 'xxx blog',
-    })
-</script>
-
-
+            
+            
+            <div class="section-intro">
+                <h1 id="-博客文章">📝 博客文章</h1>
+<p>这里记录了我的研究思考、学习心得和生活感悟。文章按照主题分类，便于查阅。</p>
+<h2 id="写作初衷">写作初衷</h2>
+<ul>
+<li>记录学习和研究的过程</li>
+<li>分享经验和心得体会</li>
+<li>与读者交流互动</li>
+<li>建立个人知识体系</li>
+</ul>
+<h2 id="内容范围">内容范围</h2>
+<ul>
+<li>学术研究思考</li>
+<li>技术学习笔记</li>
+<li>读书心得体会</li>
+<li>生活观察感悟</li>
+</ul>
+<p>欢迎交流讨论！</p>
 
             </div>
             
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
+            
+            
+            
+            
 
+            
+            
                 
                 
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    </div>
-                </section>
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                 
 
                 
                 
+                <div class="post-controls" style="margin-bottom:20px; display:flex; flex-wrap:wrap; align-items:center; gap:12px;">
+                    <label>学科筛选：
+                        <select id="subjectFilter">
+                            <option value="all">全部学科</option>
+                            
+                                <option value="%E5%8D%9A%E5%BC%88%E8%AE%BA">博弈论</option>
+                            
+                                <option value="%E6%8A%80%E6%9C%AF">技术</option>
+                            
+                                <option value="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</option>
+                            
+                                <option value="%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8">网络安全</option>
+                            
+                        </select>
+                    </label>
+
+                    <label>排序：
+                        <select id="sortSelect">
+                            <option value="desc">最新在前</option>
+                            <option value="asc">最早在前</option>
+                        </select>
+                    </label>
+                    <span style="color:#6b7c85; font-size:.9rem;">（共 8 篇文章）</span>
+                </div>
+                
+
+                
+                
+                    <section class="subject-group" data-subject="%E5%8D%9A%E5%BC%88%E8%AE%BA">
+                        <h2 class="subject-title">
+                            博弈论
+                            <span class="subject-count">（1 篇）</span>
+                        </h2>
+                        
+                        <div class="subject-posts">
+                            
+                            
+                                
+                                <article class="post-card" data-date="2025-12-04">
+                                    <div class="post-card-main">
+                                        <div class="post-card-header">
+                                            <h3 class="post-card-title">
+                                                <a href="/post/game-theory-intro/">博弈论入门：理性决策与策略互动</a>
+                                            </h3>
+                                            <div class="post-card-meta">
+                                                <span class="date">
+                                                    <i class="far fa-calendar"></i>
+                                                    2025-12-04
+                                                </span>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="post-card-body">
+                                            
+                                            <p class="post-card-summary"></p>
+                                            
+                                            
+                                            
+                                            <div class="post-card-tags">
+                                                
+                                                <span class="tag">博弈论</span>
+                                                
+                                                <span class="tag">知识库</span>
+                                                
+                                                <span class="tag">入门</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </article>
+                            
+                        </div>
+                        
+                        
+                    </section>
+                
+                    <section class="subject-group" data-subject="%E6%8A%80%E6%9C%AF">
+                        <h2 class="subject-title">
+                            技术
+                            <span class="subject-count">（3 篇）</span>
+                        </h2>
+                        
+                        <div class="subject-posts">
+                            
+                            
+                                
+                                <article class="post-card" data-date="2025-05-13">
+                                    <div class="post-card-main">
+                                        <div class="post-card-header">
+                                            <h3 class="post-card-title">
+                                                <a href="/post/post-changetest-2025-05-13/">Post 尝试</a>
+                                            </h3>
+                                            <div class="post-card-meta">
+                                                <span class="date">
+                                                    <i class="far fa-calendar"></i>
+                                                    2025-05-13
+                                                </span>
+                                                
+                                                <span class="author">
+                                                    <i class="far fa-user"></i>
+                                                    董齐
+                                                </span>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="post-card-body">
+                                            
+                                            <p class="post-card-summary"><blockquote>
+<p>大家好！ 这是我第一次尝试post配置修改：</p>
+</blockquote></p>
+                                            
+                                            
+                                            
+                                            <div class="post-card-tags">
+                                                
+                                                <span class="tag">Istio</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </article>
+                            
+                                
+                                <article class="post-card" data-date="2025-04-28">
+                                    <div class="post-card-main">
+                                        <div class="post-card-header">
+                                            <h3 class="post-card-title">
+                                                <a href="/post/myfirstblog/">My First Blog</a>
+                                            </h3>
+                                            <div class="post-card-meta">
+                                                <span class="date">
+                                                    <i class="far fa-calendar"></i>
+                                                    2025-04-28
+                                                </span>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="post-card-body">
+                                            
+                                            <p class="post-card-summary"></p>
+                                            
+                                            
+                                            
+                                            <div class="post-card-tags">
+                                                
+                                                <span class="tag">tag1</span>
+                                                
+                                                <span class="tag">tag2</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </article>
+                            
+                                
+                                <article class="post-card" data-date="2025-01-01">
+                                    <div class="post-card-main">
+                                        <div class="post-card-header">
+                                            <h3 class="post-card-title">
+                                                <a href="/post/introducing-the-istio-v1alpha3-routing-api/">这里是一个标题</a>
+                                            </h3>
+                                            <div class="post-card-meta">
+                                                <span class="date">
+                                                    <i class="far fa-calendar"></i>
+                                                    2025-01-01
+                                                </span>
+                                                
+                                                <span class="author">
+                                                    <i class="far fa-user"></i>
+                                                    作者
+                                                </span>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="post-card-body">
+                                            
+                                            <p class="post-card-summary"><p>测试简介</p></p>
+                                            
+                                            
+                                            
+                                            <div class="post-card-tags">
+                                                
+                                                <span class="tag">Istio</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </article>
+                            
+                        </div>
+                        
+                        
+                    </section>
+                
+                    <section class="subject-group" data-subject="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">
+                        <h2 class="subject-title">
+                            机器学习
+                            <span class="subject-count">（2 篇）</span>
+                        </h2>
+                        
+                        <div class="subject-posts">
+                            
+                            
+                                
+                                <article class="post-card" data-date="2025-12-04">
+                                    <div class="post-card-main">
+                                        <div class="post-card-header">
+                                            <h3 class="post-card-title">
+                                                <a href="/blog/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0/">强化学习中的策略评估：从蒙特卡洛到时序差分</a>
+                                            </h3>
+                                            <div class="post-card-meta">
+                                                <span class="date">
+                                                    <i class="far fa-calendar"></i>
+                                                    2025-12-04
+                                                </span>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="post-card-body">
+                                            
+                                            <p class="post-card-summary"><p>本文介绍蒙特卡洛方法、时序差分（TD）与基于函数逼近的策略评估技术，并说明实践中的调参要点。</p></p>
+                                            
+                                            
+                                            
+                                            <div class="post-card-tags">
+                                                
+                                                <span class="tag">强化学习</span>
+                                                
+                                                <span class="tag">策略评估</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </article>
+                            
+                                
+                                <article class="post-card" data-date="2025-12-04">
+                                    <div class="post-card-main">
+                                        <div class="post-card-header">
+                                            <h3 class="post-card-title">
+                                                <a href="/blog/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E7%9B%91%E7%9D%A3%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/">自监督表示学习概述</a>
+                                            </h3>
+                                            <div class="post-card-meta">
+                                                <span class="date">
+                                                    <i class="far fa-calendar"></i>
+                                                    2025-12-04
+                                                </span>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="post-card-body">
+                                            
+                                            <p class="post-card-summary"><p>本文概述自监督表示学习的动机、常见任务与代表性方法（对比学习、预测式方法、掩码建模），并给出实现要点与参考文献。</p></p>
+                                            
+                                            
+                                            
+                                            <div class="post-card-tags">
+                                                
+                                                <span class="tag">自监督</span>
+                                                
+                                                <span class="tag">表示学习</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </article>
+                            
+                        </div>
+                        
+                        
+                    </section>
+                
+                    <section class="subject-group" data-subject="%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8">
+                        <h2 class="subject-title">
+                            网络安全
+                            <span class="subject-count">（2 篇）</span>
+                        </h2>
+                        
+                        <div class="subject-posts">
+                            
+                            
+                                
+                                <article class="post-card" data-date="2025-12-04">
+                                    <div class="post-card-main">
+                                        <div class="post-card-header">
+                                            <h3 class="post-card-title">
+                                                <a href="/blog/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/">渗透测试常用方法综述</a>
+                                            </h3>
+                                            <div class="post-card-meta">
+                                                <span class="date">
+                                                    <i class="far fa-calendar"></i>
+                                                    2025-12-04
+                                                </span>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="post-card-body">
+                                            
+                                            <p class="post-card-summary"><p>本文概述渗透测试的主要步骤、自动化工具与手工方法，并强调法律与合规边界。</p></p>
+                                            
+                                            
+                                            
+                                            <div class="post-card-tags">
+                                                
+                                                <span class="tag">渗透测试</span>
+                                                
+                                                <span class="tag">安全</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </article>
+                            
+                                
+                                <article class="post-card" data-date="2025-12-04">
+                                    <div class="post-card-main">
+                                        <div class="post-card-header">
+                                            <h3 class="post-card-title">
+                                                <a href="/blog/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%BC%8F%E6%B4%9E%E5%93%8D%E5%BA%94%E4%B8%8E%E5%8F%96%E8%AF%81/">漏洞响应与数字取证简介</a>
+                                            </h3>
+                                            <div class="post-card-meta">
+                                                <span class="date">
+                                                    <i class="far fa-calendar"></i>
+                                                    2025-12-04
+                                                </span>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="post-card-body">
+                                            
+                                            <p class="post-card-summary"><p>本文给出发生安全事件后的快速响应建议、证据保全与日志分析基础，适用于中小型服务的应急流程设计。</p></p>
+                                            
+                                            
+                                            
+                                            <div class="post-card-tags">
+                                                
+                                                <span class="tag">取证</span>
+                                                
+                                                <span class="tag">响应</span>
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </article>
+                            
+                        </div>
+                        
+                        
+                    </section>
+                
+                
+            
+
+        </div>
+        
+        
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            
+
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+
+    
+    <section>
+        <hr>
+        <h5>站点目录</h5>
+        <ul class="list-unstyled">
+            
+            
+                <li><a href="/">🏠 首页</a></li>
+            
+                <li><a href="/knowledge/">📚 知识库</a></li>
+            
+                <li><a href="/learning/">📖 学习记录</a></li>
+            
+                <li><a href="/research/">🔬 研究进展</a></li>
+            
+                <li><a href="/resources/">🔗 资源聚合</a></li>
+            
+                <li><a href="/blog/">✍️ 博客文章</a></li>
+            
+                <li><a href="/about/">👤 关于我</a></li>
+            
+
+            
+            
+                
+                <li class="active">
+                    <a href="/blog/">博客文章</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/learning/">学习记录</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/knowledge/">知识库</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/research/">研究进展</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/resources/">资源链接</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/search/">Searches</a>
+                    
+                </li>
+            
+        </ul>
+    </section>
+
+    
+    
+    <section class="visible-md visible-lg">
+        <div class="short-about">
+            
+            <a href="/about">
+               <img src="/img/avatar-patrickStar.jpg" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Ph.D. Candidate at University of Science and Technology of China</p>
+            
+           
+           <ul class="list-inline">
+               
+               <li>
+                   <a href="mailto:dongq@mail.ustc.edu.cn">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                      </span>
+                   </a>
+               </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/SurpriseQiD">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+           </ul>
+        </div>
+    </section>
+    
+
+    
+    
+
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+            
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+        </div>
+    </section>
+    
+
+    
+
+</div>
+
+            
+            
+            <div class="sidebar-module">
+                <h3>学科统计</h3>
+                <ul class="subject-stats">
+                    
+                    <li>
+                        <a href="#%25E5%258D%259A%25E5%25BC%2588%25E8%25AE%25BA">
+                            博弈论
+                            <span class="count">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#%25E6%258A%2580%25E6%259C%25AF">
+                            技术
+                            <span class="count">3</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#%25E6%259C%25BA%25E5%2599%25A8%25E5%25AD%25A6%25E4%25B9%25A0">
+                            机器学习
+                            <span class="count">2</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#%25E7%25BD%2591%25E7%25BB%259C%25E5%25AE%2589%25E5%2585%25A8">
+                            网络安全
+                            <span class="count">2</span>
+                        </a>
+                    </li>
+                    
+                </ul>
             </div>
+            
+            
+            <div class="sidebar-module">
+                <h3>最近更新</h3>
+                <ul class="recent-posts">
+                    
+                    <li>
+                        <a href="https://SurpriseQiD.github.io/post/game-theory-intro/">博弈论入门：理性决策与策略互动</a>
+                        <small>12-04</small>
+                    </li>
+                    
+                    <li>
+                        <a href="https://SurpriseQiD.github.io/blog/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%AD%96%E7%95%A5%E8%AF%84%E4%BC%B0/">强化学习中的策略评估：从蒙特卡洛到时序差分</a>
+                        <small>12-04</small>
+                    </li>
+                    
+                    <li>
+                        <a href="https://SurpriseQiD.github.io/blog/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/">渗透测试常用方法综述</a>
+                        <small>12-04</small>
+                    </li>
+                    
+                    <li>
+                        <a href="https://SurpriseQiD.github.io/blog/2025-12-04-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8-%E6%BC%8F%E6%B4%9E%E5%93%8D%E5%BA%94%E4%B8%8E%E5%8F%96%E8%AF%81/">漏洞响应与数字取证简介</a>
+                        <small>12-04</small>
+                    </li>
+                    
+                    <li>
+                        <a href="https://SurpriseQiD.github.io/blog/2025-12-04-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E7%9B%91%E7%9D%A3%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%BF%B0/">自监督表示学习概述</a>
+                        <small>12-04</small>
+                    </li>
+                    
+                </ul>
+            </div>
+            
         </div>
     </div>
-</article>
+</div>
+
+<script>
+(function(){
+    
+    var sortSelect = document.getElementById('sortSelect');
+    function sortGroups(order){
+        var groups = document.querySelectorAll('.subject-posts');
+        groups.forEach(function(group){
+            var items = Array.prototype.slice.call(group.querySelectorAll('.post-card'));
+            items.sort(function(a,b){
+                var da = new Date(a.getAttribute('data-date'));
+                var db = new Date(b.getAttribute('data-date'));
+                return order === 'asc' ? da - db : db - da;
+            });
+            items.forEach(function(i){ group.appendChild(i); });
+        });
+    }
+    if(sortSelect){ 
+        sortSelect.addEventListener('change', function(){ 
+            sortGroups(this.value); 
+        }); 
+    }
+
+    
+    var subjectFilter = document.getElementById('subjectFilter');
+    if(subjectFilter){
+        subjectFilter.addEventListener('change', function(){
+            var val = this.value;
+            var groups = document.querySelectorAll('.subject-group');
+            groups.forEach(function(g){
+                var subject = g.getAttribute('data-subject') || '';
+                if(val === 'all' || val === subject){ 
+                    g.style.display = ''; 
+                } else { 
+                    g.style.display = 'none'; 
+                }
+            });
+        });
+    }
+
+    
+    document.addEventListener('click', function(e){
+        if(e.target && e.target.classList.contains('show-more')){
+            var btn = e.target;
+            var subject = btn.getAttribute('data-subject');
+            var container = btn.closest('.subject-group');
+            if(!container) return;
+            var collapsed = container.querySelectorAll('.post-card.collapsed');
+            collapsed.forEach(function(c){ 
+                c.classList.remove('collapsed'); 
+            });
+            btn.style.display = 'none';
+        }
+    });
+})();
+</script>
 
 
 

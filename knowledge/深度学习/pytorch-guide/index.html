@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="所有知识文章" />
-    <meta property="og:title" content="所有知识文章" />
-    <meta property="twitter:title" content="所有知识文章" />
+    <meta name="title" content="PyTorch深度学习开发完全指南" />
+    <meta property="og:title" content="PyTorch深度学习开发完全指南" />
+    <meta property="twitter:title" content="PyTorch深度学习开发完全指南" />
     
 
     
@@ -27,16 +27,16 @@
     
 
     
-    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:card" content="从基础到进阶的PyTorch深度学习开发指南，包含实用技巧和最佳实践" />
     
     
 
     <meta name="keyword"  content="Game Theory, Decision Science, Operations Management, Human-AI Interaction">
     <link rel="shortcut icon" href="/img/favicon.png">
 
-    <title>所有知识文章 | QiView</title>
+    <title>PyTorch深度学习开发完全指南 | QiView</title>
 
-    <link rel="canonical" href="/knowledge/all_articles/">
+    <link rel="canonical" href="/knowledge/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pytorch-guide/">
 
     
     
@@ -154,27 +154,14 @@
 
 
 
-
-<style type="text/css">
-    header.intro-header {
-        background-image: url('/img/home-bg-painting.jpg')
-    }
-</style>
-
-<header class="intro-header" >
-
+<header class="intro-header" style="background-image: url('/img/home-bg-painting.jpg')">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        
-                    </div>
-                    <h1>所有知识文章</h1>
-                    <h2 class="subheading"></h2>
-                    <span class="meta">
-                        Posted by QiView on 2025-12-05
-                    </span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>QiView </h1>
+                    
+		    <span class="subheading"></span>
                 </div>
             </div>
         </div>
@@ -183,90 +170,35 @@
 
 
 
+
 <article>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
-                <h1 id="-所有知识文章">📚 所有知识文章</h1>
-<p>这里列出了知识库中的所有文章，按时间顺序排列。</p>
-<h2 id="按类型浏览">按类型浏览</h2>
-<ul>
-<li><a href="/knowledge/tutorials/">教程与指南</a></li>
-<li><a href="/knowledge/concepts/">核心概念</a></li>
-<li><a href="/knowledge/tools/">工具指南</a></li>
-</ul>
-<h2 id="文章列表">文章列表</h2>
-<p>{{ $knowledgePages := where .Site.RegularPages &ldquo;Section&rdquo; &ldquo;knowledge&rdquo; }}
-{{ $sortedPages := sort $knowledgePages &ldquo;Date&rdquo; &ldquo;desc&rdquo; }}</p>
-<p>{{ range $index, $page := $sortedPages }}
-{{ $num := add $index 1 }}</p>
-<h3 id="-num---title--permalink-">{{ $num }}. [{{ .Title }}]({{ .Permalink }})</h3>
-<p><strong>日期</strong>: {{ .Date.Format &ldquo;2006-01-02&rdquo; }} | <strong>类型</strong>: {{ .Params.knowledge_type }} | <strong>主题</strong>: {{ .Params.subject }}</p>
-<p>{{ .Summary }}</p>
-<p><strong>标签</strong>: {{ range .Params.tags }}<code>{{ . }}</code> {{ end }}</p>
-<hr>
-<p>{{ end }}</p>
-<p><strong>总计</strong>: {{ len $sortedPages }} 篇文章</p>
-
-
-                
-                
-
-                
-                    
-<div class="entry-shang text-center">
-    
-	    <p> 「如果这篇文章对你有用,请随意打赏」</p>
-	
-	<button class="zs show-zs btn btn-bred">赞赏支持</button>
-</div>
-<div class="zs-modal-bg"></div>
-<div class="zs-modal-box">
-	<div class="zs-modal-head">
-		<button type="button" class="close">×</button>
-		<span class="author"><a href="https://SurpriseQiD.github.io/"><img src="/img/favicon.png" />QiView</a></span>
-        
-	        <p class="tip"><i></i><span>如果这篇文章对你有用,请随意打赏</span></p>
-		
- 
-	</div>
-	<div class="zs-modal-body">
-		<div class="zs-modal-btns">
-			<button class="btn btn-blink" data-num="2">2元</button>
-			<button class="btn btn-blink" data-num="5">5元</button>
-			<button class="btn btn-blink" data-num="10">10元</button>
-			<button class="btn btn-blink" data-num="50">50元</button>
-			<button class="btn btn-blink" data-num="100">100元</button>
-			<button class="btn btn-blink" data-num="1">任意金额</button>
-		</div>
-		<div class="zs-modal-pay">
-			<button class="btn btn-bred" id="pay-text">2元</button>
-			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
-			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
-		</div>
-	</div>
-	<div class="zs-modal-footer">
-		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
-		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
-	</div>
-</div>
-<script type="text/javascript" src="/js/reward.js"></script>
-
-                
-
-                
-                <hr>
-                <ul class="pager">
-                    
-                    <li class="previous"><a href="/knowledge/tutorials/ml-pipeline-guide/">&larr; Previous Post</a></li>
-                    
-                    
-                    <li class="next"><a href="/knowledge/tools/pytorch-guide/">Next Post &rarr;</a></li>
-                    
-                </ul>
-                
-
-                
+            
+            <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container">
+            
+                <h1 id="pytorch深度学习开发完全指南">PyTorch深度学习开发完全指南</h1>
+<p>PyTorch是当前最流行的深度学习框架之一，以其动态计算图和易用性著称。本指南将全面介绍PyTorch的使用。</p>
+<h2 id="1-环境配置与安装">1. 环境配置与安装</h2>
+<h3 id="11-安装pytorch">1.1 安装PyTorch</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># 根据你的CUDA版本选择</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># CPU版本</span>
+</span></span><span style="display:flex;"><span>pip install torch torchvision torchaudio
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># CUDA 11.8版本</span>
+</span></span><span style="display:flex;"><span>pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 使用conda安装</span>
+</span></span><span style="display:flex;"><span>conda install pytorch torchvision torchaudio pytorch-cuda<span style="color:#ff79c6">=</span>11.8 -c pytorch -c nvidia
+</span></span></code></pre></div>
+            
+             
+            
 
 
 
@@ -280,109 +212,227 @@
 <script>
     Artalk.init({
         el: '#Comments',
-        pageKey: 'https:\/\/SurpriseQiD.github.io\/knowledge\/all_articles\/',
-        pageTitle: '所有知识文章',
+        pageKey: 'https:\/\/SurpriseQiD.github.io\/knowledge\/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0\/pytorch-guide\/',
+        pageTitle: 'PyTorch深度学习开发完全指南',
         server: 'https:\/\/xxx.xxx.com',
         site: 'xxx blog',
     })
 </script>
 
 
-            </div>
-
             
-            <div class="col-lg-2 col-lg-offset-0 visible-lg-block sidebar-container catalog-container">
-                <div class="side-catalog"><hr class="hidden-sm hidden-xs"><h5><a class="catalog-toggle" href="#">CATALOG</a></h5><ul class="catalog-body"></ul></div>
             </div>
             
+            
 
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 sidebar-container">
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+
+    
+    <section>
+        <hr>
+        <h5>站点目录</h5>
+        <ul class="list-unstyled">
+            
+            
+                <li><a href="/">🏠 首页</a></li>
+            
+                <li><a href="/knowledge/">📚 知识库</a></li>
+            
+                <li><a href="/learning/">📖 学习记录</a></li>
+            
+                <li><a href="/research/">🔬 研究进展</a></li>
+            
+                <li><a href="/resources/">🔗 资源聚合</a></li>
+            
+                <li><a href="/blog/">✍️ 博客文章</a></li>
+            
+                <li><a href="/about/">👤 关于我</a></li>
+            
+
+            
+            
                 
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    </div>
-                </section>
+                <li class="">
+                    <a href="/blog/">博客文章</a>
+                    
+                </li>
+            
                 
-            </div>
+                <li class="">
+                    <a href="/learning/">学习记录</a>
+                    
+                </li>
+            
+                
+                <li class="active">
+                    <a href="/knowledge/">知识库</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/research/">研究进展</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/resources/">资源链接</a>
+                    
+                </li>
+            
+                
+                <li class="">
+                    <a href="/search/">Searches</a>
+                    
+                </li>
+            
+        </ul>
+    </section>
+
+    
+    
+    <section class="visible-md visible-lg">
+        <div class="short-about">
+            
+            <a href="/about">
+               <img src="/img/avatar-patrickStar.jpg" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Ph.D. Candidate at University of Science and Technology of China</p>
+            
+           
+           <ul class="list-inline">
+               
+               <li>
+                   <a href="mailto:dongq@mail.ustc.edu.cn">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                      </span>
+                   </a>
+               </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/SurpriseQiD">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+           </ul>
+        </div>
+    </section>
+    
+
+    
+    
+
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+            
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+               
+            
+        </div>
+    </section>
+    
+
+    
+
+</div>
+
         </div>
     </div>
 </article>
+
 
 
 

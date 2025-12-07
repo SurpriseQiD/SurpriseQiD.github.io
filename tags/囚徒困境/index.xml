@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>囚徒困境 on QiView</title>
+    <link>https://SurpriseQiD.github.io/tags/%E5%9B%9A%E5%BE%92%E5%9B%B0%E5%A2%83/</link>
+    <description>Recent content in 囚徒困境 on QiView</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://SurpriseQiD.github.io/tags/%E5%9B%9A%E5%BE%92%E5%9B%B0%E5%A2%83/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>博弈论基础入门教程</title>
+      <link>https://SurpriseQiD.github.io/knowledge/%E5%8D%9A%E5%BC%88%E8%AE%BA/game-theory-basics/</link>
+      <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/knowledge/%E5%8D%9A%E5%BC%88%E8%AE%BA/game-theory-basics/</guid>
+      <description>博弈论基本概念、常见模型与应用场景的入门指南</description>
+    </item>
+  </channel>
+</rss>
