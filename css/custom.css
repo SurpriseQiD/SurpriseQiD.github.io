@@ -470,198 +470,168 @@ nav .nav li a {
     border: 1px solid #dfe9ec; 
 }
 
+
 /* ========================================== */
-/* 三栏布局样式 - 15:70:15比例 - 优化版 */
+/* 两栏布局样式 - 恢复原主题的侧边栏设置 */
 /* ========================================== */
 
-/* 主容器 - 移除左右padding，让内容充满容器 */
+/* 主容器 */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 5px; /* 非常小的padding */
+    padding: 0 15px;
 }
 
-/* 行布局 - 移除负边距 */
-.row {
+/* 侧边栏样式 - 原主题样式 */
+.sidebar {
+    padding-left: 20px;
+}
+
+.sidebar-container {
+    position: sticky;
+    top: 80px;
+}
+
+.sidebar-avatar {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #2a6f97;
+}
+
+.sidebar-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #666;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-social {
     display: flex;
-    flex-wrap: wrap;
-    margin: 0; /* 移除负边距 */
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
 }
 
-/* 通用侧边栏样式 - 调整padding */
-.left-sidebar,
-.right-sidebar {
-    padding: 0 5px; /* 极小的padding */
-}
-
-/* 主内容区样式 - 调整padding */
-.post-container {
-    padding: 0 10px;
-    min-height: 80vh;
-}
-
-/* 确保侧边栏模块样式一致 */
-.left-sidebar .sidebar-module,
-.right-sidebar .sidebar-module {
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    border: 1px solid #eaeaea;
-}
-
-.left-sidebar .sidebar-module h5,
-.right-sidebar .sidebar-module h5 {
-    font-size: 1.1rem;
+.sidebar-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f5f5f5;
     color: #2a6f97;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.sidebar-social a:hover {
+    background: #2a6f97;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.sidebar-module {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.sidebar-module h4 {
     margin-top: 0;
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* 文章详情页特定样式 */
-.single-post {
-    background: white;
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    border: 1px solid #eaeaea;
-    margin-bottom: 40px;
-}
-
-/* 列表页特定样式 */
-.subject-group {
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    border: 1px solid #eaeaea;
-}
-
-/* 确保页头样式 */
-.title.is-2 {
-    font-size: 2.2rem;
+    border-bottom: 1px solid #eaeaea;
     color: #333;
-    margin-bottom: 30px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #2a6f97;
+    font-size: 1.1rem;
 }
 
-/* 桌面端布局 (1200px以上) - 精确的15:70:15比例 */
-@media (min-width: 1200px) {
-    .left-sidebar {
-        flex: 0 0 15%;
-        max-width: 15%;
-        order: 1;
+/* 目录样式 */
+#TableOfContents {
+    font-size: 0.9rem;
+}
+
+#TableOfContents ul {
+    padding-left: 20px;
+    list-style: none;
+}
+
+#TableOfContents li {
+    margin-bottom: 8px;
+}
+
+#TableOfContents a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+#TableOfContents a:hover {
+    color: #2a6f97;
+}
+
+/* 最近文章列表 */
+.recent-posts {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-posts li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #eee;
+}
+
+.recent-posts li:last-child {
+    border-bottom: none;
+}
+
+.recent-posts a {
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.recent-posts a:hover {
+    color: #2a6f97;
+}
+
+/* 响应式调整 */
+@media (max-width: 991px) {
+    .sidebar {
+        padding-left: 0;
+        margin-top: 40px;
     }
     
-    .post-container {
-        flex: 0 0 70%;
-        max-width: 70%;
-        order: 2;
+    .sidebar-container {
+        position: static;
     }
     
-    .right-sidebar {
-        flex: 0 0 15%;
-        max-width: 15%;
-        order: 3;
+    .sidebar-avatar img {
+        width: 100px;
+        height: 100px;
     }
 }
 
-/* 中等屏幕 (992px-1199px) */
-@media (min-width: 992px) and (max-width: 1199px) {
-    .left-sidebar {
-        flex: 0 0 18%;
-        max-width: 18%;
-        order: 1;
-    }
-    
-    .post-container {
-        flex: 0 0 64%;
-        max-width: 64%;
-        order: 2;
-    }
-    
-    .right-sidebar {
-        flex: 0 0 18%;
-        max-width: 18%;
-        order: 3;
-    }
-}
-
-/* 平板 (768px-991px) */
-@media (min-width: 768px) and (max-width: 991px) {
-    .left-sidebar {
-        flex: 0 0 25%;
-        max-width: 25%;
-        order: 1;
-        padding: 0 8px;
-    }
-    
-    .post-container {
-        flex: 0 0 75%;
-        max-width: 75%;
-        order: 2;
-        padding: 0 15px;
-    }
-    
-    .right-sidebar {
-        flex: 0 0 100%;
-        max-width: 100%;
-        order: 3;
-        margin-top: 20px;
-        padding: 0 8px;
-    }
-}
-
-/* 手机 (767px以下) */
 @media (max-width: 767px) {
-    .left-sidebar,
-    .post-container,
-    .right-sidebar {
-        flex: 0 0 100%;
-        max-width: 100%;
-        padding: 0 10px;
+    .sidebar {
+        padding: 0;
     }
     
-    .post-container {
-        order: 1;
+    .sidebar-module {
+        padding: 15px;
     }
-    
-    .left-sidebar {
-        order: 2;
-        margin-top: 20px;
-    }
-    
-    .right-sidebar {
-        order: 3;
-        margin-top: 20px;
-    }
-    
-    .single-post {
-        padding: 20px;
-    }
-    
-    .subject-group {
-        padding: 20px;
-    }
-    
-    .title.is-2 {
-        font-size: 1.8rem;
-    }
-}
-
-/* 确保侧边栏内容不会溢出 */
-.sidebar-left-container,
-.sidebar-right-container {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
 }
 
 /* ========================================== */
