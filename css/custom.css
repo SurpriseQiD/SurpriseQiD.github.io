@@ -1,3 +1,121 @@
+/* ========================================== */
+/* 侧边栏修复样式 - 解决重叠和显示问题 */
+/* ========================================== */
+
+/* 重置侧边栏容器样式 */
+.sidebar-left-container,
+.sidebar-right-container {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* 清除浮动和定位问题 */
+.sidebar-left-container *,
+.sidebar-right-container * {
+    box-sizing: border-box;
+}
+
+/* 修复头像图片过大问题 */
+.author-avatar {
+    max-width: 100px;  /* 限制最大宽度 */
+    height: auto;      /* 保持宽高比 */
+    width: 100%;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: block;
+    border: 2px solid #2a6f97;
+}
+
+.author-avatar img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 修复文字单列显示问题 */
+.sidebar-module {
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: hidden; /* 防止内容溢出 */
+}
+
+.sidebar-module h5 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+/* 修复列表样式 */
+.sidebar-module ul {
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.sidebar-module li {
+    width: 100%;
+    margin-bottom: 8px;
+    display: block; /* 确保每个li单独一行 */
+    clear: both;    /* 清除浮动 */
+}
+
+.sidebar-module a {
+    display: block;
+    width: 100%;
+    padding: 6px 0;
+    color: #555;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sidebar-module a:hover {
+    color: #2a6f97;
+    padding-left: 5px;
+}
+
+/* 修复社交图标布局 */
+.author-social {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 0;
+}
+
+.author-social li {
+    list-style: none;
+    margin: 0;
+    width: auto;
+}
+
+.author-social a {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 50%;
+    color: #2a6f97;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.author-social a:hover {
+    background: #2a6f97;
+    color: white;
+    transform: translateY(-2px);
+}
+
 /* 1. 菜单栏字体大小调整 */
 /* ========================================== */
 
@@ -1472,4 +1590,166 @@ nav .nav li a {
     .title.is-2 {
         font-size: 1.8rem;
     }
+}
+
+
+
+
+/* ========================================== */
+/* 主布局样式 - 15:70:15比例 */
+/* ========================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px; /* 减小间距 */
+}
+
+/* 通用侧边栏样式 */
+.left-sidebar,
+.right-sidebar {
+    padding: 0 10px;
+}
+
+/* 主内容区 */
+.post-container {
+    padding: 0 15px;
+}
+
+/* 桌面端布局 */
+@media (min-width: 1200px) {
+    .left-sidebar {
+        flex: 0 0 16.666667%;  /* 2列 = 16.67% */
+        max-width: 16.666667%;
+        order: 1;
+    }
+    
+    .post-container {
+        flex: 0 0 66.666667%;  /* 8列 = 66.67% */
+        max-width: 66.666667%;
+        order: 2;
+    }
+    
+    .right-sidebar {
+        flex: 0 0 16.666667%;  /* 2列 = 16.67% */
+        max-width: 16.666667%;
+        order: 3;
+    }
+}
+
+/* 中等屏幕 */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .left-sidebar {
+        flex: 0 0 20%;  /* 稍微宽一点 */
+        max-width: 20%;
+        order: 1;
+    }
+    
+    .post-container {
+        flex: 0 0 60%;  /* 主内容窄一点 */
+        max-width: 60%;
+        order: 2;
+    }
+    
+    .right-sidebar {
+        flex: 0 0 20%;  /* 右侧栏宽一点 */
+        max-width: 20%;
+        order: 3;
+    }
+}
+
+/* 平板 */
+@media (min-width: 768px) and (max-width: 991px) {
+    .left-sidebar {
+        flex: 0 0 25%;
+        max-width: 25%;
+        order: 1;
+    }
+    
+    .post-container {
+        flex: 0 0 75%;
+        max-width: 75%;
+        order: 2;
+    }
+    
+    .right-sidebar {
+        flex: 0 0 100%;
+        max-width: 100%;
+        order: 3;
+        margin-top: 20px;
+    }
+}
+
+/* 手机 */
+@media (max-width: 767px) {
+    .left-sidebar,
+    .post-container,
+    .right-sidebar {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    .post-container {
+        order: 1;
+    }
+    
+    .left-sidebar {
+        order: 2;
+        margin-top: 20px;
+    }
+    
+    .right-sidebar {
+        order: 3;
+        margin-top: 20px;
+    }
+}
+
+/* 确保侧边栏内容不会溢出 */
+.sidebar-left-container,
+.sidebar-right-container {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* 特色标签样式 */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag-cloud .tag {
+    display: inline-block;
+    background: #f0f7ff;
+    color: #2a6f97;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    border: 1px solid #d1e3ff;
+    transition: all 0.2s ease;
+}
+
+.tag-cloud .tag:hover {
+    background: #2a6f97;
+    color: white;
+}
+
+/* 分类统计中的计数 */
+.category-stats-module .count {
+    float: right;
+    background: #e9ecef;
+    color: #495057;
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    min-width: 20px;
+    text-align: center;
 }
