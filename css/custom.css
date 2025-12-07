@@ -6,7 +6,7 @@
 .sidebar-left-container,
 .sidebar-right-container {
     width: 100%;
-    padding: 15px;
+    padding: 15px 0; /* 上下15px，左右0 */
     box-sizing: border-box;
 }
 
@@ -16,25 +16,101 @@
     box-sizing: border-box;
 }
 
-/* 修复头像图片过大问题 */
+/* 头像容器 - 参考原主题的尺寸 */
 .author-avatar {
-    max-width: 100px;  /* 限制最大宽度 */
-    height: auto;      /* 保持宽高比 */
-    width: 100%;
+    max-width: 80px;  /* 减小头像尺寸 */
+    height: 80px;     /* 固定高度 */
+    width: 80px;      /* 固定宽度 */
     border-radius: 50%;
     margin: 0 auto 15px;
     display: block;
     border: 2px solid #2a6f97;
+    overflow: hidden; /* 确保图片不超出容器 */
 }
 
 .author-avatar img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* 保持比例填充 */
     border-radius: 50%;
-    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.author-avatar img:hover {
+    transform: scale(1.05);
+}
+
+/* 作者描述 */
+.author-description {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 0 5px;
+}
+
+/* 社交图标容器 - 基于原主题样式优化 */
+.author-social {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* 允许换行 */
+    gap: 8px; /* 图标间距 */
+    margin-top: 15px;
+    padding: 0;
+}
+
+.author-social li {
+    list-style: none;
+    margin: 0;
+}
+
+/* 社交图标链接 - 参考原主题的图标样式 */
+.author-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;  /* 减小图标尺寸 */
+    height: 32px; /* 减小图标尺寸 */
+    border-radius: 50%;
+    background: #f8f9fa;
+    color: #2a6f97;
+    text-decoration: none;
+    font-size: 0.9rem; /* 调整字体大小 */
+    transition: all 0.3s ease;
+    border: 1px solid #eaeaea;
+}
+
+.author-social a:hover {
+    background: #2a6f97;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(42, 111, 151, 0.2);
+}
+
+/* 特定社交图标的颜色调整 */
+.author-social a[href*="github"]:hover {
+    background: #333;
+}
+
+.author-social a[href*="researchgate"]:hover {
+    background: #00d0af;
+}
+
+.author-social a[href*="google"]:hover {
+    background: #4285f4;
+}
+
+.author-social a[href*="orcid"]:hover {
+    background: #a6ce39;
+}
+
+.author-social a[href*="mailto"]:hover {
+    background: #d44638;
 }
 
 /* 修复文字单列显示问题 */
+/* 确保侧边栏模块紧凑 */
 .sidebar-module {
     width: 100%;
     margin-bottom: 20px;
@@ -81,39 +157,51 @@
     padding-left: 5px;
 }
 
-/* 修复社交图标布局 */
-.author-social {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
-    padding: 0;
-}
-
-.author-social li {
-    list-style: none;
-    margin: 0;
-    width: auto;
-}
-
-.author-social a {
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f8f9fa;
-    border-radius: 50%;
-    color: #2a6f97;
+/* 站点目录链接 */
+.site-directory a {
+    font-size: 0.9rem;
+    color: #555;
+    padding: 4px 0;
+    display: block;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
-.author-social a:hover {
-    background: #2a6f97;
-    color: white;
-    transform: translateY(-2px);
+.site-directory a:hover {
+    color: #2a6f97;
+    padding-left: 5px;
+}
+
+/* 确保响应式设计 */
+@media (max-width: 768px) {
+    .author-avatar {
+        max-width: 70px;
+        height: 70px;
+        width: 70px;
+    }
+    
+    .author-social a {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    
+    .author-social {
+        gap: 6px;
+    }
+}
+
+@media (max-width: 576px) {
+    .author-avatar {
+        max-width: 60px;
+        height: 60px;
+        width: 60px;
+    }
+    
+    .author-social a {
+        width: 28px;
+        height: 28px;
+    }
 }
 
 /* ========================================== */
@@ -383,33 +471,57 @@ nav .nav li a {
 }
 
 /* ========================================== */
-/* 三栏布局样式 - 15:70:15比例 */
+/* 三栏布局样式 - 15:70:15比例 - 优化版 */
 /* ========================================== */
 
-/* 主容器 */
+/* 主容器 - 移除左右padding，让内容充满容器 */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 5px; /* 非常小的padding */
 }
 
-/* 行布局 */
+/* 行布局 - 移除负边距 */
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -10px;
+    margin: 0; /* 移除负边距 */
 }
 
-/* 通用侧边栏样式 */
+/* 通用侧边栏样式 - 调整padding */
 .left-sidebar,
 .right-sidebar {
-    padding: 0 10px;
+    padding: 0 5px; /* 极小的padding */
 }
 
-/* 主内容区样式 */
+/* 主内容区样式 - 调整padding */
 .post-container {
-    padding: 0 15px;
+    padding: 0 10px;
     min-height: 80vh;
+}
+
+/* 确保侧边栏模块样式一致 */
+.left-sidebar .sidebar-module,
+.right-sidebar .sidebar-module {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #eaeaea;
+}
+
+.left-sidebar .sidebar-module h5,
+.right-sidebar .sidebar-module h5 {
+    font-size: 1.1rem;
+    color: #2a6f97;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* 文章详情页特定样式 */
@@ -441,71 +553,7 @@ nav .nav li a {
     border-bottom: 2px solid #2a6f97;
 }
 
-/* 确保侧边栏模块样式一致 */
-.left-sidebar .sidebar-module,
-.right-sidebar .sidebar-module {
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    border: 1px solid #eaeaea;
-}
-
-.left-sidebar .sidebar-module h5,
-.right-sidebar .sidebar-module h5 {
-    font-size: 1.1rem;
-    color: #2a6f97;
-    margin-top: 0;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* 特色标签样式 */
-.tag-cloud {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
-
-.tag-cloud .tag {
-    display: inline-block;
-    background: #f0f7ff;
-    color: #2a6f97;
-    padding: 3px 8px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    text-decoration: none;
-    border: 1px solid #d1e3ff;
-    transition: all 0.2s ease;
-}
-
-.tag-cloud .tag:hover {
-    background: #2a6f97;
-    color: white;
-}
-
-/* 分类统计中的计数 */
-.category-stats-module .count {
-    float: right;
-    background: #e9ecef;
-    color: #495057;
-    padding: 1px 6px;
-    border-radius: 8px;
-    font-size: 0.75rem;
-    min-width: 20px;
-    text-align: center;
-}
-
-/* ========================================== */
-/* 响应式布局 */
-/* ========================================== */
-
-/* 桌面端布局 (1200px以上) */
+/* 桌面端布局 (1200px以上) - 精确的15:70:15比例 */
 @media (min-width: 1200px) {
     .left-sidebar {
         flex: 0 0 15%;
@@ -529,20 +577,20 @@ nav .nav li a {
 /* 中等屏幕 (992px-1199px) */
 @media (min-width: 992px) and (max-width: 1199px) {
     .left-sidebar {
-        flex: 0 0 20%;
-        max-width: 20%;
+        flex: 0 0 18%;
+        max-width: 18%;
         order: 1;
     }
     
     .post-container {
-        flex: 0 0 60%;
-        max-width: 60%;
+        flex: 0 0 64%;
+        max-width: 64%;
         order: 2;
     }
     
     .right-sidebar {
-        flex: 0 0 20%;
-        max-width: 20%;
+        flex: 0 0 18%;
+        max-width: 18%;
         order: 3;
     }
 }
@@ -553,12 +601,14 @@ nav .nav li a {
         flex: 0 0 25%;
         max-width: 25%;
         order: 1;
+        padding: 0 8px;
     }
     
     .post-container {
         flex: 0 0 75%;
         max-width: 75%;
         order: 2;
+        padding: 0 15px;
     }
     
     .right-sidebar {
@@ -566,6 +616,7 @@ nav .nav li a {
         max-width: 100%;
         order: 3;
         margin-top: 20px;
+        padding: 0 8px;
     }
 }
 
@@ -576,7 +627,7 @@ nav .nav li a {
     .right-sidebar {
         flex: 0 0 100%;
         max-width: 100%;
-        padding: 0;
+        padding: 0 10px;
     }
     
     .post-container {
