@@ -1049,37 +1049,21 @@ nav .nav li a {
     }
 }
 
-/* 侧边栏两栏布局样式 */
-.sidebar-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* 左栏窄，右栏宽 */
-    gap: 25px;
-}
-
-.sidebar-left {
-    /* 左侧区域样式 */
+/* 左侧堆叠式侧边栏样式 */
+.sidebar-left-stack {
     display: flex;
     flex-direction: column;
-}
-.sidebar-left .sidebar-module { /* 确保左侧继承的模块也正常 */
-    margin-bottom: 25px;
+    gap: 25px; /* 控制模块之间的间距 */
 }
 
-.sidebar-right {
-    /* 右侧区域样式 */
-    display: flex;
-    flex-direction: column;
-}
-
-/* 调整模块样式以适应新布局 */
+/* 侧边栏模块通用样式 (确保已有) */
 .sidebar-module {
     background: white;
     border-radius: 12px;
     padding: 20px;
-    margin-bottom: 25px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     border: 1px solid #eaeaea;
-    flex-grow: 1; /* 让模块填充可用空间 */
+    /* 移除可能影响宽度的固定宽度或边距 */
 }
 .sidebar-module h3 {
     font-size: 1.1rem;
@@ -1092,94 +1076,16 @@ nav .nav li a {
     align-items: center;
     gap: 8px;
 }
-.sidebar-module h3 i {
-    font-size: 0.9em;
+
+/* 确保来自sidebar.html的内容容器宽度为100% */
+.sidebar-left-stack > .sidebar-container {
+    width: 100%;
+    margin-bottom: 0; /* 由.sidebar-left-stack的gap控制间距 */
 }
 
-/* 优化统计列表 */
-.subject-stats {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.subject-stats li {
-    margin-bottom: 8px;
-}
-.subject-stats a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #555;
-    text-decoration: none;
-    padding: 8px 0;
-    border-bottom: 1px solid #f0f0f0;
-    transition: all 0.2s ease;
-}
-.subject-stats a:hover {
-    color: #2a6f97;
-    background-color: #f8f9fa;
-    padding-left: 8px;
-    padding-right: 8px;
-    border-radius: 4px;
-}
-.subject-name {
-    flex-grow: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.subject-stats .count {
-    background: #e3f2fd;
-    color: #2a6f97;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    min-width: 2em;
-    text-align: center;
-}
-
-/* 优化最近更新列表 */
-.recent-posts {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.recent-posts li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid #f0f0f0;
-}
-.recent-posts li:last-child {
-    border-bottom: none;
-}
-.recent-posts a {
-    color: #555;
-    text-decoration: none;
-    font-size: 0.9rem;
-    flex: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-right: 10px;
-}
-.recent-posts a:hover {
-    color: #2a6f97;
-    text-decoration: underline;
-}
-.recent-posts small {
-    color: #888;
-    font-size: 0.8rem;
-    min-width: 40px;
-    text-align: right;
-}
-
-/* 响应式：小屏幕下堆叠显示 */
-@media (max-width: 992px) {
-    .sidebar-container {
-        grid-template-columns: 1fr; /* 变为单列 */
+/* 响应式调整：如果需要，在小屏幕上调整间距 */
+@media (max-width: 768px) {
+    .sidebar-left-stack {
         gap: 20px;
     }
 }
