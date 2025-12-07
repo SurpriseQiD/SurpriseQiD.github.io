@@ -478,13 +478,6 @@
 <style>
  
 .hero-section {
-    background: linear-gradient(135deg, 
-        rgba(26, 35, 126, 0.9) 0%, 
-        rgba(13, 71, 161, 0.9) 50%, 
-        rgba(2, 119, 189, 0.9) 100%),
-        url('img/home-bg-painting.jpg');
-    background-size: cover;
-    background-position: center;
     color: white;
     padding: 120px 0 100px;
     text-align: center;
@@ -622,8 +615,8 @@
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 5px;
 }
 
 .feature-card {
@@ -702,8 +695,8 @@
 
 .domains-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 5px;
 }
 
 .domain-card {
@@ -1074,7 +1067,7 @@
 }
 
  
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
     .hero-title {
         font-size: 3.5rem;
     }
@@ -1083,9 +1076,11 @@
         font-size: 1.5rem;
     }
     
-    .features-grid,
+    .features-grid {
+        grid-template-columns: repeat(2, minmax(350px, 1fr));  
+    }
     .domains-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(2, minmax(250px, 1fr));  
     }
 }
 
