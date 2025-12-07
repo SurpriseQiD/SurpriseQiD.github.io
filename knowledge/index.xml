@@ -16,6 +16,13 @@
       <description>从基础到进阶的PyTorch深度学习开发指南，包含实用技巧和最佳实践</description>
     </item>
     <item>
+      <title>所有知识文章</title>
+      <link>https://SurpriseQiD.github.io/knowledge/all_articles/</link>
+      <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://SurpriseQiD.github.io/knowledge/all_articles/</guid>
+      <description>&lt;h1 id=&#34;-所有知识文章&#34;&gt;📚 所有知识文章&lt;/h1&gt;&#xA;&lt;p&gt;这里列出了知识库中的所有文章，按时间顺序排列。&lt;/p&gt;&#xA;&lt;h2 id=&#34;按类型浏览&#34;&gt;按类型浏览&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://SurpriseQiD.github.io/knowledge/tutorials/&#34;&gt;教程与指南&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://SurpriseQiD.github.io/knowledge/concepts/&#34;&gt;核心概念&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://SurpriseQiD.github.io/knowledge/tools/&#34;&gt;工具指南&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;文章列表&#34;&gt;文章列表&lt;/h2&gt;&#xA;&lt;p&gt;{{ $knowledgePages := where .Site.RegularPages &amp;ldquo;Section&amp;rdquo; &amp;ldquo;knowledge&amp;rdquo; }}&#xA;{{ $sortedPages := sort $knowledgePages &amp;ldquo;Date&amp;rdquo; &amp;ldquo;desc&amp;rdquo; }}&lt;/p&gt;&#xA;&lt;p&gt;{{ range $index, $page := $sortedPages }}&#xA;{{ $num := add $index 1 }}&lt;/p&gt;&#xA;&lt;h3 id=&#34;-num---title--permalink-&#34;&gt;{{ $num }}. [{{ .Title }}]({{ .Permalink }})&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;日期&lt;/strong&gt;: {{ .Date.Format &amp;ldquo;2006-01-02&amp;rdquo; }} | &lt;strong&gt;类型&lt;/strong&gt;: {{ .Params.knowledge_type }} | &lt;strong&gt;主题&lt;/strong&gt;: {{ .Params.subject }}&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>机器学习完整流程指南：从数据到部署</title>
       <link>https://SurpriseQiD.github.io/knowledge/tutorials/ml-pipeline-guide/</link>
       <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
