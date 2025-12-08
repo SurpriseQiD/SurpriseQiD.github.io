@@ -194,32 +194,45 @@
 }
 
 /* ========================================== */
-/* 增大菜单栏字体 - 调整为更美观的大小 */
+/* 导航菜单样式优化 */
 /* ========================================== */
 
 .navbar-custom {
     min-height: 70px !important;
-    background: #fff !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08) !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     padding: 0 15px;
 }
 
 .navbar-custom .navbar-brand {
-    font-size: 22px !important;
+    font-size: 20px !important;
     font-weight: 700 !important;
     padding: 22px 0 !important;
     color: #1a237e !important;
     letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
 }
 
+.navbar-custom .navbar-brand .brand-text {
+    background: linear-gradient(135deg, #1a237e 0%, #2a6f97 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 一级菜单项 */
 .navbar-custom .navbar-nav > li > a {
-    font-size: 16px !important;
+    font-size: 15px !important;
     font-weight: 600 !important;
     padding: 25px 18px !important;
     color: #333 !important;
     transition: all 0.3s ease;
-    letter-spacing: 0.3px;
     position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .navbar-custom .navbar-nav > li > a:hover,
@@ -232,68 +245,146 @@
 .navbar-custom .navbar-nav > li > a:focus::after {
     content: '';
     position: absolute;
-    bottom: 15px;
+    bottom: 18px;
     left: 18px;
     right: 18px;
-    height: 3px;
+    height: 2px;
     background: linear-gradient(135deg, #FF6B6B 0%, #2a6f97 100%);
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
+/* 当前活动菜单项 */
 .navbar-custom .navbar-nav > .active > a,
 .navbar-custom .navbar-nav > .active > a:hover,
 .navbar-custom .navbar-nav > .active > a:focus {
     color: #1a237e !important;
     background-color: transparent !important;
-    border-bottom: 3px solid #2a6f97;
-    padding-bottom: 22px;
+    font-weight: 700 !important;
 }
 
-/* 下拉菜单样式 */
+.navbar-custom .navbar-nav > .active > a::after {
+    content: '';
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    right: 18px;
+    height: 2px;
+    background: linear-gradient(135deg, #FF6B6B 0%, #2a6f97 100%);
+    border-radius: 2px;
+}
+
+/* ========================================== */
+/* 二级菜单（下拉菜单）样式修复 */
+/* ========================================== */
+
+/* 下拉菜单容器 */
 .navbar-custom .dropdown-menu {
-    border: none;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    margin-top: 0;
-    padding: 10px 0;
-    min-width: 220px;
-    border: 1px solid #eaeaea;
+    background: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
+    margin-top: 0 !important;
+    padding: 8px 0 !important;
+    min-width: 200px !important;
+    animation: dropdownFadeIn 0.2s ease;
+    transform-origin: top center;
 }
 
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 下拉菜单箭头效果 */
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    transform: rotate(45deg);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+    z-index: -1;
+}
+
+/* 二级菜单项 */
 .navbar-custom .dropdown-menu > li > a {
-    font-size: 15px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
     padding: 10px 20px !important;
-    font-weight: 500;
-    color: #333;
+    color: #333 !important;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-transform: none;
+    letter-spacing: 0.3px;
+    background: transparent !important;
 }
 
-.navbar-custom .dropdown-menu > li > a:hover {
-    background-color: #f8fafc !important;
+/* 二级菜单项悬停效果 */
+.navbar-custom .dropdown-menu > li > a:hover,
+.navbar-custom .dropdown-menu > li > a:focus {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(42, 111, 151, 0.1) 100%) !important;
     color: #1a237e !important;
     padding-left: 25px !important;
+    border-left: 3px solid #2a6f97;
 }
 
+/* 二级菜单项图标 */
 .navbar-custom .dropdown-menu > li > a i {
     font-size: 12px;
     color: #78909c;
+    transition: color 0.2s ease;
 }
 
-/* 响应式设计 */
+.navbar-custom .dropdown-menu > li > a:hover i {
+    color: #2a6f97;
+}
+
+/* 二级菜单分隔线 */
+.dropdown-menu > li.divider {
+    background-color: rgba(0, 0, 0, 0.05);
+    margin: 8px 0;
+}
+
+/* 下拉菜单标题 */
+.dropdown-header {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #78909c !important;
+    padding: 8px 20px !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    margin-bottom: 8px;
+}
+
+/* 移动端下拉菜单样式 */
 @media (max-width: 991px) {
+    .navbar-custom {
+        padding: 0 10px;
+    }
+    
     .navbar-custom .navbar-brand {
-        font-size: 20px !important;
+        font-size: 18px !important;
         padding: 18px 0 !important;
     }
     
     .navbar-custom .navbar-nav > li > a {
-        font-size: 16px !important;
+        font-size: 15px !important;
         padding: 15px 20px !important;
         text-align: left;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
     
     .navbar-custom .navbar-nav > li > a:hover::after,
@@ -304,22 +395,106 @@
     .navbar-custom .navbar-nav > .active > a,
     .navbar-custom .navbar-nav > .active > a:hover,
     .navbar-custom .navbar-nav > .active > a:focus {
-        border-bottom: none;
-        background-color: rgba(42, 111, 151, 0.1) !important;
-        padding-bottom: 15px;
+        background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(42, 111, 151, 0.1) 100%) !important;
+        color: #1a237e !important;
+        border-left: 3px solid #2a6f97;
     }
     
+    .navbar-custom .navbar-nav > .active > a::after {
+        display: none;
+    }
+    
+    /* 移动端下拉菜单 */
     .navbar-custom .dropdown-menu {
-        box-shadow: none;
-        border: none;
-        background: #f8f9fa;
-        padding-left: 20px;
+        background: #f8f9fa !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        padding-left: 30px !important;
+        animation: none !important;
+        position: static !important;
+        float: none !important;
+        width: auto !important;
+        margin-top: 0 !important;
+        border-left: 1px solid rgba(0, 0, 0, 0.05) !important;
+    }
+    
+    .navbar-custom .dropdown-menu::before {
+        display: none;
     }
     
     .navbar-custom .dropdown-menu > li > a {
         padding: 8px 20px !important;
         font-size: 14px !important;
     }
+    
+    .navbar-custom .dropdown-menu > li > a:hover {
+        padding-left: 25px !important;
+        background: linear-gradient(135deg, rgba(255, 107, 107, 0.15) 0%, rgba(42, 111, 151, 0.15) 100%) !important;
+    }
+}
+
+/* 桌面端更大屏幕优化 */
+@media (min-width: 1200px) {
+    .navbar-custom .navbar-nav > li > a {
+        font-size: 16px !important;
+        padding: 25px 20px !important;
+    }
+    
+    .navbar-custom .dropdown-menu {
+        min-width: 240px !important;
+    }
+    
+    .navbar-custom .dropdown-menu > li > a {
+        font-size: 15px !important;
+        padding: 12px 24px !important;
+    }
+}
+
+/* 导航切换按钮样式 */
+.navbar-toggle {
+    border: none !important;
+    background: transparent !important;
+    margin: 20px 0 !important;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #333 !important;
+    height: 2px !important;
+    width: 22px !important;
+    border-radius: 1px !important;
+    transition: all 0.3s ease !important;
+}
+
+.navbar-toggle:hover .icon-bar {
+    background-color: #2a6f97 !important;
+}
+
+.navbar-toggle.collapsed .icon-bar:nth-child(2) {
+    transform: rotate(0);
+}
+
+.navbar-toggle .icon-bar:nth-child(2) {
+    transform: rotate(45deg);
+    transform-origin: 10% 50%;
+}
+
+.navbar-toggle .icon-bar:nth-child(3) {
+    opacity: 0;
+}
+
+.navbar-toggle .icon-bar:nth-child(4) {
+    transform: rotate(-45deg);
+    transform-origin: 10% 50%;
+}
+
+.navbar-toggle.collapsed .icon-bar:nth-child(2),
+.navbar-toggle.collapsed .icon-bar:nth-child(4) {
+    transform: rotate(0);
+}
+
+.navbar-toggle.collapsed .icon-bar:nth-child(3) {
+    opacity: 1;
 }
 
 /* ========================================== */
