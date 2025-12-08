@@ -10,20 +10,20 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="/img/favicon.png">
-    <meta property="twitter:image" content="/img/favicon.png" />
+    <meta property="og:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg">
+    <meta property="twitter:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg" />
     
 
     
-    <meta name="title" content="Post 尝试" />
-    <meta property="og:title" content="Post 尝试" />
-    <meta property="twitter:title" content="Post 尝试" />
+    <meta name="title" content="Bio" />
+    <meta property="og:title" content="Bio" />
+    <meta property="twitter:title" content="Bio" />
     
 
     
-    <meta name="description" content="这是我第一次尝试post配置修改">
-    <meta property="og:description" content="这是我第一次尝试post配置修改" />
-    <meta property="twitter:description" content="这是我第一次尝试post配置修改" />
+    <meta name="description" content="QiView — an academic knowledge hub for computation and decision sciences.">
+    <meta property="og:description" content="QiView — an academic knowledge hub for computation and decision sciences." />
+    <meta property="twitter:description" content="QiView — an academic knowledge hub for computation and decision sciences." />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="Game Theory, Decision Science, Operations Management, Human-AI Interaction">
     <link rel="shortcut icon" href="/img/favicon.png">
 
-    <title>Post 尝试 | QiView</title>
+    <title>Bio | QiView</title>
 
-    <link rel="canonical" href="/post/post-changetest-2025-05-13/">
+    <link rel="canonical" href="/bio/">
 
     
     
@@ -164,230 +164,38 @@
 
 
 
-
-<article>
-    <div class="container">
-        <div class="row">
-            
-            <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container">
-            
-                <blockquote>
-<p>大家好！ 这是我第一次尝试post配置修改：</p>
-</blockquote>
-<h2 id="networking">Networking</h2>
-<h3 id="改进的流量管理模型">改进的流量管理模型</h3>
-<p>0.8版本采用了新的流量管理配置模型<a href="https://istio.io/blog/2018/v1alpha3-routing/">v1alpha3 Route API</a>。新版本的模型添加了一些新的特性，并改善了之前版本模型中的可用性问题。主要的改动包括：</p>
-<h4 id="gateway">Gateway</h4>
-<p>新版本中不再使用K8s中的Ingress，转而采用Gateway来统一配置Service Mesh中的各个HTTP/TCP负载均衡器。Gateway可以是处理入口流量的Ingress Gateway，负责Service Mesh内部各个服务间通信的Sidecar Proxy，也可以是负责出口流量的Egress Gateway。</p>
-<p>Mesh中涉及到的三类Gateway: <br>
-
-  <img src="/static/img/favicon.png" alt="Gateway">
-
-</p>
-<p>该变化的原因是K8s中的Ingress对象功能过于简单，不能满足Istio灵活的路由规则需求。在0.8版本中，L4-L6的配置和L7的配置被分别处理，Gateway中只配置L4-L6的功能，例如暴露的端口，TLS设置。然后用户可以采用VirtualService来配置标准的Istio规则，并和Gateway进行绑定。</p>
-<h4 id="virtualservice">VirtualService</h4>
-<p>采用VirtualService代替了alpha2模型中的RouteRule。采用VirtualService有两个优势：</p>
-<p><strong>可以把一个服务相关的规则放在一起管理</strong></p>
-<p>例如下面的路由规则，发向reviews的请求流量缺省destination为v1，如果user为jason则路由到v2。在v1模型中需要采用两条规则来实现，采用VirtualService后放到一个规则下就可以实现。</p>
-<pre tabindex="0"><code>apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: reviews
-spec:
-  hosts:
-    - reviews
-  http:
-  - match:
-    - headers:
-        cookie:
-          regex: &#34;^(.*?;)?(user=jason)(;.*)?$&#34;
-    route:
-    - destination:
-        host: reviews
-        subset: v2
-  - route:
-    - destination:
-        host: reviews
-        subset: v1
-</code></pre><p><strong>可以对外暴露一个并不存在的“虚拟服务”，然后将该“虚拟服务”映射到Istio中的Service上</strong></p>
-<p>下面规则中的bookinfo.com是对外暴露的“虚拟服务”，bookinfo.com/reviews被映射到了reviews服务，bookinfo.com/ratings被映射到了ratings服务。通过采用VirtualService，极大地增强了Istio路由规则的灵活性，有利于Legacy系统和Istio的集成。</p>
-<pre tabindex="0"><code>apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: bookinfo
-spec:
-  hosts:
-    - bookinfo.com
-  http:
-  - match:
-    - uri:
-        prefix: /reviews
-    route:
-    - destination:
-        host: reviews
-  - match:
-    - uri:
-        prefix: /ratings
-    route:
-    - destination:
-        host: ratings
-  ...
-</code></pre><h3 id="envoy-v2">Envoy V2</h3>
-<p>控制面和数据面标准接口支持Envoy</p>
-<h3 id="用gateway代替-ingressengress">用Gateway代替 Ingress/Engress</h3>
-<p>前面已经介绍到，新的版本中不再支持将Kubernetes的Ingress和Istio路由规则一起使用。Istio 0.8支持平台无关的 Ingress/Egress Gateway,可以在Kubernetes，Cloud Foundry中和Istio路由规则无缝集成。</p>
-<h3 id="对入站端口进行限制">对入站端口进行限制</h3>
-<p>0.8版本只允许访问Pod内已声明端口的入站流量。</p>
-<h2 id="security">Security</h2>
-<h3 id="安全组件citadel">安全组件Citadel</h3>
-<p>将Istio的安全组件Istio-Auth/Istio-CA正式命名为Citadel（堡垒）。</p>
-<h3 id="跨集群支持">跨集群支持</h3>
-<p>部署在多个Cluster中的Citadel可以共享同一Root Certificate，以支持不同Cluster内的服务可以跨Cluster进行认证。</p>
-<h3 id="认证策略">认证策略</h3>
-<p>认证策略既支持Service-to-Service认证，也支持对终端用户进行认证。</p>
-<h2 id="遥测">遥测</h2>
-<p>Mixer和Pilot将上报自身的遥测数据，其上报的流程和Mesh中的普通服务相同。</p>
-<h2 id="安装">安装</h2>
-<p>按需安装部分组件：支持只安装所需的组件，如果只需要使用Istio的路由规则，可以选择只安装Pilot，而不安装Mixer和Citadel。</p>
-<h2 id="mixer">Mixer</h2>
-<p>CloudWatch：增加了一个CloudWatch插件，可以向AWS CloudWatch上报度量数据。</p>
-<h2 id="已知故障">已知故障：</h2>
+<main class="bio-section" style="display: flex; flex-direction: column; align-items: center; min-height: 70vh; background: #f8fafc;">
+  <div class="bio-card" style="background: #fff; border-radius: 18px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); padding: 2.5rem 2rem; max-width: 700px; width: 100%; margin-top: 2.5rem;">
+    <h1 style="font-size: 2.1rem; font-weight: bold; margin-bottom: 1.2rem; text-align: center;">Bio</h1>
+    <div class="content" style="font-size: 1.08rem; color: #333;">
+      <h2 id="about-me">About Me</h2>
+<p>Dr. Qi Dong is a Ph.D. Candidate at University of Science and Technology of China. His research interests include Game Theory, Decision Science, Operations Management, and Human-AI Interaction.</p>
+<h2 id="education">Education</h2>
 <ul>
-<li>如果Gateway绑定的VirtualService指向的是headless service，则该规则不能正常工作。</li>
-<li>0.8版本和Kubernetes1.10.2存在兼容问题，目前建议采用1.9版本。</li>
-<li>convert-networking-config工具存在故障，一个其它的namespace可能会被修改为istio-system namespace。可以在允许转换工具后手动修改文件来避免。</li>
+<li>2021–Present: Ph.D. in Management Science and Engineering, University of Science and Technology of China</li>
+<li>2017–2021: B.S. in Management Science, University of Science and Technology of China</li>
 </ul>
-<h2 id="总结">总结</h2>
-<p>0.8版本带来的最大变化是流量配置模型的重构，重构后的模型整合了外部Gateway和内部Sidecar Proxy的路由配置。同时VirtualService的引入使路由规则的配置更为集中和灵活。</p>
-            
-             
-            
+<h2 id="awards">Awards</h2>
+<ul>
+<li>National Scholarship for Graduate Students, 2023</li>
+<li>Excellent Undergraduate Thesis Award, 2021</li>
+<li>First Prize, Mathematical Contest in Modeling, 2020</li>
+</ul>
+<h2 id="experience">Experience</h2>
+<ul>
+<li>Research Assistant, Institute of Systems Science, USTC, 2022–Present</li>
+<li>Visiting Student, Department of Industrial Engineering, Tsinghua University, 2023</li>
+</ul>
+<h2 id="contact">Contact</h2>
+<ul>
+<li>Email: <a href="mailto:dongq@mail.ustc.edu.cn">dongq@mail.ustc.edu.cn</a></li>
+<li><a href="https://scholar.google.com/citations?user=dEDX5coAAAAJ&amp;hl=zh-CN&amp;oi=sra">Google Scholar</a></li>
+<li><a href="https://www.researchgate.net/profile/Qi-Dong-20">ResearchGate</a></li>
+</ul>
 
-
-
-
-<link href="https://xxx.xxx.com/dist/Artalk.css" rel="stylesheet" />
-<script src="https://xxx.xxx.com/dist/Artalk.js"></script>
-
-
-<div id="Comments"></div>
-
-<script>
-    Artalk.init({
-        el: '#Comments',
-        pageKey: 'https:\/\/SurpriseQiD.github.io\/post\/post-changetest-2025-05-13\/',
-        pageTitle: 'Post 尝试',
-        server: 'https:\/\/xxx.xxx.com',
-        site: 'xxx blog',
-    })
-</script>
-
-
-            
-            </div>
-            
-            
-
-<div class="sidebar-container">
-    
-    
-    <div class="short-about">
-        
-        <div class="sidebar-avatar">
-            <a href="/about">
-               <img src="/img/avatar-dongqi.jpg" alt="avatar" />
-            </a>
-        </div>
-        
-        
-        
-            <p class="sidebar-description">Ph.D. Candidate at University of Science and Technology of China</p>
-        
-       
-       
-       <ul class="sidebar-social">
-           
-           <li>
-               <a href="mailto:dongq@mail.ustc.edu.cn" title="Email" aria-label="Email">
-                  <i class="fas fa-envelope"></i>
-               </a>
-           </li>
-           
-           
-           
-           <li>
-               <a target="_blank" href="https://github.com/SurpriseQiD" title="GitHub" aria-label="GitHub">
-                   <i class="fab fa-github"></i>
-               </a>
-           </li>
-           
-           
-           
-           <li>
-               <a target="_blank" href="https://www.researchgate.net/profile/Qi-Dong-20" title="ResearchGate" aria-label="ResearchGate">
-                   <i class="fab fa-researchgate"></i>
-               </a>
-           </li>
-           
-           
-           
-           <li>
-               <a target="_blank" href="https://scholar.google.com/citations?user=dEDX5coAAAAJ&amp;hl=zh-CN&amp;oi=sra" title="Google Scholar" aria-label="Google Scholar">
-                   <i class="fas fa-graduation-cap"></i>
-               </a>
-           </li>
-           
-           
-           
-           <li>
-               <a target="_blank" href="https://orcid.org/0000-0002-3052-6332" title="ORCID" aria-label="ORCID">
-                   <i class="fab fa-orcid"></i>
-               </a>
-           </li>
-           
-       </ul>
     </div>
-    
-
-    
-    <div class="sidebar-module">
-        <h4><i class="fas fa-list-alt"></i> 目录</h4>
-        <nav id="TableOfContents">
-            <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#networking">Networking</a></li>
-        <li><a href="#security">Security</a></li>
-        <li><a href="#遥测">遥测</a></li>
-        <li><a href="#安装">安装</a></li>
-        <li><a href="#mixer">Mixer</a></li>
-        <li><a href="#已知故障">已知故障：</a></li>
-        <li><a href="#总结">总结</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-        </nav>
-    </div>
-
-    
-    <div class="sidebar-module">
-        <h4><i class="fas fa-history"></i> 最近文章</h4>
-        <ul class="recent-posts">
-            
-        </ul>
-    </div>
-</div>
-        </div>
-    </div>
-</article>
-
+  </div>
+</main>
 
 
 
@@ -437,7 +245,7 @@ spec:
             
            
                    <li>
-                       <a href='' rel="alternate" type="application/rss+xml" title="QiView" >
+                       <a href='/bio/index.xml' rel="alternate" type="application/rss+xml" title="QiView" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

@@ -491,13 +491,14 @@
 /* 两栏布局样式 */
 /* ========================================== */
 
-.container {
+/* 限定首页的容器与行调整，避免影响其他页面的侧边栏布局 */
+.home .container {
     max-width: 1400px !important;
     margin: 0 auto;
     padding: 0 10px !important;
 }
 
-/* 侧边栏样式 */
+/* 侧边栏样式（保持默认布局，避免全局覆盖） */
 .sidebar {
     padding-left: 20px;
 }
@@ -630,18 +631,18 @@
 }
 
 /* 减少行边距 */
-.row {
+.home .row {
     margin-left: -5px !important;
     margin-right: -5px !important;
 }
 
-/* 减少列边距 */
-.col-lg-4,
-.col-md-6,
-.col-sm-12,
-.col-lg-3,
-.col-md-4,
-.col-sm-6 {
+/* 减少列边距（仅作用于首页） */
+.home .col-lg-4,
+.home .col-md-6,
+.home .col-sm-12,
+.home .col-lg-3,
+.home .col-md-4,
+.home .col-sm-6 {
     padding-left: 5px !important;
     padding-right: 5px !important;
 }
