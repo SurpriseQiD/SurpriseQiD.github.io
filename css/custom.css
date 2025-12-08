@@ -1406,3 +1406,268 @@
         font-size: 2rem !important;
     }
 }
+
+
+
+/* ========================================== */
+/* 企业级首页样式 - 美观的卡片设计 */
+/* ========================================== */
+
+/* 基础重置 */
+.home .container {
+    max-width: 1400px !important;
+    padding: 0 20px !important;
+}
+
+.home .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* 卡片通用样式 */
+.feature-card,
+.domain-card,
+.value-card,
+.recent-post-card,
+.stats-card,
+.quick-links,
+.collab-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    will-change: transform, box-shadow;
+}
+
+/* 悬停效果增强 */
+.feature-card:hover {
+    transform: translateY(-12px) scale(1.02) !important;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.15) !important;
+    z-index: 10;
+}
+
+.domain-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12) !important;
+}
+
+.value-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1) !important;
+}
+
+.recent-post-card:hover {
+    transform: translateX(10px) !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1) !important;
+}
+
+/* 图标动画 */
+.feature-icon,
+.domain-icon,
+.value-icon {
+    transition: all 0.3s ease !important;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1) rotate(5deg) !important;
+}
+
+.domain-card:hover .domain-icon {
+    transform: scale(1.1) !important;
+}
+
+/* 按钮效果 */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease !important;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255,255,255,0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn-primary:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+/* 梯度边框效果 */
+.gradient-border {
+    position: relative;
+    border-radius: 20px;
+    background: white;
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #FF6B6B, #06D6A0, #118AB2, #EF476F);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gradient-border:hover::before {
+    opacity: 1;
+}
+
+/* 列表项动画 */
+.feature-list li {
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: #06D6A0;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-list li::before {
+    transform: scaleY(1);
+}
+
+.feature-card:hover .feature-list li {
+    padding-left: 35px;
+}
+
+/* 快速链接悬停效果 */
+.quick-links a {
+    position: relative;
+    overflow: hidden;
+}
+
+.quick-links a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: #2a6f97;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.quick-links a:hover::before {
+    transform: scaleY(1);
+}
+
+/* 响应式优化 */
+@media (max-width: 1200px) {
+    .hero-title {
+        font-size: 3rem !important;
+    }
+    
+    .section-header h2 {
+        font-size: 2.2rem !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-section {
+        text-align: center;
+    }
+    
+    .hero-stats {
+        margin-top: 40px !important;
+        max-width: 500px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    .feature-card,
+    .domain-card,
+    .value-card {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero-stats .stat-number {
+        font-size: 2.2rem !important;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem !important;
+    }
+    
+    .feature-card,
+    .domain-card,
+    .value-card {
+        padding: 30px 20px !important;
+    }
+    
+    .feature-icon,
+    .domain-icon,
+    .value-icon {
+        width: 60px !important;
+        height: 60px !important;
+        font-size: 1.8rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem !important;
+    }
+    
+    .hero-description {
+        font-size: 1rem !important;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem !important;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
