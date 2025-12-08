@@ -1010,3 +1010,399 @@
     border-radius: 8px;
     border: 2px dashed #dee2e6;
 }
+
+
+
+/* ========================================== */
+/* 首页企业级布局重构 */
+/* ========================================== */
+
+/* 重置首页容器 */
+.home .container {
+    max-width: 1400px !important;
+    padding: 0 20px !important;
+    margin: 0 auto;
+}
+
+/* 移除行和列的边距 */
+.home .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+.home .col-md-4,
+.home .col-md-6,
+.home .col-lg-3,
+.home .col-lg-8,
+.home .col-lg-4 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    flex: 0 0 auto !important;
+}
+
+/* ========================================== */
+/* 企业级英雄区域 */
+/* ========================================== */
+
+.hero-section {
+    padding: 80px 0 60px;
+    background: linear-gradient(135deg, #1a237e 0%, #2a6f97 100%);
+    color: white;
+    margin-bottom: 0;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-size: 3.5rem !important;
+    font-weight: 800 !important;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem !important;
+    font-weight: 300 !important;
+    margin-bottom: 30px;
+    max-width: 800px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.hero-description {
+    font-size: 1.1rem !important;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-bottom: 40px;
+    opacity: 0.85;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+/* ========================================== */
+/* 紧凑卡片布局 - 无空白并列排列 */
+/* ========================================== */
+
+/* 特征卡片区域 - 3个并列 */
+.features-grid {
+    display: flex !important;
+    gap: 0 !important;
+    width: 100%;
+    margin: 0 !important;
+}
+
+.feature-card {
+    flex: 1 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border: 1px solid #eaeaea;
+    border-left: none;
+    border-top: none;
+    transition: all 0.3s ease !important;
+    padding: 40px 30px !important;
+    height: 100%;
+}
+
+.feature-card:first-child {
+    border-left: 1px solid #eaeaea;
+    border-radius: 12px 0 0 12px !important;
+}
+
+.feature-card:last-child {
+    border-radius: 0 12px 12px 0 !important;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+    z-index: 2;
+}
+
+.features-grid .feature-card:first-child:hover {
+    border-radius: 12px 0 0 12px !important;
+}
+
+.features-grid .feature-card:last-child:hover {
+    border-radius: 0 12px 12px 0 !important;
+}
+
+/* 研究领域卡片区域 - 4个并列 */
+.domains-grid {
+    display: flex !important;
+    gap: 0 !important;
+    width: 100%;
+    margin: 0 !important;
+}
+
+.domain-card {
+    flex: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.domain-content {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border: 1px solid #eaeaea;
+    border-left: none;
+    border-top: none;
+    height: 100%;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 25px !important;
+}
+
+.domain-card:first-child .domain-content {
+    border-left: 1px solid #eaeaea;
+    border-radius: 12px 0 0 12px !important;
+}
+
+.domain-card:last-child .domain-content {
+    border-radius: 0 12px 12px 0 !important;
+}
+
+.domain-card:hover .domain-content {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+    z-index: 2;
+}
+
+/* 统一卡片标题样式 */
+.feature-card h3,
+.domain-content h4 {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    color: #1a237e;
+    margin-bottom: 15px;
+}
+
+.feature-card p,
+.domain-content p {
+    font-size: 1rem !important;
+    line-height: 1.6;
+    color: #546e7a;
+    margin-bottom: 20px;
+}
+
+/* ========================================== */
+/* 增大最新内容字体 */
+/* ========================================== */
+
+.recent-content-section .recent-post-card .post-content h3 {
+    font-size: 1.4rem !important;
+    font-weight: 600 !important;
+}
+
+.recent-content-section .recent-post-card .post-content .post-meta {
+    font-size: 1rem !important;
+}
+
+.recent-content-section .recent-post-card .post-content .post-excerpt {
+    font-size: 1.1rem !important;
+    line-height: 1.7;
+}
+
+.stats-card .stat-number {
+    font-size: 2.2rem !important;
+}
+
+.stats-card .stat-label {
+    font-size: 1rem !important;
+}
+
+.quick-links a {
+    font-size: 1.1rem !important;
+    padding: 12px 15px !important;
+}
+
+/* ========================================== */
+/* 企业级区块间距 */
+/* ========================================== */
+
+.features-section {
+    padding: 80px 0 !important;
+    background: #f8fafc !important;
+}
+
+.domains-section {
+    padding: 80px 0 !important;
+    background: white !important;
+}
+
+.recent-content-section {
+    padding: 80px 0 !important;
+    background: #f8fafc !important;
+}
+
+.section-header {
+    margin-bottom: 50px !important;
+}
+
+.section-header h2 {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    color: #1a237e;
+    margin-bottom: 15px;
+}
+
+.section-header .lead,
+.section-header p {
+    font-size: 1.2rem !important;
+    color: #546e7a;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ========================================== */
+/* 响应式设计 */
+/* ========================================== */
+
+@media (max-width: 992px) {
+    /* 平板：2个卡片一行 */
+    .features-grid,
+    .domains-grid {
+        flex-wrap: wrap;
+    }
+    
+    .feature-card {
+        flex: 0 0 50% !important;
+        border-bottom: 1px solid #eaeaea;
+    }
+    
+    .feature-card:nth-child(odd) {
+        border-left: 1px solid #eaeaea;
+        border-radius: 0 !important;
+    }
+    
+    .feature-card:nth-child(even) {
+        border-left: none;
+        border-radius: 0 !important;
+    }
+    
+    .feature-card:first-child {
+        border-radius: 12px 12px 0 0 !important;
+    }
+    
+    .feature-card:nth-child(2) {
+        border-radius: 0 12px 0 0 !important;
+    }
+    
+    .feature-card:nth-last-child(2) {
+        border-radius: 0 0 0 12px !important;
+    }
+    
+    .feature-card:last-child {
+        border-radius: 0 0 12px 0 !important;
+    }
+    
+    /* 研究领域卡片 */
+    .domain-card {
+        flex: 0 0 50% !important;
+    }
+    
+    .domain-content {
+        border-bottom: 1px solid #eaeaea;
+    }
+    
+    .domain-card:nth-child(odd) .domain-content {
+        border-left: 1px solid #eaeaea;
+    }
+    
+    .domain-card:nth-child(1) .domain-content {
+        border-radius: 12px 0 0 0 !important;
+    }
+    
+    .domain-card:nth-child(2) .domain-content {
+        border-radius: 0 12px 0 0 !important;
+    }
+    
+    .domain-card:nth-last-child(2) .domain-content {
+        border-radius: 0 0 0 12px !important;
+    }
+    
+    .domain-card:last-child .domain-content {
+        border-radius: 0 0 12px 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 手机：1个卡片一行 */
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem !important;
+    }
+    
+    .features-grid,
+    .domains-grid {
+        flex-direction: column;
+    }
+    
+    .feature-card,
+    .domain-card {
+        flex: 0 0 100% !important;
+        border-left: 1px solid #eaeaea !important;
+        border-right: 1px solid #eaeaea !important;
+    }
+    
+    .feature-card {
+        border-radius: 0 !important;
+        border-bottom: none;
+    }
+    
+    .feature-card:first-child {
+        border-radius: 12px 12px 0 0 !important;
+    }
+    
+    .feature-card:last-child {
+        border-bottom: 1px solid #eaeaea;
+        border-radius: 0 0 12px 12px !important;
+    }
+    
+    .domain-content {
+        border-radius: 0 !important;
+    }
+    
+    .domain-card:first-child .domain-content {
+        border-radius: 12px 12px 0 0 !important;
+    }
+    
+    .domain-card:last-child .domain-content {
+        border-radius: 0 0 12px 12px !important;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem !important;
+    }
+}
