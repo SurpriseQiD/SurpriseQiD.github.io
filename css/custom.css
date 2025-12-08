@@ -652,59 +652,20 @@
 }
 
 /* ========================================== */
-/* 两栏布局样式 */
+/* 目录显示控制 */
 /* ========================================== */
 
-/* 限定首页的容器与行调整，避免影响其他页面的侧边栏布局 */
-.home .container {
-    max-width: 1400px !important;
-    margin: 0 auto;
-    padding: 0 10px !important;
-}
-
-/* 侧边栏样式（保持默认布局，避免全局覆盖） */
-.sidebar {
-    padding-left: 20px;
-}
-
-.sidebar-column {
-    display: flex;
-    flex-direction: column;
-}
-
-.sidebar-container {
-    position: sticky;
-    top: 80px;
-}
-
-.sidebar-avatar {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.sidebar-avatar img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid #2a6f97;
-}
-
-.sidebar-description {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #666;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.sidebar-module {
+/* 默认目录模块样式 */
+.sidebar-module.toc-module {
     margin-bottom: 30px;
     padding: 20px;
     background: #f9f9f9;
     border-radius: 8px;
+    /* 默认隐藏，由页面类型类控制显示 */
+    display: none;
 }
 
-.sidebar-module h4 {
+.sidebar-module.toc-module h4 {
     margin-top: 0;
     margin-bottom: 15px;
     padding-bottom: 10px;
@@ -713,8 +674,43 @@
     font-size: 1.1rem;
 }
 
+/* 列表页面隐藏目录 */
+.list-page .sidebar-module.toc-module,
+.home .sidebar-module.toc-module {
+    display: none !important;
+}
+
+/* 单篇文章页面显示目录 */
+.single-page .sidebar-module.toc-module {
+    display: block !important;
+    animation: tocFadeIn 0.5s ease-in-out;
+}
+
+@keyframes tocFadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 目录内容样式 */
 #TableOfContents {
     font-size: 0.9rem;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+#TableOfContents::-webkit-scrollbar {
+    width: 4px;
+}
+
+#TableOfContents::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2px;
+}
+
+#TableOfContents::-webkit-scrollbar-thumb {
+    background: #2a6f97;
+    border-radius: 2px;
 }
 
 #TableOfContents ul {
@@ -724,16 +720,35 @@
 
 #TableOfContents li {
     margin-bottom: 8px;
+    line-height: 1.4;
 }
 
 #TableOfContents a {
     color: #666;
     text-decoration: none;
     transition: color 0.2s;
+    display: block;
+    padding: 2px 0;
 }
 
 #TableOfContents a:hover {
     color: #2a6f97;
+}
+
+/* 目录层级缩进 */
+#TableOfContents ul ul {
+    margin-left: 15px;
+    padding-left: 0;
+}
+
+#TableOfContents ul ul ul {
+    margin-left: 10px;
+}
+
+/* 当前目录项高亮 */
+#TableOfContents li.active > a {
+    color: #2a6f97;
+    font-weight: 600;
 }
 
 .recent-posts {
@@ -785,6 +800,35 @@
     
     .sidebar-module {
         padding: 15px;
+    }
+    
+    /* 移动端目录优化 */
+    .single-page .sidebar-module.toc-module {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: auto;
+        max-width: 300px;
+        max-height: 60vh;
+        overflow: hidden;
+        z-index: 1000;
+        display: none; /* 默认隐藏，通过按钮控制 */
+    }
+    
+    .single-page .toc-toggle-button {
+        display: block !important;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #2a6f97;
+        color: white;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        box-shadow: 0 4px 12px rgba(42, 111, 151, 0.3);
     }
 }
 
