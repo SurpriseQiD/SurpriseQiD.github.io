@@ -210,20 +210,20 @@
 }
 
 .navbar-custom .navbar-brand {
-    font-size: 26px !important;
-    font-weight: 700 !important;
-    padding: 25px 20px !important;
+    font-size: 30px !important;
+    font-weight: 800 !important;
+    padding: 26px 22px !important;
     color: #2a6f97 !important;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.6px;
 }
 
 .navbar-custom .navbar-nav > li > a {
-    font-size: 20px !important;
-    font-weight: 600 !important;
-    padding: 25px 20px !important;
-    color: #333 !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    padding: 26px 22px !important;
+    color: #222 !important;
     transition: all 0.3s ease;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.35px;
 }
 
 .navbar-custom .navbar-nav > li > a:hover,
@@ -241,9 +241,9 @@
 }
 
 .navbar-custom .dropdown-menu > li > a {
-    font-size: 18px !important;
-    padding: 12px 20px !important;
-    font-weight: 500;
+    font-size: 20px !important;
+    padding: 14px 22px !important;
+    font-weight: 600;
 }
 
 /* 移除导航图标 */
@@ -254,13 +254,13 @@
 
 @media (max-width: 991px) {
     .navbar-custom .navbar-brand {
-        font-size: 22px !important;
-        padding: 20px 20px !important;
+        font-size: 26px !important;
+        padding: 22px 20px !important;
     }
     
     .navbar-custom .navbar-nav > li > a {
-        font-size: 18px !important;
-        padding: 18px 20px !important;
+        font-size: 20px !important;
+        padding: 18px 22px !important;
         text-align: center;
         border-bottom: 1px solid rgba(0,0,0,0.05);
     }
@@ -501,6 +501,11 @@
 /* 侧边栏样式（保持默认布局，避免全局覆盖） */
 .sidebar {
     padding-left: 20px;
+}
+
+.sidebar-column {
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar-container {
