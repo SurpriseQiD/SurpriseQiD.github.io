@@ -1812,3 +1812,154 @@
         font-size: 1.3rem !important;
     }
 }
+
+
+/* ========================================== */
+/* 文章卡片样式 */
+/* ========================================== */
+
+.post-card {
+    margin-bottom: 25px;
+}
+
+.post-card .post-content {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-left: 4px solid #2a6f97;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.post-card:hover .post-content {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.post-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a237e;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.post-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.post-title a:hover {
+    color: #FF6B6B;
+    text-decoration: underline;
+}
+
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+    color: #78909c;
+    font-size: 1.1rem;
+}
+
+.post-meta i {
+    opacity: 0.7;
+    margin-right: 5px;
+}
+
+.post-summary {
+    color: #546e7a;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 3px solid #2a6f97;
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.post-tags .tag {
+    background: #e3f2fd;
+    color: #2a6f97;
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid #d1e3ff;
+    transition: all 0.2s ease;
+}
+
+.post-tags .tag:hover {
+    background: #2a6f97;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.read-more {
+    display: inline-block;
+    color: #2a6f97;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.read-more:hover {
+    color: #FF6B6B;
+    padding-left: 5px;
+}
+
+.read-more i {
+    transition: transform 0.3s ease;
+}
+
+.read-more:hover i {
+    transform: translateX(5px);
+}
+
+/* 状态样式 */
+.post-status {
+    display: inline-flex;
+    align-items: center;
+}
+
+.status-in-progress {
+    color: #FF6B6B;
+}
+
+.status-completed {
+    color: #06D6A0;
+}
+
+.status-default {
+    color: #78909c;
+}
+
+.post-status i {
+    font-size: 0.8rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .post-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .post-title {
+        font-size: 1.3rem;
+    }
+    
+    .post-content {
+        padding: 20px;
+    }
+}
