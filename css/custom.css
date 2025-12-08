@@ -56,7 +56,8 @@
 
 /* 社交图标容器 - 水平排列 */
 .author-social,
-.sidebar-social {
+.sidebar-social,
+.sidebar-social.inline {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -67,16 +68,9 @@
     list-style: none !important;
 }
 
-.author-social li,
-.sidebar-social li {
-    display: inline-block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* 社交图标链接 */
 .author-social a,
-.sidebar-social a {
+.sidebar-social a,
+.sidebar-social.inline a {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -1747,6 +1741,19 @@
     background: #2a6f97;
     color: white;
     transform: translateY(-2px);
+}
+
+.post-tags .tag-label {
+    background: #f0f4ff;
+    color: #1a237e;
+    font-weight: 700;
+    border: 1px solid #d1e3ff;
+}
+
+.post-divider {
+    border: 0;
+    border-top: 1px dashed #e0e6ed;
+    margin: 20px 0;
 }
 
 /* 阅读更多链接 */
