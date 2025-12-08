@@ -1756,6 +1756,47 @@
     margin: 20px 0;
 }
 
+.post-body {
+    margin-top: 20px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #2f3941;
+}
+
+.post-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.post-nav-link {
+    color: #2a6f97;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.post-nav-link:hover {
+    text-decoration: underline;
+}
+
+#read-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0;
+    background: linear-gradient(90deg, #2a6f97, #118ab2);
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+}
+.post-body {
+    margin-top: 20px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #2f3941;
+}
+
 /* 阅读更多链接 */
 .read-more {
     display: inline-block;

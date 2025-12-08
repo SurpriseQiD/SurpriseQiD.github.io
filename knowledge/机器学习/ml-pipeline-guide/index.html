@@ -1,925 +1,386 @@
-<!DOCTYPE html>
-<html lang="en-us">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    
-    <meta property="og:site_name" content="QiView">
-    <meta property="og:type" content="article">
-
-    
-    <meta property="og:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg">
-    <meta property="twitter:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg" />
-    
-
-    
-    <meta name="title" content="机器学习完整流程指南：从数据到部署" />
-    <meta property="og:title" content="机器学习完整流程指南：从数据到部署" />
-    <meta property="twitter:title" content="机器学习完整流程指南：从数据到部署" />
-    
-
-    
-    <meta name="description" content="QiView — an academic knowledge hub for computation and decision sciences.">
-    <meta property="og:description" content="QiView — an academic knowledge hub for computation and decision sciences." />
-    <meta property="twitter:description" content="QiView — an academic knowledge hub for computation and decision sciences." />
-    
-
-    
-    <meta property="twitter:card" content="完整的机器学习项目实践指南，涵盖数据预处理、模型训练、评估和部署全流程" />
-    
-    
-
-    <meta name="keyword"  content="Game Theory, Decision Science, Operations Management, Human-AI Interaction">
-    <link rel="shortcut icon" href="/img/favicon.png">
-
-    <title>机器学习完整流程指南：从数据到部署 | QiView</title>
-
-    <link rel="canonical" href="/knowledge/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/ml-pipeline-guide/">
-
-    
-    
-    
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    
-    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
-
-    
-    <link rel="stylesheet" href="/css/zanshang.css">
-
-    
-    <link rel="stylesheet" href="/css/font-awesome.all.min.css">
-
-    
-    
-
-    
-    <script src="/js/jquery.min.js"></script>
-
-    
-    <script src="/js/bootstrap.min.js"></script>
-
-    
-    <script src="/js/hux-blog.min.js"></script>
-
-    
-    <script src="/js/lazysizes.min.js"></script>
-
-    
-    
-
-</head>
-
-
-
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CX84QDN0SR"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-CX84QDN0SR');
-        }
-      </script>
-
-
-
-
-
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-
-    <div class="container-fluid">
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">QiView</a>
-        </div>
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    
-                        <li><a href="/">Homepage</a></li>
-                    
-                        <li><a href="/research/">Researches</a></li>
-                    
-                        <li><a href="/blog/">Blogs</a></li>
-                    
-                        <li><a href="/knowledge/">Knowledge</a></li>
-                    
-                        <li><a href="/resources/">Resources</a></li>
-                    
-                        <li><a href="/about/">About</a></li>
-                    
-                    <li>
-                        <a href="/search"><i class="fa fa-search"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
-<script>
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-            $navbar.className = " ";
-            setTimeout(function(){
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-</script>
-
-
-
-<header class="intro-header" style="background-image: url('/img/home-bg-painting.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>QiView </h1>
-                    
-		    <span class="subheading">Curated tutorials, reproducible research notes and practical guides</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-
-
-
-<article>
-    <div class="container">
-        <div class="row">
-            
-            <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container">
-            
-                <h1 id="机器学习完整流程指南">机器学习完整流程指南</h1>
-<p>本教程将带你完成一个完整的机器学习项目，从数据获取到模型部署的全过程。</p>
-<h2 id="项目概述房价预测">项目概述：房价预测</h2>
-<p>我们将使用波士顿房价数据集（或加州房价数据集）来预测房屋价格。</p>
-<h2 id="1-环境设置">1. 环境设置</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 导入必要库</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> pandas <span style="color:#ff79c6">as</span> pd
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> seaborn <span style="color:#ff79c6">as</span> sns
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn.model_selection <span style="color:#ff79c6">import</span> train_test_split, cross_val_score
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn.preprocessing <span style="color:#ff79c6">import</span> StandardScaler, OneHotEncoder
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn.compose <span style="color:#ff79c6">import</span> ColumnTransformer
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn.pipeline <span style="color:#ff79c6">import</span> Pipeline
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn.ensemble <span style="color:#ff79c6">import</span> RandomForestRegressor, GradientBoostingRegressor
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn.linear_model <span style="color:#ff79c6">import</span> LinearRegression, Ridge, Lasso
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn.metrics <span style="color:#ff79c6">import</span> mean_squared_error, r2_score, mean_absolute_error
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> joblib
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> warnings
-</span></span><span style="display:flex;"><span>warnings<span style="color:#ff79c6">.</span>filterwarnings(<span style="color:#f1fa8c">&#39;ignore&#39;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 设置中文显示</span>
-</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>rcParams[<span style="color:#f1fa8c">&#39;font.sans-serif&#39;</span>] <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;SimHei&#39;</span>, <span style="color:#f1fa8c">&#39;DejaVu Sans&#39;</span>]
-</span></span><span style="display:flex;"><span>plt<span style="color:#ff79c6">.</span>rcParams[<span style="color:#f1fa8c">&#39;axes.unicode_minus&#39;</span>] <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">False</span>
-</span></span></code></pre></div><h2 id="2-数据收集与探索">2. 数据收集与探索</h2>
-<h1 id="21-加载数据">2.1 加载数据</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 使用加州房价数据集</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn.datasets <span style="color:#ff79c6">import</span> fetch_california_housing
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>housing <span style="color:#ff79c6">=</span> fetch_california_housing()
-</span></span><span style="display:flex;"><span>X <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame(housing<span style="color:#ff79c6">.</span>data, columns<span style="color:#ff79c6">=</span>housing<span style="color:#ff79c6">.</span>feature_names)
-</span></span><span style="display:flex;"><span>y <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>Series(housing<span style="color:#ff79c6">.</span>target, name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;MedHouseVal&#39;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;数据集形状: </span><span style="color:#f1fa8c">{</span>X<span style="color:#ff79c6">.</span>shape<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;特征名称: </span><span style="color:#f1fa8c">{</span>X<span style="color:#ff79c6">.</span>columns<span style="color:#ff79c6">.</span>tolist()<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span></code></pre></div><h2 id="22-数据探索">2.2 数据探索</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">explore_data</span>(X, y):
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;数据探索分析&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;=== 数据概览 ===&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(X<span style="color:#ff79c6">.</span>info())
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">=== 描述性统计 ===&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(X<span style="color:#ff79c6">.</span>describe())
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">=== 缺失值检查 ===&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(X<span style="color:#ff79c6">.</span>isnull()<span style="color:#ff79c6">.</span>sum())
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">=== 目标变量分布 ===&#34;</span>)
-</span></span><span style="display:flex;"><span>    fig, axes <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>subplots(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">12</span>, <span style="color:#bd93f9">4</span>))
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 目标变量分布</span>
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>hist(y, bins<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>, edgecolor<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;black&#39;</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.7</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;房屋价格&#39;</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;频数&#39;</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;目标变量分布&#39;</span>)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 特征相关性热图</span>
-</span></span><span style="display:flex;"><span>    corr_matrix <span style="color:#ff79c6">=</span> X<span style="color:#ff79c6">.</span>corr()
-</span></span><span style="display:flex;"><span>    sns<span style="color:#ff79c6">.</span>heatmap(corr_matrix, annot<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>, fmt<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;.2f&#39;</span>, cmap<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;coolwarm&#39;</span>, 
-</span></span><span style="display:flex;"><span>                center<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span>, ax<span style="color:#ff79c6">=</span>axes[<span style="color:#bd93f9">1</span>])
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">1</span>]<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;特征相关性热图&#39;</span>)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>tight_layout()
-</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>show()
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> X
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>X <span style="color:#ff79c6">=</span> explore_data(X, y)
-</span></span></code></pre></div><h2 id="3-数据预处理">3. 数据预处理</h2>
-<h1 id="31-处理异常值">3.1 处理异常值</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">handle_outliers</span>(df, columns, method<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;iqr&#39;</span>, threshold<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1.5</span>):
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;处理异常值&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    df_clean <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>copy()
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> col <span style="color:#ff79c6">in</span> columns:
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> method <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;iqr&#39;</span>:
-</span></span><span style="display:flex;"><span>            Q1 <span style="color:#ff79c6">=</span> df[col]<span style="color:#ff79c6">.</span>quantile(<span style="color:#bd93f9">0.25</span>)
-</span></span><span style="display:flex;"><span>            Q3 <span style="color:#ff79c6">=</span> df[col]<span style="color:#ff79c6">.</span>quantile(<span style="color:#bd93f9">0.75</span>)
-</span></span><span style="display:flex;"><span>            IQR <span style="color:#ff79c6">=</span> Q3 <span style="color:#ff79c6">-</span> Q1
-</span></span><span style="display:flex;"><span>            lower_bound <span style="color:#ff79c6">=</span> Q1 <span style="color:#ff79c6">-</span> threshold <span style="color:#ff79c6">*</span> IQR
-</span></span><span style="display:flex;"><span>            upper_bound <span style="color:#ff79c6">=</span> Q3 <span style="color:#ff79c6">+</span> threshold <span style="color:#ff79c6">*</span> IQR
-</span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># 将异常值替换为边界值</span>
-</span></span><span style="display:flex;"><span>            df_clean[col] <span style="color:#ff79c6">=</span> df[col]<span style="color:#ff79c6">.</span>clip(lower_bound, upper_bound)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> df_clean
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 处理数值特征的异常值</span>
-</span></span><span style="display:flex;"><span>numeric_features <span style="color:#ff79c6">=</span> X<span style="color:#ff79c6">.</span>columns<span style="color:#ff79c6">.</span>tolist()
-</span></span><span style="display:flex;"><span>X_clean <span style="color:#ff79c6">=</span> handle_outliers(X, numeric_features)
-</span></span></code></pre></div><h1 id="32-特征工程">3.2 特征工程</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">create_features</span>(df):
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;创建新特征&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    df_new <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>copy()
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 创建房间总数特征</span>
-</span></span><span style="display:flex;"><span>    df_new[<span style="color:#f1fa8c">&#39;TotalRooms&#39;</span>] <span style="color:#ff79c6">=</span> df[<span style="color:#f1fa8c">&#39;AveRooms&#39;</span>] <span style="color:#ff79c6">*</span> df[<span style="color:#f1fa8c">&#39;HouseAge&#39;</span>]
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 创建房间与人口比例</span>
-</span></span><span style="display:flex;"><span>    df_new[<span style="color:#f1fa8c">&#39;RoomsPerHousehold&#39;</span>] <span style="color:#ff79c6">=</span> df[<span style="color:#f1fa8c">&#39;AveRooms&#39;</span>] <span style="color:#ff79c6">/</span> (df[<span style="color:#f1fa8c">&#39;Population&#39;</span>] <span style="color:#ff79c6">/</span> df[<span style="color:#f1fa8c">&#39;Households&#39;</span>] <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 创建收入与房间比例</span>
-</span></span><span style="display:flex;"><span>    df_new[<span style="color:#f1fa8c">&#39;IncomePerRoom&#39;</span>] <span style="color:#ff79c6">=</span> df[<span style="color:#f1fa8c">&#39;MedInc&#39;</span>] <span style="color:#ff79c6">/</span> (df[<span style="color:#f1fa8c">&#39;AveRooms&#39;</span>] <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> df_new
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>X_engineered <span style="color:#ff79c6">=</span> create_features(X_clean)
-</span></span></code></pre></div><h1 id="33-数据分割与标准化">3.3 数据分割与标准化</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 分割数据集</span>
-</span></span><span style="display:flex;"><span>X_train, X_test, y_train, y_test <span style="color:#ff79c6">=</span> train_test_split(
-</span></span><span style="display:flex;"><span>    X_engineered, y, test_size<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.2</span>, random_state<span style="color:#ff79c6">=</span><span style="color:#bd93f9">42</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;训练集大小: </span><span style="color:#f1fa8c">{</span>X_train<span style="color:#ff79c6">.</span>shape<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;测试集大小: </span><span style="color:#f1fa8c">{</span>X_test<span style="color:#ff79c6">.</span>shape<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 特征标准化</span>
-</span></span><span style="display:flex;"><span>scaler <span style="color:#ff79c6">=</span> StandardScaler()
-</span></span><span style="display:flex;"><span>X_train_scaled <span style="color:#ff79c6">=</span> scaler<span style="color:#ff79c6">.</span>fit_transform(X_train)
-</span></span><span style="display:flex;"><span>X_test_scaled <span style="color:#ff79c6">=</span> scaler<span style="color:#ff79c6">.</span>transform(X_test)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 转换为DataFrame</span>
-</span></span><span style="display:flex;"><span>X_train_scaled <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame(X_train_scaled, columns<span style="color:#ff79c6">=</span>X_train<span style="color:#ff79c6">.</span>columns)
-</span></span><span style="display:flex;"><span>X_test_scaled <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame(X_test_scaled, columns<span style="color:#ff79c6">=</span>X_test<span style="color:#ff79c6">.</span>columns)
-</span></span></code></pre></div><h2 id="4-模型训练与评估">4. 模型训练与评估</h2>
-<h1 id="41-定义多个模型进行比较">4.1 定义多个模型进行比较</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>models <span style="color:#ff79c6">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;Linear Regression&#39;</span>: LinearRegression(),
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;Ridge Regression&#39;</span>: Ridge(alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1.0</span>),
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;Lasso Regression&#39;</span>: Lasso(alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.01</span>),
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;Random Forest&#39;</span>: RandomForestRegressor(n_estimators<span style="color:#ff79c6">=</span><span style="color:#bd93f9">100</span>, random_state<span style="color:#ff79c6">=</span><span style="color:#bd93f9">42</span>),
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#39;Gradient Boosting&#39;</span>: GradientBoostingRegressor(n_estimators<span style="color:#ff79c6">=</span><span style="color:#bd93f9">100</span>, random_state<span style="color:#ff79c6">=</span><span style="color:#bd93f9">42</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">evaluate_models</span>(models, X_train, X_test, y_train, y_test):
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;评估多个模型&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    results <span style="color:#ff79c6">=</span> {}
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> name, model <span style="color:#ff79c6">in</span> models<span style="color:#ff79c6">.</span>items():
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 训练模型</span>
-</span></span><span style="display:flex;"><span>        model<span style="color:#ff79c6">.</span>fit(X_train, y_train)
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 预测</span>
-</span></span><span style="display:flex;"><span>        y_pred_train <span style="color:#ff79c6">=</span> model<span style="color:#ff79c6">.</span>predict(X_train)
-</span></span><span style="display:flex;"><span>        y_pred_test <span style="color:#ff79c6">=</span> model<span style="color:#ff79c6">.</span>predict(X_test)
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 计算指标</span>
-</span></span><span style="display:flex;"><span>        train_mse <span style="color:#ff79c6">=</span> mean_squared_error(y_train, y_pred_train)
-</span></span><span style="display:flex;"><span>        test_mse <span style="color:#ff79c6">=</span> mean_squared_error(y_test, y_pred_test)
-</span></span><span style="display:flex;"><span>        train_r2 <span style="color:#ff79c6">=</span> r2_score(y_train, y_pred_train)
-</span></span><span style="display:flex;"><span>        test_r2 <span style="color:#ff79c6">=</span> r2_score(y_test, y_pred_test)
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 交叉验证</span>
-</span></span><span style="display:flex;"><span>        cv_scores <span style="color:#ff79c6">=</span> cross_val_score(model, X_train, y_train, 
-</span></span><span style="display:flex;"><span>                                   cv<span style="color:#ff79c6">=</span><span style="color:#bd93f9">5</span>, scoring<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;r2&#39;</span>)
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        results[name] <span style="color:#ff79c6">=</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;model&#39;</span>: model,
-</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;train_mse&#39;</span>: train_mse,
-</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;test_mse&#39;</span>: test_mse,
-</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;train_r2&#39;</span>: train_r2,
-</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;test_r2&#39;</span>: test_r2,
-</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;cv_mean&#39;</span>: cv_scores<span style="color:#ff79c6">.</span>mean(),
-</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#39;cv_std&#39;</span>: cv_scores<span style="color:#ff79c6">.</span>std()
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">{</span>name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">:&#34;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;  训练集 R²: </span><span style="color:#f1fa8c">{</span>train_r2<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.4f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;  测试集 R²: </span><span style="color:#f1fa8c">{</span>test_r2<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.4f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;  交叉验证 R²: </span><span style="color:#f1fa8c">{</span>cv_scores<span style="color:#ff79c6">.</span>mean()<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.4f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> (±</span><span style="color:#f1fa8c">{</span>cv_scores<span style="color:#ff79c6">.</span>std()<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.4f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">)&#34;</span>)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> results
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 评估模型</span>
-</span></span><span style="display:flex;"><span>results <span style="color:#ff79c6">=</span> evaluate_models(models, X_train_scaled, X_test_scaled, y_train, y_test)
-</span></span></code></pre></div><h1 id="42-可视化模型比较">4.2 可视化模型比较</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">visualize_results</span>(results):
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;可视化模型比较结果&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    fig, axes <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>subplots(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>, figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">14</span>, <span style="color:#bd93f9">10</span>))
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 1. 测试集R²比较</span>
-</span></span><span style="display:flex;"><span>    model_names <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(results<span style="color:#ff79c6">.</span>keys())
-</span></span><span style="display:flex;"><span>    test_r2_values <span style="color:#ff79c6">=</span> [results[name][<span style="color:#f1fa8c">&#39;test_r2&#39;</span>] <span style="color:#ff79c6">for</span> name <span style="color:#ff79c6">in</span> model_names]
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>barh(model_names, test_r2_values, color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;skyblue&#39;</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;测试集 R²&#39;</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;模型性能比较（测试集R²）&#39;</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>axvline(x<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span>, color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;gray&#39;</span>, linestyle<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;--&#39;</span>, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.5</span>)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 2. 训练集与测试集R²对比</span>
-</span></span><span style="display:flex;"><span>    train_r2_values <span style="color:#ff79c6">=</span> [results[name][<span style="color:#f1fa8c">&#39;train_r2&#39;</span>] <span style="color:#ff79c6">for</span> name <span style="color:#ff79c6">in</span> model_names]
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    x <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>arange(<span style="color:#8be9fd;font-style:italic">len</span>(model_names))
-</span></span><span style="display:flex;"><span>    width <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0.35</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>]<span style="color:#ff79c6">.</span>bar(x <span style="color:#ff79c6">-</span> width<span style="color:#ff79c6">/</span><span style="color:#bd93f9">2</span>, train_r2_values, width, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;训练集&#39;</span>, color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;lightblue&#39;</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>]<span style="color:#ff79c6">.</span>bar(x <span style="color:#ff79c6">+</span> width<span style="color:#ff79c6">/</span><span style="color:#bd93f9">2</span>, test_r2_values, width, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;测试集&#39;</span>, color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;lightcoral&#39;</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>]<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;模型&#39;</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>]<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;R²&#39;</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>]<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">&#39;训练集 vs 测试集 R²&#39;</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>]<span style="color:#ff79c6">.</span>set_xticks(x)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>]<span style="color:#ff79c6">.</span>set_xticklabels(model_names, rotation<span style="color:#ff79c6">=</span><span style="color:#bd93f9">45</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>]<span style="color:#ff79c6">.</span>legend()
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 3. 特征重要性（以随机森林为例）</span>
-</span></span><span style="display:flex;"><span>    best_model_name <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(results<span style="color:#ff79c6">.</span>keys(), key<span style="color:#ff79c6">=</span><span style="color:#ff79c6">lambda</span> x: results[x][<span style="color:#f1fa8c">&#39;test_r2&#39;</span>])
-</span></span><span style="display:flex;"><span>    best_model <span style="color:#ff79c6">=</span> results[best_model_name][<span style="color:#f1fa8c">&#39;model&#39;</span>]
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">hasattr</span>(best_model, <span style="color:#f1fa8c">&#39;feature_importances_&#39;</span>):
-</span></span><span style="display:flex;"><span>        importances <span style="color:#ff79c6">=</span> best_model<span style="color:#ff79c6">.</span>feature_importances_
-</span></span><span style="display:flex;"><span>        indices <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>argsort(importances)[::<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>]
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        axes[<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>bar(<span style="color:#8be9fd;font-style:italic">range</span>(X_train<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">1</span>]), importances[indices])
-</span></span><span style="display:flex;"><span>        axes[<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;特征排名&#39;</span>)
-</span></span><span style="display:flex;"><span>        axes[<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;重要性&#39;</span>)
-</span></span><span style="display:flex;"><span>        axes[<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{</span>best_model_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> 特征重要性&#39;</span>)
-</span></span><span style="display:flex;"><span>        axes[<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>set_xticks(<span style="color:#8be9fd;font-style:italic">range</span>(X_train<span style="color:#ff79c6">.</span>shape[<span style="color:#bd93f9">1</span>]))
-</span></span><span style="display:flex;"><span>        axes[<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>set_xticklabels(X_train<span style="color:#ff79c6">.</span>columns[indices], rotation<span style="color:#ff79c6">=</span><span style="color:#bd93f9">90</span>)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 4. 残差图</span>
-</span></span><span style="display:flex;"><span>    best_model_name <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(results<span style="color:#ff79c6">.</span>keys(), key<span style="color:#ff79c6">=</span><span style="color:#ff79c6">lambda</span> x: results[x][<span style="color:#f1fa8c">&#39;test_r2&#39;</span>])
-</span></span><span style="display:flex;"><span>    best_model <span style="color:#ff79c6">=</span> results[best_model_name][<span style="color:#f1fa8c">&#39;model&#39;</span>]
-</span></span><span style="display:flex;"><span>    y_pred <span style="color:#ff79c6">=</span> best_model<span style="color:#ff79c6">.</span>predict(X_test_scaled)
-</span></span><span style="display:flex;"><span>    residuals <span style="color:#ff79c6">=</span> y_test <span style="color:#ff79c6">-</span> y_pred
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>]<span style="color:#ff79c6">.</span>scatter(y_pred, residuals, alpha<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.5</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>]<span style="color:#ff79c6">.</span>axhline(y<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span>, color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;red&#39;</span>, linestyle<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;--&#39;</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>]<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;预测值&#39;</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>]<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;残差&#39;</span>)
-</span></span><span style="display:flex;"><span>    axes[<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>]<span style="color:#ff79c6">.</span>set_title(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{</span>best_model_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> 残差图&#39;</span>)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>tight_layout()
-</span></span><span style="display:flex;"><span>    plt<span style="color:#ff79c6">.</span>show()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>visualize_results(results)
-</span></span></code></pre></div><h2 id="5-模型优化">5. 模型优化</h2>
-<h1 id="51-超参数调优">5.1 超参数调优</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">from</span> sklearn.model_selection <span style="color:#ff79c6">import</span> GridSearchCV
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">tune_random_forest</span>(X_train, y_train):
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;随机森林超参数调优&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    param_grid <span style="color:#ff79c6">=</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;n_estimators&#39;</span>: [<span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">200</span>, <span style="color:#bd93f9">300</span>],
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;max_depth&#39;</span>: [<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">20</span>, <span style="color:#bd93f9">30</span>, <span style="color:#ff79c6">None</span>],
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;min_samples_split&#39;</span>: [<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">5</span>, <span style="color:#bd93f9">10</span>],
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;min_samples_leaf&#39;</span>: [<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">4</span>],
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;max_features&#39;</span>: [<span style="color:#f1fa8c">&#39;sqrt&#39;</span>, <span style="color:#f1fa8c">&#39;log2&#39;</span>]
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    rf <span style="color:#ff79c6">=</span> RandomForestRegressor(random_state<span style="color:#ff79c6">=</span><span style="color:#bd93f9">42</span>)
-</span></span><span style="display:flex;"><span>    grid_search <span style="color:#ff79c6">=</span> GridSearchCV(
-</span></span><span style="display:flex;"><span>        rf, param_grid, cv<span style="color:#ff79c6">=</span><span style="color:#bd93f9">5</span>, scoring<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;r2&#39;</span>,
-</span></span><span style="display:flex;"><span>        n_jobs<span style="color:#ff79c6">=-</span><span style="color:#bd93f9">1</span>, verbose<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>
-</span></span><span style="display:flex;"><span>    )
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    grid_search<span style="color:#ff79c6">.</span>fit(X_train, y_train)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;最佳参数: </span><span style="color:#f1fa8c">{</span>grid_search<span style="color:#ff79c6">.</span>best_params_<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;最佳交叉验证得分: </span><span style="color:#f1fa8c">{</span>grid_search<span style="color:#ff79c6">.</span>best_score_<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.4f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> grid_search<span style="color:#ff79c6">.</span>best_estimator_
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 选择最佳模型进行调优</span>
-</span></span><span style="display:flex;"><span>best_model_name <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(results<span style="color:#ff79c6">.</span>keys(), key<span style="color:#ff79c6">=</span><span style="color:#ff79c6">lambda</span> x: results[x][<span style="color:#f1fa8c">&#39;test_r2&#39;</span>])
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">对 </span><span style="color:#f1fa8c">{</span>best_model_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> 进行超参数调优...&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> best_model_name <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;Random Forest&#39;</span>:
-</span></span><span style="display:flex;"><span>    optimized_model <span style="color:#ff79c6">=</span> tune_random_forest(X_train_scaled, y_train)
-</span></span></code></pre></div><h2 id="6-模型部署">6. 模型部署</h2>
-<h1 id="61-保存模型">6.1 保存模型</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">save_model_pipeline</span>(model, scaler, feature_names, model_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;best_model&#39;</span>):
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;保存模型和预处理管道&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">import</span> joblib
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">import</span> datetime
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 创建模型信息字典</span>
-</span></span><span style="display:flex;"><span>    model_info <span style="color:#ff79c6">=</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;model&#39;</span>: model,
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;scaler&#39;</span>: scaler,
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;feature_names&#39;</span>: feature_names,
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;created_at&#39;</span>: datetime<span style="color:#ff79c6">.</span>datetime<span style="color:#ff79c6">.</span>now()<span style="color:#ff79c6">.</span>strftime(<span style="color:#f1fa8c">&#34;%Y-%m-</span><span style="color:#f1fa8c">%d</span><span style="color:#f1fa8c"> %H:%M:%S&#34;</span>),
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;version&#39;</span>: <span style="color:#f1fa8c">&#39;1.0&#39;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 保存模型</span>
-</span></span><span style="display:flex;"><span>    joblib<span style="color:#ff79c6">.</span>dump(model_info, <span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{</span>model_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">.pkl&#39;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;模型已保存为 </span><span style="color:#f1fa8c">{</span>model_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">.pkl&#34;</span>)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 保存模型元数据</span>
-</span></span><span style="display:flex;"><span>    metadata <span style="color:#ff79c6">=</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;model_type&#39;</span>: <span style="color:#8be9fd;font-style:italic">type</span>(model)<span style="color:#ff79c6">.</span><span style="color:#8be9fd;font-style:italic">__name__</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;features&#39;</span>: feature_names,
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;created_at&#39;</span>: model_info[<span style="color:#f1fa8c">&#39;created_at&#39;</span>],
-</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;performance&#39;</span>: results[best_model_name] <span style="color:#ff79c6">if</span> best_model_name <span style="color:#ff79c6">in</span> results <span style="color:#ff79c6">else</span> {}
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">import</span> json
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">with</span> <span style="color:#8be9fd;font-style:italic">open</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{</span>model_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">_metadata.json&#39;</span>, <span style="color:#f1fa8c">&#39;w&#39;</span>) <span style="color:#ff79c6">as</span> f:
-</span></span><span style="display:flex;"><span>        json<span style="color:#ff79c6">.</span>dump(metadata, f, indent<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> model_info
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 选择最佳模型保存</span>
-</span></span><span style="display:flex;"><span>best_model_name <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">max</span>(results<span style="color:#ff79c6">.</span>keys(), key<span style="color:#ff79c6">=</span><span style="color:#ff79c6">lambda</span> x: results[x][<span style="color:#f1fa8c">&#39;test_r2&#39;</span>])
-</span></span><span style="display:flex;"><span>best_model <span style="color:#ff79c6">=</span> results[best_model_name][<span style="color:#f1fa8c">&#39;model&#39;</span>]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>model_info <span style="color:#ff79c6">=</span> save_model_pipeline(
-</span></span><span style="display:flex;"><span>    best_model, scaler, X_train<span style="color:#ff79c6">.</span>columns<span style="color:#ff79c6">.</span>tolist(), 
-</span></span><span style="display:flex;"><span>    model_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;housing_price_predictor&#39;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><h1 id="62-创建预测api示例">6.2 创建预测API示例</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">create_prediction_api_example</span>():
-</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;&#34;&#34;创建简单的预测函数示例&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    example_code <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;&#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">import joblib
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">import numpy as np
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">import pandas as pd
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">class HousingPricePredictor:
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    def __init__(self, model_path=&#39;housing_price_predictor.pkl&#39;):
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &#34;&#34;&#34;加载模型&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        self.model_info = joblib.load(model_path)
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        self.model = self.model_info[&#39;model&#39;]
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        self.scaler = self.model_info[&#39;scaler&#39;]
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        self.feature_names = self.model_info[&#39;feature_names&#39;]
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    def preprocess_input(self, input_data):
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &#34;&#34;&#34;预处理输入数据&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        # 确保输入为DataFrame
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        if isinstance(input_data, dict):
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">            df = pd.DataFrame([input_data])
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        elif isinstance(input_data, pd.DataFrame):
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">            df = input_data.copy()
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        else:
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">            raise ValueError(&#34;输入应为字典或DataFrame&#34;)
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        # 确保列顺序正确
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        df = df[self.feature_names]
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        # 标准化
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        df_scaled = self.scaler.transform(df)
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        return df_scaled
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    def predict(self, input_data):
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &#34;&#34;&#34;预测房价&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        processed_data = self.preprocess_input(input_data)
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        prediction = self.model.predict(processed_data)
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        return prediction[0]
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    def batch_predict(self, input_data_list):
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &#34;&#34;&#34;批量预测&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        predictions = []
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        for data in input_data_list:
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">            pred = self.predict(data)
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">            predictions.append(pred)
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        return predictions
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"># 使用示例
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">if __name__ == &#34;__main__&#34;:
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    # 创建预测器
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    predictor = HousingPricePredictor()
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    # 示例输入
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    example_input = {
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &#39;MedInc&#39;: 8.3252,
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &#39;HouseAge&#39;: 41.0,
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &#39;AveRooms&#39;: 6.984127,
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &#39;AveBedrms&#39;: 1.023810,
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &#39;Population&#39;: 322.0,
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &#39;AveOccup&#39;: 2.555556,
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &#39;Latitude&#39;: 37.88,
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        &#39;Longitude&#39;: -122.23
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    }
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    # 预测
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    predicted_price = predictor.predict(example_input)
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    print(f&#34;预测房价: ${predicted_price * 100000:,.2f}&#34;)
-</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">&#39;&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">with</span> <span style="color:#8be9fd;font-style:italic">open</span>(<span style="color:#f1fa8c">&#39;predictor_api.py&#39;</span>, <span style="color:#f1fa8c">&#39;w&#39;</span>) <span style="color:#ff79c6">as</span> f:
-</span></span><span style="display:flex;"><span>        f<span style="color:#ff79c6">.</span>write(example_code)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;API示例代码已保存为 predictor_api.py&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>create_prediction_api_example()
-</span></span></code></pre></div>
-            
-             
-            
-
-
-
-
-<link href="https://xxx.xxx.com/dist/Artalk.css" rel="stylesheet" />
-<script src="https://xxx.xxx.com/dist/Artalk.js"></script>
-
-
-<div id="Comments"></div>
-
-<script>
-    Artalk.init({
-        el: '#Comments',
-        pageKey: 'https:\/\/SurpriseQiD.github.io\/knowledge\/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0\/ml-pipeline-guide\/',
-        pageTitle: '机器学习完整流程指南：从数据到部署',
-        server: 'https:\/\/xxx.xxx.com',
-        site: 'xxx blog',
-    })
-</script>
-
-
-            
-            </div>
-            
-            
-
-<div class="
-    col-lg-3 col-md-3 col-sm-12
-    sidebar-column">
-    <div class="sidebar-container">
-        
-        
-        <div class="short-about">
-            
-            <div class="sidebar-avatar">
-                <a href="/about">
-                <img src="/img/avatar-patrickStar.jpg" alt="avatar" />
-                </a>
-            </div>
-            
-            
-            
-                <p class="sidebar-description">Ph.D. Candidate at University of Science and Technology of China</p>
-            
-        
-        
-        <div class="sidebar-social inline">
-            
-            <a href="mailto:dongq@mail.ustc.edu.cn" title="Email" aria-label="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-            
-            
-            
-            <a target="_blank" href="https://github.com/SurpriseQiD" title="GitHub" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            
-            
-            
-            <a target="_blank" href="https://www.researchgate.net/profile/Qi-Dong-20" title="ResearchGate" aria-label="ResearchGate">
-                <i class="fab fa-researchgate"></i>
-            </a>
-            
-            
-            
-            <a target="_blank" href="https://scholar.google.com/citations?user=dEDX5coAAAAJ&amp;hl=zh-CN&amp;oi=sra" title="Google Scholar" aria-label="Google Scholar">
-                <i class="fas fa-graduation-cap"></i>
-            </a>
-            
-            
-            
-            <a target="_blank" href="https://orcid.org/0000-0002-3052-6332" title="ORCID" aria-label="ORCID">
-                <i class="fab fa-orcid"></i>
-            </a>
-            
-        </div>
-        </div>
-        
-
-        
-        <div class="sidebar-module">
-            <h4><i class="fas fa-list-alt"></i> 目录</h4>
-            <nav id="TableOfContents">
-                <nav id="TableOfContents">
-  <ul>
-    <li><a href="#机器学习完整流程指南">机器学习完整流程指南</a>
-      <ul>
-        <li><a href="#项目概述房价预测">项目概述：房价预测</a></li>
-        <li><a href="#1-环境设置">1. 环境设置</a></li>
-        <li><a href="#2-数据收集与探索">2. 数据收集与探索</a></li>
-      </ul>
-    </li>
-    <li><a href="#21-加载数据">2.1 加载数据</a>
-      <ul>
-        <li><a href="#22-数据探索">2.2 数据探索</a></li>
-        <li><a href="#3-数据预处理">3. 数据预处理</a></li>
-      </ul>
-    </li>
-    <li><a href="#31-处理异常值">3.1 处理异常值</a></li>
-    <li><a href="#32-特征工程">3.2 特征工程</a></li>
-    <li><a href="#33-数据分割与标准化">3.3 数据分割与标准化</a>
-      <ul>
-        <li><a href="#4-模型训练与评估">4. 模型训练与评估</a></li>
-      </ul>
-    </li>
-    <li><a href="#41-定义多个模型进行比较">4.1 定义多个模型进行比较</a></li>
-    <li><a href="#42-可视化模型比较">4.2 可视化模型比较</a>
-      <ul>
-        <li><a href="#5-模型优化">5. 模型优化</a></li>
-      </ul>
-    </li>
-    <li><a href="#51-超参数调优">5.1 超参数调优</a>
-      <ul>
-        <li><a href="#6-模型部署">6. 模型部署</a></li>
-      </ul>
-    </li>
-    <li><a href="#61-保存模型">6.1 保存模型</a></li>
-    <li><a href="#62-创建预测api示例">6.2 创建预测API示例</a></li>
-  </ul>
-</nav>
-            </nav>
-        </div>
-    </div>
-</div>
-        </div>
-    </div>
-</article>
-
-
-
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
-                    <li>
-                        <a href="mailto:dongq@mail.ustc.edu.cn">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		           
-                    
-                    
-                    
-                    
-
-		            
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://github.com/SurpriseQiD">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		            
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-            
-            
-            
-           
-                   <li>
-                       <a href='' rel="alternate" type="application/rss+xml" title="QiView" >
-                           <span class="fa-stack fa-lg">
-                               <i class="fas fa-circle fa-stack-2x"></i>
-                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-                           </span>
-                       </a>
-                   </li>
-            
-             </ul>
-		<p class="copyright text-muted">
-                    Copyright &copy; QiView 2025
-                    
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-
-
-<script>
-    function loadAsync(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-
-
-
-
-
-<script>
-    
-    if($('#tag_cloud').length !== 0){
-        loadAsync("/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-
-<script>
-    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-
-<script>
-    (function(){
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https'){
-       bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-      }
-      else{
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-      }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-</script>
-
-
-<script>
-    
-    var _baId = '21326675';
-
-    
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?" + _baId;
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-
-
-
-<span id="total-views" class="site-counter">
-  <i class="fa fa-eye"></i>
-  <span class="leancloud-total-views"></span>
-</span>
-
-<script>
-  
-  function showTotalViews() {
-    var SiteCounter = AV.Object.extend("SiteCounter");
-    var query = new AV.Query(SiteCounter);
-    query.first().then(function (counter) {
-      var totalViews = counter ? counter.get("totalViews") : 0;
-      document.querySelector('.leancloud-total-views').textContent = totalViews;
-    });
-  }
-  showTotalViews(); 
-</script>
-
-
-
-<script type="text/javascript">
-    function generateCatalog(selector) {
-
-        
-        
-        
-        
-            _containerSelector = 'div.post-container'
-        
-
-        
-        var P = $(_containerSelector), a, n, t, l, i, c;
-        a = P.find('h1,h2,h3,h4,h5,h6');
-
-        
-        $(selector).html('')
-
-        
-        a.each(function () {
-            n = $(this).prop('tagName').toLowerCase();
-            i = "#" + $(this).prop('id');
-            t = $(this).text();
-            c = $('<a href="' + i + '" rel="nofollow" title="' + t + '">' + t + '</a>');
-            l = $('<li class="' + n + '_nav"></li>').append(c);
-            $(selector).append(l);
-        });
-        return true;
-    }
-
-    generateCatalog(".catalog-body");
-
-    
-    $(".catalog-toggle").click((function (e) {
-        e.preventDefault();
-        $('.side-catalog').toggleClass("fold")
-    }))
-
-    
-
-
-    loadAsync("\/js\/jquery.nav.js", function () {
-        $('.catalog-body').onePageNav({
-            currentClass: "active",
-            changeHash: !1,
-            easing: "swing",
-            filter: "",
-            scrollSpeed: 700,
-            scrollOffset: 0,
-            scrollThreshold: .2,
-            begin: null,
-            end: null,
-            scrollChange: null,
-            padding: 80
-        });
-    });
-</script>
-
-
-
-
-
-    
-</body>
-</html>
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta property="og:site_name" content="QiView"><meta property="og:type" content="article"><meta property="og:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg"><meta property="twitter:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg"><meta name=title content="机器学习完整流程指南：从数据到部署"><meta property="og:title" content="机器学习完整流程指南：从数据到部署"><meta property="twitter:title" content="机器学习完整流程指南：从数据到部署"><meta name=description content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="og:description" content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="twitter:description" content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="twitter:card" content="完整的机器学习项目实践指南，涵盖数据预处理、模型训练、评估和部署全流程"><meta name=keyword content="Game Theory, Decision Science, Operations Management, Human-AI Interaction"><link rel="shortcut icon" href=/img/favicon.png><title>机器学习完整流程指南：从数据到部署 | QiView</title><link rel=canonical href=/knowledge/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/ml-pipeline-guide/><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/hugo-theme-cleanwhite.min.css><link rel=stylesheet href=/css/zanshang.css><link rel=stylesheet href=/css/font-awesome.all.min.css><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/hux-blog.min.js></script><script src=/js/lazysizes.min.js></script></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-CX84QDN0SR"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-CX84QDN0SR")}</script><nav class="navbar navbar-default navbar-custom navbar-fixed-top"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle data-toggle=collapse data-target=#huxblog_navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=/>QiView</a></div><div class="collapse navbar-collapse" id=huxblog_navbar><ul class="nav navbar-nav navbar-right"><li><a href=/>Homepage</a></li><li><a href=/research/>Researches</a></li><li><a href=/blog/>Blogs</a></li><li><a href=/knowledge/>Knowledge</a></li><li><a href=/resources/>Resources</a></li><li><a href=/about/>About</a></li><li><a href=/search><i class="fa fa-search"></i></a></li></ul></div></div></nav><script>document.addEventListener("DOMContentLoaded",function(){var n,e=document.querySelector(".navbar-toggle"),t=document.querySelector(".navbar-collapse");e&&e.addEventListener("click",function(){t.classList.toggle("show"),e.setAttribute("aria-expanded",t.classList.contains("show"))}),n=document.querySelectorAll(".navbar-nav a"),n.forEach(function(n){n.addEventListener("click",function(){window.innerWidth<992&&(t.classList.remove("show"),e.setAttribute("aria-expanded",!1))})}),document.addEventListener("click",function(n){var s=e.contains(n.target)||t.contains(n.target);!s&&window.innerWidth<992&&(t.classList.remove("show"),e.setAttribute("aria-expanded",!1))})})</script><style>.navbar-custom{min-height:80px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,8%)}.navbar-custom .navbar-brand{font-size:26px;font-weight:700;padding:25px 20px;color:#2a6f97;letter-spacing:.5px}.navbar-custom .navbar-nav>li>a{font-size:20px;font-weight:600;padding:25px 20px;color:#333;transition:all .3s ease;letter-spacing:.3px}.navbar-custom .navbar-nav>li>a:hover,.navbar-custom .navbar-nav>li>a:focus{color:#2a6f97;background-color:rgba(42,111,151,5%)}.navbar-custom .navbar-nav>.active>a,.navbar-custom .navbar-nav>.active>a:hover,.navbar-custom .navbar-nav>.active>a:focus{color:#2a6f97;background-color:initial;border-bottom:3px solid #2a6f97}.navbar-custom .dropdown-menu>li>a{font-size:18px;padding:12px 20px;font-weight:500}.navbar-toggle{border:none;background:0 0;margin:25px 15px}.navbar-toggle .icon-bar{display:block;width:22px;height:2px;background-color:#333;margin:4px 0;transition:all .3s ease}.navbar-toggle:hover .icon-bar{background-color:#2a6f97}.navbar-collapse{max-height:0;overflow:hidden;transition:max-height .3s ease}.navbar-collapse.show{max-height:500px}@media(min-width:992px){.navbar-collapse{max-height:none!important;display:block!important}.navbar-toggle{display:none}}@media(max-width:991px){.navbar-custom .navbar-brand{font-size:22px;padding:20px}.navbar-custom .navbar-nav>li>a{font-size:18px;padding:18px 20px;text-align:center;border-bottom:1px solid rgba(0,0,0,5%)}.navbar-custom .navbar-nav>.active>a,.navbar-custom .navbar-nav>.active>a:hover,.navbar-custom .navbar-nav>.active>a:focus{background-color:rgba(42,111,151,.1);border-bottom:none}.navbar-custom .dropdown-menu>li>a{font-size:16px;padding:10px 20px}.navbar-nav{margin:0}}</style><header class=intro-header style=background-image:url(/img/home-bg-painting.jpg)><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=site-heading><h1>QiView</h1><span class=subheading>Curated tutorials, reproducible research notes and practical guides</span></div></div></div></div></header><article><div class=container><div class=row><div class="col-lg-8 col-lg-offset-1
+col-md-8 col-md-offset-1
+col-sm-12
+col-xs-12
+post-container"><h1 id=机器学习完整流程指南>机器学习完整流程指南</h1><p>本教程将带你完成一个完整的机器学习项目，从数据获取到模型部署的全过程。</p><h2 id=项目概述房价预测>项目概述：房价预测</h2><p>我们将使用波士顿房价数据集（或加州房价数据集）来预测房屋价格。</p><h2 id=1-环境设置>1. 环境设置</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#6272a4># 导入必要库</span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>import</span> numpy <span style=color:#ff79c6>as</span> np
+</span></span><span style=display:flex><span><span style=color:#ff79c6>import</span> pandas <span style=color:#ff79c6>as</span> pd
+</span></span><span style=display:flex><span><span style=color:#ff79c6>import</span> matplotlib.pyplot <span style=color:#ff79c6>as</span> plt
+</span></span><span style=display:flex><span><span style=color:#ff79c6>import</span> seaborn <span style=color:#ff79c6>as</span> sns
+</span></span><span style=display:flex><span><span style=color:#ff79c6>from</span> sklearn.model_selection <span style=color:#ff79c6>import</span> train_test_split, cross_val_score
+</span></span><span style=display:flex><span><span style=color:#ff79c6>from</span> sklearn.preprocessing <span style=color:#ff79c6>import</span> StandardScaler, OneHotEncoder
+</span></span><span style=display:flex><span><span style=color:#ff79c6>from</span> sklearn.compose <span style=color:#ff79c6>import</span> ColumnTransformer
+</span></span><span style=display:flex><span><span style=color:#ff79c6>from</span> sklearn.pipeline <span style=color:#ff79c6>import</span> Pipeline
+</span></span><span style=display:flex><span><span style=color:#ff79c6>from</span> sklearn.ensemble <span style=color:#ff79c6>import</span> RandomForestRegressor, GradientBoostingRegressor
+</span></span><span style=display:flex><span><span style=color:#ff79c6>from</span> sklearn.linear_model <span style=color:#ff79c6>import</span> LinearRegression, Ridge, Lasso
+</span></span><span style=display:flex><span><span style=color:#ff79c6>from</span> sklearn.metrics <span style=color:#ff79c6>import</span> mean_squared_error, r2_score, mean_absolute_error
+</span></span><span style=display:flex><span><span style=color:#ff79c6>import</span> joblib
+</span></span><span style=display:flex><span><span style=color:#ff79c6>import</span> warnings
+</span></span><span style=display:flex><span>warnings<span style=color:#ff79c6>.</span>filterwarnings(<span style=color:#f1fa8c>&#39;ignore&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># 设置中文显示</span>
+</span></span><span style=display:flex><span>plt<span style=color:#ff79c6>.</span>rcParams[<span style=color:#f1fa8c>&#39;font.sans-serif&#39;</span>] <span style=color:#ff79c6>=</span> [<span style=color:#f1fa8c>&#39;SimHei&#39;</span>, <span style=color:#f1fa8c>&#39;DejaVu Sans&#39;</span>]
+</span></span><span style=display:flex><span>plt<span style=color:#ff79c6>.</span>rcParams[<span style=color:#f1fa8c>&#39;axes.unicode_minus&#39;</span>] <span style=color:#ff79c6>=</span> <span style=color:#ff79c6>False</span>
+</span></span></code></pre></div><h2 id=2-数据收集与探索>2. 数据收集与探索</h2><h1 id=21-加载数据>2.1 加载数据</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#6272a4># 使用加州房价数据集</span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>from</span> sklearn.datasets <span style=color:#ff79c6>import</span> fetch_california_housing
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>housing <span style=color:#ff79c6>=</span> fetch_california_housing()
+</span></span><span style=display:flex><span>X <span style=color:#ff79c6>=</span> pd<span style=color:#ff79c6>.</span>DataFrame(housing<span style=color:#ff79c6>.</span>data, columns<span style=color:#ff79c6>=</span>housing<span style=color:#ff79c6>.</span>feature_names)
+</span></span><span style=display:flex><span>y <span style=color:#ff79c6>=</span> pd<span style=color:#ff79c6>.</span>Series(housing<span style=color:#ff79c6>.</span>target, name<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;MedHouseVal&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#34;数据集形状: </span><span style=color:#f1fa8c>{</span>X<span style=color:#ff79c6>.</span>shape<span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#34;特征名称: </span><span style=color:#f1fa8c>{</span>X<span style=color:#ff79c6>.</span>columns<span style=color:#ff79c6>.</span>tolist()<span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>&#34;</span>)
+</span></span></code></pre></div><h2 id=22-数据探索>2.2 数据探索</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>explore_data</span>(X, y):
+</span></span><span style=display:flex><span>    <span style=color:#f1fa8c>&#34;&#34;&#34;数据探索分析&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;=== 数据概览 ===&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#8be9fd;font-style:italic>print</span>(X<span style=color:#ff79c6>.</span>info())
+</span></span><span style=display:flex><span>    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;</span><span style=color:#f1fa8c>\n</span><span style=color:#f1fa8c>=== 描述性统计 ===&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#8be9fd;font-style:italic>print</span>(X<span style=color:#ff79c6>.</span>describe())
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;</span><span style=color:#f1fa8c>\n</span><span style=color:#f1fa8c>=== 缺失值检查 ===&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#8be9fd;font-style:italic>print</span>(X<span style=color:#ff79c6>.</span>isnull()<span style=color:#ff79c6>.</span>sum())
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;</span><span style=color:#f1fa8c>\n</span><span style=color:#f1fa8c>=== 目标变量分布 ===&#34;</span>)
+</span></span><span style=display:flex><span>    fig, axes <span style=color:#ff79c6>=</span> plt<span style=color:#ff79c6>.</span>subplots(<span style=color:#bd93f9>1</span>, <span style=color:#bd93f9>2</span>, figsize<span style=color:#ff79c6>=</span>(<span style=color:#bd93f9>12</span>, <span style=color:#bd93f9>4</span>))
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#6272a4># 目标变量分布</span>
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>hist(y, bins<span style=color:#ff79c6>=</span><span style=color:#bd93f9>50</span>, edgecolor<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;black&#39;</span>, alpha<span style=color:#ff79c6>=</span><span style=color:#bd93f9>0.7</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>set_xlabel(<span style=color:#f1fa8c>&#39;房屋价格&#39;</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>set_ylabel(<span style=color:#f1fa8c>&#39;频数&#39;</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>set_title(<span style=color:#f1fa8c>&#39;目标变量分布&#39;</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#6272a4># 特征相关性热图</span>
+</span></span><span style=display:flex><span>    corr_matrix <span style=color:#ff79c6>=</span> X<span style=color:#ff79c6>.</span>corr()
+</span></span><span style=display:flex><span>    sns<span style=color:#ff79c6>.</span>heatmap(corr_matrix, annot<span style=color:#ff79c6>=</span><span style=color:#ff79c6>True</span>, fmt<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;.2f&#39;</span>, cmap<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;coolwarm&#39;</span>, 
+</span></span><span style=display:flex><span>                center<span style=color:#ff79c6>=</span><span style=color:#bd93f9>0</span>, ax<span style=color:#ff79c6>=</span>axes[<span style=color:#bd93f9>1</span>])
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>1</span>]<span style=color:#ff79c6>.</span>set_title(<span style=color:#f1fa8c>&#39;特征相关性热图&#39;</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    plt<span style=color:#ff79c6>.</span>tight_layout()
+</span></span><span style=display:flex><span>    plt<span style=color:#ff79c6>.</span>show()
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>return</span> X
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>X <span style=color:#ff79c6>=</span> explore_data(X, y)
+</span></span></code></pre></div><h2 id=3-数据预处理>3. 数据预处理</h2><h1 id=31-处理异常值>3.1 处理异常值</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>handle_outliers</span>(df, columns, method<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;iqr&#39;</span>, threshold<span style=color:#ff79c6>=</span><span style=color:#bd93f9>1.5</span>):
+</span></span><span style=display:flex><span>    <span style=color:#f1fa8c>&#34;&#34;&#34;处理异常值&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    df_clean <span style=color:#ff79c6>=</span> df<span style=color:#ff79c6>.</span>copy()
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>for</span> col <span style=color:#ff79c6>in</span> columns:
+</span></span><span style=display:flex><span>        <span style=color:#ff79c6>if</span> method <span style=color:#ff79c6>==</span> <span style=color:#f1fa8c>&#39;iqr&#39;</span>:
+</span></span><span style=display:flex><span>            Q1 <span style=color:#ff79c6>=</span> df[col]<span style=color:#ff79c6>.</span>quantile(<span style=color:#bd93f9>0.25</span>)
+</span></span><span style=display:flex><span>            Q3 <span style=color:#ff79c6>=</span> df[col]<span style=color:#ff79c6>.</span>quantile(<span style=color:#bd93f9>0.75</span>)
+</span></span><span style=display:flex><span>            IQR <span style=color:#ff79c6>=</span> Q3 <span style=color:#ff79c6>-</span> Q1
+</span></span><span style=display:flex><span>            lower_bound <span style=color:#ff79c6>=</span> Q1 <span style=color:#ff79c6>-</span> threshold <span style=color:#ff79c6>*</span> IQR
+</span></span><span style=display:flex><span>            upper_bound <span style=color:#ff79c6>=</span> Q3 <span style=color:#ff79c6>+</span> threshold <span style=color:#ff79c6>*</span> IQR
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#6272a4># 将异常值替换为边界值</span>
+</span></span><span style=display:flex><span>            df_clean[col] <span style=color:#ff79c6>=</span> df[col]<span style=color:#ff79c6>.</span>clip(lower_bound, upper_bound)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>return</span> df_clean
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># 处理数值特征的异常值</span>
+</span></span><span style=display:flex><span>numeric_features <span style=color:#ff79c6>=</span> X<span style=color:#ff79c6>.</span>columns<span style=color:#ff79c6>.</span>tolist()
+</span></span><span style=display:flex><span>X_clean <span style=color:#ff79c6>=</span> handle_outliers(X, numeric_features)
+</span></span></code></pre></div><h1 id=32-特征工程>3.2 特征工程</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>create_features</span>(df):
+</span></span><span style=display:flex><span>    <span style=color:#f1fa8c>&#34;&#34;&#34;创建新特征&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    df_new <span style=color:#ff79c6>=</span> df<span style=color:#ff79c6>.</span>copy()
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#6272a4># 创建房间总数特征</span>
+</span></span><span style=display:flex><span>    df_new[<span style=color:#f1fa8c>&#39;TotalRooms&#39;</span>] <span style=color:#ff79c6>=</span> df[<span style=color:#f1fa8c>&#39;AveRooms&#39;</span>] <span style=color:#ff79c6>*</span> df[<span style=color:#f1fa8c>&#39;HouseAge&#39;</span>]
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#6272a4># 创建房间与人口比例</span>
+</span></span><span style=display:flex><span>    df_new[<span style=color:#f1fa8c>&#39;RoomsPerHousehold&#39;</span>] <span style=color:#ff79c6>=</span> df[<span style=color:#f1fa8c>&#39;AveRooms&#39;</span>] <span style=color:#ff79c6>/</span> (df[<span style=color:#f1fa8c>&#39;Population&#39;</span>] <span style=color:#ff79c6>/</span> df[<span style=color:#f1fa8c>&#39;Households&#39;</span>] <span style=color:#ff79c6>+</span> <span style=color:#bd93f9>1</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#6272a4># 创建收入与房间比例</span>
+</span></span><span style=display:flex><span>    df_new[<span style=color:#f1fa8c>&#39;IncomePerRoom&#39;</span>] <span style=color:#ff79c6>=</span> df[<span style=color:#f1fa8c>&#39;MedInc&#39;</span>] <span style=color:#ff79c6>/</span> (df[<span style=color:#f1fa8c>&#39;AveRooms&#39;</span>] <span style=color:#ff79c6>+</span> <span style=color:#bd93f9>1</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>return</span> df_new
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>X_engineered <span style=color:#ff79c6>=</span> create_features(X_clean)
+</span></span></code></pre></div><h1 id=33-数据分割与标准化>3.3 数据分割与标准化</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#6272a4># 分割数据集</span>
+</span></span><span style=display:flex><span>X_train, X_test, y_train, y_test <span style=color:#ff79c6>=</span> train_test_split(
+</span></span><span style=display:flex><span>    X_engineered, y, test_size<span style=color:#ff79c6>=</span><span style=color:#bd93f9>0.2</span>, random_state<span style=color:#ff79c6>=</span><span style=color:#bd93f9>42</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#34;训练集大小: </span><span style=color:#f1fa8c>{</span>X_train<span style=color:#ff79c6>.</span>shape<span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#34;测试集大小: </span><span style=color:#f1fa8c>{</span>X_test<span style=color:#ff79c6>.</span>shape<span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># 特征标准化</span>
+</span></span><span style=display:flex><span>scaler <span style=color:#ff79c6>=</span> StandardScaler()
+</span></span><span style=display:flex><span>X_train_scaled <span style=color:#ff79c6>=</span> scaler<span style=color:#ff79c6>.</span>fit_transform(X_train)
+</span></span><span style=display:flex><span>X_test_scaled <span style=color:#ff79c6>=</span> scaler<span style=color:#ff79c6>.</span>transform(X_test)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># 转换为DataFrame</span>
+</span></span><span style=display:flex><span>X_train_scaled <span style=color:#ff79c6>=</span> pd<span style=color:#ff79c6>.</span>DataFrame(X_train_scaled, columns<span style=color:#ff79c6>=</span>X_train<span style=color:#ff79c6>.</span>columns)
+</span></span><span style=display:flex><span>X_test_scaled <span style=color:#ff79c6>=</span> pd<span style=color:#ff79c6>.</span>DataFrame(X_test_scaled, columns<span style=color:#ff79c6>=</span>X_test<span style=color:#ff79c6>.</span>columns)
+</span></span></code></pre></div><h2 id=4-模型训练与评估>4. 模型训练与评估</h2><h1 id=41-定义多个模型进行比较>4.1 定义多个模型进行比较</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>models <span style=color:#ff79c6>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#f1fa8c>&#39;Linear Regression&#39;</span>: LinearRegression(),
+</span></span><span style=display:flex><span>    <span style=color:#f1fa8c>&#39;Ridge Regression&#39;</span>: Ridge(alpha<span style=color:#ff79c6>=</span><span style=color:#bd93f9>1.0</span>),
+</span></span><span style=display:flex><span>    <span style=color:#f1fa8c>&#39;Lasso Regression&#39;</span>: Lasso(alpha<span style=color:#ff79c6>=</span><span style=color:#bd93f9>0.01</span>),
+</span></span><span style=display:flex><span>    <span style=color:#f1fa8c>&#39;Random Forest&#39;</span>: RandomForestRegressor(n_estimators<span style=color:#ff79c6>=</span><span style=color:#bd93f9>100</span>, random_state<span style=color:#ff79c6>=</span><span style=color:#bd93f9>42</span>),
+</span></span><span style=display:flex><span>    <span style=color:#f1fa8c>&#39;Gradient Boosting&#39;</span>: GradientBoostingRegressor(n_estimators<span style=color:#ff79c6>=</span><span style=color:#bd93f9>100</span>, random_state<span style=color:#ff79c6>=</span><span style=color:#bd93f9>42</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>evaluate_models</span>(models, X_train, X_test, y_train, y_test):
+</span></span><span style=display:flex><span>    <span style=color:#f1fa8c>&#34;&#34;&#34;评估多个模型&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    results <span style=color:#ff79c6>=</span> {}
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>for</span> name, model <span style=color:#ff79c6>in</span> models<span style=color:#ff79c6>.</span>items():
+</span></span><span style=display:flex><span>        <span style=color:#6272a4># 训练模型</span>
+</span></span><span style=display:flex><span>        model<span style=color:#ff79c6>.</span>fit(X_train, y_train)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#6272a4># 预测</span>
+</span></span><span style=display:flex><span>        y_pred_train <span style=color:#ff79c6>=</span> model<span style=color:#ff79c6>.</span>predict(X_train)
+</span></span><span style=display:flex><span>        y_pred_test <span style=color:#ff79c6>=</span> model<span style=color:#ff79c6>.</span>predict(X_test)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#6272a4># 计算指标</span>
+</span></span><span style=display:flex><span>        train_mse <span style=color:#ff79c6>=</span> mean_squared_error(y_train, y_pred_train)
+</span></span><span style=display:flex><span>        test_mse <span style=color:#ff79c6>=</span> mean_squared_error(y_test, y_pred_test)
+</span></span><span style=display:flex><span>        train_r2 <span style=color:#ff79c6>=</span> r2_score(y_train, y_pred_train)
+</span></span><span style=display:flex><span>        test_r2 <span style=color:#ff79c6>=</span> r2_score(y_test, y_pred_test)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#6272a4># 交叉验证</span>
+</span></span><span style=display:flex><span>        cv_scores <span style=color:#ff79c6>=</span> cross_val_score(model, X_train, y_train, 
+</span></span><span style=display:flex><span>                                   cv<span style=color:#ff79c6>=</span><span style=color:#bd93f9>5</span>, scoring<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;r2&#39;</span>)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        results[name] <span style=color:#ff79c6>=</span> {
+</span></span><span style=display:flex><span>            <span style=color:#f1fa8c>&#39;model&#39;</span>: model,
+</span></span><span style=display:flex><span>            <span style=color:#f1fa8c>&#39;train_mse&#39;</span>: train_mse,
+</span></span><span style=display:flex><span>            <span style=color:#f1fa8c>&#39;test_mse&#39;</span>: test_mse,
+</span></span><span style=display:flex><span>            <span style=color:#f1fa8c>&#39;train_r2&#39;</span>: train_r2,
+</span></span><span style=display:flex><span>            <span style=color:#f1fa8c>&#39;test_r2&#39;</span>: test_r2,
+</span></span><span style=display:flex><span>            <span style=color:#f1fa8c>&#39;cv_mean&#39;</span>: cv_scores<span style=color:#ff79c6>.</span>mean(),
+</span></span><span style=display:flex><span>            <span style=color:#f1fa8c>&#39;cv_std&#39;</span>: cv_scores<span style=color:#ff79c6>.</span>std()
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#34;</span><span style=color:#f1fa8c>\n</span><span style=color:#f1fa8c>{</span>name<span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>:&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#34;  训练集 R²: </span><span style=color:#f1fa8c>{</span>train_r2<span style=color:#f1fa8c>:</span><span style=color:#f1fa8c>.4f</span><span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#34;  测试集 R²: </span><span style=color:#f1fa8c>{</span>test_r2<span style=color:#f1fa8c>:</span><span style=color:#f1fa8c>.4f</span><span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#34;  交叉验证 R²: </span><span style=color:#f1fa8c>{</span>cv_scores<span style=color:#ff79c6>.</span>mean()<span style=color:#f1fa8c>:</span><span style=color:#f1fa8c>.4f</span><span style=color:#f1fa8c>}</span><span style=color:#f1fa8c> (±</span><span style=color:#f1fa8c>{</span>cv_scores<span style=color:#ff79c6>.</span>std()<span style=color:#f1fa8c>:</span><span style=color:#f1fa8c>.4f</span><span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>)&#34;</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>return</span> results
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># 评估模型</span>
+</span></span><span style=display:flex><span>results <span style=color:#ff79c6>=</span> evaluate_models(models, X_train_scaled, X_test_scaled, y_train, y_test)
+</span></span></code></pre></div><h1 id=42-可视化模型比较>4.2 可视化模型比较</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>visualize_results</span>(results):
+</span></span><span style=display:flex><span>    <span style=color:#f1fa8c>&#34;&#34;&#34;可视化模型比较结果&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    fig, axes <span style=color:#ff79c6>=</span> plt<span style=color:#ff79c6>.</span>subplots(<span style=color:#bd93f9>2</span>, <span style=color:#bd93f9>2</span>, figsize<span style=color:#ff79c6>=</span>(<span style=color:#bd93f9>14</span>, <span style=color:#bd93f9>10</span>))
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#6272a4># 1. 测试集R²比较</span>
+</span></span><span style=display:flex><span>    model_names <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>list</span>(results<span style=color:#ff79c6>.</span>keys())
+</span></span><span style=display:flex><span>    test_r2_values <span style=color:#ff79c6>=</span> [results[name][<span style=color:#f1fa8c>&#39;test_r2&#39;</span>] <span style=color:#ff79c6>for</span> name <span style=color:#ff79c6>in</span> model_names]
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>, <span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>barh(model_names, test_r2_values, color<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;skyblue&#39;</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>, <span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>set_xlabel(<span style=color:#f1fa8c>&#39;测试集 R²&#39;</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>, <span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>set_title(<span style=color:#f1fa8c>&#39;模型性能比较（测试集R²）&#39;</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>, <span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>axvline(x<span style=color:#ff79c6>=</span><span style=color:#bd93f9>0</span>, color<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;gray&#39;</span>, linestyle<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;--&#39;</span>, alpha<span style=color:#ff79c6>=</span><span style=color:#bd93f9>0.5</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#6272a4># 2. 训练集与测试集R²对比</span>
+</span></span><span style=display:flex><span>    train_r2_values <span style=color:#ff79c6>=</span> [results[name][<span style=color:#f1fa8c>&#39;train_r2&#39;</span>] <span style=color:#ff79c6>for</span> name <span style=color:#ff79c6>in</span> model_names]
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    x <span style=color:#ff79c6>=</span> np<span style=color:#ff79c6>.</span>arange(<span style=color:#8be9fd;font-style:italic>len</span>(model_names))
+</span></span><span style=display:flex><span>    width <span style=color:#ff79c6>=</span> <span style=color:#bd93f9>0.35</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>, <span style=color:#bd93f9>1</span>]<span style=color:#ff79c6>.</span>bar(x <span style=color:#ff79c6>-</span> width<span style=color:#ff79c6>/</span><span style=color:#bd93f9>2</span>, train_r2_values, width, label<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;训练集&#39;</span>, color<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;lightblue&#39;</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>, <span style=color:#bd93f9>1</span>]<span style=color:#ff79c6>.</span>bar(x <span style=color:#ff79c6>+</span> width<span style=color:#ff79c6>/</span><span style=color:#bd93f9>2</span>, test_r2_values, width, label<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;测试集&#39;</span>, color<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;lightcoral&#39;</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>, <span style=color:#bd93f9>1</span>]<span style=color:#ff79c6>.</span>set_xlabel(<span style=color:#f1fa8c>&#39;模型&#39;</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>, <span style=color:#bd93f9>1</span>]<span style=color:#ff79c6>.</span>set_ylabel(<span style=color:#f1fa8c>&#39;R²&#39;</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>, <span style=color:#bd93f9>1</span>]<span style=color:#ff79c6>.</span>set_title(<span style=color:#f1fa8c>&#39;训练集 vs 测试集 R²&#39;</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>, <span style=color:#bd93f9>1</span>]<span style=color:#ff79c6>.</span>set_xticks(x)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>, <span style=color:#bd93f9>1</span>]<span style=color:#ff79c6>.</span>set_xticklabels(model_names, rotation<span style=color:#ff79c6>=</span><span style=color:#bd93f9>45</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>0</span>, <span style=color:#bd93f9>1</span>]<span style=color:#ff79c6>.</span>legend()
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#6272a4># 3. 特征重要性（以随机森林为例）</span>
+</span></span><span style=display:flex><span>    best_model_name <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>max</span>(results<span style=color:#ff79c6>.</span>keys(), key<span style=color:#ff79c6>=</span><span style=color:#ff79c6>lambda</span> x: results[x][<span style=color:#f1fa8c>&#39;test_r2&#39;</span>])
+</span></span><span style=display:flex><span>    best_model <span style=color:#ff79c6>=</span> results[best_model_name][<span style=color:#f1fa8c>&#39;model&#39;</span>]
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>if</span> <span style=color:#8be9fd;font-style:italic>hasattr</span>(best_model, <span style=color:#f1fa8c>&#39;feature_importances_&#39;</span>):
+</span></span><span style=display:flex><span>        importances <span style=color:#ff79c6>=</span> best_model<span style=color:#ff79c6>.</span>feature_importances_
+</span></span><span style=display:flex><span>        indices <span style=color:#ff79c6>=</span> np<span style=color:#ff79c6>.</span>argsort(importances)[::<span style=color:#ff79c6>-</span><span style=color:#bd93f9>1</span>]
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        axes[<span style=color:#bd93f9>1</span>, <span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>bar(<span style=color:#8be9fd;font-style:italic>range</span>(X_train<span style=color:#ff79c6>.</span>shape[<span style=color:#bd93f9>1</span>]), importances[indices])
+</span></span><span style=display:flex><span>        axes[<span style=color:#bd93f9>1</span>, <span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>set_xlabel(<span style=color:#f1fa8c>&#39;特征排名&#39;</span>)
+</span></span><span style=display:flex><span>        axes[<span style=color:#bd93f9>1</span>, <span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>set_ylabel(<span style=color:#f1fa8c>&#39;重要性&#39;</span>)
+</span></span><span style=display:flex><span>        axes[<span style=color:#bd93f9>1</span>, <span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>set_title(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#39;</span><span style=color:#f1fa8c>{</span>best_model_name<span style=color:#f1fa8c>}</span><span style=color:#f1fa8c> 特征重要性&#39;</span>)
+</span></span><span style=display:flex><span>        axes[<span style=color:#bd93f9>1</span>, <span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>set_xticks(<span style=color:#8be9fd;font-style:italic>range</span>(X_train<span style=color:#ff79c6>.</span>shape[<span style=color:#bd93f9>1</span>]))
+</span></span><span style=display:flex><span>        axes[<span style=color:#bd93f9>1</span>, <span style=color:#bd93f9>0</span>]<span style=color:#ff79c6>.</span>set_xticklabels(X_train<span style=color:#ff79c6>.</span>columns[indices], rotation<span style=color:#ff79c6>=</span><span style=color:#bd93f9>90</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#6272a4># 4. 残差图</span>
+</span></span><span style=display:flex><span>    best_model_name <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>max</span>(results<span style=color:#ff79c6>.</span>keys(), key<span style=color:#ff79c6>=</span><span style=color:#ff79c6>lambda</span> x: results[x][<span style=color:#f1fa8c>&#39;test_r2&#39;</span>])
+</span></span><span style=display:flex><span>    best_model <span style=color:#ff79c6>=</span> results[best_model_name][<span style=color:#f1fa8c>&#39;model&#39;</span>]
+</span></span><span style=display:flex><span>    y_pred <span style=color:#ff79c6>=</span> best_model<span style=color:#ff79c6>.</span>predict(X_test_scaled)
+</span></span><span style=display:flex><span>    residuals <span style=color:#ff79c6>=</span> y_test <span style=color:#ff79c6>-</span> y_pred
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>1</span>, <span style=color:#bd93f9>1</span>]<span style=color:#ff79c6>.</span>scatter(y_pred, residuals, alpha<span style=color:#ff79c6>=</span><span style=color:#bd93f9>0.5</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>1</span>, <span style=color:#bd93f9>1</span>]<span style=color:#ff79c6>.</span>axhline(y<span style=color:#ff79c6>=</span><span style=color:#bd93f9>0</span>, color<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;red&#39;</span>, linestyle<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;--&#39;</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>1</span>, <span style=color:#bd93f9>1</span>]<span style=color:#ff79c6>.</span>set_xlabel(<span style=color:#f1fa8c>&#39;预测值&#39;</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>1</span>, <span style=color:#bd93f9>1</span>]<span style=color:#ff79c6>.</span>set_ylabel(<span style=color:#f1fa8c>&#39;残差&#39;</span>)
+</span></span><span style=display:flex><span>    axes[<span style=color:#bd93f9>1</span>, <span style=color:#bd93f9>1</span>]<span style=color:#ff79c6>.</span>set_title(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#39;</span><span style=color:#f1fa8c>{</span>best_model_name<span style=color:#f1fa8c>}</span><span style=color:#f1fa8c> 残差图&#39;</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    plt<span style=color:#ff79c6>.</span>tight_layout()
+</span></span><span style=display:flex><span>    plt<span style=color:#ff79c6>.</span>show()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>visualize_results(results)
+</span></span></code></pre></div><h2 id=5-模型优化>5. 模型优化</h2><h1 id=51-超参数调优>5.1 超参数调优</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff79c6>from</span> sklearn.model_selection <span style=color:#ff79c6>import</span> GridSearchCV
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>tune_random_forest</span>(X_train, y_train):
+</span></span><span style=display:flex><span>    <span style=color:#f1fa8c>&#34;&#34;&#34;随机森林超参数调优&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    param_grid <span style=color:#ff79c6>=</span> {
+</span></span><span style=display:flex><span>        <span style=color:#f1fa8c>&#39;n_estimators&#39;</span>: [<span style=color:#bd93f9>100</span>, <span style=color:#bd93f9>200</span>, <span style=color:#bd93f9>300</span>],
+</span></span><span style=display:flex><span>        <span style=color:#f1fa8c>&#39;max_depth&#39;</span>: [<span style=color:#bd93f9>10</span>, <span style=color:#bd93f9>20</span>, <span style=color:#bd93f9>30</span>, <span style=color:#ff79c6>None</span>],
+</span></span><span style=display:flex><span>        <span style=color:#f1fa8c>&#39;min_samples_split&#39;</span>: [<span style=color:#bd93f9>2</span>, <span style=color:#bd93f9>5</span>, <span style=color:#bd93f9>10</span>],
+</span></span><span style=display:flex><span>        <span style=color:#f1fa8c>&#39;min_samples_leaf&#39;</span>: [<span style=color:#bd93f9>1</span>, <span style=color:#bd93f9>2</span>, <span style=color:#bd93f9>4</span>],
+</span></span><span style=display:flex><span>        <span style=color:#f1fa8c>&#39;max_features&#39;</span>: [<span style=color:#f1fa8c>&#39;sqrt&#39;</span>, <span style=color:#f1fa8c>&#39;log2&#39;</span>]
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    rf <span style=color:#ff79c6>=</span> RandomForestRegressor(random_state<span style=color:#ff79c6>=</span><span style=color:#bd93f9>42</span>)
+</span></span><span style=display:flex><span>    grid_search <span style=color:#ff79c6>=</span> GridSearchCV(
+</span></span><span style=display:flex><span>        rf, param_grid, cv<span style=color:#ff79c6>=</span><span style=color:#bd93f9>5</span>, scoring<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;r2&#39;</span>,
+</span></span><span style=display:flex><span>        n_jobs<span style=color:#ff79c6>=-</span><span style=color:#bd93f9>1</span>, verbose<span style=color:#ff79c6>=</span><span style=color:#bd93f9>1</span>
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    grid_search<span style=color:#ff79c6>.</span>fit(X_train, y_train)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#34;最佳参数: </span><span style=color:#f1fa8c>{</span>grid_search<span style=color:#ff79c6>.</span>best_params_<span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#34;最佳交叉验证得分: </span><span style=color:#f1fa8c>{</span>grid_search<span style=color:#ff79c6>.</span>best_score_<span style=color:#f1fa8c>:</span><span style=color:#f1fa8c>.4f</span><span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>&#34;</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>return</span> grid_search<span style=color:#ff79c6>.</span>best_estimator_
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># 选择最佳模型进行调优</span>
+</span></span><span style=display:flex><span>best_model_name <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>max</span>(results<span style=color:#ff79c6>.</span>keys(), key<span style=color:#ff79c6>=</span><span style=color:#ff79c6>lambda</span> x: results[x][<span style=color:#f1fa8c>&#39;test_r2&#39;</span>])
+</span></span><span style=display:flex><span><span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#34;</span><span style=color:#f1fa8c>\n</span><span style=color:#f1fa8c>对 </span><span style=color:#f1fa8c>{</span>best_model_name<span style=color:#f1fa8c>}</span><span style=color:#f1fa8c> 进行超参数调优...&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff79c6>if</span> best_model_name <span style=color:#ff79c6>==</span> <span style=color:#f1fa8c>&#39;Random Forest&#39;</span>:
+</span></span><span style=display:flex><span>    optimized_model <span style=color:#ff79c6>=</span> tune_random_forest(X_train_scaled, y_train)
+</span></span></code></pre></div><h2 id=6-模型部署>6. 模型部署</h2><h1 id=61-保存模型>6.1 保存模型</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>save_model_pipeline</span>(model, scaler, feature_names, model_name<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;best_model&#39;</span>):
+</span></span><span style=display:flex><span>    <span style=color:#f1fa8c>&#34;&#34;&#34;保存模型和预处理管道&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>import</span> joblib
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>import</span> datetime
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#6272a4># 创建模型信息字典</span>
+</span></span><span style=display:flex><span>    model_info <span style=color:#ff79c6>=</span> {
+</span></span><span style=display:flex><span>        <span style=color:#f1fa8c>&#39;model&#39;</span>: model,
+</span></span><span style=display:flex><span>        <span style=color:#f1fa8c>&#39;scaler&#39;</span>: scaler,
+</span></span><span style=display:flex><span>        <span style=color:#f1fa8c>&#39;feature_names&#39;</span>: feature_names,
+</span></span><span style=display:flex><span>        <span style=color:#f1fa8c>&#39;created_at&#39;</span>: datetime<span style=color:#ff79c6>.</span>datetime<span style=color:#ff79c6>.</span>now()<span style=color:#ff79c6>.</span>strftime(<span style=color:#f1fa8c>&#34;%Y-%m-</span><span style=color:#f1fa8c>%d</span><span style=color:#f1fa8c> %H:%M:%S&#34;</span>),
+</span></span><span style=display:flex><span>        <span style=color:#f1fa8c>&#39;version&#39;</span>: <span style=color:#f1fa8c>&#39;1.0&#39;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#6272a4># 保存模型</span>
+</span></span><span style=display:flex><span>    joblib<span style=color:#ff79c6>.</span>dump(model_info, <span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#39;</span><span style=color:#f1fa8c>{</span>model_name<span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>.pkl&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#34;模型已保存为 </span><span style=color:#f1fa8c>{</span>model_name<span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>.pkl&#34;</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#6272a4># 保存模型元数据</span>
+</span></span><span style=display:flex><span>    metadata <span style=color:#ff79c6>=</span> {
+</span></span><span style=display:flex><span>        <span style=color:#f1fa8c>&#39;model_type&#39;</span>: <span style=color:#8be9fd;font-style:italic>type</span>(model)<span style=color:#ff79c6>.</span><span style=color:#8be9fd;font-style:italic>__name__</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f1fa8c>&#39;features&#39;</span>: feature_names,
+</span></span><span style=display:flex><span>        <span style=color:#f1fa8c>&#39;created_at&#39;</span>: model_info[<span style=color:#f1fa8c>&#39;created_at&#39;</span>],
+</span></span><span style=display:flex><span>        <span style=color:#f1fa8c>&#39;performance&#39;</span>: results[best_model_name] <span style=color:#ff79c6>if</span> best_model_name <span style=color:#ff79c6>in</span> results <span style=color:#ff79c6>else</span> {}
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>import</span> json
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>with</span> <span style=color:#8be9fd;font-style:italic>open</span>(<span style=color:#f1fa8c>f</span><span style=color:#f1fa8c>&#39;</span><span style=color:#f1fa8c>{</span>model_name<span style=color:#f1fa8c>}</span><span style=color:#f1fa8c>_metadata.json&#39;</span>, <span style=color:#f1fa8c>&#39;w&#39;</span>) <span style=color:#ff79c6>as</span> f:
+</span></span><span style=display:flex><span>        json<span style=color:#ff79c6>.</span>dump(metadata, f, indent<span style=color:#ff79c6>=</span><span style=color:#bd93f9>2</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>return</span> model_info
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6272a4># 选择最佳模型保存</span>
+</span></span><span style=display:flex><span>best_model_name <span style=color:#ff79c6>=</span> <span style=color:#8be9fd;font-style:italic>max</span>(results<span style=color:#ff79c6>.</span>keys(), key<span style=color:#ff79c6>=</span><span style=color:#ff79c6>lambda</span> x: results[x][<span style=color:#f1fa8c>&#39;test_r2&#39;</span>])
+</span></span><span style=display:flex><span>best_model <span style=color:#ff79c6>=</span> results[best_model_name][<span style=color:#f1fa8c>&#39;model&#39;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>model_info <span style=color:#ff79c6>=</span> save_model_pipeline(
+</span></span><span style=display:flex><span>    best_model, scaler, X_train<span style=color:#ff79c6>.</span>columns<span style=color:#ff79c6>.</span>tolist(), 
+</span></span><span style=display:flex><span>    model_name<span style=color:#ff79c6>=</span><span style=color:#f1fa8c>&#39;housing_price_predictor&#39;</span>
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><h1 id=62-创建预测api示例>6.2 创建预测API示例</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff79c6>def</span> <span style=color:#50fa7b>create_prediction_api_example</span>():
+</span></span><span style=display:flex><span>    <span style=color:#f1fa8c>&#34;&#34;&#34;创建简单的预测函数示例&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    example_code <span style=color:#ff79c6>=</span> <span style=color:#f1fa8c>&#39;&#39;&#39;
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>import joblib
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>import numpy as np
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>import pandas as pd
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>class HousingPricePredictor:
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    def __init__(self, model_path=&#39;housing_price_predictor.pkl&#39;):
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        &#34;&#34;&#34;加载模型&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        self.model_info = joblib.load(model_path)
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        self.model = self.model_info[&#39;model&#39;]
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        self.scaler = self.model_info[&#39;scaler&#39;]
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        self.feature_names = self.model_info[&#39;feature_names&#39;]
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    def preprocess_input(self, input_data):
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        &#34;&#34;&#34;预处理输入数据&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        # 确保输入为DataFrame
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        if isinstance(input_data, dict):
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>            df = pd.DataFrame([input_data])
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        elif isinstance(input_data, pd.DataFrame):
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>            df = input_data.copy()
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        else:
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>            raise ValueError(&#34;输入应为字典或DataFrame&#34;)
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        # 确保列顺序正确
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        df = df[self.feature_names]
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        # 标准化
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        df_scaled = self.scaler.transform(df)
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        return df_scaled
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    def predict(self, input_data):
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        &#34;&#34;&#34;预测房价&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        processed_data = self.preprocess_input(input_data)
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        prediction = self.model.predict(processed_data)
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        return prediction[0]
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    def batch_predict(self, input_data_list):
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        &#34;&#34;&#34;批量预测&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        predictions = []
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        for data in input_data_list:
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>            pred = self.predict(data)
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>            predictions.append(pred)
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        return predictions
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c># 使用示例
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>if __name__ == &#34;__main__&#34;:
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    # 创建预测器
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    predictor = HousingPricePredictor()
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    # 示例输入
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    example_input = {
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        &#39;MedInc&#39;: 8.3252,
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        &#39;HouseAge&#39;: 41.0,
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        &#39;AveRooms&#39;: 6.984127,
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        &#39;AveBedrms&#39;: 1.023810,
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        &#39;Population&#39;: 322.0,
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        &#39;AveOccup&#39;: 2.555556,
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        &#39;Latitude&#39;: 37.88,
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>        &#39;Longitude&#39;: -122.23
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    }
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    # 预测
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    predicted_price = predictor.predict(example_input)
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>    print(f&#34;预测房价: ${predicted_price * 100000:,.2f}&#34;)
+</span></span></span><span style=display:flex><span><span style=color:#f1fa8c>&#39;&#39;&#39;</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#ff79c6>with</span> <span style=color:#8be9fd;font-style:italic>open</span>(<span style=color:#f1fa8c>&#39;predictor_api.py&#39;</span>, <span style=color:#f1fa8c>&#39;w&#39;</span>) <span style=color:#ff79c6>as</span> f:
+</span></span><span style=display:flex><span>        f<span style=color:#ff79c6>.</span>write(example_code)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#8be9fd;font-style:italic>print</span>(<span style=color:#f1fa8c>&#34;API示例代码已保存为 predictor_api.py&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>create_prediction_api_example()
+</span></span></code></pre></div><link href=https://xxx.xxx.com/dist/Artalk.css rel=stylesheet><script src=https://xxx.xxx.com/dist/Artalk.js></script><div id=Comments></div><script>Artalk.init({el:"#Comments",pageKey:"https://SurpriseQiD.github.io/knowledge/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/ml-pipeline-guide/",pageTitle:"机器学习完整流程指南：从数据到部署",server:"https://xxx.xxx.com",site:"xxx blog"})</script></div><div class="col-lg-3 col-md-3 col-sm-12
+sidebar-column"><div class=sidebar-container><div class=short-about><div class=sidebar-avatar><a href=/about><img src=/img/avatar-patrickStar.jpg alt=avatar></a></div><p class=sidebar-description>Ph.D. Candidate at University of Science and Technology of China</p><div class="sidebar-social inline"><a href=mailto:dongq@mail.ustc.edu.cn title=Email aria-label=Email><i class="fas fa-envelope"></i>
+</a><a target=_blank href=https://github.com/SurpriseQiD title=GitHub aria-label=GitHub><i class="fab fa-github"></i>
+</a><a target=_blank href=https://www.researchgate.net/profile/Qi-Dong-20 title=ResearchGate aria-label=ResearchGate><i class="fab fa-researchgate"></i>
+</a><a target=_blank href="https://scholar.google.com/citations?user=dEDX5coAAAAJ&amp;hl=zh-CN&amp;oi=sra" title="Google Scholar" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i>
+</a><a target=_blank href=https://orcid.org/0000-0002-3052-6332 title=ORCID aria-label=ORCID><i class="fab fa-orcid"></i></a></div></div><div class=sidebar-module><h4><i class="fas fa-list-alt"></i> 目录</h4><nav id=TableOfContents><nav id=TableOfContents><ul><li><a href=#机器学习完整流程指南>机器学习完整流程指南</a><ul><li><a href=#项目概述房价预测>项目概述：房价预测</a></li><li><a href=#1-环境设置>1. 环境设置</a></li><li><a href=#2-数据收集与探索>2. 数据收集与探索</a></li></ul></li><li><a href=#21-加载数据>2.1 加载数据</a><ul><li><a href=#22-数据探索>2.2 数据探索</a></li><li><a href=#3-数据预处理>3. 数据预处理</a></li></ul></li><li><a href=#31-处理异常值>3.1 处理异常值</a></li><li><a href=#32-特征工程>3.2 特征工程</a></li><li><a href=#33-数据分割与标准化>3.3 数据分割与标准化</a><ul><li><a href=#4-模型训练与评估>4. 模型训练与评估</a></li></ul></li><li><a href=#41-定义多个模型进行比较>4.1 定义多个模型进行比较</a></li><li><a href=#42-可视化模型比较>4.2 可视化模型比较</a><ul><li><a href=#5-模型优化>5. 模型优化</a></li></ul></li><li><a href=#51-超参数调优>5.1 超参数调优</a><ul><li><a href=#6-模型部署>6. 模型部署</a></li></ul></li><li><a href=#61-保存模型>6.1 保存模型</a></li><li><a href=#62-创建预测api示例>6.2 创建预测API示例</a></li></ul></nav></nav></div></div></div></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=mailto:dongq@mail.ustc.edu.cn><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i></span></a></li><li><a target=_blank href=https://github.com/SurpriseQiD><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href rel=alternate type=application/rss+xml title=QiView><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Copyright &copy; QiView 2025</p></div></div></div></footer><script>function loadAsync(e,t){var s=document,o="script",n=s.createElement(o),i=s.getElementsByTagName(o)[0];n.src=e,t&&n.addEventListener("load",function(e){t(null,e)},!1),i.parentNode.insertBefore(n,i)}</script><script>$("#tag_cloud").length!==0&&loadAsync("/js/jquery.tagcloud.js",function(){$.fn.tagcloud.defaults={color:{start:"#bbbbee",end:"#0085a1"}},$("#tag_cloud a").tagcloud()})</script><script>loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js",function(){var e=document.querySelector("nav");e&&FastClick.attach(e)})</script><script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><script>var _baId="21326675",_hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="//hm.baidu.com/hm.js?"+_baId,e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script><span id=total-views class=site-counter><i class="fa fa-eye"></i>
+<span class=leancloud-total-views></span>
+</span><script>function showTotalViews(){var e=AV.Object.extend("SiteCounter"),t=new AV.Query(e);t.first().then(function(e){var t=e?e.get("totalViews"):0;document.querySelector(".leancloud-total-views").textContent=t})}showTotalViews()</script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4,h5,h6");return $(e).html(""),r.each(function(){n=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),t=$(this).text(),i=$('<a href="'+o+'" rel="nofollow" title="'+t+'">'+t+"</a>"),s=$('<li class="'+n+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")}),loadAsync("/js/jquery.nav.js",function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script></body></html>
