@@ -1798,12 +1798,11 @@
 
 /* 响应式优化 */
 @media (max-width: 1200px) {
-    .hero-title {
-        font-size: 3rem !important;
+    .col-xl-1 {
+        width: 8.33%;  /* 1列 = 8.33% */
     }
-    
-    .section-header h2 {
-        font-size: 2.2rem !important;
+    .col-xl-10 {
+        width: 83.34%; /* 10列 = 83.34% */
     }
 }
 
@@ -2513,12 +2512,11 @@
 
 /* 响应式优化增强 */
 @media (max-width: 1200px) {
-    .hero-title {
-        font-size: 3.2rem !important;
+    .col-xl-1 {
+        width: 8.33%;  /* 1列 = 8.33% */
     }
-    
-    .section-header h2 {
-        font-size: 2.8rem !important;
+    .col-xl-10 {
+        width: 83.34%; /* 10列 = 83.34% */
     }
 }
 
