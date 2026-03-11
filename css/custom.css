@@ -95,6 +95,109 @@
 }
 
 /* ========================================== */
+/* 单篇文章页专业版式 */
+/* ========================================== */
+.single-page-header .article-breadcrumb {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: rgba(255,255,255,0.85);
+}
+.single-page-header .article-breadcrumb a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+}
+.single-page-header .article-breadcrumb a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.single-page-header .article-breadcrumb .sep {
+  margin: 0 0.4rem;
+  opacity: 0.7;
+}
+.single-page-header .article-breadcrumb .current {
+  color: rgba(255,255,255,0.95);
+}
+.single-article .article-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+.single-article .article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 0.75rem;
+}
+.single-article .article-meta .meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.single-article .article-meta i { opacity: 0.9; }
+.single-article .article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.single-article .article-tags .tag {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.85rem;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.single-article .article-tags .tag:hover {
+  background: rgba(255,255,255,0.3);
+}
+.single-article .article-body {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #2c3e50;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.single-article .article-body h1 { font-size: 1.75rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+.single-article .article-body h2 { font-size: 1.45rem; margin-top: 1.75rem; margin-bottom: 0.6rem; }
+.single-article .article-body h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.single-article .article-body p { margin-bottom: 1.25rem; }
+.single-article .article-body ul, .single-article .article-body ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+.single-article .article-body li { margin-bottom: 0.4rem; }
+.single-article .article-body hr { margin: 2rem 0; border: 0; border-top: 1px solid #eaeaea; }
+.single-article .article-body blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--accent);
+  background: #f8fafc;
+  color: #546e7a;
+}
+.single-article .article-nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid #eaeaea;
+  margin-top: 2rem;
+}
+.single-article .article-nav a {
+  max-width: 45%;
+  font-size: 0.95rem;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.single-article .article-nav a:hover { color: var(--accent-dark); text-decoration: underline; }
+.single-article .article-nav .nav-prev { text-align: left; }
+.single-article .article-nav .nav-next { text-align: right; margin-left: auto; }
+.single-article .leancloud_visitors { display: inline-flex; align-items: center; gap: 0.35rem; }
+
+/* ========================================== */
 /* 侧边栏修复样式 - 解决重叠和显示问题 */
 /* ========================================== */
 
