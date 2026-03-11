@@ -1,6 +1,28 @@
 /* ========================================== */
-/* Academic homepage — minimal, content-first (Distill-style) */
+/* Academic homepage — minimal, content-first */
 /* ========================================== */
+
+/* 首页替换主题默认大图 header：简洁顶栏 */
+.home-page-header {
+  background: #2c3e50;
+  color: #fff;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+}
+.home-page-header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.home-page-header-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.home-page-header-desc {
+  font-size: 0.9rem;
+  opacity: 0.88;
+}
 
 .page-home {
   --font-serif: "Lora", Georgia, "Times New Roman", serif;
@@ -11,13 +33,21 @@
   --line: #ddd;
   --link: #1a5490;
   --link-hover: #0d3a6e;
-  --bg: #fafafa;
+  --bg: #e8ecf0;
+}
+.page-home {
+  background: var(--bg);
+  min-height: 60vh;
+  padding: 2rem 0 4rem;
 }
 
 .home-wrap {
   max-width: 680px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 4rem;
+  padding: 2.5rem 2rem 3rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
 }
 
 /* ----- Masthead ----- */
