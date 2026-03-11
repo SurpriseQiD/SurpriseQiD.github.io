@@ -33,6 +33,68 @@
 }
 
 /* ========================================== */
+/* 板块列表页统一设计（生活 / 能力提升等） */
+/* ========================================== */
+.section-page {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+.section-page .title.is-2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid var(--accent);
+}
+.section-page .section-intro {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: #f8fafc;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--accent);
+}
+.section-life .section-intro {
+  border-left-color: #10b981;
+}
+.section-practice .section-intro {
+  border-left-color: #f59e0b;
+}
+.section-list-by-date .section-list-card,
+.section-list-flat .section-list-card {
+  margin-bottom: 1.5rem;
+}
+.section-list-by-date .post-divider:last-child,
+.section-list-flat .post-divider:last-child {
+  display: none;
+}
+.no-content-message {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: #6b7c85;
+  background: #f8f9fa;
+  border-radius: var(--radius);
+  border: 2px dashed #dee2e6;
+}
+.no-content-message i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #adb5bd;
+}
+.no-content-message h3 {
+  font-size: 1.25rem;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+.no-content-message p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ========================================== */
 /* 侧边栏修复样式 - 解决重叠和显示问题 */
 /* ========================================== */
 

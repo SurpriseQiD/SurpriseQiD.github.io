@@ -36,7 +36,8 @@ ZanShang.prototype._init = function(){
       var num = $(this).attr('data-num');
       var type = $('.zs-type:radio:checked').val();
       if (window.REWARD_ALIPAY_ONLY || !type) type = 'alipay';
-      var src = '/img/reward/' + type + '-' + num + '.png';
+      var ext = (window.REWARD_IMAGE_EXT || 'jpg');
+      var src = '/img/reward/' + type + '-' + num + '.' + ext;
       var text = $(this).html();
       var payType = $('#pay-type'), payImage = $('#pay-image'), payText = $('#pay-text');
       if (type === 'alipay') {
