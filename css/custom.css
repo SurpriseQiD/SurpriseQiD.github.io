@@ -1,4 +1,38 @@
 /* ========================================== */
+/* 学术博客全局变量与基础样式 */
+/* ========================================== */
+:root {
+  --accent: #2a6f97;
+  --accent-dark: #1a237e;
+  --card-bg: #ffffff;
+  --text-muted: #546e7a;
+  --border-light: #eaeaea;
+  --radius: 12px;
+  --shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* 全站浏览量显示（页脚） */
+.site-total-views-wrap {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+.site-counter {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+.site-counter i.fa-eye {
+  margin-right: 6px;
+  color: var(--accent);
+}
+.site-counter .leancloud-total-views {
+  font-weight: 600;
+  color: var(--accent);
+}
+.site-counter-label {
+  margin-left: 4px;
+}
+
+/* ========================================== */
 /* 侧边栏修复样式 - 解决重叠和显示问题 */
 /* ========================================== */
 
