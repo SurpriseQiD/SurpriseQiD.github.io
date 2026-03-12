@@ -27,6 +27,8 @@
   background: linear-gradient(180deg, #f4f7fd 0%, #f7f9fc 52%, #f2f5fa 100%);
   color: var(--hp-ink);
   font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.72;
 }
 
 .hp-hero {
@@ -60,7 +62,7 @@
   position: relative;
   max-width: var(--hp-max);
   margin: 0 auto;
-  padding: 92px 26px 70px;
+  padding: 116px 26px 92px;
   display: grid;
   gap: 34px;
   grid-template-columns: minmax(0, 1fr) 360px;
@@ -82,14 +84,14 @@
 .hp-hero__title {
   margin: 14px 0 10px;
   font-family: "Noto Serif SC", serif;
-  font-size: clamp(36px, 6vw, 58px);
+  font-size: clamp(42px, 6.4vw, 66px);
   line-height: 1.1;
   letter-spacing: 0.5px;
 }
 
 .hp-hero__subtitle {
   margin: 0;
-  font-size: 19px;
+  font-size: 22px;
   color: rgba(224, 239, 255, 0.92);
   font-weight: 600;
 }
@@ -97,7 +99,7 @@
 .hp-hero__description {
   margin: 14px 0 0;
   max-width: 670px;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.8;
   color: rgba(207, 224, 241, 0.9);
 }
@@ -117,7 +119,7 @@
   border-radius: 12px;
   border: 1px solid transparent;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   transition: transform var(--hp-ease), box-shadow var(--hp-ease), background var(--hp-ease), color var(--hp-ease);
 }
@@ -172,13 +174,13 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 1px dashed rgba(203, 225, 249, 0.25);
-  padding: 8px 0;
+  padding: 10px 0;
   color: #cce2f6;
 }
 
 .hp-metric strong {
   color: #f7fbff;
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .hp-hero__figure {
@@ -190,7 +192,7 @@
 
 .hp-hero__figure img {
   width: 100%;
-  height: 154px;
+  height: 210px;
   object-fit: cover;
   display: block;
 }
@@ -198,7 +200,7 @@
 .hp-hero__update {
   margin: 0;
   color: #acc8e1;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.6px;
 }
 
@@ -224,7 +226,7 @@
 
 .hp-band__label {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1.3px;
   color: var(--hp-ink-soft);
@@ -233,7 +235,7 @@
 .hp-band__value {
   display: block;
   margin-top: 6px;
-  font-size: 30px;
+  font-size: 38px;
   color: var(--hp-primary-deep);
   font-weight: 800;
 }
@@ -254,6 +256,7 @@
   margin: 11px auto 0;
   max-width: 640px;
   color: var(--hp-ink-soft);
+  font-size: 17px;
   line-height: 1.7;
 }
 
@@ -290,7 +293,7 @@
 
 .hp-method__card h3 {
   margin: 14px 0 10px;
-  font-size: 17px;
+  font-size: 21px;
   color: #173354;
 }
 
@@ -298,7 +301,7 @@
   margin: 0;
   color: var(--hp-ink-soft);
   line-height: 1.72;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .hp-method__card:hover,
@@ -336,14 +339,14 @@
 .hp-area h3 {
   margin: 14px 0 7px;
   color: #122e4d;
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .hp-area p {
   margin: 0;
   color: var(--hp-ink-soft);
   line-height: 1.68;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .hp-featured {
@@ -376,12 +379,12 @@
 
 .hp-fcard__date {
   color: #6a7f97;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .hp-fcard__title {
   margin: 10px 0 8px;
-  font-size: 18px;
+  font-size: 22px;
   line-height: 1.4;
 }
 
@@ -398,7 +401,7 @@
   margin: 0;
   color: var(--hp-ink-soft);
   line-height: 1.75;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .hp-fcard__tags {
@@ -411,7 +414,7 @@
 .hp-fcard__tags span {
   padding: 3px 9px;
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   color: #225884;
   background: #e8f1fb;
@@ -438,7 +441,7 @@
 .hp-litem time {
   min-width: 52px;
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
   color: #225f8f;
   font-weight: 700;
 }
@@ -447,12 +450,12 @@
   flex: 1;
   color: #112f51;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .hp-litem__tag {
   white-space: nowrap;
-  font-size: 11px;
+  font-size: 12px;
   color: #245987;
   background: #eaf3ff;
   border-radius: 999px;
@@ -467,6 +470,7 @@
 .hp-latest__more a {
   color: #1d5e92;
   font-weight: 800;
+  font-size: 17px;
   text-decoration: none;
 }
 
@@ -492,6 +496,7 @@
 .hp-cta p {
   margin: 10px auto 0;
   max-width: 620px;
+  font-size: 18px;
   color: rgba(226, 240, 254, 0.9);
 }
 
@@ -506,7 +511,7 @@
 @media (max-width: 1100px) {
   .hp-hero__inner {
     grid-template-columns: 1fr;
-    padding-top: 78px;
+    padding-top: 96px;
   }
 
   .hp-hero__panel {
@@ -524,6 +529,24 @@
 }
 
 @media (max-width: 760px) {
+  .hp {
+    font-size: 15px;
+  }
+
+  .hp-hero__title {
+    font-size: clamp(34px, 9vw, 48px);
+  }
+
+  .hp-hero__subtitle {
+    font-size: 19px;
+  }
+
+  .hp-hero__description,
+  .hp-head p,
+  .hp-cta p {
+    font-size: 16px;
+  }
+
   .hp-hero__inner,
   .hp-method,
   .hp-areas,
