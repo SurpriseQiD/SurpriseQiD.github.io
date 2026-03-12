@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;700&display=swap");
 
 /* ========================================== */
 /* 学术博客全局变量与基础样式 */
@@ -4103,5 +4103,185 @@ footer .copyright {
     .qv-nav-search {
         padding: 0 var(--qv-nav-link-hpad) !important;
         min-width: auto;
+    }
+}
+
+/* ========================================== */
+/* 2026-03-12 Premium nav and section polish */
+/* ========================================== */
+
+:root {
+    --qv-display-font: "Cormorant Garamond", "Noto Serif SC", serif;
+    --qv-brand-font: "Cinzel", "Cormorant Garamond", "Noto Serif SC", serif;
+}
+
+.navbar-custom .navbar-brand {
+    min-width: 188px;
+    max-width: calc(100vw - 170px);
+    padding: 19px 0 17px !important;
+    overflow: visible;
+}
+
+.navbar-custom .navbar-brand .brand-logo {
+    width: 30px !important;
+    height: 30px !important;
+    margin-right: 2px;
+}
+
+.navbar-custom .navbar-brand .brand-text {
+    font-family: var(--qv-brand-font);
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
+    padding: 0 0 2px;
+    letter-spacing: 0.05em !important;
+    text-rendering: geometricPrecision;
+}
+
+.qv-nav-items {
+    gap: 6px;
+}
+
+.qv-nav-item .qv-nav-link,
+.qv-nav-item .qv-nav-search {
+    font-family: var(--qv-display-font);
+    font-size: 1.02rem !important;
+    font-weight: 600;
+}
+
+.qv-nav-link {
+    min-width: 92px;
+    padding: 0 18px !important;
+}
+
+.qv-nav-search {
+    width: 42px;
+    min-width: 42px;
+    min-height: 42px;
+    height: 42px;
+    margin-top: calc((var(--qv-nav-height) - 42px) / 2);
+    margin-bottom: calc((var(--qv-nav-height) - 42px) / 2);
+}
+
+.qv-nav-search i {
+    font-size: 13px;
+}
+
+.container.qv-page-frame {
+    width: min(96vw, 1780px) !important;
+    max-width: none !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+}
+
+.qv-shell {
+    grid-template-columns: minmax(168px, 200px) minmax(0, 1fr) minmax(210px, 248px);
+    gap: 18px;
+}
+
+.qv-rail {
+    top: 94px;
+}
+
+.qv-rail--right {
+    position: sticky !important;
+    top: 94px;
+    max-height: calc(100vh - 108px);
+    overflow-y: auto;
+    padding-right: 2px;
+}
+
+.qv-rail--right::-webkit-scrollbar {
+    width: 4px;
+}
+
+.qv-rail--right::-webkit-scrollbar-thumb {
+    background: rgba(38, 80, 109, 0.3);
+    border-radius: 999px;
+}
+
+.qv-search-header .article-title,
+.qv-page--generic .article-title,
+.qv-page-frame--section .qv-section-title {
+    font-family: var(--qv-display-font);
+    letter-spacing: 0.03em;
+}
+
+.qv-search-header .article-title,
+.single-page-header .article-title {
+    font-size: clamp(1.9rem, 2.35vw, 2.55rem);
+}
+
+.qv-page-frame--section .qv-section-title {
+    font-size: clamp(1.72rem, 1.92vw, 2.15rem);
+}
+
+.subject-title.is-3 {
+    font-size: 1.46rem;
+}
+
+.subject-title.is-3 i {
+    display: none !important;
+}
+
+@media (max-width: 1400px) {
+    .container.qv-page-frame {
+        width: min(98vw, 1540px) !important;
+    }
+
+    .qv-shell {
+        grid-template-columns: minmax(162px, 190px) minmax(0, 1fr) minmax(200px, 232px);
+        gap: 14px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .qv-nav-link {
+        min-width: 84px;
+        padding: 0 14px !important;
+    }
+
+    .navbar-custom .navbar-brand .brand-text {
+        font-size: 1.36rem !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .container.qv-page-frame {
+        width: min(99vw, 1120px) !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .qv-rail--right {
+        position: static !important;
+        max-height: none;
+        overflow: visible;
+    }
+
+    .navbar-custom .navbar-brand {
+        min-width: 158px;
+        max-width: calc(100vw - 92px);
+    }
+
+    .navbar-custom .navbar-brand .brand-text {
+        font-size: 1.28rem !important;
+        line-height: 1.16 !important;
+    }
+
+    .qv-nav-item .qv-nav-link,
+    .qv-nav-item .qv-nav-search {
+        font-family: "Manrope", "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-custom .navbar-brand .brand-text {
+        font-size: 1.16rem !important;
+    }
+
+    .qv-search-header .article-title,
+    .single-page-header .article-title {
+        font-size: 2rem;
     }
 }
