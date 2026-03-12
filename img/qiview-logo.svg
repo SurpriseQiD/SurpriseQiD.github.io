@@ -1,12 +1,21 @@
 <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QiView Logo">
   <defs>
-    <linearGradient id="qvGrad" x1="15" y1="12" x2="104" y2="106" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#1A237E"/>
-      <stop offset="1" stop-color="#2A6F97"/>
+    <linearGradient id="qvBg" x1="16" y1="14" x2="106" y2="108" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F2D46"/>
+      <stop offset="1" stop-color="#2B6E96"/>
+    </linearGradient>
+    <linearGradient id="qvRing" x1="35" y1="34" x2="83" y2="83" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F7FBFF"/>
+      <stop offset="1" stop-color="#CAE6FF"/>
     </linearGradient>
   </defs>
-  <rect x="8" y="8" width="104" height="104" rx="24" fill="url(#qvGrad)"/>
-  <circle cx="50" cy="52" r="20" stroke="#FFFFFF" stroke-width="7" fill="none"/>
-  <rect x="67" y="67" width="20" height="7" rx="3.5" transform="rotate(45 67 67)" fill="#C1E8FF"/>
-  <path d="M74 34L86 78L92 34" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="8" y="8" width="104" height="104" rx="22" fill="url(#qvBg)"/>
+  <path d="M28 31H92" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M28 89H92" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-linecap="round"/>
+
+  <circle cx="54" cy="56" r="19" stroke="url(#qvRing)" stroke-width="7"/>
+  <path d="M66 69L79 82" stroke="#EAF6FF" stroke-width="7" stroke-linecap="round"/>
+
+  <path d="M78 39L84 74L90 39" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M76 44H92" stroke="rgba(255,255,255,0.35)" stroke-width="1.8" stroke-linecap="round"/>
 </svg>
