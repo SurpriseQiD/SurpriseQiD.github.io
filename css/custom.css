@@ -798,6 +798,54 @@
 }
 
 .post-list .post-item h3 { 
+}
+
+/* =====================
+     New homepage styles
+     ===================== */
+.hero-inner {
+    display:flex;
+    gap:32px;
+    align-items:center;
+    padding:56px 24px;
+}
+.hero-left { flex:1; }
+.hero-title { font-size:3rem; font-weight:800; color:var(--accent-dark); margin:0 0 12px; }
+.hero-subtitle { font-size:1.25rem; color:var(--text-muted); margin:0 0 14px; }
+.hero-lead { color:#475b63; font-size:1.05rem; margin-bottom:18px; }
+.hero-ctas .btn { margin-right:12px; }
+.hero-right { width:420px; text-align:right; }
+.hero-image { width:100%; max-width:420px; border-radius:14px; box-shadow:var(--shadow); }
+
+.btn { display:inline-block; padding:10px 16px; border-radius:8px; font-weight:700; text-decoration:none; }
+.btn-primary { background:linear-gradient(135deg,#1a237e,#2a6f97); color:#fff; border:0; }
+.btn-outline { border:1px solid rgba(42,111,151,0.12); color:var(--accent-dark); background:transparent; }
+
+.home-main { padding:48px 24px 80px; }
+.features-grid { display:grid; grid-template-columns:2fr 1fr; gap:28px; align-items:start; }
+.feature-heading { font-size:1.25rem; color:var(--accent-dark); margin-bottom:12px; }
+.feature-cards { display:flex; flex-direction:column; gap:12px; }
+.feature-card .post-card { padding:14px; }
+.topics-list { list-style:none; padding:0; margin:0 0 18px 0; display:flex; flex-direction:column; gap:8px; }
+.topics-list a { color:#1b3b4a; text-decoration:none; font-weight:600; }
+.newsletter { background:#f8fafc; padding:12px; border-radius:10px; border:1px solid #eef6fb; }
+.newsletter-form { display:flex; gap:8px; margin-top:8px; }
+.newsletter-form input[type="email"] { flex:1; padding:8px 10px; border-radius:8px; border:1px solid #e6eef3; }
+.newsletter-form button { padding:8px 12px; border-radius:8px; }
+
+.latest-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:12px; }
+.latest-grid .post-card { padding:12px; }
+
+.home-footer { margin-top:48px; padding-top:28px; border-top:1px solid #eef3f6; }
+.footer-inner { display:flex; justify-content:space-between; color:#6b7c85; font-size:0.95rem; }
+
+@media (max-width: 900px) {
+    .features-grid { grid-template-columns:1fr; }
+    .latest-grid { grid-template-columns:1fr; }
+    .hero-inner { flex-direction:column; gap:18px; }
+    .hero-right { width:100%; text-align:center; }
+}
+
     font-size: 1rem; 
     margin-bottom: 4px; 
 }
