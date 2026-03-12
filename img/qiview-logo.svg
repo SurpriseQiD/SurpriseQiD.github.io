@@ -1,15 +1,46 @@
 <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QiView Logo">
   <defs>
-    <linearGradient id="qv_base" x1="14" y1="12" x2="106" y2="108" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#12304A"/>
-      <stop offset="1" stop-color="#2D739C"/>
+    <linearGradient id="qv_bg" x1="6" y1="6" x2="114" y2="114" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B1E35"/>
+      <stop offset="1" stop-color="#1B4B72"/>
     </linearGradient>
+    <radialGradient id="qv_glow" cx="57" cy="53" r="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="rgba(90,160,215,0.22)"/>
+      <stop offset="1" stop-color="rgba(15,50,90,0)"/>
+    </radialGradient>
   </defs>
 
-  <rect x="8" y="8" width="104" height="104" rx="22" fill="url(#qv_base)"/>
+  <!-- Background -->
+  <rect x="6" y="6" width="108" height="108" rx="22" fill="url(#qv_bg)"/>
 
-  <circle cx="56" cy="54" r="20" stroke="#F2F8FF" stroke-width="8"/>
-  <path d="M68 68L82 82" stroke="#F2F8FF" stroke-width="8" stroke-linecap="round"/>
+  <!-- Subtle inner glow for depth -->
+  <circle cx="57" cy="53" r="38" fill="url(#qv_glow)"/>
 
-  <path d="M82 38L89 72L96 38" stroke="#D8EEFF" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Artistic Q — one continuous calligraphic stroke (一笔画) -->
+  <!-- Soft halo layer -->
+  <path
+    d="M 76,66 A 23,23 0 1 0 65,75 C 74,79 84,83 91,92"
+    stroke="rgba(170,215,250,0.18)"
+    stroke-width="17"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+  <!-- Main Q stroke: open arc (~310°) + graceful tail -->
+  <path
+    d="M 76,66 A 23,23 0 1 0 65,75 C 74,79 84,83 91,92"
+    stroke="#DCF0FF"
+    stroke-width="9"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+  <!-- Inner highlight — simulates calligraphic thick/thin contrast -->
+  <path
+    d="M 76,66 A 23,23 0 0 0 34,53"
+    stroke="rgba(255,255,255,0.30)"
+    stroke-width="3.5"
+    stroke-linecap="round"
+    fill="none"
+  />
 </svg>
