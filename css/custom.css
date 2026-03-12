@@ -4629,3 +4629,129 @@ body {
         font-size: 1rem;
     }
 }
+
+/* ========================================== */
+/* 2026-03-13 Layout consistency and article polish */
+/* ========================================== */
+
+.qv-rail--left .qv-panel {
+    padding-top: 14px;
+}
+
+.qv-rail--left .qv-panel__eyebrow {
+    margin-bottom: 10px;
+}
+
+.qv-panel__toggle,
+.catalog-body a,
+.qv-mini-links a,
+.qv-directory a,
+.qv-link-list a {
+    display: flex;
+    align-items: center;
+    min-height: 36px;
+    line-height: 1.35;
+}
+
+.catalog-body li {
+    margin-bottom: 7px;
+}
+
+.catalog-body a {
+    padding: 7px 10px;
+    border-radius: 10px;
+}
+
+.qv-main--section > *:first-child {
+    margin-top: 0;
+}
+
+.qv-main--section .knowledge-hierarchy,
+.qv-main--section .section-list-by-date,
+.qv-main--section .section-list-flat {
+    margin-top: 2px;
+}
+
+.single-article .qv-article-card {
+    border-radius: 20px;
+    border: 1px solid rgba(20, 56, 83, 0.12);
+    background:
+      radial-gradient(180px 120px at 100% 0, rgba(45, 115, 156, 0.12), transparent 65%),
+      linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    box-shadow: 0 16px 36px rgba(16, 46, 72, 0.12);
+    overflow: hidden;
+}
+
+.single-article .qv-article-prose {
+    position: relative;
+    padding: 6px 4px 4px;
+}
+
+.single-article .qv-article-prose > * {
+    position: relative;
+    z-index: 1;
+}
+
+.single-article .qv-article-prose::before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: 20px;
+    bottom: 26px;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #153f5f 0%, #2d739c 100%);
+}
+
+.single-article .qv-article-prose p,
+.single-article .qv-article-prose li {
+    font-size: 1.04rem;
+    line-height: 1.92;
+    color: #223b50;
+}
+
+.single-article .qv-article-prose h2 {
+    font-family: "Cormorant Garamond", "Noto Serif SC", serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-top: 2.4rem;
+}
+
+.single-article .qv-article-prose h3 {
+    font-family: "Cormorant Garamond", "Noto Serif SC", serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.single-article .qv-article-prose blockquote {
+    margin: 1.7rem 0;
+    border-left: 4px solid #1c5a80;
+    background: rgba(227, 238, 247, 0.55);
+    border-radius: 0 14px 14px 0;
+    color: #36556d;
+}
+
+.single-article .qv-article-prose pre,
+.single-article .qv-article-prose table,
+.single-article .qv-article-prose img {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.single-article .qv-article-nav {
+    margin: 22px 24px 24px;
+    padding-top: 18px;
+}
+
+.single-article .qv-article-nav a {
+    border: 1px solid rgba(20, 67, 100, 0.14);
+    background: rgba(237, 244, 249, 0.72);
+}
+
+@media (max-width: 991px) {
+    .single-article .qv-article-prose::before {
+        left: -16px;
+    }
+}
