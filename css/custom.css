@@ -1,7 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;700&display=swap");
+
 /* ========================================== */
 /* 学术博客全局变量与基础样式 */
 /* ========================================== */
 :root {
+    --qv-primary: #1a237e;
+    --qv-accent: #2a6f97;
+    --qv-ink: #1d2a38;
+    --qv-muted: #546e7a;
+    --qv-bg-soft: #f4f8fc;
+    --qv-line: #d7e2ee;
+    --qv-radius: 12px;
+    --qv-shadow: 0 8px 24px rgba(13, 43, 70, 0.08);
   --accent: #2a6f97;
   --accent-dark: #1a237e;
   --card-bg: #ffffff;
@@ -2994,5 +3004,104 @@ body {
     .navbar-custom .navbar-brand .brand-logo {
         width: 22px;
         height: 22px;
+    }
+}
+
+/* ========================================== */
+/* Visual consistency refinement */
+/* ========================================== */
+
+body {
+    font-family: "Manrope", "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    color: var(--qv-ink);
+}
+
+h1, h2, h3, h4,
+.section-page .title.is-2,
+.subject-title,
+.post-title {
+    font-family: "Noto Serif SC", "Times New Roman", serif;
+    letter-spacing: 0.2px;
+}
+
+.subject-group {
+    margin-bottom: 2rem;
+}
+
+.subject-header {
+    margin-bottom: 0.9rem;
+}
+
+.subject-title.is-3 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--qv-primary);
+    margin: 0;
+    padding-bottom: 0.55rem;
+    border-bottom: 2px solid var(--qv-accent);
+}
+
+.subject-title.is-3 i {
+    color: #ff6b6b;
+}
+
+.subject-count {
+    font-size: 1.03rem;
+    color: #6f8296;
+    font-weight: 500;
+}
+
+.post-card-item {
+    margin-bottom: 0.55rem;
+}
+
+.post-card .post-content {
+    border-left-width: 3px;
+    box-shadow: var(--qv-shadow);
+}
+
+.post-title {
+    font-size: 1.45rem;
+}
+
+.post-meta {
+    font-size: 1rem;
+    color: var(--qv-muted);
+    gap: 14px;
+}
+
+.post-summary {
+    background: var(--qv-bg-soft);
+    border-left-color: var(--qv-accent);
+    color: #4c6074;
+}
+
+.post-tags .tag {
+    border-color: #c8daef;
+}
+
+.section-intro,
+.no-content-message {
+    border-radius: var(--qv-radius);
+}
+
+.navbar-custom .nav > li > a {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.footer-home-link,
+.footer-copy,
+footer .copyright {
+    font-size: 0.98rem;
+}
+
+@media (max-width: 768px) {
+    .subject-title.is-3 {
+        font-size: 1.45rem;
+    }
+
+    .post-title {
+        font-size: 1.28rem;
     }
 }
