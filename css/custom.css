@@ -2870,3 +2870,129 @@ img.loaded {
     0% { left: -100%; }
     100% { left: 100%; }
 }
+
+/* ========================================== */
+/* 2026-03-12 Hotfix: usability and consistency */
+/* ========================================== */
+
+img {
+    opacity: 1 !important;
+}
+
+html {
+    font-size: 17px;
+}
+
+body {
+    font-size: 1.04rem;
+    line-height: 1.78;
+}
+
+.post-container,
+.post-container p,
+.post-container li,
+.post-container blockquote {
+    font-size: 1.04rem;
+}
+
+.post-meta,
+.recent-posts a,
+#TableOfContents a,
+.site-directory a {
+    font-size: 0.98rem;
+}
+
+.sidebar-avatar {
+    width: 108px;
+    height: 108px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #cfe0f1;
+    background: #eef4fb;
+}
+
+.sidebar-avatar img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    display: block;
+}
+
+.post-card {
+    margin-bottom: 14px !important;
+}
+
+.post-card .post-content {
+    padding: 18px 18px !important;
+    border-radius: 10px;
+}
+
+.post-summary {
+    margin: 10px 0 12px !important;
+    padding: 10px 12px !important;
+}
+
+.post-divider {
+    margin: 12px 0 !important;
+}
+
+.footer-home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: inherit;
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+.footer-home-link:hover {
+    color: #2a6f97;
+}
+
+.footer-logo {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+}
+
+.footer-copy {
+    white-space: nowrap;
+}
+
+.navbar-custom .navbar-brand {
+    gap: 8px;
+}
+
+.navbar-custom .navbar-brand .brand-logo {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.hp-cta .hp-btn--ghost-dark {
+    color: #eaf3ff;
+    border-color: rgba(228, 241, 255, 0.65);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.hp-cta .hp-btn--ghost-dark:hover {
+    color: #ffffff;
+    background: rgba(228, 241, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.88);
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    .post-card .post-content {
+        padding: 16px 14px !important;
+    }
+
+    .navbar-custom .navbar-brand .brand-logo {
+        width: 22px;
+        height: 22px;
+    }
+}
