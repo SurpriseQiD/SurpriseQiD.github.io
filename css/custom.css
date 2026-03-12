@@ -3866,3 +3866,104 @@ footer .copyright {
         font-size: 1.28rem;
     }
 }
+
+/* ========================================== */
+/* 2026-03-12 Navbar brand hotfix */
+/* ========================================== */
+
+.navbar-custom .container {
+    overflow: visible;
+}
+
+.navbar-custom .navbar-header {
+    position: relative;
+    z-index: 3;
+    overflow: visible;
+}
+
+.navbar-custom .navbar-brand {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    min-height: 78px;
+    max-width: calc(100vw - 180px);
+    padding: 20px 0 18px !important;
+    line-height: 1 !important;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.navbar-custom .navbar-brand .brand-logo {
+    width: 30px !important;
+    height: 30px !important;
+    flex: 0 0 30px !important;
+    display: block;
+}
+
+.navbar-custom .navbar-brand .brand-text {
+    display: inline-block;
+    font-size: 1.52rem !important;
+    line-height: 1.08 !important;
+    padding-top: 1px;
+    letter-spacing: 0.04em !important;
+    white-space: nowrap;
+}
+
+.navbar-custom .navbar-collapse {
+    overflow: visible;
+}
+
+@media (max-width: 1199px) {
+    .navbar-custom .navbar-brand {
+        max-width: calc(100vw - 120px);
+    }
+
+    .navbar-custom .navbar-brand .brand-text {
+        font-size: 1.42rem !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar-custom {
+        min-height: 72px;
+    }
+
+    .navbar-custom .navbar-brand {
+        min-height: 72px;
+        max-width: calc(100vw - 90px);
+        padding: 18px 0 16px !important;
+    }
+
+    .navbar-custom .navbar-brand .brand-logo {
+        width: 28px !important;
+        height: 28px !important;
+        flex-basis: 28px !important;
+    }
+
+    .navbar-custom .navbar-brand .brand-text {
+        font-size: 1.34rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-custom .container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .navbar-custom .navbar-brand {
+        gap: 8px !important;
+        max-width: calc(100vw - 84px);
+    }
+
+    .navbar-custom .navbar-brand .brand-logo {
+        width: 26px !important;
+        height: 26px !important;
+        flex-basis: 26px !important;
+    }
+
+    .navbar-custom .navbar-brand .brand-text {
+        font-size: 1.2rem !important;
+        letter-spacing: 0.03em !important;
+    }
+}
