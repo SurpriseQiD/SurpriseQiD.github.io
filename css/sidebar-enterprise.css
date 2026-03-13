@@ -1,0 +1,53 @@
+.qv-rail .qv-panel {
+  border: 1px solid #d5e3ff;
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 250, 255, 0.98) 100%);
+  box-shadow: 0 10px 26px rgba(16, 47, 84, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.qv-rail .qv-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(16, 47, 84, 0.12);
+}
+
+.qv-panel__eyebrow {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.qv-panel__title {
+  color: #13396b;
+}
+
+.qv-link-list li a,
+.qv-mini-links a,
+.qv-directory a {
+  border-radius: 10px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.qv-mini-links a,
+.qv-directory a {
+  display: block;
+  padding: 7px 10px;
+}
+
+.qv-mini-links a:hover,
+.qv-directory a:hover,
+.qv-link-list li a:hover {
+  background: #ebf4ff;
+  color: #1e5ea3;
+}
+
+.qv-social-row a {
+  background: #eef5ff;
+  color: #1a4f8f;
+  border: 1px solid #d3e2fb;
+}
+
+.qv-social-row a:hover {
+  background: #1d66b1;
+  border-color: #1d66b1;
+  color: #fff;
+}
