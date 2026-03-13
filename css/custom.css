@@ -4436,6 +4436,75 @@ footer .copyright {
     background: #144364;
 }
 
+.subject-posts--grouped {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.qv-track-group {
+    border: 1px solid rgba(20, 67, 100, 0.14);
+    border-radius: 14px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbfe 100%);
+    padding: 12px 12px 14px;
+}
+
+.qv-track-group__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 4px 4px 10px;
+    border-bottom: 1px solid rgba(20, 67, 100, 0.12);
+    margin-bottom: 12px;
+}
+
+.qv-track-group__title {
+    margin: 0;
+    font-size: 1.02rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #103651;
+}
+
+.qv-track-group__count {
+    font-size: 0.8rem;
+    color: #355a74;
+    background: rgba(19, 64, 94, 0.1);
+    border: 1px solid rgba(19, 64, 94, 0.18);
+    border-radius: 999px;
+    padding: 2px 8px;
+}
+
+.qv-track-group__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(278px, 1fr));
+    gap: 12px;
+}
+
+.qv-track-group--classic {
+    border-color: rgba(43, 110, 150, 0.28);
+}
+
+.qv-track-group--frontier {
+    border-color: rgba(35, 126, 101, 0.28);
+    background: linear-gradient(180deg, #ffffff 0%, #f4fbf8 100%);
+}
+
+.qv-track-group--frontier .qv-track-group__title {
+    color: #145743;
+}
+
+.qv-track-group--frontier .qv-track-group__count {
+    color: #1a6b54;
+    background: rgba(26, 107, 84, 0.12);
+    border-color: rgba(26, 107, 84, 0.2);
+}
+
+.qv-track-group--other {
+    border-style: dashed;
+}
+
 @media (max-width: 1400px) {
     .qv-shell {
         grid-template-columns: minmax(188px, 224px) minmax(0, 1fr) minmax(234px, 286px);
