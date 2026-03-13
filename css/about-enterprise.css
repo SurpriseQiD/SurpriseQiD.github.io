@@ -61,11 +61,12 @@
   justify-content: center;
   align-items: center;
   padding: 11px 22px;
-  border-radius: 12px;
+  border-radius: var(--qv-btn-radius);
   font-family: "Space Grotesk", sans-serif;
-  font-weight: 600;
+  font-weight: var(--qv-btn-font-weight);
   text-decoration: none;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: var(--qv-btn-shadow);
 }
 
 .qv-about-home-btn--primary {
@@ -283,12 +284,13 @@
 
 .qv-about-home-contact__actions a {
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: var(--qv-btn-radius);
   border: 1px solid #cfe0fc;
-  background: #f2f7ff;
+  background: linear-gradient(120deg, #f5faff 0%, #edf5ff 100%);
   padding: 9px 14px;
   color: #1b4f89;
-  font-weight: 600;
+  font-weight: var(--qv-btn-font-weight);
+  box-shadow: 0 8px 18px rgba(27, 79, 137, 0.12);
 }
 
 .qv-about-home-contact__actions a:hover {
