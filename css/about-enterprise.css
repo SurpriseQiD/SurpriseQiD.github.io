@@ -1,297 +1,305 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 
-.qv-about-header {
+.qv-about-home-hero {
   position: relative;
-  padding: 130px 0 96px;
-  background:
-    radial-gradient(1200px 420px at 15% -10%, rgba(0, 209, 255, 0.24), rgba(0, 209, 255, 0) 65%),
-    radial-gradient(800px 360px at 95% 0%, rgba(84, 112, 255, 0.20), rgba(84, 112, 255, 0) 70%),
-    linear-gradient(130deg, #071323 0%, #0a1b2e 48%, #13294a 100%);
   overflow: hidden;
+  padding: 128px 0 92px;
+  background:
+    radial-gradient(1200px 500px at -10% 0%, rgba(44, 217, 255, 0.22), rgba(44, 217, 255, 0) 70%),
+    radial-gradient(900px 420px at 100% -10%, rgba(109, 121, 255, 0.26), rgba(109, 121, 255, 0) 72%),
+    linear-gradient(140deg, #071426 0%, #0d2640 50%, #132f56 100%);
 }
 
-.qv-about-header__aurora {
+.qv-about-home-hero__mesh {
   position: absolute;
-  inset: -20% -10% auto -10%;
-  height: 240px;
-  background: linear-gradient(90deg, rgba(20, 244, 255, 0), rgba(20, 244, 255, 0.2), rgba(20, 244, 255, 0));
-  filter: blur(18px);
-  animation: qvAurora 7s ease-in-out infinite alternate;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at 50% 30%, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.18));
+  pointer-events: none;
 }
 
-.qv-about-hero {
+.qv-about-home-hero__inner {
+  text-align: center;
   position: relative;
   z-index: 2;
-  text-align: center;
-  color: #edf7ff;
-  max-width: 980px;
-  margin: 0 auto;
 }
 
-.qv-about-hero__kicker {
-  font-family: "Space Grotesk", sans-serif;
-  letter-spacing: 0.2em;
+.qv-about-home-hero__kicker {
+  color: #9ec9ff;
   text-transform: uppercase;
+  letter-spacing: 0.18em;
   font-size: 12px;
-  opacity: 0.9;
-}
-
-.qv-about-hero__title {
   font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(34px, 6vw, 62px);
-  line-height: 1.05;
-  margin: 12px 0 16px;
-  font-weight: 700;
 }
 
-.qv-about-hero__subtitle {
+.qv-about-home-hero__title {
+  color: #f2f8ff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(34px, 6.1vw, 62px);
+  line-height: 1.04;
+  margin: 14px 0;
+}
+
+.qv-about-home-hero__subtitle {
+  color: rgba(232, 242, 255, 0.9);
+  max-width: 850px;
+  margin: 0 auto 24px;
   font-size: 18px;
-  line-height: 1.75;
-  max-width: 800px;
-  margin: 0 auto 28px;
-  color: rgba(237, 247, 255, 0.88);
+  line-height: 1.8;
 }
 
-.qv-about-hero__actions {
+.qv-about-home-hero__actions {
   display: flex;
-  justify-content: center;
   gap: 12px;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
-.qv-about-btn {
+.qv-about-home-btn {
   display: inline-flex;
-  align-items: center;
   justify-content: center;
-  padding: 12px 22px;
+  align-items: center;
+  padding: 11px 22px;
   border-radius: 12px;
   font-family: "Space Grotesk", sans-serif;
   font-weight: 600;
   text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.qv-about-btn--primary {
-  color: #041423;
-  background: linear-gradient(120deg, #35f0ff 0%, #80aaff 100%);
-  box-shadow: 0 10px 26px rgba(53, 240, 255, 0.32);
+.qv-about-home-btn--primary {
+  background: linear-gradient(120deg, #30f0ff 0%, #8da7ff 100%);
+  color: #041528;
+  box-shadow: 0 12px 28px rgba(65, 211, 255, 0.34);
 }
 
-.qv-about-btn--ghost {
-  color: #d9e7ff;
-  border: 1px solid rgba(191, 217, 255, 0.45);
-  background: rgba(10, 30, 50, 0.38);
+.qv-about-home-btn--ghost {
+  background: rgba(9, 33, 58, 0.48);
+  border: 1px solid rgba(167, 205, 255, 0.48);
+  color: #dbe9ff;
 }
 
-.qv-about-btn:hover {
+.qv-about-home-btn:hover {
   transform: translateY(-2px);
 }
 
-.qv-about-enterprise {
+.qv-about-home {
   background: linear-gradient(180deg, #f4f8ff 0%, #eef4ff 100%);
-  padding: 54px 0 70px;
+  padding-bottom: 72px;
 }
 
-.qv-about-grid {
+.qv-about-home-section {
+  padding-top: 44px;
+}
+
+.qv-about-home-head {
+  margin-bottom: 14px;
+}
+
+.qv-about-home-head h2 {
+  margin: 0 0 8px;
+  color: #12325d;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 30px;
+}
+
+.qv-about-home-head p {
+  margin: 0;
+  color: #395472;
+  font-size: 16px;
+}
+
+.qv-about-home-grid {
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr) 280px;
-  gap: 20px;
-  align-items: start;
+  gap: 14px;
 }
 
-.qv-about-panel,
-.qv-about-content {
+.qv-about-home-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.qv-about-home-grid--four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.qv-about-home-grid--metrics {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.qv-about-home-card,
+.qv-about-home-principle,
+.qv-about-home-metric,
+.qv-about-home-contact {
   border-radius: 16px;
-  border: 1px solid #d8e4ff;
-  box-shadow: 0 14px 36px rgba(15, 41, 77, 0.08);
-  background: rgba(255, 255, 255, 0.86);
-  backdrop-filter: blur(8px);
+  border: 1px solid #d4e2fb;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 13px 32px rgba(17, 49, 84, 0.08);
 }
 
-.qv-about-panel {
-  padding: 16px;
-  margin-bottom: 16px;
+.qv-about-home-card {
+  padding: 18px;
 }
 
-.qv-about-content {
-  padding: 28px 32px;
-}
-
-.qv-about-content h1,
-.qv-about-content h2,
-.qv-about-content h3 {
+.qv-about-home-card h3 {
+  margin: 0 0 8px;
+  color: #1b4a82;
   font-family: "Space Grotesk", sans-serif;
-  color: #122e55;
 }
 
-.qv-about-content p,
-.qv-about-content li {
-  font-family: "Plus Jakarta Sans", "Noto Serif SC", sans-serif;
-  line-height: 1.9;
-  color: #314862;
+.qv-about-home-card p,
+.qv-about-home-card li {
+  margin: 0;
+  color: #3a536f;
+  line-height: 1.8;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-.qv-about-panel__eyebrow {
+.qv-about-home-card--content {
+  padding: 28px 30px;
+}
+
+.qv-about-home-card--content h1,
+.qv-about-home-card--content h2,
+.qv-about-home-card--content h3 {
+  color: #11335d;
   font-family: "Space Grotesk", sans-serif;
-  margin: 0 0 12px;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #2c6eb8;
 }
 
-.qv-about-metrics {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.qv-about-home-section--dark {
+  padding: 44px 0;
+  background: linear-gradient(140deg, #0f2844 0%, #142f51 100%);
 }
 
-.qv-about-metrics li {
-  border: 1px solid #e2ebff;
-  border-radius: 12px;
-  padding: 10px 12px;
-  margin-bottom: 10px;
-  background: #f7fbff;
+.qv-about-home-head--dark h2,
+.qv-about-home-head--dark p {
+  color: #edf5ff;
 }
 
-.qv-about-metrics strong {
-  display: block;
-  font-size: 24px;
-  line-height: 1.1;
-  color: #163e70;
+.qv-about-home-principle {
+  padding: 18px;
+  background: rgba(9, 24, 40, 0.58);
+  border-color: rgba(175, 203, 255, 0.34);
 }
 
-.qv-about-metrics span {
-  font-size: 13px;
-  color: #5d7192;
-}
-
-.qv-about-linklist,
-.qv-about-bullets {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.qv-about-linklist li,
-.qv-about-bullets li {
-  margin-bottom: 10px;
-}
-
-.qv-about-linklist a {
-  display: block;
+.qv-about-home-principle span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
   border-radius: 10px;
-  padding: 9px 11px;
-  text-decoration: none;
-  color: #184e8b;
-  background: linear-gradient(120deg, #f0f6ff 0%, #edf3ff 100%);
-  border: 1px solid #d8e6ff;
+  background: rgba(68, 153, 255, 0.24);
+  color: #b8d8ff;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-.qv-about-linklist a:hover {
-  background: linear-gradient(120deg, #ddf1ff 0%, #dfebff 100%);
-}
-
-.qv-about-panel--cta h3 {
-  margin: 0 0 12px;
+.qv-about-home-principle h3 {
+  margin: 0 0 8px;
+  color: #f5f9ff;
   font-family: "Space Grotesk", sans-serif;
-  color: #112f54;
+  font-size: 20px;
 }
 
-.qv-about-inline-btn {
-  display: block;
+.qv-about-home-principle p {
+  margin: 0;
+  color: #d7e6ff;
+  line-height: 1.7;
+}
+
+.qv-about-home-metric {
+  padding: 14px;
   text-align: center;
-  margin-bottom: 8px;
-  text-decoration: none;
-  padding: 10px 12px;
-  border-radius: 10px;
-  color: #0d2f56;
-  border: 1px solid #cde2ff;
-  background: #f5faff;
 }
 
-.qv-about-inline-btn:hover {
-  background: #e8f3ff;
+.qv-about-home-metric strong {
+  display: block;
+  font-size: 34px;
+  color: #1a4f8e;
+  line-height: 1.1;
 }
 
-.qv-topic-spotlight {
-  margin: 16px 0 22px;
+.qv-about-home-metric span {
+  color: #4f6784;
+  font-size: 14px;
 }
 
-.qv-topic-spotlight__card {
-  border-radius: 14px;
-  border: 1px solid #cfe2ff;
-  background: linear-gradient(135deg, #f2f8ff 0%, #eaf2ff 100%);
-  box-shadow: 0 12px 28px rgba(25, 66, 120, 0.08);
+.qv-about-home-section--contact {
+  padding-top: 30px;
+}
+
+.qv-about-home-contact {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
   padding: 20px;
 }
 
-.qv-topic-spotlight__eyebrow {
+.qv-about-home-contact h2 {
   margin: 0 0 6px;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #2a65a5;
+  color: #133967;
+  font-family: "Space Grotesk", sans-serif;
 }
 
-.qv-topic-spotlight__card h2 {
-  margin: 0 0 8px;
-  color: #123765;
-  font-size: 24px;
+.qv-about-home-contact p {
+  margin: 0;
+  color: #425f80;
 }
 
-.qv-topic-spotlight__card p {
-  margin: 0 0 14px;
-  color: #355273;
+.qv-about-home-contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.qv-topic-spotlight__cta {
-  display: inline-block;
+.qv-about-home-contact__actions a {
   text-decoration: none;
-  color: #fff;
-  background: linear-gradient(120deg, #2f7cff 0%, #1fb8ff 100%);
-  padding: 9px 14px;
   border-radius: 10px;
+  border: 1px solid #cfe0fc;
+  background: #f2f7ff;
+  padding: 9px 14px;
+  color: #1b4f89;
   font-weight: 600;
 }
 
+.qv-about-home-contact__actions a:hover {
+  background: #e5f0ff;
+}
+
 @media (max-width: 1200px) {
-  .qv-about-grid {
-    grid-template-columns: 1fr;
+  .qv-about-home-grid--three,
+  .qv-about-home-grid--four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .qv-about-rail {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+  .qv-about-home-grid--metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 768px) {
-  .qv-about-header {
-    padding: 96px 0 70px;
+  .qv-about-home-hero {
+    padding: 102px 0 70px;
   }
 
-  .qv-about-hero__subtitle {
+  .qv-about-home-hero__subtitle {
     font-size: 16px;
   }
 
-  .qv-about-content {
+  .qv-about-home-grid--three,
+  .qv-about-home-grid--four,
+  .qv-about-home-grid--metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .qv-about-home-card--content {
     padding: 20px;
   }
 
-  .qv-about-rail {
-    grid-template-columns: 1fr;
-  }
-}
-
-@keyframes qvAurora {
-  from {
-    transform: translateX(-6%);
-    opacity: 0.55;
-  }
-  to {
-    transform: translateX(6%);
-    opacity: 0.95;
+  .qv-about-home-contact {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
