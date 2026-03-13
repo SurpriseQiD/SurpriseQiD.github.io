@@ -4469,11 +4469,29 @@ footer .copyright {
 .subject-group--stock-trading {
     border: 1px solid rgba(19, 107, 90, 0.25);
     box-shadow: 0 14px 28px rgba(24, 97, 84, 0.1);
+    position: relative;
+    animation: qvGroupReveal 0.42s ease-out;
 }
 
 .subject-group--experience {
     border: 1px solid rgba(42, 111, 151, 0.24);
     box-shadow: 0 14px 28px rgba(20, 67, 100, 0.1);
+    position: relative;
+    animation: qvGroupReveal 0.52s ease-out;
+}
+
+.subject-group--stock-trading:hover,
+.subject-group--experience:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.subject-group--stock-trading:hover {
+    box-shadow: 0 18px 32px rgba(24, 97, 84, 0.14);
+}
+
+.subject-group--experience:hover {
+    box-shadow: 0 18px 32px rgba(20, 67, 100, 0.14);
 }
 
 .subject-group--stock-trading .subject-header,
@@ -4515,11 +4533,39 @@ footer .copyright {
 .subject-group--stock-trading .qv-subject-icon {
     color: #126c5a;
     background: rgba(28, 163, 133, 0.16);
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .subject-group--experience .qv-subject-icon {
     color: #205e8f;
     background: rgba(69, 138, 202, 0.16);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.subject-group--stock-trading:hover .qv-subject-icon,
+.subject-group--experience:hover .qv-subject-icon {
+    transform: translateY(-1px) scale(1.04);
+}
+
+.subject-group--stock-trading .post-card-item,
+.subject-group--experience .post-card-item {
+    transition: transform 0.2s ease;
+}
+
+.subject-group--stock-trading .post-card-item:hover,
+.subject-group--experience .post-card-item:hover {
+    transform: translateY(-2px);
+}
+
+@keyframes qvGroupReveal {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .subject-posts--grouped {
