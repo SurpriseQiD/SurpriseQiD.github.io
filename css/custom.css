@@ -2037,6 +2037,23 @@ h6,
     gap: 6px;
 }
 
+.qv-search-hit__meta .qv-meta-chip {
+    padding: 0.18rem 0.62rem;
+    border-radius: 999px;
+    border: 1px solid rgba(57, 97, 133, 0.2);
+    background: linear-gradient(120deg, #f6fbff 0%, #eef5ff 100%);
+    color: #3a607e;
+    font-weight: 600;
+}
+
+.qv-search-hit__meta .qv-meta-chip i {
+    color: #2f6ea0;
+}
+
+.qv-search-hit__meta .qv-meta-chip--date i {
+    color: #337ab8;
+}
+
 .qv-entry-card__tags,
 .qv-chip-list,
 .qv-search-hit__tags {
