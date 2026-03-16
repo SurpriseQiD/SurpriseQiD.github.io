@@ -348,12 +348,12 @@
 }
 
 .qv-about-home-contact {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
   align-items: flex-start;
   padding: 20px;
-  min-height: 172px;
+  min-height: 196px;
   height: 100%;
 }
 
@@ -382,6 +382,7 @@
   align-items: flex-start;
   gap: 12px;
   min-width: 0;
+  width: 100%;
 }
 
 .qv-about-home-contact__icon {
@@ -413,6 +414,7 @@
 .qv-about-home-contact p {
   margin: 0;
   color: #425f80;
+  line-height: 1.72;
 }
 
 .qv-about-home-contact__meta {
@@ -426,10 +428,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: flex-end;
+  justify-content: flex-start;
   max-width: 100%;
   align-items: center;
-  align-self: start;
+  align-self: stretch;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid rgba(30, 71, 106, 0.12);
 }
 
 .qv-about-home-contact__actions a {
@@ -468,13 +473,14 @@
   }
 
   .qv-about-home-contact {
-    grid-template-columns: 1fr;
     min-height: unset;
   }
 
   .qv-about-home-contact__actions {
     justify-content: flex-start;
     align-self: auto;
+    border-top: 0;
+    padding-top: 2px;
   }
 }
 

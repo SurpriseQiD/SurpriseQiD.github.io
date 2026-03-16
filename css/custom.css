@@ -1938,7 +1938,7 @@ h6,
 .subject-header {
     margin-bottom: 14px;
     padding-bottom: 12px;
-    border-bottom: 1px solid rgba(24, 59, 86, 0.08);
+    border-bottom: 0;
 }
 
 .subject-title {
@@ -4498,26 +4498,12 @@ footer .copyright {
 .subject-group--experience .subject-header {
     position: relative;
     border-bottom: 0;
-    padding-bottom: 16px;
+    padding-bottom: 10px;
 }
 
 .subject-group--stock-trading .subject-header::after,
 .subject-group--experience .subject-header::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 3px;
-    border-radius: 999px;
-}
-
-.subject-group--stock-trading .subject-header::after {
-    background: linear-gradient(90deg, #1ca385 0%, #37d2b3 100%);
-}
-
-.subject-group--experience .subject-header::after {
-    background: linear-gradient(90deg, #2f7ab5 0%, #7baeff 100%);
+    content: none;
 }
 
 .qv-subject-icon {
