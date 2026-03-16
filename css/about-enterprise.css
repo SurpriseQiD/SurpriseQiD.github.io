@@ -348,11 +348,13 @@
 }
 
 .qv-about-home-contact {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: 20px;
-  align-items: flex-start;
+  align-items: center;
   padding: 20px;
+  min-height: 172px;
+  height: 100%;
 }
 
 .qv-about-home-contact-grid {
@@ -375,6 +377,39 @@
   font-family: "Space Grotesk", sans-serif;
 }
 
+.qv-about-home-contact__left {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.qv-about-home-contact__icon {
+  --qv-about-icon-stroke: 1.75;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  border: 1px solid #c7dcfc;
+  background: linear-gradient(145deg, #f7fbff 0%, #eaf3ff 100%);
+  color: #1b4f89;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.qv-about-home-contact__icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  fill: none;
+  stroke-width: var(--qv-about-icon-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
 .qv-about-home-contact p {
   margin: 0;
   color: #425f80;
@@ -393,6 +428,7 @@
   gap: 10px;
   justify-content: flex-end;
   max-width: 100%;
+  align-items: center;
 }
 
 .qv-about-home-contact__actions a {
@@ -455,8 +491,8 @@
   }
 
   .qv-about-home-contact {
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: 1fr;
+    min-height: unset;
   }
 
   .qv-about-home-contact__actions {
