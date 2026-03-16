@@ -176,12 +176,41 @@
   font-family: "Space Grotesk", sans-serif;
 }
 
+.qv-about-home-card--content h1 {
+  font-size: clamp(30px, 4.2vw, 44px);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.qv-about-home-card--content h2 {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: clamp(20px, 2.2vw, 28px);
+}
+
 .qv-about-home-card--content p,
 .qv-about-home-card--content li {
   font-size: 1.03rem;
   line-height: 1.92;
   color: #354d68;
   font-family: "Manrope", "Noto Serif SC", sans-serif;
+}
+
+.qv-about-home-card--content p {
+  margin: 0 0 12px;
+}
+
+.qv-about-home-card--content ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.qv-about-home-card--content li {
+  margin: 6px 0;
+}
+
+.qv-about-home-card--content strong {
+  color: #153e6e;
 }
 
 .qv-about-story-grid {
@@ -214,11 +243,12 @@
 
 .qv-about-home-card--content blockquote {
   margin: 20px 0;
-  padding: 12px 16px;
-  border-left: 3px solid #2f7ab5;
-  background: rgba(233, 243, 255, 0.7);
-  border-radius: 0 12px 12px 0;
+  padding: 14px 18px;
+  border-left: 4px solid #2f7ab5;
+  background: rgba(233, 243, 255, 0.75);
+  border-radius: 0 14px 14px 0;
   color: #1d4369;
+  font-weight: 600;
 }
 
 .qv-about-home-section--dark {
@@ -294,12 +324,16 @@
 
 .qv-about-home-contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
 .qv-about-home-contact--collab {
   background: linear-gradient(135deg, #f4f8ff 0%, #edf3ff 100%);
+}
+
+.qv-about-home-contact--tools {
+  background: linear-gradient(135deg, #f8fbff 0%, #eef6ff 100%);
 }
 
 .qv-about-home-contact h2 {
