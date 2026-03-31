@@ -1,0 +1,238 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta property="og:site_name" content="QiView"><meta property="og:type" content="article"><meta property="og:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg"><meta property="twitter:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg"><meta name=title content="第12章 纳什均衡计算的复杂性（曹乾2016）"><meta property="og:title" content="第12章 纳什均衡计算的复杂性（曹乾2016）"><meta property="twitter:title" content="第12章 纳什均衡计算的复杂性（曹乾2016）"><meta name=description content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="og:description" content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="twitter:description" content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="twitter:card" content="《博弈论与机制设计》第12章网页整理版。"><meta name=keyword content="Game Theory, Decision Science, Operations Management, Human-AI Interaction"><link rel="shortcut icon" href=/img/favicon.png><title>第12章 纳什均衡计算的复杂性（曹乾2016） | QiView</title><link rel=canonical href=/knowledge/game-theory/caoqian-2016/ch12/><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/hugo-theme-cleanwhite.min.css><link rel=stylesheet href=/css/zanshang.css><link rel=stylesheet href=/css/font-awesome.all.min.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/custom.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/home.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/resources.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/about-enterprise.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/sidebar-enterprise.css><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/hux-blog.min.js></script><script src=/js/lazysizes.min.js></script></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-CX84QDN0SR"></script><script>var doNotTrack=!1,dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-CX84QDN0SR")}</script><nav class="navbar navbar-default navbar-custom navbar-fixed-top"><div class=container><div class=navbar-header><button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar-main aria-expanded=false>
+<span class=sr-only>切换导航</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=/ aria-label="QiView Home"><img class=brand-logo src=/img/qiview-logo.svg alt="QiView logo">
+<span class="brand-text qv-wordmark">QiView</span></a></div><div class="collapse navbar-collapse" id=navbar-main><ul class="nav navbar-nav navbar-right qv-nav-items"><li class=qv-nav-item><a class=qv-nav-link href=/>Homepage</a></li><li class="qv-nav-item active"><a class=qv-nav-link href=/knowledge/>Knowledge</a></li><li class=qv-nav-item><a class=qv-nav-link href=/blog/>Blog</a></li><li class=qv-nav-item><a class=qv-nav-link href=/library/>Library</a></li><li class=qv-nav-item><a class=qv-nav-link href=/about/>About</a></li><li class="qv-nav-item qv-nav-item--search"><a href=/search/ class="nav-search qv-nav-search" aria-label=Search><i class="fa fa-search"></i></a></li></ul></div></div></nav><script>document.addEventListener("DOMContentLoaded",function(){var n,e=document.querySelector(".navbar-toggle"),t=document.querySelector(".navbar-collapse");e&&e.addEventListener("click",function(){this.classList.toggle("collapsed"),t.classList.toggle("in");var e=this.getAttribute("aria-expanded")==="true";this.setAttribute("aria-expanded",!e)}),n=document.querySelectorAll(".navbar-nav a"),n.forEach(function(n){n.addEventListener("click",function(){window.innerWidth<992&&(t.classList.remove("in"),e&&(e.classList.add("collapsed"),e.setAttribute("aria-expanded","false")))})}),document.addEventListener("click",function(n){var s=n.target.closest(".navbar");!s&&window.innerWidth<992&&(t.classList.remove("in"),e&&(e.classList.add("collapsed"),e.setAttribute("aria-expanded","false")))})})</script><style type=text/css>header.intro-header.qv-search-header{background-image:url(/img/home-bg-painting.jpg)}</style><header class="intro-header single-page-header qv-search-header"><div class=container><div class=row><div class="col-lg-10 col-lg-offset-1 col-md-12"><div class="post-heading qv-article-header"><div class=qv-article-header__topline><span class=qv-kicker>Page</span>
+<span class=qv-divider-dot></span>
+<span class=qv-kicker>QiView</span></div><h1 class=article-title>第12章 纳什均衡计算的复杂性（曹乾2016）</h1></div></div></div></div></header><article class="qv-page qv-page--generic"><div class="container qv-page-frame qv-page-frame--page"><div class="qv-shell qv-shell--page"><aside class="qv-rail qv-rail--left"><section class="qv-panel qv-panel--leftnav"><p class=qv-panel__eyebrow>Navigation</p><div class="qv-side-catalog side-catalog"><a class="catalog-toggle qv-panel__toggle" href=#>目录</a><ul class=catalog-body></ul></div><div class=qv-mini-links><a href=/knowledge/>返回 Knowledge</a>
+<a href=/>返回首页</a></div></section></aside><main class="qv-main qv-main--page"><section class=qv-page-card><header class=qv-page-card__header><h1 class=qv-section-title>第12章 纳什均衡计算的复杂性（曹乾2016）</h1></header><div class="post-container qv-page-prose"><p>纳什均衡计算的复杂性
+近年来，理论计算机科学家非常关注的一个中心问题是，有限策略型博弈的（混合
+策略）纳什均衡计算的复杂性。根据纳什定理，我们已经知道，有限策略型博弈肯定存
+在至少一个纳什均衡。因此，寻找纳什均衡问题属于总搜寻问题范畴（在这类问题中，
+解必定存在，研究者的问题是找到解）。在这个问题上，已有大量文献；本章试图阐述
+这个问题上的一些主要结果。本章内容基于文中列举的论文，尤其是综述文章
+Daskalakis, Goldberg, and Papadimitriou[1]。
+12.1纳什问题与布劳威尔问题
+我们首先介绍两个重要的总搜寻问题（totalsearchproblem）：一是纳什问题
+（NASH）；另一个是布劳威尔问题（BROUWER）。
+·纳什问题：给定策略型博弈，找出它的混合策略纳什均衡。混合策略纳什均衡解
+可能有多个，但我们只要找出一个即可。
+●布劳威尔问题：给定集合[0，1]”（这是一个紧且凸的集合）上的连续函数f，
+找到函数f的不动点，也就是说，找到x∈[0，1]㎡使得f（x）=x。注意，这里的m是
+一个有限正整数，而且f可能有多个不动点，但我们只要找到一个即可。
+一般来说，我们不是找到一个确切的纳什均衡或确切的不动点，而是找到一个近似的
+纳什均衡或近似的不动点。给定实数e>O（无论e多么小），e纳什均衡（e-Nashequilibri-
+umm）是一个混合策略组，使得任何参与人企图通过使用任何其他策略来增大他自已的期
+望收益，至多仅能增加e。类似地，函数f：[0，1]㎡→[0，1]”的e不动点，是满足
+（x(x)f）p</p><p>的点x∈[0，1]”，其中d是定义在[0，1]”上的度量（或称距离函数）。我们现在阐述
+e纳什问题以及e布劳威尔问题。
+·e纳什问题：给定一个有限策略型博弈以及一个实数ε>0，计算这个博弈的∈纳
+什均衡。
+·布劳威尔问题：给定能估算连续函数f：[0，1]”→[0，1]”的有效率的算法，
+合意的准确度（估计值与真实值的接近程度）以及[0，1]”上的距离函数d，计算点
+xE[0，1]m使得d（f（x），x）≤∈。
+在上面的定义中，出于表达上的方便，我们忽略了一些技术上比较微妙的细节，感
+兴趣的读者可以参考[1]。显然，e纳什问题（e布劳威尔问题）没有纳什问题（布劳威
+尔问题）复杂，因为后者要计算出确切值。因此，e纳什问题（e布劳威尔问题）遇到
+的困难将自动传递到纳什问题（布劳威尔问题）。为方便阐述，我们将：纳什问题（e布
+劳威尔问题）称为纳什问题（布劳威尔问题）。
+本章说明了纳什问题是PPAD完全的（PPAD-complete）。*在这里，PPAD是总搜寻
+问题的一个复杂类；PPAD是“PolynomialParityArgumentforDirectedgraphs”（有向图的
+多项式奇偶性论据）的首字母缩写。我们现在描述PPAD类问题，以及被称为EOL[线之
+终点（EndofLineProblem）]的问题，EOL是一个PPAD-complete问题。
+12.2PPAD类
+第
+口P类NP类以及NPC类
+章
+我们首先回忆一下P类与NP类问题（参见第33章）。P类问题是指所有能用确定
+纳
+型图灵机在多项式时间内求解的决策问题或搜寻问题。NP类问题是指所有能用非确定
+什
+均
+型图灵机在多项式时间内求解的问题。给定问题X，如果每个属于NP类的问题都可以
+衡计
+化简到问题X，那么我们说问题X是NP难的（NP-hard）。问题Y能化简为问题X，意
+算
+味着存在有效率的算法（即能用确定型图灵机在多项式时间内求解的算法），该算法将
+的
+Y的实例（instance）作为输人，将X的实例作为输出，因此，X的实例的任何解都可
+复
+杂性
+以经有效率的算法转化为Y的原来实例的解。最后，我们指出，一个NP-complete问题
+X，不仅是NP-hard的，还属于NP类。为了说明问题Y是NP-complete的，我们只要
+证明一个NP-complete问题X能被化简为问题Y就足够了。另外，注意，NP类问题包
+含了所有能被化简到任何NP-complete问题的问题。也就是说，任何给定的问题，只要
+它能被化简为NP-complete问题，则它属于NP类。
+口TFNP类与PPAD类
+计算机学家帕帕季米特里乌（Papadimitriou）提出了TFNP这一复杂类（比如参见
+*鉴于在中文文献中“PPAD-complete”这种称呼已经比“PPAD完全的”更普遍，我们仅在这些称呼首次出现
+者注</p><p>文献[2]），用于描述所有下列这样的搜寻问题：在这样的搜寻问题中，它的每个实例都
+有解。也就是说，给定任一搜寻问题，若它的每个实例都有解，则它属于TFNIP类。例
+如，FACTOR（分解质因数）问题，它将整数作为输入，确定它的所有质因数。一个
+直接相关的例子是纳什问题：找到有限策略型博弈的确切纳什均衡或：纳什均衡。帕帕
+季米特里乌还对总搜寻问题进行了分类，他的分类标准是一些“论据”（arguments），
+这些论据在证明总搜寻问题的每个实例都有解的过程中担当了非构建性的步骤角色。这
+样，他将总搜寻问题分为以下几类。
+●PPA（多项式奇偶性论据）：如果给定的图有一个奇数度（odddegree）节点，那
+么它必定至少有另外一个奇数度节点。这称为奇偶性论据（parityargument，PA），使
+用这个论据的总搜寻问题属于PPA（PolynomialParityArgument）类。正式地，如果
+给定的问题能够在多项式时间内化简为下列问题一一能以多项式规模环路（polynomial
+sizedcircuit）表示的图含有一个奇数度节点，请找到此图的另外一个奇数度节点，那么
+这个问题属于PPA类。
+·PPAD（有向图的多项式奇偶性论据）：给定一个有向图，任一节点的人度（出
+度）是它的传人弧（传出弧）的个数。如果这个节点的入度（in-degree）不等于出度
+（out-degree），那么该节点是不平衡的。PPAD论据是说，如果一个有向图有一个不平
+衡节点，那么它必定至少存在着另外一个不平衡节点。
+图12一1描述了各类总搜寻问题之间的关系（这个图假设PNP。如果P=NP，
+那么所有类别都退化为一类）。
+NP
+TFNP
+PPAD
+图12一1不同复杂类之间的关系
+PPAD中的问题有多么难？这是一个有趣的问题。如果P=NP，那么这个议题得
+以解决，这是因为PPAD（作为NP的子集）本身将等于P。如果P≠NP（大多数人这么
+认为），那么我们有很强的证据认为PPAD包含难问题。几十年来，理论计算机科学家
+试图为PPAD中的一些问题（例如，布劳威尔问题、纳什问题、EOL问题）设计有效
+率的算法，但都徒劳无功。因此，除非P=NP，我们才能确信PPAD包含难问题。</p><p>口EOL问题
+EOL问题是最著名的PPAD-complete问题。它是下列总搜寻问题的一种特殊情形：
+给定有向图G以及已指定的不平衡节点，找到G的另外一个不平衡节点。EOL问题假
+设G的每个节点至多有一条传入边，至多有一条传出边。在这个限制下，给定的图必定
+是一组路径和环路。图12一2提供了这种图形的几个具有代表性的例子。
+图1
+图2
+图3
+图12—2EOL问题的一些例子
+EOL问题进一步假设某个图（比如，含有2”个节点的图）中的每个节点都可用长
+度为n的唯一二进制串进行标记。图中的边用定义在节点集上的先驱函数（predecessor
+function）p与后继函数（successorfunction）s描述。如果（，）是图中的一条边，
+那么s（v）=以及p（）=有明显的含义。注意，通过使用二进制串以及先驱函数和
+第
+后继函数，整个图都可以表达出来。有了这个表达之后，EOL问题就是在给定不平衡
+章
+节点的情形下寻找另外一个不平衡节点。
+纳什均衡计算的
+计算机学者已经证明EOL问题是PPAD-complete的。由这个事实可立即得到下列
+两个结果：
+·若EOL问题可以化简为问题X，则问题X是PPAD-complete的。
+·若问题Y可以简化为EOL问题，则问题YEPPAD。
+近年来，理论计算机学者得到的主要结果之一是，他们证明了纳什问题是一个
+复杂性
+PPAD-complete问题。这个结果的证明花费了学者数年努力（参见章末参考文献），它
+的最后一步证明是由达斯卡拉凯斯（Daskalakis）在他的博士论文中给出的，他的博士
+论文因此获得2008年美国计算机学会（ACM）博士论文奖。
+12.3纳什问题是PPAD-complete问题
+我们仅提供这个结果的证明梗概。证明分两步。
+·首先，证明纳什问题属于PPAD。证明方法是将纳什问题化简为EOL问题。
+·其次，证明纳什问题是PPAD-complete问题。证明方法是将EOL问题化简为纳
+什问题。
+上述两个方向上的证明使用了布劳威尔问题。</p><p>口纳什问题属于PPAD
+理论计算机学家已经证明，布劳威尔问题可以简化为EOL问题，这个过程使用了
+施佩纳（Sperner）引理。我们推荐读者参考文献[1以获得更多细节。因此，布劳威尔
+问题属于PPAD。学者们还证明了纳什问题可以化简为布劳威尔问题（参见文献[1]）。
+由于纳什问题可以化简为布劳威尔问题，因此纳什问题可以化简为EOL问题，这意味
+着纳什问题属于PPAD。
+口纳什问题是PPAD-complete问题
+首先，学者们证明了布劳威尔问题是PPAD-complete问题。证明思路是使用连续、
+易于计算的函数将有向图编码，证明EOL问题可以化简为布劳威尔问题。通过使用有
+趣的论据（参见文献[1]），可以证明布劳威尔问题可以化简为纳什问题。由于布劳威尔
+问题是PPAD-complete问题，而且布劳威尔问题可以化简为纳什问题，因此纳什问题
+是PPAD-complete问题。
+对于上面所有结果的证明，我们推荐读者参见文献[1以及章末参考文献中的相关论文。
+12.4一些观察
+博
+纳什问题是PPAD-complete问题，因此，在计算上，NP-hard问题提出了一些议
+奔
+论与机
+题（除非P=NP）：将其用作解概念可行吗？纳什均衡的有效率的计算在很多方面都很
+重要[3]：
+制
+·在诸如博弈、多智能体推理、拍卖等很多实践情形下，快速计算均衡极其重要。
+设
+·如果博弈中的参与人只能进行多项式计算，那么在多项式时间内计算纳什均衡或
+计
+任何选定的解就很重要。
+纳什问题是PPAD-complete问题，这个事实集合排除了在多项式时间内计算纳什
+均衡的可能性。尽管如此，由于纳什均衡概念符合直觉而且是自然而然和被严格发展出
+来的，因此纳什均衡的首要地位不可能动摇。我们现在总结与纳什均衡计算相关的一些
+重要结果：
+·尽管纳什问题是PPAD-complete问题，但它不可能是NP-complete问题（Nim-
+rodMegiddo1]）：假设我们把NP-complete问题SAT化简为纳什问题。由于纳什问题
+是一个总搜寻问题，而SAT不是，因此上面的简化将意味着纳什的任何实例的解都会
+告诉我们SAT实例是否有解。这样，我们就能够设计一种非确定型算法来验证SAT的
+实例没有解。复杂理论学家认为SAT的这种算法不可能像P=NP那样。
+·Chen，Deng，andTeng[4]证明了在计算有限策略型博弈的e纳什均衡问题上，
+不存在完全多项式时间近似方案（fullypolynomialtimeapproximationscheme，FP-
+TAS）。这意味着在纳什均衡的计算问题上，不存在任何算法使得它的运行时间关于
+博弈大小（参与人数和策略数）为多项式以及关于1/为多项式。
+·另一方面，在：纳什均衡的计算问题上，是否存在多项式时间近似方案</p><p>（PTAS）？也就是说，在：纳什均衡的计算问题上，是否存在某种算法使得运行时间关
+于博奔大小为多项式但任意地取决于1/e？这个问题尚未有答案。
+·Lipton，Markakis，andMehta[5]证明了在e纳什均衡的计算问题上，存在着次
+指数（sub-exponential）算法。
+·我们已经知道，矩阵博弈（两人零和博弈）的纳什均衡的计算的复杂性是多项式
+时间的，这要归功于冯·诺依曼和摩根斯坦发展的线性规划表达法。两人非零和博弈以
+及其他博弈问题的复杂性不可能是多项式时间的，除非我们考察的是非常特殊的情形。
+在最近50年里，计算机学家已经提出了很多算法，然而这些算法要么有着最坏情形指
+数时间复杂性，要么它们的复杂性甚至未知。对于这些算法的综述，读者可以参见
+McKelvey and McLennan[6]。
+对于更多细节和更深层次的认识，读者可以参见Daskalakis，Goldberg，andPa-
+padimitriou[1]
+12.5小结与参考文献
+在本章，我们说明了有限策略型博弈的混合策略纳什均衡的计算问题是PPAD-
+complete问题，其中PPAD包含了所有下列这样的总搜寻问题：这种总搜寻问题的每个
+实例都有解，而且解的存在性的证明基于PPAD论据。PPAD的意思是有向图的多项式
+奇偶性论据（polynomialparityargumentfordirectedgraphs），PPAD论据是说，如果
+第
+某个有向图有一个不平衡的节点（即该节点的人度不等于出度），那么这个图必定至少
+章
+存在另外一个不平衡的节点。
+纳
+我们已经说过，本章的大部分内容来自综述文章Daskalakis，Goldberg，andPa-
+什均
+padimitriou[1]。相关结果的证明细节可参见文献[7，1，4］。在Nisan，Roughgarden，
+衡
+Tardos，andVaziraniL8]这本算法博弈论的专辑中，还有很多关于复杂性和算法议题的
+计算
+综述文章。论文ConitzerandSandholmL9和RoughgardenL3也提供了相关综述。对于
+的
+这些议题的比较详细的讨论，读者也可以参见ShohamandLeyton-Brown[1o]。其他有
+复
+杂性
+用的参考文献还有文献[5，11]。
+口参考文献
+[1]C.Daskalakis,P.W.Goldberg,and C.H.Papadimitriou.“The complexity of
+computingaNashequilibrium”.In:CommunicationsoftheACM 52（2）（2009)，
+pp.89-97.
+[2] C. H.Papadimitriou.“The complexity of finding Nash equilibria".In:Algo-
+rithmicGameTheory.Ed.byNoamNisan,TimRoughgarden,Eva Tardos,andVijay
+Vazirani.CambridgeUniversityPress,2007，pp.29-52.
+[3]T.Roughgarden.“Algorithmic game theory”.In:Communications of the
+ACM53(7)(2010)，Pp.78-86.
+[4]Xi Chen,Xiaotie Deng,and Shang-Hua Teng.“Settling the complexity of</p><p>two-player Nash equilibrium”.In:JournalofACM56(3)(2009).
+[5]R.J.Lipton,E.Markakis, and A.Mehta.“Playing large games using simple
+strategies".In:Proceedingsofthe4thACMConferenceonElectronicCommerce,EC
+2003.ACM.2003，Pp.36-41.
+[6]R.D.McKelvey and A.McLennan.“Computation of equilibria in finite
+games".In:Handbook of Computational Economics.Ed.by J.Rust,H.Amman,
+and D.Kendrick.Elsevier,1996,pp.87-142.
+[7] C. Daskalakis.“The complexity of computing a Nash equilibrium".In: Pro-
+ceedingsofthe38thAnnualACMSymposium onTheoryofComputing，STOC-2006.
+ACM.2006，Pp.71-78.
+[8]Noam Nisan,Tim Roughgarden,Eva Tardos,and VijayVazirani (Editors).
+AlgorithmicGameTheory.CambridgeUniversityPress,2007.
+[9]Vincent Conitzer and Tuomas Sandholm.“Complexity Results about Nash
+Equilibria".In:ProceedingsoftheEighteenthInternationalJoint ConferenceonArti-
+ficialIntelligence,IJCAI-2003,Acapulco,Mexico.2003,pp.765-771.
+[10]Yoam Shoham andKevinLeyton-Brown.Multiagent Systems:Algorithmic,
+Game—Theoretic,and Logical Foundations.Cambridge University Press,New
+York,USA，2009，2009.
+[11] K.Etessami and M. Yannakakis.“On the complexity of Nash equilibria and
+otherfixedpoints".In:48thAnnualIEEESymposiumonFoundationsofComputer
+Science,FOCS2007.IEEE.2007,pp.113-123.</p></div><link href=https://xxx.xxx.com/dist/Artalk.css rel=stylesheet><script src=https://xxx.xxx.com/dist/Artalk.js></script><div id=Comments></div><script>Artalk.init({el:"#Comments",pageKey:"https://SurpriseQiD.github.io/knowledge/game-theory/caoqian-2016/ch12/",pageTitle:"第12章 纳什均衡计算的复杂性（曹乾2016）",server:"https://xxx.xxx.com",site:"xxx blog"})</script></section></main><aside class="qv-rail qv-rail--right"><section class="qv-panel qv-panel--identity"><p class=qv-panel__eyebrow>QiView</p><h3 class=qv-panel__title>Academic Profile</h3><div class=qv-identity__avatar><img src=/img/avatar-patrickStar.jpg alt=avatar onerror='this.onerror=null,this.src="/img/avatar-dongqi.jpg"'></div><p class=qv-identity__description>学术知识库与博客</p><div class=qv-social-row></div></section><section class=qv-panel><p class=qv-panel__eyebrow>Context</p><h3 class=qv-panel__title>Article Facts</h3><ul class="qv-inline-list qv-inline-list--facts"><li>栏目：Knowledge</li><li>日期：2026-03-31</li><li>作者：Qi Dong</li></ul><div class=qv-chip-list><span class=qv-chip>博弈论</span>
+<span class=qv-chip>机制设计</span>
+<span class=qv-chip>教材整理</span></div></section><section class=qv-panel><p class=qv-panel__eyebrow>Related</p><h3 class=qv-panel__title>Same Section</h3><ul class=qv-link-list><li><a href=/knowledge/game-theory/caoqian-2016/ch10/>第10章 纳什均衡的存在性（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch11/>第11章 纳什均衡的计算（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch13/>第13章 贝叶斯博弈（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch14/>第14章 机制设计导论（曹乾2016）</a></li></ul></section></aside></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href rel=alternate type=application/rss+xml title=QiView><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><div class="copyright text-muted qv-footer-meta"><div class=qv-footer-meta__main><a class=footer-home-link href=/ aria-label="Back to homepage"><img class=footer-logo src=/img/qiview-logo.svg alt="QiView logo">
+<span class="qv-wordmark qv-wordmark--footer">QiView</span>
+</a><span class=footer-copy>Copyright &copy; 2026</span></div></div></div></div></div></footer><script>function loadAsync(e,t){var s=document,o="script",n=s.createElement(o),i=s.getElementsByTagName(o)[0];n.src=e,t&&n.addEventListener("load",function(e){t(null,e)},!1),i.parentNode.insertBefore(n,i)}</script><script>$("#tag_cloud").length!==0&&loadAsync("/js/jquery.tagcloud.js",function(){$.fn.tagcloud.defaults={color:{start:"#bbbbee",end:"#0085a1"}},$("#tag_cloud a").tagcloud()})</script><script>loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js",function(){var e=document.querySelector("nav");e&&FastClick.attach(e)})</script><script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><script>var _baId="21326675",_hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="//hm.baidu.com/hm.js?"+_baId,e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4,h5,h6");return $(e).html(""),r.each(function(){n=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),t=$(this).text(),i=$('<a href="'+o+'" rel="nofollow" title="'+t+'">'+t+"</a>"),s=$('<li class="'+n+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")}),loadAsync("/js/jquery.nav.js",function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script></body></html>

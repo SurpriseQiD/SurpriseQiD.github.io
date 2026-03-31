@@ -1,0 +1,239 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta property="og:site_name" content="QiView"><meta property="og:type" content="article"><meta property="og:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg"><meta property="twitter:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg"><meta name=title content="第24章 机制设计的其他议题（曹乾2016）"><meta property="og:title" content="第24章 机制设计的其他议题（曹乾2016）"><meta property="twitter:title" content="第24章 机制设计的其他议题（曹乾2016）"><meta name=description content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="og:description" content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="twitter:description" content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="twitter:card" content="《博弈论与机制设计》第24章网页整理版。"><meta name=keyword content="Game Theory, Decision Science, Operations Management, Human-AI Interaction"><link rel="shortcut icon" href=/img/favicon.png><title>第24章 机制设计的其他议题（曹乾2016） | QiView</title><link rel=canonical href=/knowledge/game-theory/caoqian-2016/ch24/><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/hugo-theme-cleanwhite.min.css><link rel=stylesheet href=/css/zanshang.css><link rel=stylesheet href=/css/font-awesome.all.min.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/custom.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/home.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/resources.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/about-enterprise.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/sidebar-enterprise.css><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/hux-blog.min.js></script><script src=/js/lazysizes.min.js></script></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-CX84QDN0SR"></script><script>var doNotTrack=!1,dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-CX84QDN0SR")}</script><nav class="navbar navbar-default navbar-custom navbar-fixed-top"><div class=container><div class=navbar-header><button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar-main aria-expanded=false>
+<span class=sr-only>切换导航</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=/ aria-label="QiView Home"><img class=brand-logo src=/img/qiview-logo.svg alt="QiView logo">
+<span class="brand-text qv-wordmark">QiView</span></a></div><div class="collapse navbar-collapse" id=navbar-main><ul class="nav navbar-nav navbar-right qv-nav-items"><li class=qv-nav-item><a class=qv-nav-link href=/>Homepage</a></li><li class="qv-nav-item active"><a class=qv-nav-link href=/knowledge/>Knowledge</a></li><li class=qv-nav-item><a class=qv-nav-link href=/blog/>Blog</a></li><li class=qv-nav-item><a class=qv-nav-link href=/library/>Library</a></li><li class=qv-nav-item><a class=qv-nav-link href=/about/>About</a></li><li class="qv-nav-item qv-nav-item--search"><a href=/search/ class="nav-search qv-nav-search" aria-label=Search><i class="fa fa-search"></i></a></li></ul></div></div></nav><script>document.addEventListener("DOMContentLoaded",function(){var n,e=document.querySelector(".navbar-toggle"),t=document.querySelector(".navbar-collapse");e&&e.addEventListener("click",function(){this.classList.toggle("collapsed"),t.classList.toggle("in");var e=this.getAttribute("aria-expanded")==="true";this.setAttribute("aria-expanded",!e)}),n=document.querySelectorAll(".navbar-nav a"),n.forEach(function(n){n.addEventListener("click",function(){window.innerWidth<992&&(t.classList.remove("in"),e&&(e.classList.add("collapsed"),e.setAttribute("aria-expanded","false")))})}),document.addEventListener("click",function(n){var s=n.target.closest(".navbar");!s&&window.innerWidth<992&&(t.classList.remove("in"),e&&(e.classList.add("collapsed"),e.setAttribute("aria-expanded","false")))})})</script><style type=text/css>header.intro-header.qv-search-header{background-image:url(/img/home-bg-painting.jpg)}</style><header class="intro-header single-page-header qv-search-header"><div class=container><div class=row><div class="col-lg-10 col-lg-offset-1 col-md-12"><div class="post-heading qv-article-header"><div class=qv-article-header__topline><span class=qv-kicker>Page</span>
+<span class=qv-divider-dot></span>
+<span class=qv-kicker>QiView</span></div><h1 class=article-title>第24章 机制设计的其他议题（曹乾2016）</h1></div></div></div></div></header><article class="qv-page qv-page--generic"><div class="container qv-page-frame qv-page-frame--page"><div class="qv-shell qv-shell--page"><aside class="qv-rail qv-rail--left"><section class="qv-panel qv-panel--leftnav"><p class=qv-panel__eyebrow>Navigation</p><div class="qv-side-catalog side-catalog"><a class="catalog-toggle qv-panel__toggle" href=#>目录</a><ul class=catalog-body></ul></div><div class=qv-mini-links><a href=/knowledge/>返回 Knowledge</a>
+<a href=/>返回首页</a></div></section></aside><main class="qv-main qv-main--page"><section class=qv-page-card><header class=qv-page-card__header><h1 class=qv-section-title>第24章 机制设计的其他议题（曹乾2016）</h1></header><div class="post-container qv-page-prose"><p>机制设计的其他议题
+机制设计领域博大精深，内容丰富。在本书中，我们讨论了机制设计的一些基本层
+面和重要结果。我们现在简单介绍机制设计领域的其他重要议题。注意，本章的讨论没
+博奔论与机制设计
+有特定的逻辑顺序。我们还提醒读者，本章的处理宛如蜻蜓点水，浮于表面。因此，在
+有必要时，读者应该阅读我们提供的参考文献。本章列举的主题不可能是穷尽的。
+24.1优势策略激励相容的特征
+我们已经看到，直接显示机制被形式化为9=（（O）N，f（·）），其中f是潜在的
+社会选择函数，：是智能体i的类型集。每个智能体i的评价函数（·，·）将f选
+择的配置的一个值指定给i。优势策略激励相容（DSIC）社会选择函数的漂亮刻画是由
+Roberts1完成的。罗伯茨（Roberts）的工作将格林-拉丰特征定理（定理18.2和定理
+18.3）一般化，他的方法如下。我们已经知道，格林-拉丰定理断言：在上面无约束的
+环境下，有配置效率且为DSIC的社会选择函数必定是格罗夫斯机制。罗伯茨的工作断
+言，所有DSIC机制都是维克瑞-克拉克-格罗夫斯（VCG）机制的变种。这些变种通常
+称为加权VCG机制（weightedVCGmechanisms）。在加权VCG机制中，权重被指定
+给智能体，也被指定给结果。相应的社会选择函数称为仿射最大化算子（affinemaxi-
+mizer）。我们首先定义仿射最大化算子的概念，然后给出罗伯茨定理。
+定义24.1给定社会选择函数f，如果对于某个子集A&rsquo;CX，对于某个关于智能体
+的权重W，W2，"，Wn∈R+，对于某个关于结果的权重cxER，以及对于每个
+EA&rsquo;，我们有</p><p>f(0,02,.,0n）∈argmax{c+wu;(x)}
+rEA
+那么我们将f称为一个仿射最大化算子。
+定理24.1（罗伯茨定理）如果|X|≥3而且对于每个智能体iEN，：都不受约
+束，那么任何DSIC社会选择函数f有非负且不全为零的权重W1，W2，，W∈R+以
+及常数{c}xEx，使得对于所有θ∈⊙，
+f(0)Eargmax
+wu;(x）+cx}
+rEX
+i=1
+对于这个重要定理的证明，读者可以参考Roberts[1]。Lavi，Mu&rsquo;alem，andNisan[2]对
+此也提供了另外两种证明方法。
+罗伯茨的结果断言在不受约束的环境下，所有DSIC机制都是VCG机制的变种。
+注意，这些变种未必有配置效率（AE）。因此，在不受约束的环境下，如果我们同时需
+要DSIC和AE，我们必须使用VCG机制。即使我们愿意放弃AE，我们仍需要使用加
+权VCG机制来实现DSIC。
+24.2BIC规则的优势策略实施
+显然，与贝叶斯激励相容（BIC）比较，优势策略激励相容（DSIC）更强，但也更
+第
+加合意。最主要的原因在于任何贝叶斯实施都假设私人信息结构是共同知识。它还假设
+章
+社会计划者知道共同先验分布。在很多情形下，这个要求可能过于严格。另外，共同先
+机制设
+验分布稍微有一丝误设（mis-specification）就会导致均衡剧烈变动。这可能导致不可预
+测的效应；例如，它可能导致拍卖严重偏离最优化行为。
+设计的
+优势策略实施将这些问题轻松化解，这是因为均衡策略不取决于共同先验分布。
+因此，我们希望得到DSIC实施。由于BIC社会选择函数比DSIC社会选择函数丰富
+其他议
+的多，有人可能会问：给定BIC社会选择函数，我们能否将其视为一个伴随每个参与
+议
+人有相同期望事中效用的DSIC规则？MookherjeeandStefan3]回答了这个问题：他们
+题
+刻画了BIC规则何时可以等价地在优势策略中实施。当一定充分条件得以满足时，BIC
+社会选择函数能被实施，而不必担心共同先验分布。更多细节可以参考Mookherjeeand
+Stefan[3]。
+24.3相互依赖的价值
+到现在为止，我们一直假设智能体观察到的私人价值或信号彼此独立。在一些情形
+下，这是一个合理的假设。然而，在现实世界的一些情形下，智能体的评价可能彼此依
+赖，也就是说，智能体自已的评价取决于其他智能体得到或观察到的信息。我们考察两
+个例子。</p><p>例24.1在某幅油画的拍卖中，无法保证油画是真迹还是品。如果每个智能体
+知道油画为品，那么他对此的评价很低，而且他们的评价彼此独立。另一方面，如
+果油画为真迹，那么每个智能体对此有很高的评价。假设智能体无法知道该油画的真
+假。在这种情形下，如果某个智能体偶然得到了关于该油画真假的信息，那么所有
+其他智能体的评价自然取决于这个智能体观察到的上述信号（指明了油画的真
+假）。口
+例24.2考虑采油权的拍卖。在拍卖时，各个潜在买者通常已完成实地勘探，他
+们的私人评价取决于这些勘探结果。如果某个潜在买者知道了其他买者的勘探结果，那
+么该买者会根据他得到的信息适当调整他对采油权的支付意愿。口
+机制设计领域的很多文献已对相互依赖的私人价值模型进行了研究。例如，文献
+中有一种常见的模型，即共同价值模型（commonvaluemodel，我们已在20.4节看到
+过这种模型）。作为另外一个例子，考虑某个卖者试图出售一件不可分割的商品的情
+形。每个智能体对拍卖物的评价取决于其他智能体的私人信号。另外，智能体观察到
+的私人信号是彼此依赖的。在这种环境下，CremerandMcLeanL4设计了一种拍卖，
+使得卖者的收人等于当智能体实际信号为已知情形下的卖者收人。在这种拍卖中，每
+个智能体报告自己的真实类型，是一个事后纳什均衡。这种拍卖是事中个体理性的，
+制设计的研究给出了更为一般的结果。Mezzetti6设计了一种两阶段机制，它保证了
+配置效率和事后激励相容性。
+博
+奔论
+24.4其他形式的实施
+与机
+制
+设计
+我们已讨论了三类实施：优势策略实施，贝叶斯实施，以及事后纳什实施。很多文
+献考察了关于社会选择函数实施的其他一些概念。它们包括（对于每种情形我们都提供
+了主要的参考文献）：
+·子博弈完美均衡[7]；
+·非劣势（undominated）纳什均衡[8]；
+·优（劣）势的可解性[9]（dominance solvability）；
+●颤抖手完美均衡[10]；
+●强均衡[11]。
+24.5当前重要议题
+机制设计是当前活跃的研究领域之一，很多主题不断涌现。比较重要的主题包括：
+不伴随货币的机制设计[12]，动态机制设计[13]，伴随学习的机制[14]，计算型社会选择
+（包括计算型投票理论)[15]，以及众包机制[16]等。在这里，我们仅列举了少数几个主
+题，读者要想知道这个领域的前沿在哪里，必须阅读最新文献。</p><p>24.6机制设计中的计算议题
+我们已讨论了机制设计领域中的一些可能性结果和不可能性结果。尽管每个可能性
+结果都意味着好消息，然而在实际实施这种机制时仍会遇到挑战。例如，我们已在第
+20章看到，对于组合拍卖来说，广义维克瑞拍卖（GVA）机制有配置效率而且是优势
+策略激励相容的。GVA的主要挑战在于确定配置和支付规则时涉及的计算复杂性。无
+论在加权集合打包（setpacking）问题情形下（前向拍卖即销售拍卖），还是在加权集
+合覆盖（setcovering）问题情形下（后向拍卖即采购拍卖）下，配置和支付规则问题都
+是NP-hard问题。事实上，如果有n个智能体，那么在最差情形下，支付规则的确定
+问题涉及n个NP-hard问题，因此，为了实施GVA机制，我们需要求解（n十1）个
+NP-hard问题。另外，近似求解这些问题中的任一问题时，我们都必须权衡效率性和
+（或）激励相容性的取舍问题。
+在机制设计中，计算涉及两个层面：一是智能体层面，二是机制层面。[17,18]智能
+体层面的复杂性涉及策略复杂性（计算优势策略的复杂性）和评价复杂性（为机制提供
+偏好信息涉及的计算）。机制层面的复杂性包括通信复杂性（为了计算结果，智能体与
+机制之间需要多少通信）以及确定获胜者涉及的复杂性（为确定与智能体策略组相伴的
+结果而进行的计算）。一般来说，不充分的计算产生的近似解不是机制设计的一个备选
+解，因为激励相容、配置效率、个体理性等性质可能被折中。
+第
+关于机制设计计算复杂性的详细描述，读者可以参见相关综述文章[17,18]。
+章
+机
+制设计的
+24.7小结与参考文献
+其他
+机制设计博大精深，结果丰富。我们用十章篇幅介绍了下列一些基本而且重要的结果：
+（1）机制设计的构成模块；
+议
+（2）社会选择函数与机制；
+题
+（3）激励相容与显示原理；
+（4）吉伯德-萨特思韦特定理及其含义；
+（5）拟线性环境与维克瑞一克拉克-格罗夫斯机制；
+（6）拟线性环境下的贝叶斯机制与机制设计空间；
+（7）拍卖与收人等价定理；
+（8）最优机制与迈尔森拍卖；
+（9）将机制设计运用到赞助搜索拍卖中；
+（10）在事后纳什均衡中实施社会选择函数。
+我们谨慎地指出，上述这些主题对于机制设计领域来说，简直就是管中窥豹。在本
+章，我们列举了一些其他重要议题并提供了相关参考文献。如果读者在学习了这些章节
+之后，能投人到机制设计研究领域中，那就再好不过了。</p><p>对于机制设计的微观经济学视角上的处理，读者可以参考下列教材：Mas-Colell，
+Whinston，and Green[19]（第23章)；Green and Laffont[20]；Laffont[21]。Nisan[22]提供了
+一篇优秀的综述文章，它面对的是计算机科学的读者。另外，一些综述文章也提供了有用
+的信息，例如 Myerson[23]，Serrano[24]，Jackson[25,26]。诺贝尔奖网站对机制设计理论进
+行了技术上的总结。[27]Nisan，Roughgarden，Tardos，andVazirani[28]主编的《算法博弈
+论》（AlgorithmicGameTheory）也有很多关于机制设计的有趣综述。
+口参考文献
+[1]K.Roberts.“The characterization of implementable choice rules”.In:Aggre-
+gation and Revelation ofPreferences.Ed.byJ.J.Laffont.North-Holland,Amster-
+dam,1979,pp.321-349.
+[2]R.Lavi,A.Mu&rsquo;alem,and N.Nisan.Two simplified proofs forRoberts&rsquo;the-
+orem.Tech.rep.School of ComputerScience and Engineering,TheHebrewUniversity
+ofJerusalem,Israel,2004.
+[3]D.Mookherjee andS.Reichelstein.“Dominant strategyimplementation ofBayesian
+incentivecompatibleallocationrules".In:JournalofEconomic Theory 56（2)（1992)，
+pp.378-399.
+[4]J.Cremer and R.PMcLean.“Optimal selling strategiesunder uncertainty for a
+discriminating monopolist when demands are interdependent".In:Econometrica 53
+博弈论与机制沿
+(2）(1985)，pp.345-361.
+[5]R.PrestonMcAfeeand PhilipJ.Reny.“Correlated information and mechanism
+design".In:Econometrica60(2)(1992)，pp.395-421.
+[6]Claudio Mezzetti.“Mechanism design with interdependent valuations:Effi-
+设计
+ciency".In:Econometrica72(5)(2004)，pp.1617-1626.
+[7]J.Moore and R.Repullo.“Subgame perfect implementation”.In:Economet-
+rica 56(1988),pp.1191-1220.
+[8]T.Palfrey and S.Srivastava.“Nash implementation using undominated strate-
+gies".In:Econometrica59 (1991),pp.479-501.
+[9]HerveMoulin.“Dominance solvable voting schemes”.In:Econometrica 47
+(1979),pp.1337-1351.
+[10]Tomas Sjostrom.“Implementation in perfect equilibria".In:Social Choice
+and Welfare 10(1993)，pp.97-106.
+[11] Bhaskar Dutta and Arunava Sen.“Implementation under strong equilibrium:
+A completecharacterization".In:JournalofMathematical Economics20(1991)，
+pp.46-67.
+[12] James Schummer and Rakesh Vohra.“Mechanim design without money”.
+In:Algorithmic Game Theory.Ed.byNoamNisan,Tim Roughgarden,Eva Tardos,
+andVijayVazirani.CambridgeUniversityPress，2007，pp.243-266.
+[13]DirkBergemann and JuusoVlimki.“The dynamic pivot mechanism”.In:</p><p>Econometrica78(2）(2010),pp.771-789.
+[14]Akash Das Sharma,Sujit Gujar,and Y.Narahari.“Truthful multi-armed
+banditmechanismsformulti-slotsponsored search auctions”.In:CurrentScience103
+(9）(2012)，Pp.1064-1077.
+choice".In:Multiagent Systems.Ed.by G.Weiss.MIT Press,2013.
+[16]SwapravaNathet al.“Mechanism designfor time critical and costcritical task
+executionviacrowdsourcing”.In:Proceedingsofthe8thInternationalWorkshopon
+InternetandNetworkEconomics(WINE-2012).SpringerLectureNotesin Computer
+Science. 2012.
+[17]J.R.Kalagnanam and D.C.Parkes.“Auctions,bidding，and exchange de
+sign".In:HandbookofQuantitativeSupply ChainAnalysis:Modelingin theE-
+BusinessEra.Ed.byD.SimchiLevi,S.D.Wu,and Z.J.Shen.Kluwer Academic Pub-
+lishers,New York,2005.
+[18] T.Sandholm. “Computing in mechanism design". In: The New Palgrave
+Dictionary ofEconomics.Second Edition,Palgrave Macmillan,2008.
+[19]Andreu Mas-Colell,Michael D.Whinston,andJerry R.Green.Microeco
+nomicTheory.OxfordUniversityPress，1995.
+[20]J.R.Green and J.J.Laffont.Incentives inPublicDecisionMaking.North-
+Holland,Amsterdam,1979.
+[21]J.J.Laffont.Fundamentals ofPublicEconomics.The MIT Press,Cam-
+bridge,Massachusetts,1988.
+机
+[22] Noam Nisan,Tim Roughgarden,Eva Tardos, and Vijay Vazirani (Edi-
+制设计的其他议题
+tors).AlgorithmicGame Theory.CambridgeUniversityPress,2007.
+[23]Roger B.Myerson.“Mechanism design”.In:The NewPalgrave Dictionary
+ofEconomics.Ed.byJ.Eatwell,M.Milgate,and P.Newman.Norton,New York，
+1989, pp.191-206.
+[24] R.Serrano. “The theory of implementation of social choice rules”. In: SI-
+AMReview 46(2004)，pp.377-414.
+[25]M.O.Jackson.“A crash course in implementation theory”.In:Social
+ChoiceandWelfare18(2001)，pp.655-708.
+[26]M.O.Jackson.“Mechanism theory”.In:Encyclopedia of Life Support
+Systems.Ed.by U.Derigs.EOLSS Publishers,2003.
+[27]TheNobelFoundation.TheSverigesRiksbankPrizeinEconomicSciencesin
+MemoryofAlfredNobel2007:ScientificBackground.Tech.rep.TheNobelFoun-
+dation-Stockholm,Sweden,2007.
+[28]N.Nisan.“Introduction to mechanism design(for computer scientists)".In:
+Algorithmic Game Theory.Ed. by Noam Nisan, Tim Roughgarden,Eva Tardos,and
+Vijay Vazirani.Cambridge UniversityPress,2007,pp.209-242.</p><p>第3部分
+合作博弈论</p><p>在这一部分，我们研究合作博弈，我们首先讨论相关策略（correlatedstrategies）
+与相关均衡（correlatedequilibrium）（第25章）。纳什议价问题（Nashbargaining
+problem）代表合作博弈论的一个早期也是最有影响力的结果。第26章描述纳什议价问
+题并且证明了纳什议价结果。第27章介绍多人联盟博弈（multiplayercoalitional）或特
+征型博弈（characteristicformgames）。特别地，我们用几个例子介绍了伴随可转移效
+用的博弈（transferableutilitygames）。在第28章，我们研究核（core），这是合作博弈
+论的中心概念。第29章研究夏普利值（Shapleyvalue），这个解概念很流行。我们还介
+绍了夏普利一舒比克权力指数（Shapley-Shubikpowerindex）和班茨哈夫（Banzhaf）权
+力指数。在第30章，我们简要介绍了合作博弈论的五种其他的重要解概念：稳定集
+（stable sets）、议价集（bargaingsets）、内核（kernel）、核仁（nucleolus）、盖特利点
+(gatelypoint）。第31章考察匹配算法这个有趣议题。</p></div><link href=https://xxx.xxx.com/dist/Artalk.css rel=stylesheet><script src=https://xxx.xxx.com/dist/Artalk.js></script><div id=Comments></div><script>Artalk.init({el:"#Comments",pageKey:"https://SurpriseQiD.github.io/knowledge/game-theory/caoqian-2016/ch24/",pageTitle:"第24章 机制设计的其他议题（曹乾2016）",server:"https://xxx.xxx.com",site:"xxx blog"})</script></section></main><aside class="qv-rail qv-rail--right"><section class="qv-panel qv-panel--identity"><p class=qv-panel__eyebrow>QiView</p><h3 class=qv-panel__title>Academic Profile</h3><div class=qv-identity__avatar><img src=/img/avatar-patrickStar.jpg alt=avatar onerror='this.onerror=null,this.src="/img/avatar-dongqi.jpg"'></div><p class=qv-identity__description>学术知识库与博客</p><div class=qv-social-row></div></section><section class=qv-panel><p class=qv-panel__eyebrow>Context</p><h3 class=qv-panel__title>Article Facts</h3><ul class="qv-inline-list qv-inline-list--facts"><li>栏目：Knowledge</li><li>日期：2026-03-31</li><li>作者：Qi Dong</li></ul><div class=qv-chip-list><span class=qv-chip>博弈论</span>
+<span class=qv-chip>机制设计</span>
+<span class=qv-chip>教材整理</span></div></section><section class=qv-panel><p class=qv-panel__eyebrow>Related</p><h3 class=qv-panel__title>Same Section</h3><ul class=qv-link-list><li><a href=/knowledge/game-theory/caoqian-2016/ch10/>第10章 纳什均衡的存在性（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch11/>第11章 纳什均衡的计算（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch12/>第12章 纳什均衡计算的复杂性（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch13/>第13章 贝叶斯博弈（曹乾2016）</a></li></ul></section></aside></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href rel=alternate type=application/rss+xml title=QiView><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><div class="copyright text-muted qv-footer-meta"><div class=qv-footer-meta__main><a class=footer-home-link href=/ aria-label="Back to homepage"><img class=footer-logo src=/img/qiview-logo.svg alt="QiView logo">
+<span class="qv-wordmark qv-wordmark--footer">QiView</span>
+</a><span class=footer-copy>Copyright &copy; 2026</span></div></div></div></div></div></footer><script>function loadAsync(e,t){var s=document,o="script",n=s.createElement(o),i=s.getElementsByTagName(o)[0];n.src=e,t&&n.addEventListener("load",function(e){t(null,e)},!1),i.parentNode.insertBefore(n,i)}</script><script>$("#tag_cloud").length!==0&&loadAsync("/js/jquery.tagcloud.js",function(){$.fn.tagcloud.defaults={color:{start:"#bbbbee",end:"#0085a1"}},$("#tag_cloud a").tagcloud()})</script><script>loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js",function(){var e=document.querySelector("nav");e&&FastClick.attach(e)})</script><script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><script>var _baId="21326675",_hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="//hm.baidu.com/hm.js?"+_baId,e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4,h5,h6");return $(e).html(""),r.each(function(){n=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),t=$(this).text(),i=$('<a href="'+o+'" rel="nofollow" title="'+t+'">'+t+"</a>"),s=$('<li class="'+n+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")}),loadAsync("/js/jquery.nav.js",function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script></body></html>

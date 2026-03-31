@@ -1,0 +1,269 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta property="og:site_name" content="QiView"><meta property="og:type" content="article"><meta property="og:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg"><meta property="twitter:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg"><meta name=title content="第31章 稳定匹配（曹乾2016）"><meta property="og:title" content="第31章 稳定匹配（曹乾2016）"><meta property="twitter:title" content="第31章 稳定匹配（曹乾2016）"><meta name=description content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="og:description" content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="twitter:description" content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="twitter:card" content="《博弈论与机制设计》第31章网页整理版。"><meta name=keyword content="Game Theory, Decision Science, Operations Management, Human-AI Interaction"><link rel="shortcut icon" href=/img/favicon.png><title>第31章 稳定匹配（曹乾2016） | QiView</title><link rel=canonical href=/knowledge/game-theory/caoqian-2016/ch31/><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/hugo-theme-cleanwhite.min.css><link rel=stylesheet href=/css/zanshang.css><link rel=stylesheet href=/css/font-awesome.all.min.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/custom.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/home.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/resources.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/about-enterprise.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/sidebar-enterprise.css><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/hux-blog.min.js></script><script src=/js/lazysizes.min.js></script></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-CX84QDN0SR"></script><script>var doNotTrack=!1,dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-CX84QDN0SR")}</script><nav class="navbar navbar-default navbar-custom navbar-fixed-top"><div class=container><div class=navbar-header><button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar-main aria-expanded=false>
+<span class=sr-only>切换导航</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=/ aria-label="QiView Home"><img class=brand-logo src=/img/qiview-logo.svg alt="QiView logo">
+<span class="brand-text qv-wordmark">QiView</span></a></div><div class="collapse navbar-collapse" id=navbar-main><ul class="nav navbar-nav navbar-right qv-nav-items"><li class=qv-nav-item><a class=qv-nav-link href=/>Homepage</a></li><li class="qv-nav-item active"><a class=qv-nav-link href=/knowledge/>Knowledge</a></li><li class=qv-nav-item><a class=qv-nav-link href=/blog/>Blog</a></li><li class=qv-nav-item><a class=qv-nav-link href=/library/>Library</a></li><li class=qv-nav-item><a class=qv-nav-link href=/about/>About</a></li><li class="qv-nav-item qv-nav-item--search"><a href=/search/ class="nav-search qv-nav-search" aria-label=Search><i class="fa fa-search"></i></a></li></ul></div></div></nav><script>document.addEventListener("DOMContentLoaded",function(){var n,e=document.querySelector(".navbar-toggle"),t=document.querySelector(".navbar-collapse");e&&e.addEventListener("click",function(){this.classList.toggle("collapsed"),t.classList.toggle("in");var e=this.getAttribute("aria-expanded")==="true";this.setAttribute("aria-expanded",!e)}),n=document.querySelectorAll(".navbar-nav a"),n.forEach(function(n){n.addEventListener("click",function(){window.innerWidth<992&&(t.classList.remove("in"),e&&(e.classList.add("collapsed"),e.setAttribute("aria-expanded","false")))})}),document.addEventListener("click",function(n){var s=n.target.closest(".navbar");!s&&window.innerWidth<992&&(t.classList.remove("in"),e&&(e.classList.add("collapsed"),e.setAttribute("aria-expanded","false")))})})</script><style type=text/css>header.intro-header.qv-search-header{background-image:url(/img/home-bg-painting.jpg)}</style><header class="intro-header single-page-header qv-search-header"><div class=container><div class=row><div class="col-lg-10 col-lg-offset-1 col-md-12"><div class="post-heading qv-article-header"><div class=qv-article-header__topline><span class=qv-kicker>Page</span>
+<span class=qv-divider-dot></span>
+<span class=qv-kicker>QiView</span></div><h1 class=article-title>第31章 稳定匹配（曹乾2016）</h1></div></div></div></div></header><article class="qv-page qv-page--generic"><div class="container qv-page-frame qv-page-frame--page"><div class="qv-shell qv-shell--page"><aside class="qv-rail qv-rail--left"><section class="qv-panel qv-panel--leftnav"><p class=qv-panel__eyebrow>Navigation</p><div class="qv-side-catalog side-catalog"><a class="catalog-toggle qv-panel__toggle" href=#>目录</a><ul class=catalog-body></ul></div><div class=qv-mini-links><a href=/knowledge/>返回 Knowledge</a>
+<a href=/>返回首页</a></div></section></aside><main class="qv-main qv-main--page"><section class=qv-page-card><header class=qv-page-card__header><h1 class=qv-section-title>第31章 稳定匹配（曹乾2016）</h1></header><div class="post-container qv-page-prose"><p>稳定匹配
+2012年诺贝尔经济学奖授予了两位经济学家：劳埃德·夏普利，埃尔文·罗斯
+贡献。匹配理论与匹配算法涉及使用非合作博弈论、合作博弈论以及机制设计中的等量
+（equalmeasure）概念。在本章，我们介绍匹配算法，并且讨论它们与博弈论的联系。
+31.1匹配问题
+匹配问题是现实生活中的一类常见问题，它将一组资源（个体）配置给另外一组资
+源（个体）。常见的例子有：市场中买者与卖者的匹配；资源与任务的匹配；买房人与
+房子的匹配；医学毕业生与医院的匹配；学生与学校的匹配；工程类毕业生与公司的匹
+配；广告客户与搜索引擎网页上广告位的匹配等。有些匹配问题甚至具有深远的社会影
+响，例如肾脏（人体器官）与贫困患者的匹配。匹配的实现方式要能满足以下条件：一
+是尊重个体的偏好；二是（以某种合理方法衡量的）社会福利最大。乍一看，这个问题
+似乎很简单，其实不然。当匹配问题涉及的资源（个体）数量众多，而且存在着一些必
+须满足的现实约束条件时，这个问题变得很复杂，以至于找到可行解都很困难，更不用
+说找到最优解了。
+匹配问题的任何解都必须满足一个关键要求，这就是稳定性（stability）。稳定解的
+粗略定义如下：给定一个解，如果我们已无法通过再分配或继续交易来改进它，那么这
+个解就是稳定的。夏普利与罗斯在匹配问题的研究和应用上做出了杰出的开创性贡献，
+他们的工作相互补充：1960年代，夏普利考察了匹配理论背后的深层次的问题，并且
+提出了极其漂亮的理论解决方法；1980年代，罗斯发现了将抽象的夏普利理论应用到</p><p>实践问题的机会，并且对一些实践问题给出了巧妙的更优的解决方法。1990年代以来，
+罗斯以及其他研究者扩展了匹配理论，使其包含诸如匹配市场用户的策略型操纵行为等
+现实议题。当前，匹配理论与匹配市场不仅是经济学的活跃的研究议题，也是计算机科
+学、互联网广告和社会计算的活跃的研究议题。
+埃尔文·埃廖伊·罗斯（AlvinElliotRoth）生于1951
+年12月19日。他的第一个学位是哥伦比亚大学的运筹学学
+士学位。1973年和1974年，罗斯在斯坦福大学分别获得运
+筹学硕士学位和博士学位。1975一1982年，他任教于伊利诺
+伊大学；1982—1998年，他效力于匹兹堡大学。1988年，
+罗斯进入哈佛大学，担任经济学讲席教授以及商业管理荣誉
+退休教授。2013年后，他担任斯坦福大学经济学讲席教授。
+罗斯获奖无数，包括斯隆（AlfredP.Sloan）奖、古根
+海姆（Guggenheim）奖、美国艺术与科学院院士、美国国
+家经济研究局和计量社会协会成员。除了匹配市场[1]，罗斯
+对博弈论与实验经济学也做出了开创性的贡献。其中一个重要贡献为把夏普利值刻画为
+合作博弈空间中的风险中性效用函数。罗斯对实验经济学的贡献，得到诺贝尔奖委员会
+的认可，并且被作为科学背景予以介绍。2]罗斯的工作在本质上说明了，通过谨慎且熟
+练地设计实验，人们能大幅提高博弈论的解释能力和预测能力。
+稳定匹配
+31.2匹配算法
+在本节，我们主要讨论大学录取新生问题，对此，GaleandShapleyL3设计了他们
+的著名算法。
+口大学录取新生问题
+假设有m所大学，n个新生，其中n≥m。每所大学录取的新生数量有上限或配额。
+每所大学对学生也有严格排序（也称为偏好序）。类似地，每个学生对大学也有严格排
+序。这里的问题是根据一定明确定义的标准（例如稳定性、最优性、激励相容性等），
+将学生配置给大学。在本章，我们交替使用配置、指派、匹配，即将它们作为同义词。
+例子
+假设有五个学生1，2，3，4，5，两所大学A和B。假设学生对大学的偏好序
+如下：
+令大学对学生的偏好序如下：</p><p>&#171;&#171;&#171;&#171;
+假设每所大学最多能录取3个学生。配置可用二元组集合表示，例如配置α可以为
+α1={（1,A)，(2，B)，(3，A),(4，B),(5,A)}
+另外一个配置可能为
+α2={（1,B)，（2，A),（3，A)，(4，B)，(5，B)}
+第三个配置可能为
+α3={（1,A)，（2，A)，（3，A)，（4，B)，(5，B)}
+口稳定性、最优性以及激励相容性
+我们现在讨论大学录取新生匹配算法需要满足的三个重要性质：稳定性、最优性以
+及激励相容性。
+定义31.1（稳定配置）给定一个配置，如果即使学生1偏好大学B胜于A且大学
+B偏好学生1胜于2，它仍含有二元组（1，A）以及（2，B），那么我们说这个配置为
+不稳定的（unstable）。如果一个配置不是不稳定的，那么它是稳定的（stable）。
+注意，在上面的定义中，如果我们将学生1配置给大学B，那么1和B的状况都严
+格变好。用合作博弈论语言表达，两元素联盟（1，B）阻止了原来的配置。稳定配置
+不能被任何两元素联盟所阻止。所有稳定配置组成的集合是潜在配置博弈的核。这里的
+博
+配置博奔实际上是一个伴随不可转移效用（NTU）的博弈。
+奔
+论
+我们关注的稳定配置具有下列特征：在这个配置下，每个学生和每所大学的状况，
+与
+与他（它）在任何其他稳定配置下的状况一样好。也就是说，我们寻找的稳定配置，要
+机
+制
+能使每个学生匹配的大学至少与任何其他配置下该学生匹配的大学一样好，而且使每个
+设
+计
+好”是指偏好序意义上的好，即》。根据稳定配置，我们得到下列定义。
+定义31.2（最优配置）给定一个稳定配置，如果在这个配置下，每个学生的状况
+至少与他在任何其他稳定配置下的状况一样好，那么我们说这个稳定配置是对学生最优
+的（studentoptimal）；如果在这个配置下，每所大学的状况至少与它在任何其他稳定
+配置下的状况一样好，那么我们说这个稳定配置是对大学最优的（collegeoptimal）。
+对学生最优的配置，未必对大学最优；对大学最优的配置，未必对学生最优。可以
+证明，如果存在着对学生（大学）最优的配置，那么它是唯一的。
+定义31.3（激励相容配置）给定一个稳定配置，如果每个学生（大学）报告他
+）
+学生（大学）激励相容的。
+回顾一下激励相容性的更强版本，即优势策略激励相容性（DSIC），在这里表示每
+个学生（大学）如实报告是一个最优反应，不管其他学生（大学）如何报告。
+口婚姻问题
+婚姻问题是大学录取新生问题的一种特殊情形，在这里学生数等于大学数，即</p><p>n=m。为简单起见，我们研究婚姻问题，因为这个问题的很多结果可以自然推广到大
+学录取新生问题。在本节的余下部分，我们假设有n个学生和n所大学，每个学生必须
+匹配给一所大学；每所大学至多匹配给一个学生。我们用数字1，2，表示学生，用
+大写字母A，B，··表示大学。
+例31.1（婚姻问题）这个例子改编自GaleandShapleyL3]。考虑三个学生（1，2
+和3）以及三所大学（A，B和C），他（它）们的偏好如下：
+对于这个情形，显然有六个匹配（配置），它们分别是：
+（1,A)，(2,B)，(3,C)}，{（1,A)，(2,C)，（3,B)}，{(1,B)，（2，A)，（3,C)}
+{(1,B)，(2，C)，（3，A)}，{（1,C)，(2,A)，（3,B)}，{（1,C)，(2,B)，(3,A)}
+可以看出，在上述六个配置中，稳定的配置有：
+{（1,A),(2,B)，(3,C)}，{（1,B)，(2,C)，(3,A)}，{(1,C)，(2，A)，(3,B)}
+容易验证，配置{(1，A)，（2，B)，（3，C)}对学生最优，而配置{（1，C)，（2，A)，
+（3，B)}对大学最优，配置{（1，B)，（2，C)，（3，A)>不是对学生最优的，也不是对大
+学最优的。
+另外，在前面的六个配置中，下列配置是不稳定的：
+第
+{(1,A)，(2,C)，（3,B)}，{（1,B)，（2,A)，（3,C)}，{（1,C)，(2,B)，(3,A)}
+章
+为了看清配置{（1，A），（2，C)，（3，B））是不稳定的，注意到联盟{3，A）能阻止这
+稳
+个配置：（a）对于学生3来说，（3，A）比（3，B）更好，因为他偏好A胜于B；
+定匹配
+（b）对于大学A来说，（3，A）比（1，A）更好，因为大学A偏好学生3胜于1。类似
+配
+地，读者可以验证联盟{2，C}能阻止{（1，B），（2，A)，（3，C）}，联盟{1，B}能
+阻止{（1，C)，（2，B)，（3，A)}。
+口婚姻问题的延迟接受算法
+我们现在终于可以介绍GaleandShapleyl3J提出的婚姻问题算法了。这个算法称为
+延迟接受（deferredacceptance）算法，原因稍后就会明朗。这个算法有两种版本：
+·学生“求婚”版本；
+·大学“求婚”版本。
+我们仅介绍学生“求婚”版本算法。这个算法关于阶段（stage）迭代。
+（1）在阶段1，每个学生向他最喜欢的大学提出申请。一些大学可能收不到任何申
+请；另外一些大学可能收到一个或多个申请。如果某所大学收到两个或更多申请，那么它
+仅留下它最偏好的学生，并且拒绝所有其他申请该校的学生。这个被留下的学生仍需要排
+队等候（大学延迟录取（接受）该学生，因为它预期可能会有它更喜欢的学生出现）。
+（2）在阶段2，每个被拒绝的学生向他第二喜欢的大学提出申请。再一次地，如果
+某所大学收到两个或更多申请（包括任何已被它纳人排队等候名单的学生对它的申请），</p><p>那么它仅留下它最偏好的学生，并且拒绝所有其他申请该校的学生。注意，在这个阶
+段，大学在挑选学生时，需要考虑已列人其排队等候名单的学生。
+（3）在阶段3、阶段4等，按照阶段2的方式进行。
+本算法相同，只不过学生与大学的角色互换了。
+例31.2（延迟接受算法）这个例子来自文献[2]。考虑四个学生（1、2、3和4）
+和四所大学（A、B、C和D），他（它）们的偏好如下：
+&#171;&#171;&#171;
+假设学生“求婚”。于是：
+·在阶段1，学生1、2和3向大学A提出申请，因为他们都最喜欢大学A，而学
+生4则向大学C提出申请，于是大学C将学生4纳人排队等候名单。大学A拒绝学生1
+和2，而将学生3纳人排队等候名单。
+·在阶段2，被拒绝的学生1和2分别向大学B和C提出申请，因为大学B和C在
+学生1和2的偏好序上排在第二位。现在，大学C面对两个申请者：一是学生2；二是
+已被它列人排队等候名单的学生4。于是，大学C拒绝学生4而将2纳入排队等候名
+博
+单。另外，大学B将学生1纳入排队等候名单。
+奔
+论与机制
+·在阶段3，学生4向大学D提出申请。现在，大学A、B、C和D各自都有一个
+申请，因此算法终止，由此得到的配置为{（1，B)，（2，C)，（3，A)，（4，D）}。可
+制
+以验证，这个配置对学生最优。
+设
+在大学求婚版本算法中，容易看到它给出的配置为{(1，C)，（2，D），（3，A），
+计
+（4，B）}。可以验证，这个配置对大学最优。
+假设学生和大学都是策略型的，因此他（它）们可能不如实报告自己的偏好。作为
+一个说明性的例子，假设学生4是策略型的，而其他学生和所有大学都如实报告。假设
+学生4将自己的偏好谎报为C>D>A>B，而不是报告他的真实偏好C>D>B>A。如
+果我们使用大学“求婚”版本算法，那么我们只需要改变学生4的偏好即可。我们由此
+得到的配置为{(1，B)，（2，C)，（3，A)，（4，D)}，这与所有学生如实报告情形下
+得到的配置{(1，C)，（2，D)，（3，A)，（4，B)）差别很大。事实上，学生4的谎报
+行为将对大学最优的配置转变为对学生最优的配置！这说明大学“求婚”版本算法对学
+生不是激励相容的。然而，可以证明，大学“求婚”版本算法对大学是优势策略激励相
+容的（DSIC)。类似地，学生“求婚”版本算法对学生是DSIC的，对大学不是激励相
+容的。口
+口延迟接受算法的重要性质
+我们现在不加证明地给出延迟接受算法的一些重要性质。
+（））</p><p>（学生）“求婚”的次数不超过一次。
+·学生“求婚”版本和大学“求婚”版本算法都能得到唯一的稳定配置。学生“求
+婚”（大学“求婚”）版本算法得到的是对学生（大学）的最优配置。配置最优性的证明
+可以参考GaleandShapley[3]。
+●算法终止前的最大阶段数为n²一2n十2。因此，盖尔-夏普利（Gale-Shapley）
+算法有最坏情形二次（quadratic）时间复杂性。
+））
+但对大学（学生）不是激励相容的。
+·盖尔-夏普利算法可以自然地推广到大学录取新生问题。
+·可以证明，配置博弈（大学录取新生问题背后的伴随不可转移效用的博弈）的核
+非空（参见Shapley and Shubik[4]）。这个结果保证了稳定配置在一般环境中的存在性。
+口房屋配置问题
+延迟接受算法是双边匹配问题领域中的开创性贡献，这里的“双边”强调每一边对对
+方都有偏好，例如在大学录取新生问题中，大学对学生有偏好，学生对大学也有偏好。现
+实生活中还存在着另外一类重要问题，这就是所谓的房屋配置（houseallocation）问题。
+在这类问题中，一组参与人互相交换不可分割的物品，这里的交换是单纯以物易物，不涉
+及旁支付（sidepayments），即不涉及货币等形态的补偿。参与人对物品有偏好，而且有自
+已的物品。一个直接的例子是一组租房者在寻找房屋，他们对房屋有自己的偏好。但房屋
+对租房人没有任何偏好。Shapley andScarf5]在理查德·盖尔（RichardGale）工作的基础
+第
+上，设计了所谓的首位交易循环（toptradingcycle）算法，用来求这类问题的解。这个算
+章
+法及其变种已被用到一系列问题上，其中就包括肾脏交换问题。
+稳
+定
+匹
+31.3市场匹配
+配
+延迟接受算法与首位交易循环算法是匹配领域的两个关键算法；它们已被广泛研
+究，并且已被应用到很多现实问题。学者已针对各种匹配问题设计了多种算法，与此同
+时学者还对这些算法进行了分析，目的在于得到它们理论上的性质（例如，稳定性、最
+优性和激励相容性）。夏普利在1950年代和1960年代的工作是合作博弈论的基石；夏
+普利与其他博弈论学者使用合作博弈论解决了匹配领域中的若干中心问题。[1]
+罗斯在1980年代发现夏普利的理论可以应用到现有市场，例如美国国民匹配项目
+（NationalResidentsMatchingProgram，NRMP），这是一个将医学毕业生与医院进行
+匹配的市场。罗斯和他的同事通过一系列实证研究和实验室实验，发现稳定性是任何匹
+配市场成功和存续的最关键的要求。在研究过程中，罗斯及其同事能够对现存匹配市场
+再设计，并且改进它们的绩效。1990年代，罗斯及其同事使用包括博弈论在内的新理
+论工具，研究了匹配市场可能存在的策略型操纵行为。纽约和波士顿等城市使用这种方
+法来匹配学生和学校。更加荣耀的时刻到来了，1990年代和21世纪初，这种方法被成
+功地应用于人体器官（尤其是肾脏）供体与受体之间的匹配。</p><p>31.4小结与参考文献
+本章仅考察了匹配算法的一些基本但重要的层面，而且我们考察的仅是非策略型参
+与人的情形（即未涉及市场操纵等议题）。匹配议题涉及非合作博弈论、合作博弈论以
+及机制设计。本章主要内容如下：
+·我们简单介绍了大学录取新生问题、婚姻问题以及房屋配置问题。在大学录取新
+生问题中，我们有m所大学和n个学生（通常n≥m），而且大学和学生对对方都有偏
+好。婚姻问题是大学录取新生问题的特殊情形，此时n=m。在房屋配置问题中，偏好
+是单方面的。
+●我们讨论了大学录取新生问题的著名的盖尔-夏普利（Gale-Shapley）算法，并
+且介绍了这个算法满足的一些有趣的性质。
+2012年的诺贝尔经济学奖引发了人们对匹配理论与匹配市场的兴趣。诺贝尔奖官
+方网站对此做了科学背景介绍。2]RothandSotomayor[1]是这方面的权威著作，它收录
+了截至1990年的重要结果。关于延迟接受算法，读者一定要参考Gale and ShapleyL3]
+这篇原始文献。
+参考文献
+博奔论与机制沿
+[1]A.E.Rothand M.Sotomayor.TwoSidedMatching:A Studyin GameTheo-
+reticModeling and Analysis.EconometricSocietyMonographSeries,Cambridge Uni-
+versityPress,1990.
+[2]TheEconomic SciencesPrize Committee.StableMatching:Theory,Eui-
+设计
+dence,andPractical Design—The Sveriges RiksbankPrizeinEconomicSciencesin
+MemoryofAlfredNobel2012:ScientifcBackground.Tech.rep.TheNobelFoun-
+dation,Stockholm,Sweden,2012.
+[3] D. Gale and L. S. Shapley. “College admissions and the stability of marriage”.
+In:TheAmericanMathematicalMonthly69(1)(1962),pp.9-15.
+[4]Lloyd S. Shapley and Martin Shubik.“The assignment game I: the core”.In:
+International Journalof GameTheory 1(1)(1971)，pp.111-130.
+[5] Lloyd S. Shapley and Herbert Scarf. “On cores and indivisibility”. In: Jour-
+nalofMathematicalEconomics1(1974),pp.23-37.
+31.5习题
+（1）证明在大学录取新生问题中，对学生最优的配置（对大学最优的配置）如果存
+在，必定唯一。
+（2）在大学录取新生问题的例子中，分别考察配置α1，α2与α3的稳定性、最优性</p><p>以及激励相容性。
+（3）在例31.1（三个学生和三所大学匹配的问题）中，证明配置（（1，A），（2，B)，
+(3，C)}，{(1，B)，（2，C)，（3，A)}，{（1，C)，（2，A)，（3，B)}是稳定的，而配置
+{（1，B)，（2，A)，（3，C)}，{(1，C)，（2，B)，（3，A)}是不稳定的。
+接受算法。
+（5）在例31.2中，对学生4谎报他的偏好序的情形使用延迟接受算法。
+（6）证明在延迟接受算法中，最大阶段数为n²一2n十2，其中n是学生数（也是大学
+数）。（提示：考察最差情形环境。）
+（7）考虑下列婚姻问题，这里有四个学生（1、2、3和4）以及四所大学（A、B、C
+和D)，他（它）们的偏好为：
+&#171;&#171;&#171;
+&#171;&lt;
+对这个问题应用盖尔-夏普利算法。你能观察到什么结果？
+（8）如何将婚姻问题的盖尔-夏普利算法推广到大学录取新生问题？
+（9）（编程题）实施盖尔-夏普利算法、首位交易循环算法以及文献报道的其他匹配
+算法。
+稳定匹配</p></div><link href=https://xxx.xxx.com/dist/Artalk.css rel=stylesheet><script src=https://xxx.xxx.com/dist/Artalk.js></script><div id=Comments></div><script>Artalk.init({el:"#Comments",pageKey:"https://SurpriseQiD.github.io/knowledge/game-theory/caoqian-2016/ch31/",pageTitle:"第31章 稳定匹配（曹乾2016）",server:"https://xxx.xxx.com",site:"xxx blog"})</script></section></main><aside class="qv-rail qv-rail--right"><section class="qv-panel qv-panel--identity"><p class=qv-panel__eyebrow>QiView</p><h3 class=qv-panel__title>Academic Profile</h3><div class=qv-identity__avatar><img src=/img/avatar-patrickStar.jpg alt=avatar onerror='this.onerror=null,this.src="/img/avatar-dongqi.jpg"'></div><p class=qv-identity__description>学术知识库与博客</p><div class=qv-social-row></div></section><section class=qv-panel><p class=qv-panel__eyebrow>Context</p><h3 class=qv-panel__title>Article Facts</h3><ul class="qv-inline-list qv-inline-list--facts"><li>栏目：Knowledge</li><li>日期：2026-03-31</li><li>作者：Qi Dong</li></ul><div class=qv-chip-list><span class=qv-chip>博弈论</span>
+<span class=qv-chip>机制设计</span>
+<span class=qv-chip>教材整理</span></div></section><section class=qv-panel><p class=qv-panel__eyebrow>Related</p><h3 class=qv-panel__title>Same Section</h3><ul class=qv-link-list><li><a href=/knowledge/game-theory/caoqian-2016/ch10/>第10章 纳什均衡的存在性（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch11/>第11章 纳什均衡的计算（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch12/>第12章 纳什均衡计算的复杂性（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch13/>第13章 贝叶斯博弈（曹乾2016）</a></li></ul></section></aside></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href rel=alternate type=application/rss+xml title=QiView><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><div class="copyright text-muted qv-footer-meta"><div class=qv-footer-meta__main><a class=footer-home-link href=/ aria-label="Back to homepage"><img class=footer-logo src=/img/qiview-logo.svg alt="QiView logo">
+<span class="qv-wordmark qv-wordmark--footer">QiView</span>
+</a><span class=footer-copy>Copyright &copy; 2026</span></div></div></div></div></div></footer><script>function loadAsync(e,t){var s=document,o="script",n=s.createElement(o),i=s.getElementsByTagName(o)[0];n.src=e,t&&n.addEventListener("load",function(e){t(null,e)},!1),i.parentNode.insertBefore(n,i)}</script><script>$("#tag_cloud").length!==0&&loadAsync("/js/jquery.tagcloud.js",function(){$.fn.tagcloud.defaults={color:{start:"#bbbbee",end:"#0085a1"}},$("#tag_cloud a").tagcloud()})</script><script>loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js",function(){var e=document.querySelector("nav");e&&FastClick.attach(e)})</script><script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><script>var _baId="21326675",_hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="//hm.baidu.com/hm.js?"+_baId,e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4,h5,h6");return $(e).html(""),r.each(function(){n=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),t=$(this).text(),i=$('<a href="'+o+'" rel="nofollow" title="'+t+'">'+t+"</a>"),s=$('<li class="'+n+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")}),loadAsync("/js/jquery.nav.js",function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script></body></html>

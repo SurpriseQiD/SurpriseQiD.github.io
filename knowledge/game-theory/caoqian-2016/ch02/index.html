@@ -1,0 +1,350 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta property="og:site_name" content="QiView"><meta property="og:type" content="article"><meta property="og:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg"><meta property="twitter:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg"><meta name=title content="第2章 博弈论中的重要概念（曹乾2016）"><meta property="og:title" content="第2章 博弈论中的重要概念（曹乾2016）"><meta property="twitter:title" content="第2章 博弈论中的重要概念（曹乾2016）"><meta name=description content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="og:description" content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="twitter:description" content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="twitter:card" content="《博弈论与机制设计》第2章网页整理版。"><meta name=keyword content="Game Theory, Decision Science, Operations Management, Human-AI Interaction"><link rel="shortcut icon" href=/img/favicon.png><title>第2章 博弈论中的重要概念（曹乾2016） | QiView</title><link rel=canonical href=/knowledge/game-theory/caoqian-2016/ch02/><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/hugo-theme-cleanwhite.min.css><link rel=stylesheet href=/css/zanshang.css><link rel=stylesheet href=/css/font-awesome.all.min.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/custom.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/home.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/resources.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/about-enterprise.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/sidebar-enterprise.css><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/hux-blog.min.js></script><script src=/js/lazysizes.min.js></script></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-CX84QDN0SR"></script><script>var doNotTrack=!1,dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-CX84QDN0SR")}</script><nav class="navbar navbar-default navbar-custom navbar-fixed-top"><div class=container><div class=navbar-header><button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar-main aria-expanded=false>
+<span class=sr-only>切换导航</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=/ aria-label="QiView Home"><img class=brand-logo src=/img/qiview-logo.svg alt="QiView logo">
+<span class="brand-text qv-wordmark">QiView</span></a></div><div class="collapse navbar-collapse" id=navbar-main><ul class="nav navbar-nav navbar-right qv-nav-items"><li class=qv-nav-item><a class=qv-nav-link href=/>Homepage</a></li><li class="qv-nav-item active"><a class=qv-nav-link href=/knowledge/>Knowledge</a></li><li class=qv-nav-item><a class=qv-nav-link href=/blog/>Blog</a></li><li class=qv-nav-item><a class=qv-nav-link href=/library/>Library</a></li><li class=qv-nav-item><a class=qv-nav-link href=/about/>About</a></li><li class="qv-nav-item qv-nav-item--search"><a href=/search/ class="nav-search qv-nav-search" aria-label=Search><i class="fa fa-search"></i></a></li></ul></div></div></nav><script>document.addEventListener("DOMContentLoaded",function(){var n,e=document.querySelector(".navbar-toggle"),t=document.querySelector(".navbar-collapse");e&&e.addEventListener("click",function(){this.classList.toggle("collapsed"),t.classList.toggle("in");var e=this.getAttribute("aria-expanded")==="true";this.setAttribute("aria-expanded",!e)}),n=document.querySelectorAll(".navbar-nav a"),n.forEach(function(n){n.addEventListener("click",function(){window.innerWidth<992&&(t.classList.remove("in"),e&&(e.classList.add("collapsed"),e.setAttribute("aria-expanded","false")))})}),document.addEventListener("click",function(n){var s=n.target.closest(".navbar");!s&&window.innerWidth<992&&(t.classList.remove("in"),e&&(e.classList.add("collapsed"),e.setAttribute("aria-expanded","false")))})})</script><style type=text/css>header.intro-header.qv-search-header{background-image:url(/img/home-bg-painting.jpg)}</style><header class="intro-header single-page-header qv-search-header"><div class=container><div class=row><div class="col-lg-10 col-lg-offset-1 col-md-12"><div class="post-heading qv-article-header"><div class=qv-article-header__topline><span class=qv-kicker>Page</span>
+<span class=qv-divider-dot></span>
+<span class=qv-kicker>QiView</span></div><h1 class=article-title>第2章 博弈论中的重要概念（曹乾2016）</h1></div></div></div></div></header><article class="qv-page qv-page--generic"><div class="container qv-page-frame qv-page-frame--page"><div class="qv-shell qv-shell--page"><aside class="qv-rail qv-rail--left"><section class="qv-panel qv-panel--leftnav"><p class=qv-panel__eyebrow>Navigation</p><div class="qv-side-catalog side-catalog"><a class="catalog-toggle qv-panel__toggle" href=#>目录</a><ul class=catalog-body></ul></div><div class=qv-mini-links><a href=/knowledge/>返回 Knowledge</a>
+<a href=/>返回首页</a></div></section></aside><main class="qv-main qv-main--page"><section class=qv-page-card><header class=qv-page-card__header><h1 class=qv-section-title>第2章 博弈论中的重要概念（曹乾2016）</h1></header><div class="post-container qv-page-prose"><p>博奔论中的重要概念
+在本章，我们首先讨论一个简单的协调博弈，用以说明策略形博弈的构造。然后，
+我们介绍了博弈论中的一些重要概念。这些概念有偏好、效用或收益（payoff）、理性
+智能以及共同知识。我们还简要讨论了不同博弈类型。
+博弈论中的重要概念
+博弈论（gametheory）作为一门学科，它用数学模型研究理性且智能的决策者之
+间如何互动。[1]决策者通常称为参与人（player）。参与人之间的互动可能涉及冲突
+（conflict），也可能涉及合作（cooperation）。两人或多人的决策可能影响彼此的福利，
+博弈论为这类决策分析提供了一般数学工具。我们可将博弈视为数学模型，它模拟下列
+情形一每个参与人尽力得到最优可能结果，当然他在做此努力时知道所有其他参与人
+也在尽力实现各自的最优可能结果。
+2.1策略型博弈
+在描述博弈论中的重要概念之前，我们首先介绍博弈的一种表达形式，即，策略型
+博弈（strategicformgames）或标准型博弈（normalformgames）。这是最常用的表达
+法，事实上，本书主要研究这种博弈形式。
+例2.1考虑第1章1.1节讨论的学生协调问题。为方便起见，把ⅡISc重新命名为
+A，把MG路称为B。我们有两个参与人，即学生1和学生2。每个学生都可以从集合
+（A，B}中选择任何行动或称策略。他们同时且独立地选择自已的行动。根据两人选择
+的策略，他们得到的收益如表2一1所示。这个情形诱导出了下列定义。口</p><p>表2-1
+学生在不同结果下的收益
+A
+B
+A
+10，10
+0，0
+B
+0，0
+1,1
+定义2.1（策略型博弈）策略型博弈是个三元组（N，（S;）i∈N，（u）ieN），其中
+·N={1，2，"，n}是参与人集合，它由参与人1，2，，n组成；
+·S，S2，"，×S分别是参与人1，"，n的策略集；即S是参与人1的策略
+集，…"，S是参与人n的策略集；
+●ui：S×S×…×S→R（其中，i=1，2，"，n）是一组映射，称为效用函数
+或收益函数。
+例2.2对于我们讨论的例2.1，显然有
+N={1,2};S=S2={A,B}
+u（A，A)=10；u（A，B)=0；u（B，A)=0；u（B,B)=1
+u2（A,A)=10；u2（A,B)=0；u2（B,A)=0;u2（B，B)=1
+注意，每个参与人的效用不仅取决于自己的策略，也取决于其他参与人的策略。口
+策略有时也称为行动（action），或更具体地，称为纯策略（purestrategies）。我们
+用笛卡儿乘积S×S2×·×S表示策略，简记为S。集合S由所有参与人的所有策略
+博
+组（strategyprofile）或称策略向量（后文都使用策略组这个说法）组成。在博弈中，
+奔论与机制
+每个策略组对应着一个结果（outcome）。在本书中，策略组与结果为同义语。另外，参
+与人、个体、个人、决策者、智能体也是同义语。
+策略型博弈是同时行动博弈，它描述了每个参与人在面对其他参与人选择的策略
+设计
+时，如何选择自己的策略。每个参与人都面对着这个问题，因此我们可以认为每个参
+与人同时从各自的策略集S，，S选择自己的策略。我们可以认为策略型博弈是
+按下面方式实施的：每个参与人同时选择自己的一个策略，并将其报告给中立的观察
+者，然后该观察者计算结果和效用。我们将在第4章提供几个关于策略型博弈的
+例子。
+博弈论有一些重要概念。现在我们开始讨论这些概念以及相关议题。
+2.2偏好
+前面介绍过的学生协调博弈有四个结果，即（A，A），（A，B），（B，A）以及
+（B，B），它们也是四个策略组。每个学生在这些结果上都有一定偏好。显然，在这
+个例子中，每个学生偏好结果（A，A）胜于（B，B）；偏好结果（B，B）胜于（A，
+B）或（B，A）；但他们认为结果（A，B）和（B，A）无差异。参与人对结果的偏
+好可以表达为结果集S上的偏好关系（preferencerelation）。我们将在第8章正式学习
+这个内容。然而，在当前背景下，我们有必要知道每个参与人的偏好关系都是反身</p><p>的、传递的和完备的（也就是说，每一组结果都被偏好关系所涵盖）。显然，在一般
+情形下，不同参与人的偏好关系是不同的（尽管在当前例子中，两个参与人有相同的
+偏好关系）。
+2.3效用
+参与人的效用函数（utilityfunction）或收益函数（payofffunction）是一个定义在
+策略集S之上的实值函数。注意，S由所有参与人的所有结果组（策略组）构成。每个
+参与人的效用函数将多维信息（策略组）映入实数来描述偏好。需要记住，每个参与人
+在每个结果上的效用不仅取决于自己的策略，也取决于所有其他参与人的策略。有些读
+者可能想知道，是否能够做到将偏好映到实数而又不丢失任何偏好信息。冯·诺依曼和
+摩根斯坦的效用函数以系统而科学的方法考察了这个问题。事实上，他们证明了下列重
+要结论：必定存在着将实数指定给不同策略组的方法，使得决策者总能选择使其期望效
+用最大的策略，参见vonNeumannandMorgenstern3]。这个定理具有一般性，只要对
+理性决策者的行为作出一些适当假设，就能得到这个结论。我们将该主题的讨论推迟到
+第8章。
+2. 4理性
+第
+真
+博弈论中的一个重要假设是参与人都是理性的（rational）。如果某个参与人在追求
+博奔论中的
+自己的目标时总能做出决策，那么我们就称他是理性的。特别地，我们假设每个参与人
+的目标是使得他收益的期望值最大，这里的收益以效用单位衡量。上面的理性概念（期
+望效用最大化），最初是由伯努利提出的[Bernoulli（1738）]，后来被冯·诺依曼和摩
+根斯坦形式化[vonNeumannandMorgenstern（1944)[3]]。
+重
+要
+此处的一个重要观察是，如果参与人的效用函数能描述他的自我利益（self-inter-
+概
+est），简称自利，那么理性意味着自私。需要注意，自利并不意味着参与人想伤害其他
+念
+参与人，也不意味着参与人仅关心自己。自利仅意味着每个参与人在结果上有他自己的
+偏好，而且他一直追求他偏好的结果。一个参与人偏好的结果可能包含着某些其他参与
+人也偏好的结果。例如，如果某个参与人的效用函数能反映此人的利他本质，那么理性
+将意味着利他主义。
+期望效用最大化未必与期望货币收入相同。一般来说，效用和货币为非线性相关。
+例如，由于个人拥有的禀赋量不同，一定数量的货币带给不同个人的效用可能是不
+同的。
+当参与人为两人或多人时，每个参与人决策问题的解通常取决于其他参与人的决策
+问题。当这些理性决策者互动时，他们的决策问题必须放在一起分析，就像方程组的分
+析一样[1]。博弈论为这种分析提供了灵活而自然的数学架构。</p><p>约翰·冯·诺依曼（JohnvonNeumann，1903一1957）
+是20世纪最伟大的数学家之一，他是博弈论的奠基人。
+冯·诺依曼1903年12月28日出生于匈牙利首都布达佩斯。
+他从小就是个数学天才。然而，有意思的是他的第一个学位
+是苏黎世联邦理工学院的化学工程学位。1926年，他在布达
+佩斯大学获得了数学博士学位，合作教授为里奥波德·费策
+(LeopoldFezer)。
+1926年到1930年期间，冯·诺依曼在柏林和汉堡教书；
+1930年到1933年，他任教于普林斯顿大学。1933年，他被
+任命为普林斯顿高等研究院数学所教授，当时数学所只有六位教授，他是最年青的。阿
+尔伯特·爱因斯坦和库尔特·哥德尔（KurtGodel）都是他的同事。在他的光辉科学生
+涯中，冯·诺依曼创造了若干个智力浪潮，例如博弈论和计算机科学。事实上，在20
+世纪90年代和21世纪，这两个学科逐渐融合，这时距冯·诺依曼创造它们已大约六十
+年。这足以说明他的非凡眼光。除了博弈论和计算机科学之外，他还对一系列学科做出
+了惊人贡献，这些学科包括集合论、泛函分析、量子力学、遍历论（ergodictheory）、
+连续几何、数值分析、流体力学、统计学等。他最广为人知的结果有最大最小定理、效
+用理论、冯·诺依曼代数、冯·诺依曼结构、细胞自动机（cellularautomata）。对于博
+弈论，冯·诺依曼的第一个重大贡献就是最大最小定理，这个定理证明了在两人零和博
+博奔论与机制设计
+弈中存在着随机鞍点（randomizedsaddlepoint）。他与高等研究院研究员奥斯卡·摩根
+斯坦（OskarMorgenstern）的合作促生了《博弈论与经济行为》这本经典著作，这本
+书至今仍是早期博弈论结果的可靠来源之一。这本书深入讨论了博弈论中的很多基本概
+念，例如效用、鞍点、联盟博弈、议价集等。冯·诺依曼在1940年代发明了世界第一
+台电子计算机。他写了一本广为流传的论文《关于EDVAC的报告草案》，在这篇论文
+中他描述了一种计算机结构（这就是著名的冯·诺依曼结构）。他在计算机算法和计算
+复杂性概念方面也有贡献。
+奥斯卡·摩根斯坦（OskarMorgenstern，1902—1977）
+与约翰·冯·诺依曼的合作广为人知，他们的合作派生了一本
+杰作，这就是1944年出版的《博弈论与经济行为》。他们在普
+林斯顿高等研究院的合作传奇而漫长（1928年到1944年）。
+对博弈论至关重要的效用理论，就是以冯·诺依曼和摩根斯坦
+的名字命名的。在这本书之前，摩根斯坦还写过另外一本开创
+性的著作，即《经济预测》（EconomicPrediction）。
+摩根斯坦还写过一本学术著作《经济观察的准确性》
+（OntheAccuracyofEconomicObservations，1950）。在这
+本书里，他重点阐述了数据不恰当使用的后果，具体地说，他说明了用国民收入数据来
+推测远期结论并形成经济政策时可能存在的问题。摩根斯坦还较早地使用博弈论分析经</p><p>济问题。摩根斯坦1902年出生于德国，后来在维也纳学习经济学。当希特勒侵略维也
+纳时，摩根斯坦幸运地躲过了一劫，因为当时他在普林斯顿，自此以后他一直在普林斯
+顿工作直到退休。摩根斯坦最初在普林斯顿大学工作，后来到了普林斯顿高等研究院，
+在那里他开始与冯·诺依曼合作。摩根斯坦于1977年去世。
+2.5智能
+博弈论中的另外一个重要概念是参与人的智能（intelligence）。智能意味着每个参
+与人能像博弈论学家一样知道博弈的方方面面，而且能像博弈论学家一样做出关于博弈
+的任何推测。特别地，智能参与人是策略型的（strategic），也就是说，在做决策时，
+他能充分考虑其他参与人的可能行为并做出最优反应。我们将这样的策略称为最优反应
+策略（bestresponsestrategy）。智能这个假设要求每个参与人在确定最优反应策略时，
+有足够能力进行相关计算。
+迈尔森（Myerson[1]）令人信服地说明了理性和智能这两个假设符合逻辑且合理。
+所有参与人都是理性和智能的这种假设可能不是那么符合现实。然而，任何不满足理性
+和智能假设的理论都不可靠，原因如下：“如果某个理论预测说参与人能被欺骗从而犯
+错，那么当参与人更好地了解情况之后，这个理论就不可行了。”另一方面，基于理性
+和智能假设的理论能站得住脚。
+罗伯特·奥曼（RobertAumann），这位著名的博弈论
+博弈论中的重要概念
+学家对博弈论的很多主题做出了开创性的贡献，包括重复博
+弈、相关均衡、议价理论、合作博弈论等。1976年[4]，奥
+曼在《统计年刊》杂志上发表了经典论文《求同存异》（A-
+greeingtodisagree）；这篇论文为博弈论中的共同知识概念
+提供了令人信服的解释。1960年代，奥曼在重复博弈方面的
+研究说明了有限次重复博弈和无限次重复博弈的区别。
+1960年，奥曼与皮莱格（BezalelPeleg）将不可转移效
+用的联盟博弈概念形式化，这是合作博弈论的重大进展之
+一。1963年，奥曼与马希勒（MichaleMaschler）引入了议价集（bargainingset）概
+念，这是合作博弈论中一个重要的解概念。1974年，奥曼定义了贝叶斯博弈中的相关
+均衡（correlatedequilibrium）概念并将其形式化。1975年，他证明了夏普利值的一个
+收敛定理。1976年，在一篇未发表的论文中，奥曼与夏普利使用均值极限标准提供了
+完美无名氏定理。所有这些贡献促进了博弈论的发展。奥曼与夏普利合写的《非原子博
+弈的值》（ValuesofNon-AtomicGames，1984）一书以及他与马希勒合写的《非完全
+信息重复博弈》（RepeatedGameswithIncompleteInformation，1995）一书，都被广
+泛认为是博弈论方面的经典著作。
+奥曼于1930年6月8日出生于德国法兰克福。他于1952年获得麻省理工学院数学</p><p>学士学位，1955年获得博士学位。他在麻省理工学院的博士生导师为乔治·怀特
+（GeorgeWhiteheadJr.），他的博士论文和纽结理论有关。自1956年起，他在以色列的
+耶路撒冷希伯来大学理性研究中心担任教授，他也是美国石溪大学访问教授。2005年，
+罗伯特·奥曼与托马斯·谢林因对博弈参与人之间的冲突和合作分析方面的贡献而获得
+诺贝尔经济学奖。
+口共同知识
+智能蕴含着另外一个重要概念，即共同知识（commonknowledge）。奥曼（Au-
+mann[4]）将共同知识定义为：对于某个事实，如果每个参与人知道该事实，每个参
+与人知道每个参与人知道该事实，如此循环下去，那么该事实就是所有参与人通享的
+与人知道·每个参与人知道它”的表述永远为真。如果某个事实为所有参与人共
+知，但不要求“每个参与人知道每个参与人知道…·每个参与人知道它”这些循环句
+成立，那么这个事实称为相互知识（mutualknowledge）。在博弈论中，大多数分析通
+常要求共同知识这个假设；然而，有些分析仅要求相互知识就足够了。参与人的私人
+信息（privateinformation）是指他个人拥有的信息，这样的信息不是共同知识或相互
+知识。
+智能这个假设要求博弈参与人对于博弈的了解要和博弈论学家一样多，也就是说，
+博
+对于给定的博弈，博弈论学家了解什么，参与人也了解什么。因此，参与人也知道博弈
+奔
+论
+模型。由于所有参与人知道模型而且都是智能的，他们也知道他们都知道模型；他们都
+与
+知道他们都知道他们都知道模型，如此循环下去。因此，博弈模型是共同知识。
+机
+制
+在伴随完全信息的策略型博弈（N，（S），（u））中，集合N、策略集S，，S
+设
+以及效用函数u1，，u都是共同知识，也就是说，每个参与人知道它们，每个参与
+计
+人知道每个参与人知道它们，如此循环下去。我们将在本章和后面几章学习伴随完全信
+息的策略型博弈。在第13章学习伴随不完全信息的策略型博弈。
+例2.3（共同知识）这个例子改编自迈尔森（Myerson[1]）。假设有五位理性且智
+能的母亲A、B、C、D和E，令a、b、c、d和e分别表示他们的女儿（或儿子）。孩子
+们每天都去上学，母亲们负责接送，所以她们每天有机会聊一会儿。聊天话题总是围绕
+孩子们的表现和行为展开。每天的聊天模式是下面这样的。如果母亲认为自己的孩子表
+现好，她就会喜形于色，表扬孩子。相反，如果母亲认为自己的孩子表现不好，她就会
+哭。每个母亲都遵守这个模式。
+事实上，每个孩子的表现都不好，但他的母亲不知道此事。然而，当其中一位母亲
+发现别人的孩子表现不好时，她会立即告知其他所有母亲，但不告诉当事人的母亲。例
+如，如果A发现6表现不好，那么A会告诉C、D和E，但不告诉B。这个模式也为所
+有母亲共知。因此，孩子a表现不好这个知识为除了A之外的所有母亲所共知（A相
+信a表现好）。类似的表述也适用其他孩子和母亲（即，在上句话中把a和A分别换成
+b和B，等等）。
+由于每位母亲不知道她的孩子表现不好，因此每位母亲每天都表扬自己的孩子。有</p><p>一天，天气较好，班主任召开家长会，他说：“至少有一个孩子表现不好。”因此，有个
+孩子表现不好这个事实现在成为所有母亲的共同知识。后来，当五位母亲见面时，她们
+开始表扬自己的孩子。第二天，第三天，第四天，她们都这样。然而，到了第五天，所
+有母亲都哭了，因为她们意识到自已的孩子表现不好。我们问问读者，为什么上述两个
+论断都为真。
+提示：注意班主任的话（至少有一个孩子表现不好）是共同知识，以及注意第五天
+所有母亲为何都哭了。口
+2.6博奔分类
+博弈论已经发展了80多年，学者们已定义和研究了很多博弈类型。我们在此只列
+举一些常见的博弈类型。
+口非合作博奔与合作博弈
+非合作博弈（non-cooperativegames）是指个人行动是基元（primitives）的那些博
+弈；在合作博弈（cooperativegames）中，参与人团体的联合行动是基元。约翰·海萨
+尼（JohnHarsanyi，1966L5]）认为在博弈中，如果参与人之间的誓言（协议、承诺、
+威胁）可执行，那么该博弈是合作的；如果不可执行，那么该博弈为非合作的。
+有人说，非合作博弈仅适用于参与人之间存在冲突或非合作的情形，这是错误的。
+第
+事实上，判断依据在于博弈的基元是什么。在非合作博弈中，每个参与人及其偏好构成
+章
+了基本建模单元。相反，在合作博弈中，基本建模单元是参与人团体。如果所有团体都
+博
+仅含一人，那么这就是非合作博弈。
+奔论中
+口静态博奔与动态博弈
+中的
+在静态博弈（staticgames）中，参与人同时选择自己的行动，而且在博弈展开过
+重
+要
+程中他们接收不到任何信息。例如，在例2.1中，两个学生同时选择自己的策略，并且
+概
+根据相应结果得到一定量收益。这个博弈就是一个静态博弈。静态博弈通常也称为单阶
+念
+段博弈（single-stagegames）。在动态博弈（dynamicgames）或称多阶段博弈（multi-
+stagegames）中，参与人的行动通常有时间先后顺序。典型地，在多阶段博弈中，既定
+参与人在其他参与人行动之前先选择自己的行动，而且他知道其他参与人的选择将受到
+其行动的影响。参与人的行动有先后之分，这使得个人的选择取决于他对其他人的行动
+的了解。例如，象棋就是一个动态博弈。在动态博弈中，随着博奔的展开，参与人收到
+信息，他们可以据此选择自己的行动。
+口不同表达形式
+本章介绍的策略型博弈[也称为同时行动博弈（simultaneousmovegame）或标准
+型博弈了是下面这样的模型或情形：每个参与人一劳永逸地选择自己的行动方案，而且
+所有参与人同时实施自己的决策。策略型博奔不能描述参与人的行动顺序，而且不能描</p><p>述参与人在博弈展开过程中得到的信息。因此，策略型适合静态博弈。策略型博弈很难
+描述动态博弈的动态性。
+展开型（extensiveform）博奕规定了事件的序，而且每当某个参与人决策时他能
+够考虑自己的行动方案。展开型表达法能够描述参与人的行动顺序，也能够描述参与人
+在博弈展开过程中得到的信息。因此，展开型适用于动态博弈。策略型可以视为展开型
+的退化情形即静态情形。
+联盟型（coalitionalform）博弈或特征型（characteristicform）博弈是指参与人集
+合的每个子集由相应值表示的博弈。这个形式适用于合作博弈。
+口完美信息博弈与不完美信息博弈
+当参与人充分知道整个过去历史时（在每一步行动之前，每个参与人知道所有其他参
+与人的历史行动，也知道自己的历史行动），这种博弈称为完美信息博弈（gameswithper-
+fect information）。否则，称为不完美信息博弈（gameswithimperfectinformation）。
+口完全信息博弈与不完全信息博弈
+在参与人能够开始规划自己行动的最初时点上，有些参与人对博弈有私人信息（这
+意味着其他参与人拥有上述参与人的私人信息），这样的博弈称为不完全信息博弈
+（gameswithincompleteinformation）。在完全信息博弈（gameswithcompleteinforma-
+tion）中，博弈的每个层面都是共同知识。
+博奔论与机制
+口其他类型
+还有很多其他类型的博弈，例如重复博弈、进化博弈、随机博弈、多水平博弈（斯
+坦克尔伯格博弈）、微分博弈等。本书不详细讨论这些博弈。我们推荐读者参考Os
+设计
+borne[6]以及 Maschler, Solan and Zamir[2] 。
+2.7小结与参考文献
+在本章，我们介绍了几个基本概念和假设，它们对博弈论很重要。这些概念或假设
+有：偏好、效用或收益、理性、智能以及共同知识。
+·参与人的偏好定性地规定了他对博弈不同结果的排序。
+·效用是参与人实施不同行动时得到的实值收益。参与人的效用不仅取决于他自己
+的行动，还取决于所有其他参与人的行动。
+·理性是指参与人总是选择自己的行动以使使自己的期望效用最大化。理性的意思
+可以是自利、利他、无差异等，这取决于效用函数是如何定义的。
+·智能的意思是说参与人和博弈论学家一样富有知识，有足够的能力计算他们的最
+优反应行动。
+·共同知识蕴含在智能概念之中，它指所有参与人知道博弈的整个结构，所有参与
+人知道所有参与人知道博弈的整个结构，所有参与人知道所有参与人知道所有参与人知</p><p>道博弈的整个结构，如此循环下去。
+博弈论建立在上面的概念之上。上面的一些假设可能不那么符合现实，然而基于上
+述假设的博弈论是策略情形的科学考察的完美起点。
+本章讨论的内容主要来自Myerson[1]，Mas-Colell，Whinston，and Green[7]，Os-
+borne[6]，Osborne and Rubinstein[8]，以及 Maschler, Solan， and Zamir[2]
+共同知识概念的详细讨论可以参见Aumann[4]。Maschler，Solan，andZamir[2]为
+这个概念提供了一些例子。
+对于本科生层面的博弈论教材，我们推荐OsborneL6]，Straffin[9]，以及Bin-
+more[1o]。对于研究生层面的教材，我们推荐Myerson[1]，Maschler，Solan，and
+Zamir[2]，以及 Osborne and Rubinstein[8]。
+至于更深的著作，我们推荐Rasmussen[11]，Gibbons[12]，Basar and Olsder[13]，
+以及Fudenberg and Tirole[14]。
+1944年出版的经典著作JohnvonNeumann andOskarMorgenstern[3]，为博弈论
+提供了比较全面的基础。直到今天，这本书仍有很高的参考价值。
+口参考文献
+[1]RogerB.Myerson.GameTheory:AnalysisofConflict.Harvard University
+Press,Cambridge,Massachusetts,USA,1997.
+[2]Michael Maschler,Eilon Solan,and Shmuel Zamir.Game Theory.Cam-
+第2产
+bridge University Press,2013.
+[3]JohnvonNeumann and OskarMorgenstern.TheoryofGames andEconomic
+章
+Behavior.PrincetonUniversityPress,1944.
+博
+[4]Robert J.Aumann.“Agreeingtodisagree”.In:TheAnnalsofStatistics 4(6)
+奔论中的香
+(1976)，Pp.1236-1239.
+[5]John C.Harsanyi.“Games with incomplete information played by Bayesian players.
+Part I:The basic model".In:Management Science 14 (1967),pp.159-182.
+重
+要概
+[6]MartinJ.Osborne.AnIntroductiontoGameTheory.TheMITPress,2003.
+[7]Andreu Mas-Colell,Michael D.Whinston,andJerryR.Green.Microeconomic
+念
+Theory.Oxford UniversityPress,1995.
+[8]MartinJ.Osborne and Ariel Rubinstein.A Coursein GameTheory.Oxford
+UniversityPress,1994.
+[9]Philip D. Straffin Jr.Game Theory and Strategy.The Mathematical Associa-
+tion of America,1993.
+[10]Ken Binmore.Fun and Games:A Text On Game Theory.D.C.Heath &
+Company，1992.
+[11]EricRasmussen.Games and Information.Blackwell Publishing,Fourth E-
+dition,2007.
+[12]Robert Gibbons.GameTheoryforAppliedEconomists.PrincetonUniversi-
+tyPress,Princeton,NJ,USA，1992.</p><p>[13]TamerBasar and Geert Jan Olsder.DynamicNon-cooperative GameTheory.
+SIAM,SecondEdition,Philadelphia,PA,USA,1999.
+[14]DrewFudenbergandJeanTirole.GameTheory.MITPress,Cambridgeand
+London,1991.
+博奔论与机制设计</p></div><link href=https://xxx.xxx.com/dist/Artalk.css rel=stylesheet><script src=https://xxx.xxx.com/dist/Artalk.js></script><div id=Comments></div><script>Artalk.init({el:"#Comments",pageKey:"https://SurpriseQiD.github.io/knowledge/game-theory/caoqian-2016/ch02/",pageTitle:"第2章 博弈论中的重要概念（曹乾2016）",server:"https://xxx.xxx.com",site:"xxx blog"})</script></section></main><aside class="qv-rail qv-rail--right"><section class="qv-panel qv-panel--identity"><p class=qv-panel__eyebrow>QiView</p><h3 class=qv-panel__title>Academic Profile</h3><div class=qv-identity__avatar><img src=/img/avatar-patrickStar.jpg alt=avatar onerror='this.onerror=null,this.src="/img/avatar-dongqi.jpg"'></div><p class=qv-identity__description>学术知识库与博客</p><div class=qv-social-row></div></section><section class=qv-panel><p class=qv-panel__eyebrow>Context</p><h3 class=qv-panel__title>Article Facts</h3><ul class="qv-inline-list qv-inline-list--facts"><li>栏目：Knowledge</li><li>日期：2026-03-31</li><li>作者：Qi Dong</li></ul><div class=qv-chip-list><span class=qv-chip>博弈论</span>
+<span class=qv-chip>机制设计</span>
+<span class=qv-chip>教材整理</span></div></section><section class=qv-panel><p class=qv-panel__eyebrow>Related</p><h3 class=qv-panel__title>Same Section</h3><ul class=qv-link-list><li><a href=/knowledge/game-theory/caoqian-2016/ch10/>第10章 纳什均衡的存在性（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch11/>第11章 纳什均衡的计算（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch12/>第12章 纳什均衡计算的复杂性（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch13/>第13章 贝叶斯博弈（曹乾2016）</a></li></ul></section></aside></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href rel=alternate type=application/rss+xml title=QiView><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><div class="copyright text-muted qv-footer-meta"><div class=qv-footer-meta__main><a class=footer-home-link href=/ aria-label="Back to homepage"><img class=footer-logo src=/img/qiview-logo.svg alt="QiView logo">
+<span class="qv-wordmark qv-wordmark--footer">QiView</span>
+</a><span class=footer-copy>Copyright &copy; 2026</span></div></div></div></div></div></footer><script>function loadAsync(e,t){var s=document,o="script",n=s.createElement(o),i=s.getElementsByTagName(o)[0];n.src=e,t&&n.addEventListener("load",function(e){t(null,e)},!1),i.parentNode.insertBefore(n,i)}</script><script>$("#tag_cloud").length!==0&&loadAsync("/js/jquery.tagcloud.js",function(){$.fn.tagcloud.defaults={color:{start:"#bbbbee",end:"#0085a1"}},$("#tag_cloud a").tagcloud()})</script><script>loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js",function(){var e=document.querySelector("nav");e&&FastClick.attach(e)})</script><script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><script>var _baId="21326675",_hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="//hm.baidu.com/hm.js?"+_baId,e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4,h5,h6");return $(e).html(""),r.each(function(){n=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),t=$(this).text(),i=$('<a href="'+o+'" rel="nofollow" title="'+t+'">'+t+"</a>"),s=$('<li class="'+n+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")}),loadAsync("/js/jquery.nav.js",function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script></body></html>

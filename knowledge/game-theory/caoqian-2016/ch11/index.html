@@ -1,0 +1,444 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta property="og:site_name" content="QiView"><meta property="og:type" content="article"><meta property="og:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg"><meta property="twitter:image" content="https://SurpriseQiD.github.io//img/home-bg-painting.jpg"><meta name=title content="第11章 纳什均衡的计算（曹乾2016）"><meta property="og:title" content="第11章 纳什均衡的计算（曹乾2016）"><meta property="twitter:title" content="第11章 纳什均衡的计算（曹乾2016）"><meta name=description content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="og:description" content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="twitter:description" content="QiView — an academic knowledge hub for computation and decision sciences."><meta property="twitter:card" content="《博弈论与机制设计》第11章网页整理版。"><meta name=keyword content="Game Theory, Decision Science, Operations Management, Human-AI Interaction"><link rel="shortcut icon" href=/img/favicon.png><title>第11章 纳什均衡的计算（曹乾2016） | QiView</title><link rel=canonical href=/knowledge/game-theory/caoqian-2016/ch11/><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/hugo-theme-cleanwhite.min.css><link rel=stylesheet href=/css/zanshang.css><link rel=stylesheet href=/css/font-awesome.all.min.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/custom.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/home.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/resources.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/about-enterprise.css><link rel=stylesheet href=https://SurpriseQiD.github.io/css/sidebar-enterprise.css><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/hux-blog.min.js></script><script src=/js/lazysizes.min.js></script></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-CX84QDN0SR"></script><script>var doNotTrack=!1,dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-CX84QDN0SR")}</script><nav class="navbar navbar-default navbar-custom navbar-fixed-top"><div class=container><div class=navbar-header><button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar-main aria-expanded=false>
+<span class=sr-only>切换导航</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=/ aria-label="QiView Home"><img class=brand-logo src=/img/qiview-logo.svg alt="QiView logo">
+<span class="brand-text qv-wordmark">QiView</span></a></div><div class="collapse navbar-collapse" id=navbar-main><ul class="nav navbar-nav navbar-right qv-nav-items"><li class=qv-nav-item><a class=qv-nav-link href=/>Homepage</a></li><li class="qv-nav-item active"><a class=qv-nav-link href=/knowledge/>Knowledge</a></li><li class=qv-nav-item><a class=qv-nav-link href=/blog/>Blog</a></li><li class=qv-nav-item><a class=qv-nav-link href=/library/>Library</a></li><li class=qv-nav-item><a class=qv-nav-link href=/about/>About</a></li><li class="qv-nav-item qv-nav-item--search"><a href=/search/ class="nav-search qv-nav-search" aria-label=Search><i class="fa fa-search"></i></a></li></ul></div></div></nav><script>document.addEventListener("DOMContentLoaded",function(){var n,e=document.querySelector(".navbar-toggle"),t=document.querySelector(".navbar-collapse");e&&e.addEventListener("click",function(){this.classList.toggle("collapsed"),t.classList.toggle("in");var e=this.getAttribute("aria-expanded")==="true";this.setAttribute("aria-expanded",!e)}),n=document.querySelectorAll(".navbar-nav a"),n.forEach(function(n){n.addEventListener("click",function(){window.innerWidth<992&&(t.classList.remove("in"),e&&(e.classList.add("collapsed"),e.setAttribute("aria-expanded","false")))})}),document.addEventListener("click",function(n){var s=n.target.closest(".navbar");!s&&window.innerWidth<992&&(t.classList.remove("in"),e&&(e.classList.add("collapsed"),e.setAttribute("aria-expanded","false")))})})</script><style type=text/css>header.intro-header.qv-search-header{background-image:url(/img/home-bg-painting.jpg)}</style><header class="intro-header single-page-header qv-search-header"><div class=container><div class=row><div class="col-lg-10 col-lg-offset-1 col-md-12"><div class="post-heading qv-article-header"><div class=qv-article-header__topline><span class=qv-kicker>Page</span>
+<span class=qv-divider-dot></span>
+<span class=qv-kicker>QiView</span></div><h1 class=article-title>第11章 纳什均衡的计算（曹乾2016）</h1></div></div></div></div></header><article class="qv-page qv-page--generic"><div class="container qv-page-frame qv-page-frame--page"><div class="qv-shell qv-shell--page"><aside class="qv-rail qv-rail--left"><section class="qv-panel qv-panel--leftnav"><p class=qv-panel__eyebrow>Navigation</p><div class="qv-side-catalog side-catalog"><a class="catalog-toggle qv-panel__toggle" href=#>目录</a><ul class=catalog-body></ul></div><div class=qv-mini-links><a href=/knowledge/>返回 Knowledge</a>
+<a href=/>返回首页</a></div></section></aside><main class="qv-main qv-main--page"><section class=qv-page-card><header class=qv-page-card__header><h1 class=qv-section-title>第11章 纳什均衡的计算（曹乾2016）</h1></header><div class="post-container qv-page-prose"><p>纳什均衡的计算
+纳什均衡的计算是博弈论中一个基本的计算问题。事实上，这是当前理论计算机科
+学的活跃领域之一。在本章，我们用一些例子说明这个问题蕴含的一些思想。在第7
+章，我们说明了特定策略组成为混合策略均衡的必要和充分条件；在本章，我们说明如
+何根据这些条件建立计算混合策略纳什均衡的算法程序。在下一章，我们将考察这个问
+题的计算复杂性。
+纳什均衡的计算
+11.1支撑与纳什均衡
+口混合策略组的支撑
+考虑策略型博弈T=（N，（S），（u））。给定参与人i的一个混合策略o，我们已经
+知道，o：的支撑（记为（o））是一个集合，它由o中概率为正的所有纯策略s：组成：
+8（o;)={s;ESi:0i(s;)>0}
+给定一个混合策略组o=（o1，，o），我们可以将的支撑自然地定义为（o）（其中
+i=1，，n）的乘积：
+8（01，.，0n)=0（01）X.X8（0n)
+这个集合包含了当参与人根据。选择他们的策略时所有伴随正概率的纯策略组。我们立
+即注意到，每个混合策略纳什均衡必定伴随着一个支撑。对于有限博弈，由于支撑个数
+是有限的，因此我们可以考察每个支撑，看看哪个支撑产生了纳什均衡。
+在进一步讨论之前，我们回忆一下第7章考察的必要和充分条件：给定策略型博弈</p><p>&lt;N，（S;），（u）>，混合策略组（o1，，on）是一个纳什均衡当且仅当Vi∈N，
+（1）对于所有s:∈（o;），u;（si，o-）都相等；
+(2)u;（si，o-i)≥u;（si，o-i)，Vs∈o（o;)，Vs∈S;\o（oi)。
+在本章余下的内容中，我们将上面两个条件分别称为条件（1）和条件（2）。
+例11.1考虑下列版本的BOS博弈：
+A
+B
+A
+3，1
+0，0
+B
+0，0
+1，3
+对于这个博弈，列举所有可能的支撑：{A}×{A)，{A}X{B}，{B}×{A}，{B}×
+{B}，{A}X{A，B}，{B}X{A，B}，{A，B}X{A}，{A，B}X{B}，{A，B}X{A，
+B}。对于这个博弈，我们已经看到（A，A）和（B，B）都是纯策略纳什均衡，它们分
+别对应于支撑（A>×{A）和（B}×{B}。我们现在计算第三个均衡，这个均衡对应于
+支撑{A，B}×{A，B}。为此，我们使用条件（1）和（2)。如果（o，o2）是一个对
+应于支撑（A，B}X{A，B）的纳什均衡，那么条件（1）意味着
+u（A，0²）=u（B，02)
+u2(o，A)=（o²，B)
+博奔论与机制设计
+注意，
+u（A，02）=3o（A)
+u（B，o）=o（B)
+u2（o²，A)=o（A)
+u2（o，B)=3o（B)
+因此，我们有
+3o（A)=o（B)
+（A)=3o（B)
+由于o（A）+o（B）=o（A）+o（B）=1，我们有
+²=(，),o=(→,)
+注意，上面的策略组显然满足条件（2）；因此，这个策略组是一个纳什均衡。我们现在
+将上述寻找纳什均衡的过程推广。口
+11.2有限策略型博奔纳什均衡的一般算法
+首先注意，尽管混合策略组有无限多（事实上，有不可数之多），但S×</p><p>S2X×S仅有有限多个子集能成为纳什均衡的支撑。注意，参与人i的一个混合策略
+的支撑个数正好是S：的非空子集个数，这等于21S！一1。因此，所有混合策略组的支
+撑个数为
+(21sT-1）×（21s1-1)×·X（21s1-1)
+我们可以每次考察一个支撑，寻找这个支撑对应的纳什均衡。在做此事时，我们严重依
+赖于条件（1）和（2)。
+口待解方程
+令X：二S：是S：的一个非空子集，它代表着我们当前的猜测：在纳什均衡中，参与
+人i的哪些策略有正的概率。也就是说，我们当前猜测纳什均衡的一个支撑为X×
+X2××X。如果存在着对应于这个支撑的纳什均衡，那么根据上面的结果，必定存
+在数w，，w和混合策略o1，，o使得
+W;=u;（sio-i）Vs;EX，Vi∈N
+展开可得：
+w;=∑（IIo;(s））u;(s，s-i)
+(11.1)
+ESj≠i
+上面的条件断言，如果每个参与人i选择混合策略o：中的任何伴随正概率的纯策略，那
+么每个人得到的收益必定相等，这个收益以w：表示。接下来，我们还需要满足
+第
+wi≥u;(Sio-i)Vs;ES;\X;,ViEN
+章
+上式展开，可得
+纳什均
+w≥∑（IIo,(s;))u(ss-i）s;∈S;\X,i∈N
+(11.2)
+ESj≠i
+衡的计算
+上面的条件保证了X：中的纯策略产生的收益不小于S：\X：中的纯策略产生的收益。接
+下来，我们有
+oi(xi)>0x;EX,ViEN
+(11.3)
+上面的条件表明参与人i（ViEN）混合策略的支撑中的每个纯策略都有正的概率。接下
+来的一组约束为：
+oi（x;)=0x;ES\X，ViEN
+(11. 4)
+上面的条件断言，任给参与人i（Vi∈N）的一个纯策略，若该策略不在他的混合策略的
+支撑之中，则该纯策略的概率为零。最后，我们需要
+Lo（x;）=1i∈N
+(11.5)
+x,ES,
+上面的条件保证了每个o：都是S：上的一个概率分布。
+我们需要找到e，W，，以及o（s）Vs∈S，o2（s）Vs∈S2，，o（s）Vs∈S
+使得式（11.1）到式（11.5）都得以满足。于是，（o，，o）是一个纳什均衡，是参与</p><p>人i在该纳什均衡中的期望收益。另一方面，如果不存在满足式（11.1）到式（11.5）的解，
+那么没有解对应着支撑X×…×X。这里涉及的未知数个数为n十|S|十…十丨S|，其中
+第一项（n）对应着变量w，"，n，而|S|对应着变量o（s），sES。
+●式（11.1）涉及|X|十|X2|十…十|X|个方程；
+●式（11.2）涉及|S\X|+|S2\X2|+十|S\X|个方程；
+●式（11.3）涉及|X|+|X2|+十|X|个方程；
+●式（11.4）涉及|S\X|十|S2\X2|十十|S\X|个方程；
+●式（11.5）涉及n个方程。
+因此，我们一共有（n十≥|SI）个变量，（n十2ZISI）个方程。例如，如果我
+iEN
+iEN
+们有2个参与人，而且每个参与人有3个策略，那么我们有8个变量和14个方程。我
+们做出以下观察。
+注释由式（11.1）和式（11.2）可知，我们面对的方程一般不是线性的，因为它
+们含有
+Io;(s;)
+j#i
+这一项。
+注释如果只有两个参与人，那么我们面对的方程是线性的。这些方程的个数为
+2十2S|十2S2|，变量的个数为2十|S|+|S2|。这些数对应着每个支撑。我们需要
+考察的最大支撑个数为：
+II(21s;1-1)
+iEN
+因此，即使对于两人博弈，待解方程的个数也太多了，难以求解。
+注释如果参与人个数大于2，那么我们不仅面对更多的方程，而且必须处理非线
+性。对于两人博弈，这些方程构成了所谓的线性互补问题（linearcomplementarityprob-
+lem，LCP）。当参与人为3人或3人以上时，这些方程构成了所谓的非线性互补问题
+(nonlinearcomplementarityproblem，NLCP)。我们在这里不提供关于这两个问题的更多细
+节；感兴趣的读者可以参考Murty1]。
+11.3计算纳什均衡：一个例子
+这个例子源自Myerson[2]。这是一个两人博弈，它的收益矩阵如下。
+L
+M
+R
+T
+7，2
+2，7
+3，6
+B
+2，7
+7，2
+4，5
+显然，S={T，B}；S2={L，M，R}。这个博弈的支撑形式为X×X2，其中XC</p><p>S1，X2≤S2，X≠，X2≠。这样的支撑个数等于（2²-1)（23-1)=21。我们将这
+21个支撑分为三组：
+第-组：{T}X{L}，{T}X{M}，{T}X{R}，{T}X{L，M}，{T}X{L，R}，
+{T}X{M，R}，{T}X{L，M，R}；
+第二组：{B}X{L}，{B}X{M}，{B}X{R}，{B}×{L，M}，{B}X{L，R}，
+{B}X{M，R}，{B}X{L,M,R};
+第三组：{T，B}X{L}，{T，B}X{M}，{T，B}X{R}，{T，B}X{L，M}，
+T，B}X{L，R}，{T，B}X{M，R}，{T，B}X{L，M，R}。
+分析步骤如下：
+·我们寻找一个纳什均衡，使得均衡时参与人1选择纯策略T。当参与人1选择T
+时，参与人2的最优反应是选择纯策略M。如果参与人2选择M，那么参与人1的最优
+反应为B。因此，不存在任何纳什均衡使得均衡时参与人1选择纯策略T。这样，我们
+可以排除第一组的全部7个支撑。
+·接下来，我们寻找一个纳什均衡，使得均衡时参与人1选择纯策略B。如果参与
+人1选择B，那么参与人2将选择L。当参与人2选择L时，参与人1的最优反应是T。
+这立即意味着，不存在任何纳什均衡使得均衡时参与人1选择纯策略B。因此，我们可
+以排除第二组的全部7个支撑。
+·上面的两个事实意味着，在任何纳什均衡中，参与人1必须将T和B随机化，
+而且必须分别对T和B指定正的概率。
+·现在，我们考察当参与人2选择纯策略时可能出现什么结果。如果参与人2选择
+第
+L，那么参与人1将选择T；如果参与人2选择M，那么参与人1将选择B；如果参与
+章
+人2选择R，那么参与人1将选择B。因此，当参与人2选择纯策略时，参与人1的最
+纳
+优反应也是选择纯策略。然而，我们已经看到，在任何纳什均衡中，参与人1必须对策
+略T与B都指定正的概率。因此，不存在任何纳什均衡使得均衡时参与人2选择纯策
+均
+衡
+略。这样，我们可以排除第三组中的前3个支撑，即排除{T，B}×{L}，（T，B}×
+的
+{M}，{T，B}X{R}。
+计
+算
+上面的讨论表明，这个博弈不存在任何纯策略纳什均衡。另外，这个博弈也不存在
+任何纳什均衡使得其中一个参与人只选择纯策略。这样，我们只需要进一步考察下列四
+个支撑即可：
+·备选支撑1：{T，B}×{L，M，R}；
+●备选支撑2：{T，B}×{M，R}；
+●备选支撑3：{T，B}×{L，M}；
+·备选支撑4：（T，B}X{L，R}。
+下面我们依次考察这些备选支撑。
+备选支撑1：{T，B}×{L，M，R}
+参与人1选择T得到的收益必须等于他选择B得到的收益。由此可得
+w=7o（L)+2o（M)+3o（R）
+(11.6)
+=2o2（L)+7o2（M)+4o2（R)
+(11. 7)</p><p>类似地，参与人2从L，M，R上得到的收益必须都相等：
+W=2（T)+7（B)
+(11.8)
+w=7（T)+2（B)
+(11.9)
+W=6o（T)+5（B)
+(11.10)
+另外，我们有
+(T)+o(B)=1
+(11.11)
+o2(L)+o2(M)+o(R)=1
+(11.12)
+我们有7个方程以及7个未知数。然而，注意，
+40(B)=
+因此，这个方程组连解都没有，这肯定不能产生纳什均衡策略组。
+备选支撑2：{T，B}×{M，R}
+在这种情形下，我们得到下列方程
+w=2o2(M)+3o2(R)
+博奔论与机制设计
+W=7o2(M)+40(R)
+w=7（T)+20（B)
+W=6o（T)+5o（B)
+o(T)+o(B)=1
+o2(L)+o2(M)+(R)=1
+o(L)=0
+这个方程组的解为
+01(T)=
+；01(B)=
+由于解出现了负数，因此不存在对应于这个支撑的纳什均衡。
+备选支撑3：{T，B}×{L，M}
+在这种情形下，我们得到的方程为
+w=7o(L)+2o(M)
+W=2o（L)+7o（M)
+W=2o（T)+7（B)
+W=7（T)+2（B)</p><p>o(T)+o(B)=1
+o(L)+o(M)=1
+02(R)=0
+这个方程组有唯一解：
+0(T)=o(B)=
+;02(L)=o2(M)=
+;02(R)=0;w=2=4.5
+在断言这是一个纳什均衡之前，我们还需要验证一下。注意，o2（R）=0。因此，我们必
+须检验对于参与人2来说L与M是否都优于R。我们必须检验当参与人2选择R来对
+付参与人1的策略o时，参与人2的收益是多少。
+u2(01,R)=0(T)u2(T,R)+o(B)u2(B,R)=x
+X6+
+x5=5.5>4.5。
+这意味着当参与人1选择o时，参与人2不愿意选择o2而宁愿选择纯策略R。因此，
+这个解也不是一个纳什均衡。
+备选支撑4：（T，B}×{L，R}
+在这种情形下，我们得到的方程为
+w=7o（L)+3（R)
+}=20（L)+4（R)
+W=20（T)+7（B)
+纳什均衡的计算
+W=6o（T)+5o（B)
+（T)+o（B）=1
+o(L)+(R)+o（M)=1
+o2(M)=0
+0(T),0(B),0(L)，0(R)≥0
+W2≥o1(T)u2(T,M)+o2(B)u2(B,M)
+这个方程组的唯一解为
+0(T)=
+；0(B)=
+02(L)=
+;02(M)=0;o2(R)=
+W=W=
+而且</p><p>这当然是一个纳什均衡。因此，混合策略组
+((,),(,,))
+是这个博弈唯一的混合策略纳什均衡。注意，
+u2(o1，M)=o1（T)u2(T,M)+o（B)u2(B,M)=
+口
+11.4小结与参考文献
+在本章，我们在第7章介绍的策略组成为混合策略纳什均衡的基础上，说明了如何
+计算有限博弈的混合策略纳什均衡。对于两人博弈，上面的问题是一个线性互补问题，
+而在三人及其以上博弈中，上面的问题是一个非线性互补问题。
+在过去的五十多年间，博弈论学家一直在探索有限博弈纳什均衡的有效率的算
+法，近来，理论计算机学家也加人了这个队伍。1964年，LemkeandHowsonL3]为双
+矩阵博弈（即两人非零和博弈）提供了互补主元算法（complementarypivotalgo-
+rithm）。随后，出现了双矩阵的曼格萨里安（Mangasarian）算法。1967年，Scarf[5]
+发展出了三人及以上博弈的算法。1971年，RosenmullerL6将Lemke-Howson算法推
+博
+弈论与机
+广到三人及以上博弈。同年，Wilson[7]提出了一种求三人及以上博弈均衡的新算
+法。所有这些算法都给出了最坏情形运行时间，这个时间与策略集大小和参与人个
+数呈指数关系。
+制
+1996年，McKelvey andMcLennanL8]很好地综述了均衡计算算法。Murty[1]以一
+设
+计
+种综合方法处理互补性问题。在过去的十年间，很多人继续致力于研发更有效率的算
+法。比较有代表性的有：GovindanandWilson9]，他们使用了全局牛顿法（global
+Newton method); Porter, Nudelman, and Shoham[io]; Sandholm, Gilpin, and
+Conitzer[11]。2010年，著名期刊《经济理论》（EconomicTheory）发表了由冯·斯腾
+格尔（von Stengel）作为主编的关于有限博弈纳什均衡计算的论文专辑[12]。这个专辑
+总结了著名学者在这个问题上的最新探索。由Nisan，Roughgarden，Tardos，and
+Vazirani主编的书籍[13]也有关于这个问题的综述文章。
+口软件工具
+令人惊讶的是，用于算法博弈的软件工具并不多。最著名的软件是GAMBIT[14]，
+这个软件功能强大、容易使用而且免费下载。该软件主要用于有限非合作博弈（展开型
+和策略型均可）。软件GAMUT[15]也非常有用，而且是免费下载的。印度科技学院正
+在研发NECTAR[16]（纳什均衡计算算法和资源）。
+口参考文献
+[1]K.G.Murty.LinearComplementarity,Linearand NonlinearProgramming.</p><p>Helderman-Verlag,1988.
+[2]RogerB.Myerson.Game Theory:Analysis of Conflict.Harvard University
+Press,Cambridge,Massachusetts,USA,1997.
+[3]C.E.Lemke and J. T. Howson Jr.“Equilibrium points of bi-matrix games”.
+In:JournaloftheSocietyforIndustrialandAppliedMathematics12(1964),
+Pp.413-423.
+[4] O. L.Mangasarian.“Equilibrium points of bimatrix games".In:Journal of
+theSocietyforIndustrialandAppliedMathematics12(1964),pp.778-780.
+[5]Herbert E.Scarf.“The core of an n-person game”.In:Econometrica 35
+(1967)，pp.50-69.
+[6]J.Rosenmuller.“On a generalization of theLemke-Howson algorithm tonon-
+cooperative n-persongames".In:SIAMJournalonAppliedMathematics21(1971),
+pp.73-79.
+[7]R.Wilson.“Computing equilibria of n-person games".In:SIAM Journal on
+AppliedMathematics 21(1971),pp.80-87.
+[8]R.D.McKelvey and A.McLennan.“Computation of equilibria in finite
+games".In:Handbook of Computational Economics.Ed.by J.Rust,H.Amman,
+and D.Kendrick.Elsevier,1996，pp.87-142.
+[9]S.Govindan and R.Wilson.“A global Newton method to compute Nash equi-
+libria".In:JournalofEconomicTheory 110(1)(2003)，pp.65-86.
+第
+[10]R.Porter,E.Nudelman,and Y.Shoham.“SimpleSearch Methods forFind-
+章
+ingaNashEquilibrium".In:GamesandEconomicBehavior 63(2)(2008)，pp.642-
+纳什均衡的计算
+662.
+[11] T.Sandholm,A.Gilpin,and V.Conitzer.“Mixed-integer programming
+methods forfindingNashequilibria".In:ProceedingsoftheAmericanAssociation of
+ArtificialIntelligence,AAAI-2005.2005,pp.495-501.
+[12]Bernard Von Stengel.“Special Issue on Computation of Nash Equilibria in Fi-
+nite Games".In:EconomicTheory 42(1)(2010).
+[13]NoamNisan,Tim Roughgarden,Eva Tardos,andVijayVazirani (Editors).
+Algorithmic Game Theory.Cambridge UniversityPress,2007.
+[14]The GAMBITProject.GAMBIT:Softuare.www.gambit-project.org，2005.
+[15]E.Nudelman,J.Wortman,Y.Shoham,and K.Leyton-Brown.“Run the
+GAMUT:A comprehensive approach to evaluatinggameTheoretic algorithms".In:
+ProceedingsoftheThirdInternationalJointConferenceonAutonomousAgentsand
+Multiagent Systems,AAMAS2004.2004，pp.880-887.
+[16]GameTheoryLaboratory.NECTAR:Software.Department of Computer
+Science and Automation,Indian Institute of Science,Bangalore,India.http://lcm.
+csa.iisc.ernet.in/nectar,2010.</p><p>11.5
+区
+题
+（1）找出下列博弈的混合策略纳什均衡。
+H
+T
+H
+1，1
+0，1
+T
+1，0
+0，0
+（2）找出下列博弈的混合策略纳什均衡。
+A
+B
+A
+6，2
+0，0
+B
+0，0
+2，6
+（3）找出下列博弈的混合策略纳什均衡。
+A
+B
+C
+A
+-3，-3
+-1,0
+4，0
+B
+0，0
+2，2
+3，1
+C
+0，0
+2，4
+3，3
+博奔论与机制设计
+（4）证明纯策略组（a2，b2）是下列博弈唯一的混合策略纳什均衡。
+b
+b2
+b
+b
+a1
+0,7
+2，5
+7，0
+0，1
+a2
+5，2
+3，3
+5，2
+0，1
+a3
+7，0
+2，5
+0，7
+0，1
+a4
+0，0
+0，-2
+0，0
+10，-1
+（5）找出下列博弈的纳什均衡。
+LL
+L
+M
+R
+n
+100，2
+-100，1
+0，0
+-100，-100
+D
+-100，-100
+100,49
+1，0
+100，2
+（6）对于每个aE（1，∞），计算下列博弈的所有纳什均衡。
+A
+a，0
+1,2-a
+B
+1,1
+0，0
+（7）在下列博弈中，数a，b，c，d，k1，k2都是严格大于零的实数。</p><p>H
+H2
+P
+a,-ka
+b,-k1b
+P2
+C,-k2c
+d,-k2d
+对于上面的两人非零和博弈，写出混合策略纳什均衡的必要和充分条件，并且计算所有
+混合策略纳什均衡。
+（8）在某个三人博弈中，S=S2=S={1，2，3，4}。如果对于每个i=1，2，3，
+u;（x，y，z）=x十y十z十4i，证明这个博弈有唯一的纳什均衡。
+（9）假设
+u（x，y，2）=10若x=y=x
+=0其他
+描述所有纯策略纳什均衡，证明混合策略纳什均衡的收益小于纯策略纳什均衡的收益。
+第1章纳什均衡的计算</p></div><link href=https://xxx.xxx.com/dist/Artalk.css rel=stylesheet><script src=https://xxx.xxx.com/dist/Artalk.js></script><div id=Comments></div><script>Artalk.init({el:"#Comments",pageKey:"https://SurpriseQiD.github.io/knowledge/game-theory/caoqian-2016/ch11/",pageTitle:"第11章 纳什均衡的计算（曹乾2016）",server:"https://xxx.xxx.com",site:"xxx blog"})</script></section></main><aside class="qv-rail qv-rail--right"><section class="qv-panel qv-panel--identity"><p class=qv-panel__eyebrow>QiView</p><h3 class=qv-panel__title>Academic Profile</h3><div class=qv-identity__avatar><img src=/img/avatar-patrickStar.jpg alt=avatar onerror='this.onerror=null,this.src="/img/avatar-dongqi.jpg"'></div><p class=qv-identity__description>学术知识库与博客</p><div class=qv-social-row></div></section><section class=qv-panel><p class=qv-panel__eyebrow>Context</p><h3 class=qv-panel__title>Article Facts</h3><ul class="qv-inline-list qv-inline-list--facts"><li>栏目：Knowledge</li><li>日期：2026-03-31</li><li>作者：Qi Dong</li></ul><div class=qv-chip-list><span class=qv-chip>博弈论</span>
+<span class=qv-chip>机制设计</span>
+<span class=qv-chip>教材整理</span></div></section><section class=qv-panel><p class=qv-panel__eyebrow>Related</p><h3 class=qv-panel__title>Same Section</h3><ul class=qv-link-list><li><a href=/knowledge/game-theory/caoqian-2016/ch10/>第10章 纳什均衡的存在性（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch12/>第12章 纳什均衡计算的复杂性（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch13/>第13章 贝叶斯博弈（曹乾2016）</a></li><li><a href=/knowledge/game-theory/caoqian-2016/ch14/>第14章 机制设计导论（曹乾2016）</a></li></ul></section></aside></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href rel=alternate type=application/rss+xml title=QiView><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><div class="copyright text-muted qv-footer-meta"><div class=qv-footer-meta__main><a class=footer-home-link href=/ aria-label="Back to homepage"><img class=footer-logo src=/img/qiview-logo.svg alt="QiView logo">
+<span class="qv-wordmark qv-wordmark--footer">QiView</span>
+</a><span class=footer-copy>Copyright &copy; 2026</span></div></div></div></div></div></footer><script>function loadAsync(e,t){var s=document,o="script",n=s.createElement(o),i=s.getElementsByTagName(o)[0];n.src=e,t&&n.addEventListener("load",function(e){t(null,e)},!1),i.parentNode.insertBefore(n,i)}</script><script>$("#tag_cloud").length!==0&&loadAsync("/js/jquery.tagcloud.js",function(){$.fn.tagcloud.defaults={color:{start:"#bbbbee",end:"#0085a1"}},$("#tag_cloud a").tagcloud()})</script><script>loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js",function(){var e=document.querySelector("nav");e&&FastClick.attach(e)})</script><script>(function(){var t,e=document.createElement("script"),n=window.location.protocol.split(":")[0];n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script><script>var _baId="21326675",_hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="//hm.baidu.com/hm.js?"+_baId,e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4,h5,h6");return $(e).html(""),r.each(function(){n=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),t=$(this).text(),i=$('<a href="'+o+'" rel="nofollow" title="'+t+'">'+t+"</a>"),s=$('<li class="'+n+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")}),loadAsync("/js/jquery.nav.js",function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script></body></html>
