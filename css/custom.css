@@ -4942,3 +4942,189 @@ body {
         left: -16px;
     }
 }
+
+/* ========================================== */
+/* 2026-04-02 Tutorial chapter system */
+/* ========================================== */
+
+:root {
+    --tutorial-primary: #163a59;
+    --tutorial-accent: #2e6d96;
+    --tutorial-bg-soft: #f7fafc;
+    --tutorial-bg-definition: #eef5ff;
+    --tutorial-bg-theorem: #fff7eb;
+    --tutorial-bg-note: #f4fbf5;
+    --tutorial-border-definition: #9bbce8;
+    --tutorial-border-theorem: #ebbd7a;
+    --tutorial-border-note: #8fc8a0;
+}
+
+.tutorial-page .tutorial-shell {
+    grid-template-columns: minmax(188px, 232px) minmax(0, 1fr);
+    gap: 22px;
+}
+
+.tutorial-page .qv-main--single {
+    max-width: 980px;
+}
+
+.tutorial-page .qv-article-card {
+    padding: 2px;
+}
+
+.tutorial-page .qv-article-prose::before {
+    background: linear-gradient(180deg, #1e4f73 0%, #4f87ad 100%);
+}
+
+.tutorial-breadcrumb {
+    margin: 0 0 1.6rem;
+    padding: 0 0 0.9rem;
+    border-bottom: 1px dashed rgba(21, 67, 99, 0.25);
+}
+
+.tutorial-back-link {
+    color: var(--tutorial-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.tutorial-back-link:hover {
+    color: var(--tutorial-accent);
+    text-decoration: underline;
+}
+
+.tutorial-foot-return {
+    margin: 0 24px 20px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(20, 67, 100, 0.2);
+}
+
+.tutorial-mode {
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: 1.08rem;
+    line-height: 1.86;
+}
+
+.tutorial-mode p,
+.tutorial-mode li {
+    font-size: 1.06rem;
+    line-height: 1.9;
+    color: #203b51;
+}
+
+.tutorial-mode h2 {
+    margin-top: 2.2rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid rgba(22, 58, 89, 0.12);
+}
+
+.tutorial-mode h3 {
+    margin-top: 1.7rem;
+    margin-bottom: 0.55rem;
+    color: #173a57;
+}
+
+.tutorial-mode h4 {
+    margin-top: 1.2rem;
+    margin-bottom: 0.45rem;
+    color: #224f72;
+}
+
+.tutorial-mode blockquote {
+    border-left: 5px solid var(--tutorial-accent);
+    background: var(--tutorial-bg-soft);
+    border-radius: 0 12px 12px 0;
+    padding: 14px 16px;
+}
+
+.tutorial-mode pre {
+    background: #1f2e3d;
+    border: 1px solid rgba(94, 131, 163, 0.28);
+}
+
+.tutorial-mode table {
+    border: 1px solid rgba(36, 80, 109, 0.15);
+    background: #fff;
+}
+
+.tutorial-mode thead {
+    background: #eef5fb;
+}
+
+.tutorial-mode mjx-container[display="true"],
+.tutorial-mode .katex-display {
+    margin: 1.5rem 0;
+    padding: 12px 14px;
+    background: #f8fbff;
+    border-left: 4px solid #6a8fb4;
+    border-radius: 0 10px 10px 0;
+    overflow-x: auto;
+}
+
+.tutorial-mode .tutorial-definition {
+    margin: 1.4rem 0;
+    padding: 12px 14px;
+    background: var(--tutorial-bg-definition);
+    border: 1px solid var(--tutorial-border-definition);
+    border-left: 5px solid #4f7eb8;
+    border-radius: 0 10px 10px 0;
+}
+
+.tutorial-mode .tutorial-theorem {
+    margin: 1.4rem 0;
+    padding: 12px 14px;
+    background: var(--tutorial-bg-theorem);
+    border: 1px solid var(--tutorial-border-theorem);
+    border-left: 5px solid #d48a29;
+    border-radius: 0 10px 10px 0;
+}
+
+.tutorial-mode .tutorial-note {
+    margin: 1.3rem 0;
+    padding: 11px 13px;
+    background: var(--tutorial-bg-note);
+    border: 1px solid var(--tutorial-border-note);
+    border-left: 4px solid #4a9a62;
+    border-radius: 0 10px 10px 0;
+}
+
+@media (max-width: 1199px) {
+    .tutorial-page .tutorial-shell {
+        grid-template-columns: minmax(176px, 218px) minmax(0, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 991px) {
+    .tutorial-page .tutorial-shell {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .tutorial-page .qv-rail--left {
+        position: static;
+        max-height: none;
+    }
+
+    .tutorial-mode {
+        max-width: none;
+        font-size: 1.02rem;
+        line-height: 1.8;
+    }
+}
+
+@media (max-width: 768px) {
+    .tutorial-mode p,
+    .tutorial-mode li {
+        font-size: 1rem;
+        line-height: 1.76;
+    }
+
+    .tutorial-mode table,
+    .tutorial-mode pre,
+    .tutorial-mode mjx-container[display="true"],
+    .tutorial-mode .katex-display {
+        overflow-x: auto;
+    }
+}
