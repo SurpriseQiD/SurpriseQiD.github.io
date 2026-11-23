@@ -1598,13 +1598,13 @@ h6,
 .intro-header.single-page-header {
     position: relative;
     overflow: hidden;
+    background: #fff !important;
+    background-image: none !important;
 }
 
 .intro-header.single-page-header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(10, 28, 43, 0.84), rgba(17, 69, 94, 0.62));
+    content: none;
+    display: none;
 }
 
 .intro-header.single-page-header .container {
